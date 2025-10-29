@@ -3,13 +3,10 @@
 //!DESC Depth Reality Boost (Cinematic Realism Variant)
 //!WIDTH HOOKED.width
 //!HEIGHT HOOKED.height
-//!DEFAULT strength 0.83
-//!DEFAULT radius 0.99
-//!DEFAULT warmth 0.15
 
-uniform float strength;
-uniform float radius;
-uniform float warmth;
+const float strength = 0.83;
+const float radius = 0.99;
+const float warmth = 0.15;
 
 vec3 filmic_tonecurve(vec3 x) {
     x = max(vec3(0.0), x - 0.004);
