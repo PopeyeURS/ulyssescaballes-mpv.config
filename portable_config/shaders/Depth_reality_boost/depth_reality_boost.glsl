@@ -1,6 +1,6 @@
 //!HOOK RGB
 //!BIND HOOKED
-//!DESC Depth Reality Boost (HDR Cinematic Realism)
+//!DESC Depth Reality Boost (Microscopic HDR Realism)
 //!WIDTH HOOKED.width
 //!HEIGHT HOOKED.height
 
@@ -12,7 +12,6 @@ const float chroma_offset = 0.6;
 const float grain_strength = 0.012;
 
 vec3 filmic_hdr_tonecurve(vec3 x) {
-    // Extended tone curve for HDR content
     x = max(vec3(0.0), x - 0.004);
     return (x * (6.2 * x + 0.5)) / (x * (6.2 * x + 1.7) + 0.06);
 }
@@ -34,16 +33,16 @@ vec4 hook() {
     }
     blur /= total;
 
-    // Adaptive sharpening
-    float contrast = length(center - blur);
-    float adaptive_strength = mix(0.6, 1.1, smoothstep(0.05, 0.3, contrast));
-    vec3 sharpen = center * (1.0 + adaptive_strength) - blur * 0.5;
+    // Micro-contrast sharpening
+    float micro_contrast = length(center - blur);
+    float micro_strength = mix(0.7, 1.2, smoothstep(0.03, 0.25, micro_contrast));
+    vec3 sharpen = center * (1.0 + micro_strength) - blur * 0.45;
 
-    // HDR bloom
+    // HDR bloom (refined)
     vec3 bloom = vec3(0.0);
     for (int i = -2; i <= 2; i++) {
         for (int j = -2; j <= 2; j++) {
-            vec2 offset = vec2(i, j) * texel * 1.5;
+            vec2 offset = vec2(i, j) * texel * 1.2; // tighter radius
             bloom += HOOKED_tex(HOOKED_pos + offset).rgb;
         }
     }
@@ -58,6 +57,8 @@ vec4 hook() {
 
     // Depth cue via luma falloff
     float luma = dot(center, vec3(0.299, 0.587, 0.114));
+    float depth_boost = smoothstep(0.2, 0.8, luma);
+    graded *= mix(1.0, 1.05, depth_boost);
     graded *= mix(1.0, 0.9, smoothstep(0.0, 0.5, luma));
 
     // Chromatic aberration
@@ -81,12 +82,15 @@ vec4 hook() {
     // Soft diffusion
     graded = mix(graded, blur, 0.04);
 
-    // Temporal grain
-    float time = fract(sin(dot(HOOKED_pos.xy + vec2(frame), vec2(12.9898, 78.233))) * 43758.5453);
-    graded += (time - 0.5) * grain_strength;
+    // Temporal grain with spatial variation
+    float grain = fract(sin(dot(HOOKED_pos.xy + vec2(frame * 0.5), vec2(15.123, 45.321))) * 12345.6789);
+    graded += (grain - 0.5) * grain_strength * 0.8;
+
+    // Color fidelity boost
+    graded = mix(graded, graded * vec3(1.02, 1.01, 1.015), 0.05);
 
     // Final mix
     vec3 final_output = mix(graded, sharpen, 0.12);
 
-    return vec4(final_output, 1.0); // No clamping to preserve HDR range
+    return vec4(final_output, 1.0);
 }
