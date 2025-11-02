@@ -126,7 +126,7 @@ FSRCNNX_x2_16-0-4-1_enhanced.glsl       # Super-resolution
 SSimSuperRes.glsl                       # Perceptual sharpening  
 ↓  
 depth_reality_boost.glsl                # Enhanced depth  
-↓
+↓  
 Kodak_2383_Procedural.glsl              # Film Emulation  
 ↓  
 glimmer-sharpen_0.35.glsl"              # Subtle edge clarity  
