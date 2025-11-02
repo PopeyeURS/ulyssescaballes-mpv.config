@@ -1,22 +1,22 @@
 //!HOOK MAIN
 //!BIND HOOKED
-//!DESC Glimmer Sharpen 0.41 — Depth-Restored Edition
+//!DESC Glimmer Sharpen 0.41 — Microscopic Depth Edition
 //!WIDTH HOOKED.width
 //!HEIGHT HOOKED.height
 
 layout(std140, binding = 0) uniform Params {
-    float strength;           // Sharpening intensity
-    float glint_boost;        // Glimmer effect intensity
-    float glint_threshold;    // Minimum luminance for glimmer effect
-    float softness;           // Blend factor for smoothness
-    float noise_intensity;    // Intensity of noise for details
-    float reflection_mix;     // Mix between reflection and refraction
-    float micro_detail;       // Strength of microdetails
-    float depth_factor;       // Depth effect strength
-    vec3 tint_color;          // Optional color tint
-    float tint_strength;      // Tint blend factor
-    bool enable_depth;        // Toggle depth blur
-    bool debug_mode;          // Toggle debug visualization
+    float strength;
+    float glint_boost;
+    float glint_threshold;
+    float softness;
+    float noise_intensity;
+    float reflection_mix;
+    float micro_detail;
+    float depth_factor;
+    vec3 tint_color;
+    float tint_strength;
+    bool enable_depth;
+    bool debug_mode;
 };
 
 float rand(vec2 co) {
@@ -30,41 +30,44 @@ vec3 edgeDetect(vec2 texel, vec2 uv) {
     vec3 east  = HOOKED_tex(uv + vec2(texel.x, 0.0)).rgb;
     vec3 west  = HOOKED_tex(uv + vec2(-texel.x, 0.0)).rgb;
     vec3 edge = center * (4.0 + strength) - (north + south + east + west);
-    return edge * 0.35; // subtle sharpness boost
+    float edge_strength = smoothstep(0.0, 0.3, length(edge));
+    return edge * 0.35 * edge_strength;
 }
 
 vec3 applyDepthEffect(vec3 color, vec3 base, float depth) {
     float blur_factor = smoothstep(0.0, 1.0, depth * depth_factor);
-    return mix(color, base, blur_factor * 0.8); // bias toward base to preserve depth
+    return mix(color, base, blur_factor * 0.8);
 }
 
 vec3 applyGlimmer(vec3 color, vec2 uv) {
     float luma = dot(color, vec3(0.299, 0.587, 0.114));
     float glint_factor = smoothstep(glint_threshold, 1.0, luma);
 
-    float n1 = rand(uv * 1000.0);
-    float n2 = rand(uv.yx * 750.0);
+    float n1 = rand(uv * vec2(103.1, 97.7));
+    float n2 = rand(uv.yx * vec2(89.3, 111.7));
     float sparkle = smoothstep(0.2, 0.6, n1) * smoothstep(0.2, 0.6, n2);
 
-    vec3 glimmer = vec3(1.0) * glint_factor * glint_boost * sparkle * 0.5;
+    float edge_fade = 1.0 - smoothstep(0.4, 0.9, length(uv - 0.5));
+    vec3 glimmer = vec3(1.0) * glint_factor * glint_boost * sparkle * 0.5 * edge_fade;
+
     return color + glimmer;
 }
 
 vec3 addNoise(vec3 color, vec2 uv) {
-    float n = rand(uv * 1000.0) * noise_intensity * micro_detail;
+    float n = rand(uv * vec2(103.1, 97.7)) * noise_intensity * micro_detail;
     return color + vec3(n);
 }
 
 vec3 applyRefraction(vec3 color, vec2 uv) {
-    vec2 offset = vec2(rand(uv), rand(uv.yx)) * 0.002;
+    vec2 offset = vec2(rand(uv), rand(uv.yx)) * 0.002 * (1.0 - depth_factor * 0.5);
     vec3 refracted = HOOKED_tex(uv + offset).rgb;
     return mix(color, refracted, reflection_mix);
 }
 
 vec3 applyTint(vec3 color) {
     vec3 tinted = mix(color, tint_color, tint_strength);
-    tinted = pow(tinted, vec3(1.0 / 1.1));         // gentler gamma lift
-    return mix(tinted, color, 0.95);               // restore 95% original color
+    tinted = pow(tinted, vec3(1.0 / 1.08)); // match filmic tone
+    return mix(tinted, color, 0.95);
 }
 
 vec4 hook() {
@@ -75,7 +78,7 @@ vec4 hook() {
     vec3 color = base;
 
     vec3 edge = edgeDetect(texel, uv);
-    if (debug_mode) return vec4(edge, 1.0); // visualize edge map
+    if (debug_mode) return vec4(edge, 1.0);
 
     color += strength * edge;
     color = applyGlimmer(color, uv);
@@ -88,7 +91,7 @@ vec4 hook() {
 
     color = applyTint(color);
 
-    // Optional: perceptual contrast pop
+    // Perceptual contrast pop
     color = mix(color, pow(color, vec3(1.05)), 0.1);
 
     vec3 finalColor = mix(color, base, softness);
