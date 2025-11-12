@@ -131,7 +131,7 @@ Glimmer_sharpen_0.41.glsl		            # Edge clarity
 ↓  
 Kodak_2383_Procedural.glsl              # Film Emulation  
 ↓  
-depth_reality_boost.glsl                # Enhanced depth  
+Depth_reality_boost.glsl                # Enhanced depth  
 ↓  
 [Final Output]  
 
