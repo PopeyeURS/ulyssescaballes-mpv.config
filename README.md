@@ -24,7 +24,7 @@ This is my personal MPV config, refined through countless iterations to achieve 
 - [Philosophy](#philosophy)  
 - [Shader Pipeline](#shader-pipeline)  
 - [Profiles & Automation](#profiles--automation)
-- [Profile Switching](#-profile-switching-via-input.conf)  
+- [Profile Switching](#profile-switching-via-inputconf)  
 - [Script Suite](#script-suite)  
 - [Lua Scripts](#lua-scripts)  
 - [Quick Start](#quick-start)  
