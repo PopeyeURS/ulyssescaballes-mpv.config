@@ -168,7 +168,7 @@ To enable OSD feedback when switching, append `; show-text "Profile: [name]"` to
 Example:
 ```ini
 F2 script-message-to auto_profiles apply-profile realism ; show-text "Profile: Realism"
-
+```
 ### Script Suite
 
 These Lua scripts extend MPV’s playback fidelity with runtime enhancements. Each is modular, keybind-triggered, and designed for remixability.
