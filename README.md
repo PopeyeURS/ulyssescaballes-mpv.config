@@ -152,7 +152,7 @@ To use a profile:
 mpv --profile=realism video.mkv
 ```
 
-### 🔀 Profile Switching (via `input.conf`)
+### Profile Switching (via `input.conf`)
 
 Switch between playback profiles in real time using function keys. These keybinds trigger `auto_profiles.lua` to apply the corresponding profile instantly:
 
