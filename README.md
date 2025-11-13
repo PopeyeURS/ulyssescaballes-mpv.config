@@ -150,6 +150,25 @@ To use a profile:
 ```bash
 mpv --profile=realism video.mkv
 ```
+
+### 🔀 Profile Switching (via `input.conf`)
+
+Switch between playback profiles in real time using function keys. These keybinds trigger `auto_profiles.lua` to apply the corresponding profile instantly:
+
+| Key  | Profile         | Description                                      |
+|------|------------------|--------------------------------------------------|
+| `F1` | `anime-hdr`      | HDR anime stack with glow, depth, and line-art clarity |
+| `F2` | `realism`        | Cinematic tone mapping and full shader stack    |
+| `F3` | `sports`         | High-motion clarity for fast-paced content      |
+| `F4` | `classic-film`   | Warm tone mapping and subtle grain for vintage cinema |
+| `F5` | `8k`             | Optimized for ultra-high-res HDR60 playback     |
+
+To enable OSD feedback when switching, append `; show-text "Profile: [name]"` to each keybind in `input.conf`.
+
+Example:
+```ini
+F2 script-message-to auto_profiles apply-profile realism ; show-text "Profile: Realism"
+
 ### Script Suite
 
 These Lua scripts extend MPV’s playback fidelity with runtime enhancements. Each is modular, keybind-triggered, and designed for remixability.
