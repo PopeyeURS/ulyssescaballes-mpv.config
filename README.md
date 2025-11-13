@@ -172,14 +172,40 @@ F2 script-message-to auto_profiles apply-profile realism ; show-text "Profile: R
 ```
 ### Script Suite
 
-These Lua scripts extend MPV’s playback fidelity with runtime enhancements. Each is modular, keybind-triggered, and designed for remixability.
+## Lua Script Reference
 
-| Script                | Purpose                          | Keybind | Status     |
-|-----------------------|----------------------------------|---------|------------|
-| `midrange-boost.lua`  | Vocal EQ enhancement             | `b`     | ✅ Active  |
-| `shader-recovery.lua` | Reapply shader stack on demand   | `r`     | ✅ Active  |
+These scripts extend MPV’s playback fidelity, automation, and user experience. Each is modular, keybind-triggered, and designed for remixability.
 
-Drop your own Lua scripts into `portable_config/scripts` and bind them via `input.conf`. Playback is yours to shape.
+| Script Name               | Purpose / Behavior                                             | Keybind (if any) | Config File        | Status     |
+|---------------------------|----------------------------------------------------------------|------------------|--------------------|------------|
+| `auto_profiles.lua`       | Applies profiles based on resolution/framerate or manual keybind | `F1–F5`          | —                  | ✅ Active  |
+| `auto-profile-anime.lua`  | Applies anime-specific profile for stylized content            | —                | —                  | ✅ Active  |
+| `auto-profile-8k.lua`     | Applies 8K profile for ultra-high-res content                  | —                | —                  | ✅ Active  |
+| `midrange-boost.lua`      | Applies realism profile for 720p–1080p content                 | `b`              | —                  | ✅ Active  |
+| `shader-recovery.lua`     | Reapplies shaders if dropped frames are detected               | `r`              | —                  | ✅ Active  |
+| `memo.lua`                | Persistent playback memory across sessions                     | —                | —                  | ✅ Active  |
+| `celebi.lua`              | Experimental profile routing and diagnostics                   | —                | —                  | ✅ Active  |
+| `commands.lua`            | Custom command dispatcher for script messaging                 | —                | —                  | ✅ Active  |
+| `select.lua`              | Track selection logic for audio/subs                          | —                | `select.conf` (optional) | ✅ Active  |
+| `positioning.lua`         | Window geometry and placement automation                       | —                | `positioning.conf` (optional) | ✅ Active  |
+| `console.lua`             | In-player command console                                      | `~`              | —                  | ✅ Active  |
+| `stats.lua`               | On-screen playback stats                                       | `` ` ``          | —                  | ✅ Active  |
+| `benchmark_overlay.lua`   | Performance overlay for benchmarking                           | —                | —                  | ✅ Active  |
+| `thumbfast.lua`           | Fast thumbnail previews                                        | —                | —                  | ✅ Active  |
+| `sofalizer/main.lua`      | Spatial audio simulation                                       | —                | —                  | ✅ Active  |
+| `youtube_danmaku.lua`     | Danmaku overlay for YouTube videos                             | —                | —                  | ✅ Active  |
+| `uosc_subtitle_settings.lua` | Subtitle styling menu via UOSC                            | —                | —                  | ✅ Active  |
+| `uosc_video_settings.lua` | Video settings menu via UOSC                                   | —                | —                  | ✅ Active  |
+
+### How to Extend
+
+To add your own Lua scripts:
+
+1. Drop them into `portable_config/scripts/`
+2. Bind them via `input.conf`
+3. Optionally configure via `script-opts/*.conf`
+
+Each script is modular—use only what enhances your workflow. Playback remains yours to shape.
 
 ## Lua Scripts  
 These automation scripts dynamically adapt playback based on content and performance:
