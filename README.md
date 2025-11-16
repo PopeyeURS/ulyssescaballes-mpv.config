@@ -4,7 +4,7 @@
 ![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue)  
 ![GPU: Vulkan Optimized](https://img.shields.io/badge/GPU-Vulkan%20Optimized-orange)  
 ![Config: Remixable](https://img.shields.io/badge/config-remixable-green)  
-![MPV Compatible](https://img.shields.io/badge/MPV-v0.37%2B-blue)  
+![MPV Compatible](https://img.shields.io/badge/MPV-v0.40%2B-blue)  
 ![Platform: Windows](https://img.shields.io/badge/Platform-Windows%2011-lightgrey)  
 ![Shader Stack](https://img.shields.io/badge/GLSL-Custom%20Pipeline-purple)  
 ![Playback Fidelity](https://img.shields.io/badge/Playback-Cinematic%20HDR%208K-critical)  
