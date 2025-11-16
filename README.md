@@ -122,8 +122,6 @@ This config isn’t just about suppressing artifacts—it’s about honoring the
 ## Shader Pipeline  
 [Input Frame]  
 ↓  
-FSRCNNX_x2_16-0-4-1_enhanced.glsl       # Super-resolution  
-↓  
 SSimSuperRes.glsl                       # Perceptual sharpening  
 ↓  
 Adaptive-sharpen-0.30.glsl              # Very subtle sharpening  
@@ -134,6 +132,8 @@ Depth_reality_boost.glsl                # Enhanced depth
 ↓  
 Kodak_2383_Procedural.glsl              # Film Emulation  
 ↓  
+FSRCNNX_x2_16-0-4-1_enhanced.glsl       # Super-resolution  
+↓ 
 [Final Output]  
 
 ---
