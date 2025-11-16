@@ -133,7 +133,7 @@ Depth_reality_boost.glsl                # Enhanced depth
 Kodak_2383_Procedural.glsl              # Film Emulation  
 ↓  
 FSRCNNX_x2_16-0-4-1_enhanced.glsl       # Super-resolution  
-↓ 
+↓  
 [Final Output]  
 
 ---
