@@ -9,7 +9,7 @@
 ![Shader Stack](https://img.shields.io/badge/GLSL-Custom%20Pipeline-purple)  
 ![Playback Fidelity](https://img.shields.io/badge/Playback-Cinematic%20HDR%208K-critical)  
 ![Profiles](https://img.shields.io/badge/Profiles-Anime%2C%20Realism%2C%208K%2C%20Sports-green)  
-[![Repo Hygiene](https://img.shields.io/badge/Repo-Clean%20%26%20Cache-Free-success)](#repo-hygiene)
+[![Repo Hygiene](https://img.shields.io/badge/Repo-Clean%20%26%20Cache-Free)](#repo-hygiene)  
 
 This is my personal MPV config, refined through countless iterations to achieve playback that’s both technically precise and aesthetically faithful. Every frame is tuned for realism, depth, and clarity—without compromise.
 
