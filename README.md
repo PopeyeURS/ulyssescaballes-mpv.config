@@ -122,11 +122,11 @@ This config isn’t just about suppressing artifacts—it’s about honoring the
 ## Shader Pipeline  
 [Input Frame]  
 ↓  
-CuNNy-8x32-DS.glsl		                  # Super-resolution  
+FSRCNNX_x2_16-0-4-1_enhanced.glsl		    # Super-resolution  
 ↓  
 SSimSuperRes.glsl                       # Perceptual sharpening  
 ↓  
-Adaptive-sharpen-0.30.glsl              # Very subtle sharpening  
+Adaptive-sharpen-0.9.glsl               # Very subtle sharpening  
 ↓  
 Glimmer_sharpen_0.41.glsl		            # Edge clarity  
 ↓  
