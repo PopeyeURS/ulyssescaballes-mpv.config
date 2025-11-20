@@ -170,6 +170,19 @@ Example:
 ```ini
 F2 script-message-to auto_profiles apply-profile realism ; show-text "Profile: Realism"
 ```
+New Feature: Styled OSD Profile Flash
+
+Profile switching now includes styled on-screen feedback that matches subtitle aesthetics. When you switch profiles, the profile name flashes at the top center of the screen.
+
+Bindings (input.conf)
+```
+Ctrl+1 apply-profile clear-default ; show-text "Profile: Clear Default" 2000 osd-msg3
+Ctrl+2 apply-profile anime-hdr     ; show-text "Profile: Anime-HDR"     2000 osd-msg3
+Ctrl+3 apply-profile realism       ; show-text "Profile: Realism"       2000 osd-msg3
+Ctrl+4 apply-profile sports        ; show-text "Profile: Sports"        2000 osd-msg3
+Ctrl+5 apply-profile debug         ; show-text "Profile: Debug"         2000 osd-msg3
+```
+
 ### Script Suite
 
 ## Lua Script Reference
