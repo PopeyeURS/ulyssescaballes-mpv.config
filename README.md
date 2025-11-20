@@ -126,7 +126,7 @@ FSRCNNX_x2_16-0-4-1_enhanced.glsl		    # Super-resolution
 ↓  
 SSimSuperRes.glsl                       # Perceptual sharpening  
 ↓  
-Adaptive-sharpen-0.9.glsl               # Very subtle sharpening  
+Adaptive-sharpen-1.0.glsl               # Very subtle sharpening  
 ↓  
 Glimmer_sharpen_0.41.glsl		            # Edge clarity  
 ↓  
