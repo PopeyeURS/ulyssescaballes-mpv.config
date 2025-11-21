@@ -16,7 +16,9 @@
 #define SIGMA_RANGE   0.08  // intensity sensitivity
 
 vec4 hook() {
-    vec2 uv = HOOKED_pos / UPSCALE_FACTOR;
+    // Upscale coordinates
+    vec2 uv = HOOKED_pos / 2.0;
+
     vec3 center = HOOKED_tex(uv).rgb;
     vec3 sum = vec3(0.0);
     float wsum = 0.0;
