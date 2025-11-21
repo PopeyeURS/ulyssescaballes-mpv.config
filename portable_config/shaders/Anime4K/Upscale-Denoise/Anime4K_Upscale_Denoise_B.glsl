@@ -1,12 +1,14 @@
 // Anime4K_Upscale_Denoise_B.glsl
 // Replacement draft for missing Anime4K shader
-// Author: Ulysses + Copilot
+// Author: Ulysses RS Caballes
 // Purpose: Upscale by 2x and apply bilateral denoise tuned for anime content
 
 //!DESC Anime4K-Upscale-Denoise-B
 //!HOOK MAIN
 //!BIND HOOKED
 //!SAVE OUT
+//!WIDTH MAIN.w 2 *
+//!HEIGHT MAIN.h 2 *
 
 // Parameters
 #define UPSCALE_FACTOR 2.0
