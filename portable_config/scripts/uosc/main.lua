@@ -29,11 +29,17 @@ defaults = {
 	timeline_cache = true,
 
 	controls =
-	'menu,gap,subtitles,<has_many_audio>audio,<has_many_video>video,<has_many_edition>editions,<stream>stream-quality,gap,space,speed,space,shuffle,loop-playlist,loop-file,gap,prev,items,next,gap,fullscreen',
+'menu,gap,subtitles,<has_many_audio>audio,<has_many_video>video,<has_many_edition>editions,<stream>stream-quality,gap,space,speed,space,shuffle,loop-playlist,loop-file,gap,prev,items,next,gap,fullscreen,final-trim',
 	controls_size = 32,
 	controls_margin = 8,
 	controls_spacing = 2,
 	controls_persistency = '',
+
+    	-- Final Trim (Gain) control defaults
+    	final_trim_min = 0.98,
+    	final_trim_max = 1.02,
+    	final_trim_step = 0.01,
+    	final_trim_default = 1.0,
 
 	volume = 'right',
 	volume_size = 40,
@@ -103,9 +109,16 @@ defaults = {
 	chapter_range_patterns = 'openings:オープニング;endings:エンディング',
 	languages = 'slang,en',
 	subtitles_directory = '~~/subtitles',
-	disable_elements = '',
+disable_elements = '',
+
+-- Final Trim (Gain) control
+final_trim_min = 0.98,
+final_trim_max = 1.02,
+final_trim_step = 0.01,
+final_trim_default = 1.0,
 }
 options = table_copy(defaults)
+
 function handle_options(changed_options)
 	if changed_options.time_precision then
 		timestamp_zero_rep_clear_cache()
@@ -229,10 +242,19 @@ config = {
 	end)(),
 	color = table_copy(config_defaults.color),
 	opacity = table_copy(config_defaults.opacity),
-	cursor_leave_fadeout_elements = {'timeline', 'volume', 'top_bar', 'controls'},
-	timeline_step = 5,
-	timeline_step_flag = '',
+	    cursor_leave_fadeout_elements = {'timeline', 'volume', 'top_bar', 'controls'},
+    timeline_step = 5,
+    timeline_step_flag = '',
+
+    -- Final Trim (Gain) slider parameters
+    final_trim = {
+        min = defaults.final_trim_min,
+        max = defaults.final_trim_max,
+        step = defaults.final_trim_step,
+        default = defaults.final_trim_default,
+    },
 }
+-- end of config table
 
 function update_load_types()
 	local extensions = {}
@@ -1285,3 +1307,10 @@ end
 
 -- Initial commit
 Manager:disable('user', options.disable_elements)
+
+-- Observer binding for Final Trim slider → shader constant _4
+mp.observe_property('user-final-trim', 'number', function(_, value)
+    if value then
+        mp.set_property_number('user-shader-opts/final_trim', value)
+    end
+end)
