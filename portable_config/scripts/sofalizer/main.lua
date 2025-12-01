@@ -20,17 +20,17 @@
 -- https://github.com/flathub/io.mpv.Mpv/issues/125
 
 -- Audio must have at least this many channels to enable sofalizer.
-local sofa_min_channels = 3
+local sofa_min_channels = 2
 
 -- Audio must have at most this many channels to enable sofalizer.
 local sofa_max_channels = 9
 
 -- Amount of gain to add to sofalizer
-local sofa_gain = 12
+local sofa_gain = 14
 
 -- Extra options to add to sofalizer
 -- Example: "interpolate=1:framesize=8192"
-local sofa_opts = "interpolate=1"
+local sofa_opts = "interpolate=1:framesize=8192:delay=0:normalize=0"
 
 -- Sofa file name (optional subdirectory)
 local sofa_file = "scripts/sofalizer/ClubFritz6.sofa"
@@ -60,6 +60,7 @@ function main(name, channels)
 end
 
 -- This is here so both changing files and changing audio id (if channel count changes) should retrigger main.
+
 function file_ended()
     mp.unregister_event(file_ended)
     mp.unobserve_property(main)
