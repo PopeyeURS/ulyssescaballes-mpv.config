@@ -26,7 +26,7 @@ local sofa_min_channels = 2
 local sofa_max_channels = 9
 
 -- Amount of gain to add to sofalizer
-local sofa_gain = 14
+local sofa_gain = 15
 
 -- Extra options to add to sofalizer
 -- Example: "interpolate=1:framesize=8192"
