@@ -26,11 +26,11 @@ local sofa_min_channels = 2
 local sofa_max_channels = 9
 
 -- Amount of gain to add to sofalizer
-local sofa_gain = 15
+local sofa_gain = 16
 
 -- Extra options to add to sofalizer
 -- Example: "interpolate=1:framesize=8192"
-local sofa_opts = "interpolate=1:framesize=8192:delay=0:normalize=0"
+local sofa_opts = "interpolate=1:framesize=8192"
 
 -- Sofa file name (optional subdirectory)
 local sofa_file = "scripts/sofalizer/ClubFritz6.sofa"
