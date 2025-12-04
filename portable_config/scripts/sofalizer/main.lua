@@ -88,7 +88,7 @@ local function apply_speaker_filters(ch)
     -- Bass impact boost (max safe)
     mp.commandv("af", "add", "equalizer=f=120:t=l:w=1:g=4")
 
-    -- ✅ Blockbuster sub‑bass boost (safe)
+    -- Blockbuster sub‑bass boost (safe)
     mp.commandv("af", "add", "equalizer=f=70:t=l:w=1:g=3")
 
     -- Stronger cinema compressor (max safe)
