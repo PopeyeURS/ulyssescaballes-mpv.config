@@ -1,76 +1,132 @@
 --[[
-    Copyright (C) 2023  kevincs
-    This program is free software; you can redistribute it and/or
-    modify it under the terms of the GNU General Public License
-    as published by the Free Software Foundation; either version 2
-    of the License, or (at your option) any later version.
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-    https://www.gnu.org/licenses/gpl-2.0.html
---]]
+SOFAlizer (KEMAR) for mpv - cinema-grade headphone virtualization
+Place this file in:
+  Windows:  %AppData%\mpv\scripts\main.lua
+  Linux/macOS:  ~/.config/mpv/scripts/main.lua
+]]
 
--- Lua script for mpv to enable sofalizer, with sofa file inside of mpv's ~~/
--- For more info :
--- https://old.reddit.com/r/mpv/comments/11cr5u9/is_it_possible_to_use_the_headphone_filter/
--- https://github.com/flathub/io.mpv.Mpv/issues/125
+----------------------------------
+-- User configuration
+----------------------------------
+local CONFIG = {
+    -- Enable SOFAlizer within this input channel range (stereo up to 7.1 by default)
+    sofa_min_channels = 2,
+    sofa_max_channels = 9,
 
--- Audio must have at least this many channels to enable sofalizer.
-local sofa_min_channels = 2
+    -- Preserve dynamics; adjust via mpv volume instead of gain when possible
+    sofa_gain = 0,
 
--- Audio must have at most this many channels to enable sofalizer.
-local sofa_max_channels = 9
+    -- High-quality movie playback options for natural imaging
+    -- normalize=yes            : Stable loudness across HRTF processing
+    -- interpolate=yes          : Smooth spatial interpolation
+    -- freq_range=full          : Full-band processing
+    -- delay_compensation=yes   : Aligns temporal cues
+    -- phase=wgd                : Weighted group delay for natural phase
+    sofa_opts = "normalize=yes:interpolate=yes:freq_range=full:delay_compensation=yes:phase=wgd",
 
--- Amount of gain to add to sofalizer
-local sofa_gain = 16
+    -- Path to your KEMAR SOFA file, relative to mpv config dir (~~/)
+    -- Example: copy Kemar_HRTF_sofa.sofa to scripts/sofalizer/
+    sofa_file = "scripts/sofalizer/Kemar_HRTF_sofa.sofa",
 
--- Extra options to add to sofalizer
--- Example: "interpolate=1:framesize=8192"
-local sofa_opts = "interpolate=1:framesize=8192"
+    -- Unique label for clean management
+    label = "sofalizer_kemar",
 
--- Sofa file name (optional subdirectory)
-local sofa_file = "scripts/sofalizer/ClubFritz6.sofa"
+    -- Force stereo output if your pipeline or device requires it (usually false)
+    force_stereo_output = false,
 
----------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------
-function main(name, channels)
-    local af_add = "sofalizer=sofa=\"" .. mp.command_native({"expand-path", "~~/"}) .. "/" .. sofa_file .. "\":gain=" .. sofa_gain
-    if (sofa_opts ~= "") then
-        af_add = af_add .. ":" .. sofa_opts
+    -- Optional logging
+    log = true
+}
+
+----------------------------------
+-- Internals (do not edit)
+----------------------------------
+local mp = mp
+local msg = require "mp.msg"
+
+local function log_info(s) if CONFIG.log then msg.info("[SOFAlizer] " .. s) end end
+local function log_warn(s) if CONFIG.log then msg.warn("[SOFAlizer] " .. s) end end
+
+local function expand_config_path(rel)
+    local base = mp.command_native({ "expand-path", "~~/" })
+    return base .. "/" .. rel
+end
+
+local function build_filter_string()
+    local sofa_path = expand_config_path(CONFIG.sofa_file)
+    local parts = {
+        'sofalizer=',
+        'sofa="' .. sofa_path .. '"',
+        ':gain=' .. tostring(CONFIG.sofa_gain),
+        ":" .. CONFIG.sofa_opts,
+        ":label=" .. CONFIG.label
+    }
+    if CONFIG.force_stereo_output then
+        table.insert(parts, ":out=stereo")
     end
-    if (channels == nil or channels < sofa_min_channels or channels > sofa_max_channels) then
-        mp.command("no-osd af remove '" .. af_add .. "'")
+    return table.concat(parts)
+end
+
+local function is_filter_present()
+    local af = mp.get_property("af") or ""
+    return af:find("label=" .. CONFIG.label, 1, true) ~= nil
+end
+
+local function add_filter()
+    if is_filter_present() then
+        log_info("Filter already present; skipping add")
         return
     end
-    local af = mp.get_property("af")
-    if (string.find(af, "sofalizer")) then
-        return
-    end
-    print("Current --af=" .. af)
-    if (af == "") then
-        print("New     --af=" .. af_add)
+    local f = build_filter_string()
+    mp.commandv("no-osd", "af", "add", f)
+    log_info("Added filter: " .. f)
+end
+
+local function remove_filter()
+    if not is_filter_present() then return end
+    mp.commandv("no-osd", "af", "remove", CONFIG.label)
+    log_info("Removed filter (label=" .. CONFIG.label .. ")")
+end
+
+local function should_enable(channels)
+    return (type(channels) == "number"
+        and channels >= CONFIG.sofa_min_channels
+        and channels <= CONFIG.sofa_max_channels)
+end
+
+local function on_channels(_, channels)
+    if should_enable(channels) then
+        add_filter()
     else
-        print("New     --af=" .. af .. ";" .. af_add)
+        remove_filter()
     end
-    mp.command("no-osd af add '" .. af_add .. "'")
 end
 
--- This is here so both changing files and changing audio id (if channel count changes) should retrigger main.
-
-function file_ended()
-    mp.unregister_event(file_ended)
-    mp.unobserve_property(main)
-    mp.register_event("file-loaded", file_loaded)
+local function reset_observers()
+    mp.unobserve_property(on_channels)
 end
 
-function file_loaded()
-    mp.unregister_event(file_loaded)
-    mp.register_event("end-file", file_ended)
-    mp.observe_property("audio-params/channel-count", "number", main)
+local function on_file_loaded()
+    log_info("File loaded")
+    reset_observers()
+    mp.observe_property("audio-params/channel-count", "number", on_channels)
+    local channels = mp.get_property_native("audio-params/channel-count")
+    on_channels(nil, channels)
 end
 
-mp.register_event("file-loaded", file_loaded)
+local function on_file_ended()
+    log_info("End of file")
+    reset_observers()
+    remove_filter()
+end
+
+mp.register_event("file-loaded", on_file_loaded)
+mp.register_event("end-file", on_file_ended)
+
+-- Safety: clean any stray filter on startup
+mp.add_timeout(0.1, function()
+    if is_filter_present() then
+        log_warn("Stray filter found on startup; removing")
+        remove_filter()
+    end
+end)
