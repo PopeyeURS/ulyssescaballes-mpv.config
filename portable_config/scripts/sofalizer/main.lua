@@ -14,7 +14,7 @@ local CONFIG = {
     sofa_max_channels = 9,
 
     -- Preserve dynamics; adjust via mpv volume instead of gain when possible
-    sofa_gain = 0,
+    sofa_gain = 16,
 
     -- High-quality movie playback options for natural imaging
     -- normalize=yes            : Stable loudness across HRTF processing
@@ -112,6 +112,17 @@ local function on_file_loaded()
     mp.observe_property("audio-params/channel-count", "number", on_channels)
     local channels = mp.get_property_native("audio-params/channel-count")
     on_channels(nil, channels)
+-- Pre-normalization for cleaner HRTF processing
+mp.commandv("af", "add", "loudnorm=I=-23:TP=-2:LRA=7")
+
+-- Treble clarity boost (even sharper gunshots)
+mp.commandv("af", "add", "equalizer=f=8000:t=h:w=1.3:g=3.5")
+
+-- Bass impact boost (slightly stronger)
+mp.commandv("af", "add", "equalizer=f=120:t=l:w=1:g=1.8")
+
+-- Wider cinematic soundstage
+mp.commandv("af", "add", "stereotools=surround=0.35")
 end
 
 local function on_file_ended()
