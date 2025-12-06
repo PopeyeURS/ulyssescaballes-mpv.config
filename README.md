@@ -149,6 +149,19 @@ If you enable the included keybinds:
 
 ---
 
+## Keyboard Function Shortcuts
+These optional function bindings provide rapid access to internal presets and debugging utilities. Each shortcut triggers a specific mode designed to streamline testing, profile switching, and visual experimentation.
+
+### Function Overview
+
+| Shortcut | Function Name | Description |
+|---------|----------------|-------------|
+| Ctrl + 1 | clear_default | Resets MPV to the baseline configuration. Ideal for clearing active shaders, profiles, or overrides during testing. |
+| Ctrl + 2 | anime_hdr | Activates the Anime HDR preset — tuned for stylized line art, vibrant color response, and high‑contrast anime rendering. |
+| Ctrl + 3 | realism | Switches to the Realism preset, emphasizing natural contrast, filmic grain, and lifelike texture. |
+| Ctrl + 4 | sports | Enables the Sports preset, optimized for clarity in motion, highlight visibility, and clean gradients. |
+| Ctrl + 5 | debug | Opens the debugging mode, revealing internal states, shader activity, and diagnostic overlays. |
+
 ## Script Suite
 A set of Lua scripts enhances automation, stability, and playback intelligence.
 
