@@ -26,7 +26,8 @@
 - [Optional Add-ons](#optional-add-ons)  
 - [Philosophy](#philosophy)  
 - [Repo Hygiene](#repo-hygiene)  
-- [License](#license)
+- [Final Word](#final-word)  
+- [License](#license)  
 
 ---
 
