@@ -227,7 +227,14 @@ You can adopt the entire system or extract only the parts you love.
 - Versioned updates with clear changelogs  
 
 ---
-  
+
+## Final Word  
+Playback perfection isn’t just about numbers—it’s about how it feels. This config reflects my journey toward that feeling. If it helps you get closer to yours, then it’s done its job.
+
+— **Ulysses RS Caballes [PopeyeURS]**
+
+---
+
 **License: [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)**  
 This project is licensed under the GNU General Public License v3.0. Feel free to fork, adapt, and share.
 
