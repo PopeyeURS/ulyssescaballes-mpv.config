@@ -227,7 +227,8 @@ You can adopt the entire system or extract only the parts you love.
 - Versioned updates with clear changelogs  
 
 ---
+  
+**License: [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)**  
+This project is licensed under the GNU General Public License v3.0. Feel free to fork, adapt, and share.
 
-## License
-This project is licensed under **GPLv3**.  
-You are free to modify, remix, and redistribute under the same license.
+See the [LICENSE](LICENSE) file for details.
