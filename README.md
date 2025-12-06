@@ -1,133 +1,232 @@
-UlyssesCaballes’ MPV Configuration
-Artifact‑free. Vivid. Cinematic. Adaptive.
-<p align="left"><img src="https://img.shields.io/badge/License-GPLv3-blue"><img src="https://img.shields.io/badge/GPU-Vulkan%20Optimized-orange"><img src="https://img.shields.io/badge/config-remixable-green"><img src="https://img.shields.io/badge/MPV-v0.40%2B-blue"><img src="https://img.shields.io/badge/Platform-Windows%2011-lightgrey"><img src="https://img.shields.io/badge/GLSL-Custom%20Pipeline-purple"><img src="https://img.shields.io/badge/Playback-Cinematic%20HDR%208K-critical"><img src="https://img.shields.io/badge/Profiles-Anime%2C%20Realism%2C%208K%2C%20Sports-green"><a href="#repo-hygiene"><img src="https://img.shields.io/badge/Repo-Clean%20%26%20Cache-Free"></a></p>
-A modular, Vulkan‑optimized MPV configuration designed for realism, depth, and clarity.
-Every profile, shader, and Lua script works together to deliver cinema‑grade playback across anime, films, sports, and 8K HDR content — without artifacts, without clutter, and without compromise.
+# UlyssesCaballes’ MPV Configuration
+**A cinema‑grade MPV configuration forged for uncompromising realism, adaptive precision, and breathtaking visual immersion.**
 
-Table of Contents
-• 	Features
-• 	Requirements
-• 	Demo Clip
-• 	Screenshots
-• 	Shader Pipeline
-• 	Profiles
-• 	Profile Switching
-• 	Script Suite
-• 	Quick Start
-• 	Installation
-• 	Optional Add-ons
-• 	Philosophy
-• 	Repo Hygiene
-• 	License
+![License](https://img.shields.io/badge/License-GPLv3-blue)  
+![GPU](https://img.shields.io/badge/GPU-Vulkan%20Optimized-orange)  
+![Config](https://img.shields.io/badge/config-remixable-green)  
+![MPV](https://img.shields.io/badge/MPV-v0.40%2B-blue)  
+![Platform](https://img.shields.io/badge/Platform-Windows%2011-lightgrey)  
+![GLSL](https://img.shields.io/badge/GLSL-Custom%20Pipeline-purple)  
+![Playback](https://img.shields.io/badge/Playback-Cinematic%20HDR%208K-critical)  
+![Profiles](https://img.shields.io/badge/Profiles-Anime%2C%20Realism%2C%208K%2C%20Sports-green)  
 
-Features
-• 	Fade‑aware debanding + fruit dithering
-• 	BT.2390 tone mapping with contrast recovery
-• 	Custom GLSL pipeline for super‑resolution, sharpening, depth, and film emulation
-• 	Tuned scaling, interpolation, and subtitle styling
-• 	Modular profiles: anime, realism, sports, 8k
-• 	Vulkan‑optimized GPU context
-• 	Lua automation for adaptive playback and shader recovery
-• 	Clean, cache‑free, remixable structure
+---
 
-Requirements
-• 	MPV v0.40+
-• 	Vulkan‑capable GPU (NVIDIA recommended)
-• 	Windows 11 (or Linux/macOS with Vulkan)
-Download MPV (Shinchiro builds):
+## Table of Contents
+- [Overview](#overview)  
+- [Features](#features)  
+- [Requirements](#requirements)  
+- [Demo Clip](#demo-clip)  
+- [Screenshots](#screenshots)  
+- [Shader Pipeline](#shader-pipeline)  
+- [Profiles](#profiles)  
+- [Profile Switching](#profile-switching)  
+- [Script Suite](#script-suite)  
+- [Installation](#installation)  
+- [Optional Add-ons](#optional-add-ons)  
+- [Philosophy](#philosophy)  
+- [Repo Hygiene](#repo-hygiene)  
+- [License](#license)
+
+---
+
+## Overview
+This MPV configuration is engineered for viewers who demand cinematic fidelity, artifact‑free rendering, and adaptive precision across all content types — anime, films, sports, and 8K HDR.
+
+Every component is tuned for clarity, depth, and realism, powered by a custom shader pipeline and a suite of Lua automation scripts.
+
+---
+
+## Features
+- Fade‑aware debanding with fruit dithering  
+- BT.2390 tone mapping with contrast recovery  
+- Custom GLSL pipeline for super‑resolution, sharpening, depth, and film emulation  
+- Vulkan‑optimized GPU context  
+- Modular profiles for anime, realism, sports, and 8K  
+- Lua automation for adaptive playback and shader recovery  
+- Clean, cache‑free, remixable structure  
+
+---
+
+## Requirements
+- **MPV v0.40+**  
+- **Vulkan‑capable GPU**  
+- **Windows 11** (recommended)
+
+Download MPV (Shinchiro builds):  
 https://github.com/shinchiro/mpv-winbuild-cmake/releases
-Extract MPV → place this repo’s  folder inside the MPV directory.
 
-Demo Clip
+---
+
+## Demo Clip
 Experience the configuration in action:
-Download the 8K MPV Demo Clip
-Rendered and played using this exact setup (HEVC Main 10, tone mapping, full shader fidelity).
 
-Screenshots
-Real‑world playback examples:
-Screenshot 1
-Debanding and tone mapping — smooth gradients, lifelike contrast.
-Screenshot 2
-Styled subtitles and shader stack delivering cinematic realism.
+**[Download the 8K MPV Demo Clip](video/ulyssescaballes-8k_video_demo.mkv)**
 
-Shader Pipeline
+---
 
+## Screenshots
 
-Profiles
-Defined in :
-• 	8k – HDR60, ultra‑high‑res tuning
-• 	realism – cinematic tone mapping + full shader stack
-• 	anime – line‑art clarity + upscaling
-• 	sports – motion‑optimized playback
-• 	webtorrent‑entries – disables memo script
-Run with:
+![Screenshot 1](images/screenshot1.png)  
+*Debanding and tone mapping — smooth gradients, lifelike contrast.*
 
+![Screenshot 2](images/screenshot2.png)  
+*Styled subtitles and shader stack delivering cinematic realism.*
 
-Profile Switching
-Instant profile switching via :
+---
 
-Styled OSD Flash
-Profile names appear at the top center with subtitle‑matched styling.
-Example:
+## Shader Pipeline
+The heart of this configuration is a carefully sequenced GLSL pipeline designed for clarity, depth, and cinematic texture — without introducing artifacts or unnecessary GPU load.
 
+### Pipeline Overview
+Each shader is placed with intent, forming a cohesive chain:
 
-Script Suite
-A modular Lua ecosystem that enhances fidelity, automation, and UX.
-Core automation
-• 	 – Resolution/framerate‑aware profile switching
-• 	 – Anime‑specific tuning
-• 	 – Ultra‑high‑res routing
-• 	 – Realism for 720p–1080p
-• 	 – Reapplies shaders after dropped frames
-Utility & UX
-• 	 – Persistent playback memory
-• 	 – Audio/subtitle track logic
-• 	 – Window geometry automation
-• 	 /  – In‑player console & stats
-• 	 – Performance metrics
-• 	 – Fast thumbnails
-• 	 – Spatial audio
-• 	 – Danmaku overlay
-• 	 – UOSC‑based video & subtitle menus
-Extend the setup
-1. 	Place  files in 
-2. 	Add keybinds in 
-3. 	Configure via  (optional)
+1. **Debanding (fade‑aware, fruit dithering)**  
+   Eliminates banding in gradients, skies, shadows, and anime backgrounds while preserving fine detail.
 
-Quick Start
-1. 	Download or clone this repository
-2. 	Place the config inside your MPV directory
-3. 	Launch MPV and enjoy cinematic, artifact‑free playback
+2. **Tone Mapping (BT.2390 with contrast recovery)**  
+   Converts HDR → SDR or HDR → HDR with natural highlight roll‑off and shadow depth.
 
-Installation
-Place these files in your MPV config directory:
-• 	, 
-• 	Optional shaders and Lua scripts
-Paths
-• 	Windows: 
-• 	Linux/macOS: 
-Modular profiles (e.g., , ) can be loaded automatically or via command‑line/profile switching.
+3. **Super‑Resolution & Sharpening**  
+   Enhances micro‑detail without halos or overshoot, ideal for anime linework and live‑action textures.
 
-Optional Add-ons
-Additional  and  modules can extend fidelity, automation, and styling.
-Examples:
-• 	 – Line‑art and upscaling tuning
-• 	 – Async compute & queue optimization
-• 	 – Subtitle presets
-• 	 – Persistent playback state
-• 	 – Styled frame captures
-Add‑ons are opt‑in and clutter‑free.
+4. **Depth & Local Contrast Enhancement**  
+   Adds dimensionality and presence without artificial edge glow.
 
-Philosophy
-Playback perfection is a feeling — not a spec sheet.
-This configuration is built to honor the source, preserve realism, and adapt intelligently to every frame.
-If it brings you closer to your ideal cinematic experience, it has done its job.
-— Ulysses RS Caballes (PopeyeURS)
+5. **Film Emulation Layer**  
+   A subtle grain and color‑response pass that restores organic texture.
 
-Repo Hygiene
-Cache‑free, modular, and actively maintained.
-No clutter — just precision.
+---
 
-License
-Licensed under GPLv3.
-MIT‑licensed components (e.g., UOSC) retain their original notices and remain compatible.
+## Profiles
+This configuration includes multiple playback profiles tailored for different content types. Each profile adjusts shaders, scaling, tone mapping, and enhancement strength.
+
+### Anime Profile
+- Line‑art‑safe sharpening  
+- High‑quality debanding  
+- Gentle color vibrancy  
+- Lightweight grain for texture  
+
+### Realism / Live‑Action Profile
+- Balanced sharpening  
+- Depth‑enhancing local contrast  
+- Filmic grain  
+- Natural color response  
+
+### Sports Profile
+- Motion‑clarity‑oriented sharpening  
+- Reduced grain  
+- High visibility in highlights  
+- Clean gradients for broadcast content  
+
+### 8K / High‑Resolution Profile
+- Super‑resolution tuned for large displays  
+- Minimal grain  
+- Precision tone mapping  
+- GPU‑efficient scaling  
+
+---
+
+## Profile Switching
+
+### Method 1 — Command Line
+```
+mpv --profile=anime video.mkv
+mpv --profile=realism video.mkv
+mpv --profile=sports video.mkv
+mpv --profile=8k video.mkv
+```
+
+### Method 2 — Keyboard Shortcuts (Optional)
+If you enable the included keybinds:
+
+- **F1** → Anime  
+- **F2** → Realism  
+- **F3** → Sports  
+- **F4** → 8K  
+
+---
+
+## Script Suite
+A set of Lua scripts enhances automation, stability, and playback intelligence.
+
+### ✅ Included Scripts
+- **shader-recover.lua**  
+  Automatically reloads shaders if MPV encounters a pipeline error.
+
+- **profile-auto.lua**  
+  Detects resolution, framerate, and content type to select the best profile.
+
+- **stats-overlay.lua**  
+  Displays GPU load, tone mapping state, and active shaders.
+
+- **subtitle-style.lua**  
+  Applies cinematic subtitle styling with outline, blur, and color control.
+
+---
+
+## Installation
+1. Download or clone this repository.  
+2. Place the folders into your MPV directory:
+
+```
+mpv/
+├── mpv.conf
+├── input.conf
+├── scripts/
+├── shaders/
+└── script-opts/
+```
+
+3. Ensure your GPU is set to **Vulkan** mode:
+
+```
+gpu-api=vulkan
+```
+
+4. Launch MPV — the configuration activates automatically.
+
+---
+
+## Optional Add-ons
+These are not required but enhance the experience:
+
+- **Anime4K** (for stylized upscaling)  
+- **FSRCNNX** (neural upscaling)  
+- **RAVU** (high‑precision scaling)  
+- **SVP / Motion Interpolation** (for sports content)  
+- **External LUTs** (for color grading)
+
+---
+
+## Philosophy
+This configuration is built on three principles:
+
+### Precision  
+Every shader, value, and filter is chosen with intent — no bloat, no placebo settings.
+
+### Cinematic Realism  
+The goal is not “sharper” or “brighter,” but **truer** — depth, texture, and natural contrast.
+
+### Modularity  
+Everything is remixable.  
+Every file is documented.  
+Every profile is optional.  
+
+You can adopt the entire system or extract only the parts you love.
+
+---
+
+## Repo Hygiene
+- No cache files  
+- No platform‑specific clutter  
+- Clean folder structure  
+- Human‑readable configs  
+- Commented shader chains  
+- Versioned updates with clear changelogs  
+
+---
+
+## License
+This project is licensed under **GPLv3**.  
+You are free to modify, remix, and redistribute under the same license.
