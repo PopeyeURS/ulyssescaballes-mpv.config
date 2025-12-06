@@ -59,9 +59,10 @@ https://github.com/shinchiro/mpv-winbuild-cmake/releases
 ---
 
 ## Demo Clip
-Experience the configuration in action:
 
-**[Download the 8K MPV Demo Clip](video/ulyssescaballes-8k_video_demo.mkv)**
+[Download the 8K MPV Demo Clip](video/ulyssescaballes-8k_video_demo.mkv)
+
+This clip was rendered and played using my MPV config with HEVC Main 10, tone mapping, and shader fidelity. Open it in MPV to experience the full effect.
 
 ---
 
