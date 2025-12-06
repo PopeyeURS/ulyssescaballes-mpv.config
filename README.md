@@ -87,7 +87,7 @@ Each shader is placed with intent, forming a cohesive chain:
    Eliminates banding in gradients, skies, shadows, and anime backgrounds while preserving fine detail.
 
 2. **Tone Mapping (BT.2390 with contrast recovery)**  
-   Converts HDR → SDR or HDR → HDR with natural highlight roll‑off and shadow depth.
+   Converts HDR → SDR or SDR → HDR with natural highlight roll‑off and shadow depth.
 
 3. **Super‑Resolution & Sharpening**  
    Enhances micro‑detail without halos or overshoot, ideal for anime linework and live‑action textures.
