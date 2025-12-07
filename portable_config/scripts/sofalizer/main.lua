@@ -116,25 +116,43 @@ local function on_file_loaded()
     -- Pre-normalization for cleaner HRTF processing
     mp.commandv("af", "add", "loudnorm=I=-23:TP=-2:LRA=7")
 
-    -- Treble clarity boost (even sharper gunshots)
+    -- Sub-bass rumble (thunder body)
+    mp.commandv("af", "add", "equalizer=f=60:t=l:w=1.2:g=4")
+
+    -- Bass impact boost (punch region)
+    mp.commandv("af", "add", "equalizer=f=120:t=l:w=1.0:g=1.8")
+
+    -- Low-shelf stabilizer (smooth, cinematic bass weight)
+    mp.commandv("af", "add", "equalizer=f=200:t=l:w=1.0:g=1.2")
+
+    -- Low-frequency widening (bigger thunder)
+    mp.commandv("af", "add", "stereotools=basstilt=0.25")
+
+    -- Transient enhancer (sharper impacts, cleaner attacks)
+    mp.commandv("af", "add", "afir=length=16")
+
+    -- De-harshing notch (smooths dialogue & metal glare)
+    mp.commandv("af", "add", "equalizer=f=2700:t=h:w=1.0:g=-1.5")
+
+    -- Metallic upper-mid peak (sword clang presence)
+    mp.commandv("af", "add", "equalizer=f=4500:t=h:w=1.0:g=5")
+
+    -- Treble clarity boost (gunshots, detail)
     mp.commandv("af", "add", "equalizer=f=8000:t=h:w=1.3:g=3.5")
 
-    -- Bass impact boost (slightly stronger)
-    mp.commandv("af", "add", "equalizer=f=120:t=l:w=1:g=1.8")
+    -- Air/whisper enhancement (wind, leaves, shimmer)
+    mp.commandv("af", "add", "equalizer=f=12000:t=h:w=1.5:g=4")
+
+    -- Punch compressor for hits (thunder, clashes, explosions)
+    mp.commandv("af", "add", "acompressor=threshold=-15dB:ratio=3:attack=2:release=120")
+
+    -- Micro-detail exciter (subtle lift of quiet textures)
+    mp.commandv("af", "add", "acompressor=threshold=-50dB:ratio=1.2:attack=5:release=50")
 
     -- Wider cinematic soundstage
     mp.commandv("af", "add", "stereotools=surround=0.35")
 
-    -- Air/whisper enhancement (adds clarity to wind, leaves, breaths)
-    mp.commandv("af", "add", "equalizer=f=12000:t=h:w=1.5:g=4")
-
-    -- Micro-detail exciter (subtle harmonic lift)
-    mp.commandv("af", "add", "acompressor=threshold=-50dB:ratio=1.2:attack=5:release=50")
-
-    -- Transient enhancement for crisp micro-sounds
-    mp.commandv("af", "add", "afir=length=32")
-
-    -- Spatial diffusion for more atmospheric movement
+    -- Spatial diffusion for atmospheric movement
     mp.commandv("af", "add", "stereotools=delay=0.25")
 end
 
