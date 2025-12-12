@@ -12,13 +12,18 @@ local CONFIG = {
     sofa_file = "scripts/sofalizer/Kemar_HRTF_sofa.sofa",
 
     enable_by_default = true,
-    bind_toggle_key = "F9",
+    bind_toggle_key   = "F9",
 
     log = true
 }
 
 local mp  = mp
 local msg = require "mp.msg"
+
+-- Internal state: purely for UX/logs, not for logic correctness
+local state = {
+    active = false
+}
 
 local function log_info(s)
     if CONFIG.log then
@@ -32,6 +37,10 @@ local function log_warn(s)
     end
 end
 
+local function osd(text)
+    mp.osd_message(text, 2.0)
+end
+
 local function expand(rel)
     local base = mp.command_native({ "expand-path", "~~/" })
     return base .. "/" .. rel
@@ -43,10 +52,15 @@ local function build_sofa()
            CONFIG.sofa_gain .. ":normalize=yes:interpolate=yes"
 end
 
+local function clear_af()
+    mp.set_property("af", "")
+end
+
 local function apply_chain()
     log_info("Applying IMAX + SOFAlizer chain")
 
-    mp.set_property("af", "")
+    -- Start from a known-clean graph
+    clear_af()
 
     -- Loudness normalization
     mp.commandv("no-osd", "af", "add",
@@ -57,6 +71,7 @@ local function apply_chain()
     if type(ch) == "number" then
         if ch >= CONFIG.sofa_min_channels and ch <= CONFIG.sofa_max_channels then
             mp.commandv("no-osd", "af", "add", build_sofa())
+            log_info("SOFAlizer applied (channels = " .. tostring(ch) .. ")")
         else
             log_warn("Skipping SOFAlizer (channel count = " .. tostring(ch) .. ")")
         end
@@ -93,16 +108,20 @@ local function apply_chain()
     mp.commandv("no-osd", "af", "add",
         "aecho=0.6:0.35:60|120:0.12|0.08")
 
-    -- Safety limiter (use valid limit range)
+    -- Safety limiter
     mp.commandv("no-osd", "af", "add",
         "alimiter=level_in=1:level_out=0.97:limit=0.0625")
 
+    state.active = true
     log_info("IMAX chain applied")
+    osd("IMAX + SOFAlizer: ON")
 end
 
 local function remove_chain()
     log_info("Removing IMAX chain")
-    mp.set_property("af", "")
+    clear_af()
+    state.active = false
+    osd("IMAX + SOFAlizer: OFF")
 end
 
 local function toggle()
@@ -116,6 +135,7 @@ end
 
 local function on_loaded()
     log_info("File loaded")
+    state.active = false
     if CONFIG.enable_by_default then
         apply_chain()
     end
