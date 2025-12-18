@@ -152,6 +152,19 @@ If you enable the included keybinds:
 ## Keyboard Function Shortcuts
 These optional function bindings provide rapid access to internal presets and debugging utilities. Each shortcut triggers a specific mode designed to streamline testing, profile switching, and visual experimentation.
 
+### Menu & Utility Shortcuts
+
+| Key | Action |
+|-----|--------|
+| O | Open File |
+| Y | YouTube Search |
+| H | Playback History |
+| K | Keybinds Menu |
+| V | Video Settings |
+| A | Audio Device Selector |
+| S | Subtitle Settings |
+| P | Screenshot Menu |
+
 ### Function Overview
 
 | Shortcut | Function Name | Description |
@@ -165,7 +178,7 @@ These optional function bindings provide rapid access to internal presets and de
 ## Script Suite
 A set of Lua scripts enhances automation, stability, and playback intelligence.
 
-### ✅ Included Scripts
+### Included Scripts
 - **shader-recover.lua**  
   Automatically reloads shaders if MPV encounters a pipeline error.
 
