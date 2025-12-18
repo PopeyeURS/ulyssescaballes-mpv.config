@@ -21,6 +21,7 @@
 - [Shader Pipeline](#shader-pipeline)  
 - [Profiles](#profiles)  
 - [Profile Switching](#profile-switching)  
+- [Keyboard Function Shortcuts](#keyboard-function-shortcuts)  
 - [Script Suite](#script-suite)  
 - [Installation](#installation)  
 - [Optional Add-ons](#optional-add-ons)  
