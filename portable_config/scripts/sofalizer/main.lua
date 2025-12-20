@@ -9,7 +9,7 @@ local CONFIG = {
     sofa_min_channels = 2,
     sofa_max_channels = 9,
     sofa_gain = 16,
-    sofa_file = "scripts/sofalizer/Kemar_HRTF_sofa.sofa",
+    sofa_file = "scripts/sofalizer/hrtf_M_normal pinna resolution 0.5 deg.sofa",
 
     enable_by_default = true,
     bind_toggle_key   = "F9",
