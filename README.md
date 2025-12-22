@@ -1,6 +1,7 @@
 # UlyssesCaballes’ MPV Configuration  
 **A cinema‑grade MPV configuration forged for uncompromising realism, adaptive precision, and breathtaking visual immersion.  
-Featuring KEMAR SOFA‑driven multiaural audio perception for true Atmos/IMAX headphone fidelity.**
+Featuring high-fidelity binaural rendering of Atmos-style and other
+object-based spatial audio using SOFA and KEMAR HRTFs.**
 
 ![License](https://img.shields.io/badge/License-GPLv3-blue)  
 ![GPU](https://img.shields.io/badge/GPU-Vulkan%20Optimized-orange)  
