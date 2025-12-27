@@ -292,7 +292,9 @@ You can adopt the entire system or extract only the parts you love.
 ---
 
 ## Final Word  
-Playback perfection isn’t just about numbers—it’s about how it feels. This config reflects my journey toward that feeling. If it helps you get closer to yours, then it’s done its job.
+Playback perfection isn’t measured in numbers alone—it’s defined by how it feels.  
+This hand‑crafted cinema engine reflects my journey toward that feeling.  
+If it helps you step closer to your own, then it has fulfilled its purpose.
 
 — **Ulysses RS Caballes [PopeyeURS]**
 
