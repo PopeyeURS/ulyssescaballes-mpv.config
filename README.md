@@ -251,6 +251,26 @@ gpu-api=vulkan
 4. Launch MPV — the configuration activates automatically.
 
 ---
+## Common Toggles & Beginner Notes
+
+Some options in `mpv.conf` are set for convenience but may feel unusual if you’re new to mpv.  
+Here are the most common ones you might want to adjust:
+
+- **Idle Behavior**
+  - `idle=yes` → mpv stays open even with no file loaded. Useful for drag‑and‑drop of YouTube links or files.
+  - `idle=no` → mpv closes automatically after playback. Feels more like a traditional media player.
+
+- **On‑Screen Controller (OSC)**
+  - `osc=no` disables the default control bar for a cleaner look.
+  - Beginners may prefer `osc=yes` to keep the familiar UI.
+
+- **Window Border**
+  - `border=no` removes the title bar for a cinema‑style presentation.
+  - Set `border=yes` if you want standard window controls.
+
+These are not “bugs” or mistakes — they’re stylistic choices. Feel free to toggle them to match your workflow.
+
+---
 
 ## Optional Add-ons
 These are not required but enhance the experience:
