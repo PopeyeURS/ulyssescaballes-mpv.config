@@ -1,5 +1,5 @@
 # UlyssesCaballes’ MPV Configuration  
-**A cinema‑grade MPV configuration forged for uncompromising realism, adaptive precision, and breathtaking visual immersion.  
+**A hand‑crafted cinema engine forged for uncompromising realism, adaptive precision, and breathtaking immersion.  
 Featuring KEMAR SOFA‑driven binaural audio for true Atmos/IMAX headphone fidelity.**
 
 ![License](https://img.shields.io/badge/License-GPLv3-blue)  
