@@ -252,6 +252,7 @@ gpu-api=vulkan
 4. Launch MPV — the configuration activates automatically.
 
 ---
+
 ## Common Toggles & Beginner Notes
 
 Some options in `mpv.conf` are set for convenience but may feel unusual if you’re new to mpv.  
