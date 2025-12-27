@@ -1,7 +1,6 @@
 # UlyssesCaballes’ MPV Configuration  
 **A cinema‑grade MPV configuration forged for uncompromising realism, adaptive precision, and breathtaking visual immersion.  
-Featuring high-fidelity binaural rendering of Atmos-style and other
-object-based spatial audio using SOFA and KEMAR HRTFs.**
+Featuring KEMAR SOFA‑driven binaural audio for true Atmos/IMAX headphone fidelity.**
 
 ![License](https://img.shields.io/badge/License-GPLv3-blue)  
 ![GPU](https://img.shields.io/badge/GPU-Vulkan%20Optimized-orange)  
@@ -21,6 +20,7 @@ object-based spatial audio using SOFA and KEMAR HRTFs.**
 - [Demo Clip](#demo-clip)  
 - [Screenshots](#screenshots)  
 - [Shader Pipeline](#shader-pipeline)  
+- [Audio Pipeline](#audio-pipeline)  
 - [Profiles](#profiles)  
 - [Profile Switching](#profile-switching)  
 - [Keyboard Function Shortcuts](#keyboard-function-shortcuts)  
@@ -100,6 +100,39 @@ Each shader is placed with intent, forming a cohesive chain:
 
 5. **Film Emulation Layer**  
    A subtle grain and color‑response pass that restores organic texture.
+
+---
+
+## Audio Pipeline
+While the shader chain delivers uncompromising visual fidelity, this configuration also integrates a cinema‑grade audio pipeline designed for both headphone and speaker playback.
+
+### Pipeline Overview
+1. **SOFAlizer (HRTF Virtualization)**  
+   * Uses the `hrtf_M_normal_pinna_0.5deg.sofa` dataset for binaural rendering.  
+   * Provides Atmos/IMAX‑style immersion on headphones.  
+   * Gain and normalization tuned for clarity without distortion.  
+
+2. **Cinema EQ Chain**  
+   * Bass reinforcement for sub‑rumble and fullness.  
+   * Midrange cleanup to reduce muddiness.  
+   * Treble sparkle and air for dialogue clarity and high‑frequency detail.  
+   * Subharmonic enhancement for added depth.  
+
+3. **Impulse Response Convolution (IR)**  
+   * Authentic theatre ambience via `theatre_ir_stereo_48k.wav`.  
+   * Dry/wet mix balanced for subtle spaciousness without overwhelming the direct signal.  
+   * Replaces synthetic echo with real hall reflections.  
+
+4. **Dynamics Control**  
+   * Loudness normalization for consistent playback.  
+   * Musical compression to smooth peaks while preserving dynamics.  
+   * Final limiter ensures safety against clipping.  
+
+### Mode Switching
+- **Default Mode** → Raw audio, no filters.  
+- **Headphone Atmos Mode** → SOFAlizer + EQ + IR for immersive binaural playback.  
+- **Stereo Cinema Mode** → EQ + IR convolution for theatre‑like sound on plain stereo speakers.  
+- Toggle with **F9** — OSD messages confirm active mode.
 
 ---
 
