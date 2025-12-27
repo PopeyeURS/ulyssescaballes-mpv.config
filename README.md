@@ -26,7 +26,7 @@ Featuring KEMAR SOFA‑driven binaural audio for true Atmos/IMAX headphone fidel
 - [Keyboard Function Shortcuts](#keyboard-function-shortcuts)  
 - [Script Suite](#script-suite)  
 - [Installation](#installation)  
-- [Common Toggles & Beginner Notes](#Common-Toggles-&-Beginner-Notes)  
+- [Common Toggles & Beginner Notes](#common-toggles--beginner-notes)  
 - [Optional Add-ons](#optional-add-ons)  
 - [Philosophy](#philosophy)  
 - [Repo Hygiene](#repo-hygiene)  
