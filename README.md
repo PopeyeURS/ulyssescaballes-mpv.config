@@ -138,6 +138,10 @@ While the shader chain delivers uncompromising visual fidelity, this configurati
 
 ---
 
+*Designed for headphone use — not for speakers.*  
+
+---
+
 ## Profiles
 This configuration includes multiple playback profiles tailored for different content types. Each profile adjusts shaders, scaling, tone mapping, and enhancement strength.
 
