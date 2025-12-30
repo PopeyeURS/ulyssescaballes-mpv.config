@@ -56,6 +56,11 @@ local function build_sofa()
            CONFIG.sofa_gain .. ":normalize=yes:interpolate=yes"
 end
 
+local function build_ir()
+    local path = expand("scripts/atmos3d/ir/theatre_ir_stereo_48k.wav")
+    return "afir=ir=\"" .. path .. "\":dry=0.85:wet=0.25"
+end
+
 local function clear_af()
     mp.set_property("af", "")
 end
@@ -109,8 +114,7 @@ local function apply_chain()
         "acompressor=threshold=-50dB:ratio=1.2:attack=5:release=50")
 
     -- Subtle ambience via IR convolution
-    mp.commandv("no-osd", "af", "add",
-        "afir=ir=scripts/atmos3d/ir/theatre_ir_stereo_48k.wav:dry=0.85:wet=0.25")
+mp.commandv("no-osd", "af", "add", build_ir())
 
     -- Safety limiter
     mp.commandv("no-osd", "af", "add",
@@ -129,11 +133,10 @@ local function remove_chain()
 end
 
 local function toggle()
-    local af = mp.get_property("af") or ""
-    if af == "" then
-        apply_chain()
-    else
+    if state.active then
         remove_chain()
+    else
+        apply_chain()
     end
 end
 
