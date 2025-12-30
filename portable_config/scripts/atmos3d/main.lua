@@ -3,6 +3,10 @@ SOFAlizer (KEMAR) for mpv - IMAX-theater-grade headphone virtualization
 Place this file in:
   Windows:  %AppData%\mpv\scripts\main.lua
   Linux/macOS:  ~/.config/mpv/scripts/main.lua
+
+NOTE: This audio setup is dedicated to headphone listening only.
+      It uses SOFAlizer HRTF virtualization and IR convolution to simulate IMAX-like surround.
+      For multi-speaker systems, native surround playback is recommended instead.
 ]]
 
 local CONFIG = {
@@ -98,7 +102,7 @@ local function apply_chain()
     mp.commandv("no-osd", "af", "add", "equalizer=f=12000:t='h':w=1.5:g=2.0")
 
     -- Subharmonic, light enhancement
-    mp.commandv("no-osd", "af", "add", "superequalizer=1b=1.15")
+    mp.commandv("no-osd", "af", "add", "superequalizer=22=1.10:25=1.15:30=1.10:31=1.15")
 
     -- Light, musical compression
     mp.commandv("no-osd", "af", "add",
