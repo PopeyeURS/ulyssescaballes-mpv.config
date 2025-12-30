@@ -270,7 +270,7 @@ Here are the most common ones you might want to adjust:
   - `border=no` removes the title bar for a cinema‑style presentation.
   - Set `border=yes` if you want standard window controls.
 
-These are not “bugs” or mistakes — they’re stylistic choices. Feel free to toggle them to match your workflow.
+These are stylistic defaults chosen for cinematic presentation. Feel free to adjust them to match your workflow.
 
 ---
 
