@@ -26,6 +26,7 @@ Featuring KEMAR SOFA‑driven binaural audio for true Atmos/IMAX headphone fidel
 - [Keyboard Function Shortcuts](#keyboard-function-shortcuts)  
 - [Script Suite](#script-suite)  
 - [Installation](#installation)  
+- [Usage Note](#usage-note)  
 - [Common Toggles & Beginner Notes](#common-toggles--beginner-notes)  
 - [Optional Add-ons](#optional-add-ons)  
 - [Philosophy](#philosophy)  
@@ -249,7 +250,15 @@ mpv/
 gpu-api=vulkan
 ```
 
+
 4. Launch MPV — the configuration activates automatically.
+
+---
+
+### Usage Note
+This audio pipeline is **dedicated to headphone listening only**.  
+It leverages SOFAlizer HRTF virtualization and impulse responses to simulate an IMAX‑like surround environment.  
+For multi‑speaker systems, native surround playback is recommended instead.4. Launch MPV — the configuration activates automatically.
 
 ---
 
