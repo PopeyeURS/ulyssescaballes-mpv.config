@@ -1,6 +1,7 @@
-# UlyssesCaballes’ MPV Configuration  
-**A hand‑crafted cinema engine forged for uncompromising realism, adaptive precision, and breathtaking immersion.  
-Featuring KEMAR SOFA‑driven binaural audio for true Atmos/IMAX headphone fidelity.**
+# Ulysses Caballes’ MPV Configuration  
+
+A hand‑crafted cinema engine built for uncompromising realism, adaptive precision, and immersive fidelity.  
+Featuring KEMAR SOFA‑driven binaural audio for true Atmos/IMAX headphone experience.  
 
 ![License](https://img.shields.io/badge/License-GPLv3-blue)  
 ![GPU](https://img.shields.io/badge/GPU-Vulkan%20Optimized-orange)  
