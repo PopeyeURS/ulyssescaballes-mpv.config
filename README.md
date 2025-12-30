@@ -258,7 +258,7 @@ gpu-api=vulkan
 ### Usage Note
 This audio pipeline is **dedicated to headphone listening only**.  
 It leverages SOFAlizer HRTF virtualization and impulse responses to simulate an IMAX‑like surround environment.  
-For multi‑speaker systems, native surround playback is recommended instead.4. Launch MPV — the configuration activates automatically.
+For multi‑speaker systems, native surround playback is recommended instead.  
 
 ---
 
