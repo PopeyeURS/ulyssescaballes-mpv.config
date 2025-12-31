@@ -1,7 +1,7 @@
 # Ulysses Caballes’ MPV Configuration  
 
 A hand‑crafted cinema engine built for uncompromising realism, adaptive precision, and immersive fidelity.  
-*Featuring KEMAR SOFA‑driven binaural audio for true Atmos/IMAX headphone experience.*  
+*Featuring KEMAR SOFA‑driven binaural audio for true Atmos/IMAX headphone immersion, with EQ and convolution enhancing clarity and depth on speakers as well.*  
 
 ## Core Components  
 
@@ -141,7 +141,7 @@ While the shader chain delivers uncompromising visual fidelity, this configurati
 
 ---
 
-*Designed for headphone use — not for speakers.*  
+*Optimized for headphone immersion, but equally enhances clarity and depth on speaker systems.*  
 
 ---
 
@@ -263,7 +263,7 @@ gpu-api=vulkan
 ---
 
 ### Usage Note
-This audio pipeline is **dedicated to headphone listening only**. It leverages SOFAlizer HRTF virtualization and impulse responses to simulate an IMAX‑like surround environment. For multi‑speaker systems, native surround playback is recommended instead.  
+This audio pipeline is engineered to deliver cinema‑grade fidelity across playback setups. With SOFAlizer HRTF virtualization and impulse responses, headphones achieve an IMAX‑like surround immersion that feels expansive and natural. On multi‑speaker systems, the same EQ and convolution chain enhances clarity, depth, and ambience, complementing native surround playback with theatre‑style realism. Whether on headphones or speakers, the pipeline ensures high‑quality audio that preserves detail, dynamics, and immersion.  
 
 ---
 
