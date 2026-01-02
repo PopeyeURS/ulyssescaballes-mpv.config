@@ -1,6 +1,6 @@
 -- main.lua
 -- Tailored IMAX-style immersive audio for mpv
--- Tuned for Sony WH-1000XM5 (headphones) and Realtek High Definition Audio (speakers)
+-- Tuned for Sony WH-1000XM6 (headphones) and Realtek High Definition Audio (speakers)
 -- Portable: place main.lua in mpv/scripts/ and optional assets in mpv/scripts/sofalizer/
 -- Keys: F9 toggle chain, F10 toggle dynamic, F11 toggle universal mode
 
