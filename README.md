@@ -262,7 +262,7 @@ gpu-api=vulkan
 ---
 
 ### Usage Note
-This audio pipeline delivers cinema‑grade, IMAX‑inspired immersion across headphones and multi‑speaker setups by combining SOFAlizer HRTF virtualization, impulse responses, and a tuned EQ/convolution chain. On headphones it creates a wide, natural surround image; on speakers it adds theatre‑style depth while preserving clarity and dynamics. Quick start: place [main.lua] in [mpv/scripts/] and optional [SOFA/IR] assets in [mpv/scripts/sofalizer/]; press [F9] to toggle the chain, [F10] to toggle dynamic processing, and [F11] to switch universal mode. Note: results vary by device—A/B with the script enabled to find the preferred wet/dry balance and watch for added latency on live monitoring. See Tuning below for EQ presets, ambience presets, and asset recommendations.  
+This audio pipeline delivers cinema‑grade, IMAX‑inspired immersion across headphones and multi‑speaker setups by combining SOFAlizer HRTF virtualization, impulse responses, and a tuned EQ/convolution chain. On headphones it creates a wide, natural surround image; on speakers it adds theatre‑style depth while preserving clarity and dynamics. Quick start: place [main.lua] in [mpv/scripts/] and optional [SOFA/IR] assets in [mpv/scripts/sofalizer/]; press [F9] to toggle the chain, [F10] to toggle dynamic processing, and [F11] to switch universal mode. Note: results vary by device—A/B with the script enabled to find the preferred wet/dry balance and watch for added latency on live monitoring. 
 
 ---
 
