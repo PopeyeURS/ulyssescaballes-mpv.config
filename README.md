@@ -1,7 +1,6 @@
 # Ulysses Caballes’ MPV Configuration  
 
-A hand‑crafted cinema engine built for uncompromising realism, adaptive precision, and immersive fidelity.  
-*Featuring KEMAR SOFA‑driven binaural audio for true Atmos/IMAX headphone immersion, with EQ and convolution enhancing clarity and depth on speakers as well.*  
+A hand‑crafted cinema engine delivering cinema‑grade, IMAX‑inspired immersion via SOFAlizer HRTF, impulse responses, and a tuned EQ/convolution chain. Works on headphones and multi‑speaker systems while preserving clarity, dynamics, and spatial detail.  
 
 ## Core Components  
 
@@ -263,7 +262,7 @@ gpu-api=vulkan
 ---
 
 ### Usage Note
-This audio pipeline is engineered to deliver cinema‑grade fidelity across playback setups. With SOFAlizer HRTF virtualization and impulse responses, headphones achieve an IMAX‑like surround immersion that feels expansive and natural. On multi‑speaker systems, the same EQ and convolution chain enhances clarity, depth, and ambience, complementing native surround playback with theatre‑style realism. Whether on headphones or speakers, the pipeline ensures high‑quality audio that preserves detail, dynamics, and immersion.  
+This audio pipeline delivers cinema‑grade, IMAX‑inspired immersion across headphones and multi‑speaker setups by combining SOFAlizer HRTF virtualization, impulse responses, and a tuned EQ/convolution chain. On headphones it creates a wide, natural surround image; on speakers it adds theatre‑style depth while preserving clarity and dynamics. Quick start: place [main.lua] in [mpv/scripts/] and optional SOFA/IR assets in [mpv/scripts/sofalizer/]; press F9 to toggle the chain, F10 to toggle dynamic processing, and F11 to switch universal mode. Note: results vary by device—A/B with the script enabled to find the preferred wet/dry balance and watch for added latency on live monitoring. See Tuning below for EQ presets, ambience presets, and asset recommendations.  
 
 ---
 
