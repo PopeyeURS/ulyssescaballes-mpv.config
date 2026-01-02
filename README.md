@@ -329,7 +329,7 @@ You can adopt the entire system or extract only the parts you love.
 ## Final Word  
 Playback perfection isn’t measured in numbers alone—it’s defined by how it feels. This hand‑crafted cinema engine reflects my journey toward that feeling. If it helps you step closer to your own, then it has fulfilled its purpose.  
 
-— **Ulysses RS Caballes [PopeyeURS]**  
+**Ulysses RS Caballes [PopeyeURS]**  
 *Crafting cinema in pixels, one shader at a time.*
 
 ---
