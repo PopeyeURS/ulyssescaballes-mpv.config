@@ -242,10 +242,14 @@ A set of Lua scripts enhances automation, stability, and playback intelligence.
 2. Place the folders into your MPV directory:
 
 ```
-mpv/
+%APPDATA%\mpv\
 ├── mpv.conf
 ├── input.conf
 ├── scripts/
+│   ├── sofalizer/
+│   │   └── main.lua
+│   ├── shader-recover.lua
+│   └── profile-auto.lua
 ├── shaders/
 └── script-opts/
 ```
