@@ -249,7 +249,8 @@ A set of Lua scripts enhances automation, stability, and playback intelligence.
 ├── input.conf
 ├── scripts/
 │   ├── sofalizer/
-│   │   └── main.lua
+│   ├── main_cinema.lua
+│   ├── main_headset.lua
 │   ├── shader-recover.lua
 │   └── profile-auto.lua
 ├── shaders/
