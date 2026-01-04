@@ -315,13 +315,17 @@ You can adopt the entire system or extract only the parts you love.
 
 ---
 
-## Repo Hygiene
-- No cache files  
-- No platform‑specific clutter  
-- Clean folder structure  
-- Human‑readable configs  
-- Commented shader chains  
-- Versioned updates with clear changelogs  
+### Repo Hygiene
+
+| Practice                  | Description                                                   |
+|---------------------------|---------------------------------------------------------------|
+| **No cache files**        | Repository excludes temporary or auto‑generated cache files.  |
+| **No platform clutter**   | Avoids OS‑specific junk (e.g., `.DS_Store`, `Thumbs.db`).     |
+| **Clean folder structure**| Organized directories for configs, shaders, and scripts.      |
+| **Human‑readable configs**| Config files are concise, documented, and easy to understand. |
+| **Commented shader chains**| Each GLSL filter is annotated for clarity and maintainability.|
+| **Versioned updates**     | Clear changelogs accompany every update for transparency.     |
+| **Commit intent**         | Every commit message documents purpose — no silent changes.   |
 
 ---
 
