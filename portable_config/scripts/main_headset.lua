@@ -1,15 +1,12 @@
--- main-headset.lua
--- Hybrid IMAX-style immersive audio script for mpv
--- Combines adaptive realism (SOFAlizer + IR convolution) with configurable presets and safe rollback
+-- main_headset.lua
+-- Hybrid IMAX-style immersive audio script for mpv (Headset)
+-- Combines SOFAlizer, EQ profiles, loudnorm, and rollback safety
 --
--- Keybindings (default):
---   F9  = Headset IMAX (HRTF + clarity EQ)
---   F10 = Speaker Cinema (IR + loudnorm + EQ)
---   F11 = Reset filters (clear chain)
---   F12 = Inspect current filter chain (OSD + log)
--- Optional:
---   Ctrl+F9  = Headset Gaming (HRTF + mild loudnorm + presence EQ)
---   Ctrl+F10 = Speaker Flat (no loudnorm, minimal EQ)
+-- Keybindings (default; set in input.conf):
+--   F9      = Headset IMAX (HRTF + clarity EQ)
+--   Ctrl+F9 = Headset Gaming (HRTF + mild loudnorm + presence EQ)
+--   F11     = Reset filters (clear chain)
+--   Shift+F11 = Inspect current filter chain (OSD + log)
 
 local mp = require 'mp'
 local options = require 'mp.options'
@@ -19,12 +16,9 @@ local options = require 'mp.options'
 ------------------------------------------------------------
 local cfg = {
     sofa_path = "sofalizer/hrtf_M_normal_pinna_resolution_0.5_deg.sofa",
-    ir_path   = "sofalizer/theatre_ir_stereo_48k.wav",
     sample_rate = 48000,
     headset_eq_profile = "imax",   -- imax | gaming
-    speaker_eq_profile = "cinema", -- cinema | flat
     loudnorm_headset = false,
-    loudnorm_speaker = true,
     loudnorm_I = -23,
     loudnorm_TP = -2,
     loudnorm_LRA = 7,
@@ -61,39 +55,25 @@ end
 ------------------------------------------------------------
 local function eq_headset_imax()
     return {
-        "equalizer=f=60:t=q:w=1:g=-3",
-        "equalizer=f=250:t=q:w=1:g=1",
-        "equalizer=f=4000:t=q:w=1:g=2",
-        "equalizer=f=8000:t=q:w=1:g=1",
+        "equalizer=f=60:t=q:w=1:g=-3",   -- tame excess bass
+        "equalizer=f=250:t=q:w=1:g=1",   -- warmth
+        "equalizer=f=4000:t=q:w=1:g=2",  -- presence
+        "equalizer=f=8000:t=q:w=1:g=1",  -- sparkle
     }
 end
 
 local function eq_headset_gaming()
     return {
-        "equalizer=f=80:t=q:w=1:g=2",
-        "equalizer=f=1000:t=q:w=1:g=1",
-        "equalizer=f=4000:t=q:w=1:g=1",
-        "equalizer=f=10000:t=q:w=0.8:g=1",
+        "equalizer=f=80:t=q:w=1:g=2",     -- bass punch
+        "equalizer=f=1000:t=q:w=1:g=1",   -- mid clarity
+        "equalizer=f=4000:t=q:w=1:g=1",   -- presence
+        "equalizer=f=10000:t=q:w=0.8:g=1",-- highs for detail
     }
-end
-
-local function eq_speaker_cinema()
-    return {
-        "equalizer=f=60:t=q:w=1:g=2",
-        "equalizer=f=250:t=q:w=1:g=1",
-        "equalizer=f=4000:t=q:w=1:g=1",
-        "equalizer=f=12000:t=q:w=0.7:g=-1",
-    }
-end
-
-local function eq_speaker_flat()
-    return { "equalizer=f=40:t=q:w=1:g=-1" }
 end
 
 ------------------------------------------------------------
 -- Chains
 ------------------------------------------------------------
--- Headset (IMAX/Gaming)
 local function build_headset_chain(profile)
     local filters = {}
     append(filters, string.format("aformat=sample_rates=%d:channel_layout=%s", cfg.sample_rate, cfg.channel_layout_headset))
@@ -103,21 +83,6 @@ local function build_headset_chain(profile)
     for _, band in ipairs(profile == "gaming" and eq_headset_gaming() or eq_headset_imax()) do append(filters, band) end
     if cfg.dynamic_enabled then append(filters, "dynaudnorm=f=100:g=14:p=0.95") end
     append(filters, "acompressor=threshold=-36dB:ratio=1.6:attack=0.8:release=50:makeup=1")
-    append(filters, "alimiter=level_in=1:level_out=0.985:limit=0.0625")
-    return join_filters(filters)
-end
-
--- Speakers (Cinema/Flat)
-local function build_speaker_chain(profile)
-    local filters = {}
-    append(filters, string.format("aformat=sample_rates=%d:channel_layout=%s", cfg.sample_rate, cfg.channel_layout_speakers))
-    append(filters, loudnorm(cfg.loudnorm_speaker))
-    if profile == "cinema" then
-        append(filters, string.format("afir=%s:dry=0.92:wet=0.12", cfg.ir_path))
-        for _, band in ipairs(eq_speaker_cinema()) do append(filters, band) end
-    else
-        for _, band in ipairs(eq_speaker_flat()) do append(filters, band) end
-    end
     append(filters, "alimiter=level_in=1:level_out=0.985:limit=0.0625")
     return join_filters(filters)
 end
@@ -135,16 +100,6 @@ local function headset_gaming()
     notify("🎮 Headset Gaming active")
 end
 
-local function speaker_cinema()
-    mp.commandv("af", "set", build_speaker_chain("cinema"))
-    notify("🎬 Cinema chain active")
-end
-
-local function speaker_flat()
-    mp.commandv("af", "set", build_speaker_chain("flat"))
-    notify("🔊 Speaker Flat chain active")
-end
-
 local function reset_filters()
     mp.commandv("af", "clr")
     notify("♻️ Filters cleared")
@@ -159,8 +114,6 @@ end
 ------------------------------------------------------------
 mp.register_script_message("headset_imax", headset_imax)
 mp.register_script_message("headset_gaming", headset_gaming)
-mp.register_script_message("speaker_cinema", speaker_cinema)
-mp.register_script_message("speaker_flat", speaker_flat)
 mp.register_script_message("reset_filters", reset_filters)
 mp.register_script_message("inspect_filters", inspect_filters)
 
