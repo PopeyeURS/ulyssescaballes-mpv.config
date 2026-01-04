@@ -262,7 +262,6 @@ A set of Lua scripts enhances automation, stability, and playback intelligence.
 gpu-api=vulkan
 ```
 
-
 4. Launch MPV — the configuration activates automatically.
 
 ---
@@ -286,14 +285,15 @@ Optimized for headphone immersion, but equally enhances clarity and depth on spe
 
 ---
 
-## Optional Add-ons
-These are not required but enhance the experience:
+### Optional Add-ons
 
-- **Anime4K** (for stylized upscaling)  
-- **FSRCNNX** (neural upscaling)  
-- **RAVU** (high‑precision scaling)  
-- **SVP / Motion Interpolation** (for sports content)  
-- **External LUTs** (for color grading)
+| Add-on              | Purpose/Benefit                          |
+|---------------------|------------------------------------------|
+| **Anime4K**         | Stylized upscaling for animation content |
+| **FSRCNNX**         | Neural network–based upscaling           |
+| **RAVU**            | High‑precision scaling                   |
+| **SVP / Motion Interpolation** | Smoother playback for sports and fast motion |
+| **External LUTs**   | Custom color grading for cinematic tone  |
 
 ---
 
