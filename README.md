@@ -133,10 +133,12 @@ While the shader chain delivers uncompromising visual fidelity, this configurati
    * Final limiter ensures safety against clipping.  
 
 ### Mode Switching
-- **Default Mode** → Raw audio, no filters.  
-- **Headphone Atmos Mode** → SOFAlizer + EQ + IR for immersive binaural playback.  
-- **Stereo Cinema Mode** → EQ + IR convolution for theatre‑like sound on plain stereo speakers.  
-- Toggle with **F9** — OSD messages confirm active mode.
+
+| Key | Mode              | Description                                      |
+|-----|-------------------|--------------------------------------------------|
+| F9  | Headphone Atmos   | SOFAlizer + EQ + IR for immersive binaural audio |
+| F10 | Dynamics Toggle   | Compression/limiter for consistent playback      |
+| F11 | Universal Mode    | Stereo Cinema EQ + IR for theatre‑like sound     |
 
 ---
 
@@ -266,28 +268,21 @@ gpu-api=vulkan
 ---
 
 ### Usage Note
-This audio pipeline delivers cinema‑grade, IMAX‑inspired immersion across headphones and multi‑speaker setups by combining SOFAlizer HRTF virtualization, impulse responses, and a tuned EQ/convolution chain. On headphones it creates a wide, natural surround image; on speakers it adds theatre‑style depth while preserving clarity and dynamics. Quick start: place [main.lua] in [mpv/scripts/] and optional [SOFA/IR] assets in [mpv/scripts/sofalizer/]; press [F9] to toggle the chain, [F10] to toggle dynamic processing, and [F11] to switch universal mode. Note: results vary by device—A/B with the script enabled to find the preferred wet/dry balance and watch for added latency on live monitoring. 
+Optimized for headphone immersion, but equally enhances clarity and depth on speaker systems. Quick start: place [main.lua] in [mpv/scripts/], optional SOFA/IR assets in [mpv/scripts/sofalizer/]; press F9 to toggle the chain, F10 for dynamics, F11 for universal mode.
 
 ---
 
-## Common Toggles & Beginner Notes
+### Common Toggles & Beginner Notes
 
-Some options in `mpv.conf` are set for convenience but may feel unusual if you’re new to mpv.  
-Here are the most common ones you might want to adjust:
-
-- **Idle Behavior**
-  - `idle=yes` → mpv stays open even with no file loaded. Useful for drag‑and‑drop of YouTube links or files.
-  - `idle=no` → mpv closes automatically after playback. Feels more like a traditional media player.
-
-- **On‑Screen Controller (OSC)**
-  - `osc=no` disables the default control bar for a cleaner look.
-  - Beginners may prefer `osc=yes` to keep the familiar UI.
-
-- **Window Border**
-  - `border=no` removes the title bar for a cinema‑style presentation.
-  - Set `border=yes` if you want standard window controls.
-
-These are stylistic defaults chosen for cinematic presentation. Feel free to adjust them to match your workflow.
+| Option                | Setting            | Effect                                                                 |
+|-----------------------|--------------------|------------------------------------------------------------------------|
+| **Idle Behavior**     | `idle=yes`         | MPV stays open even with no file loaded (useful for drag‑and‑drop).    |
+|                       | `idle=no`          | MPV closes automatically after playback (traditional media player feel).|
+| **On‑Screen Controller (OSC)** | `osc=no`  | Disables the control bar for a cleaner, cinema‑style look.             |
+|                       | `osc=yes`          | Enables the familiar UI with playback controls.                        |
+| **Window Border**     | `border=no`        | Removes title bar for a cinema‑style presentation.                     |
+|                       | `border=yes`       | Restores standard window controls.                                     |
+| **Volume Max**        | `volume-max=200`   | Allows boosting volume beyond 100% (use with care to avoid distortion).|
 
 ---
 
