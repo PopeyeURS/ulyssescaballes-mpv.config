@@ -541,9 +541,24 @@ local function add_audio(s)
     append(s, r["samplerate"], {prefix="Sample Rate:", suffix=" Hz"})
     append(s, r["channel-count"], {prefix="Channels:"})
     append_property(s, "packet-audio-bitrate", {prefix="Bitrate:", suffix=" kbps"})
-    append_filters(s, "af", "Filters:")
-end
 
+    -- Filters and metadata
+    append_filters(s, "af", "Filters:")
+    append_property(s, "af-metadata", {prefix="Filter metadata:"})
+
+    -- Output details
+    append_property(s, "ao", {prefix="Output:"})
+    append_property(s, "audio-device", {prefix="Device:"})
+    append_property(s, "audio-output-channels", {prefix="Output Channels:"})
+
+    -- Sync and correction
+    append_property(s, "audio-delay", {prefix="Delay:", suffix=" sec"})
+    append_property(s, "audio-speed-correction", {prefix="Speed Correction:"})
+
+    -- Volume state
+    append_property(s, "volume", {prefix="Volume:"})
+    append_property(s, "mute", {prefix="Mute:"})
+end
 
 -- Determine whether ASS formatting shall/can be used and set formatting sequences
 local function eval_ass_formatting()
