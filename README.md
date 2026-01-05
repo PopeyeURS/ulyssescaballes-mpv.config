@@ -238,6 +238,18 @@ A set of Lua scripts enhances automation, stability, and playback intelligence.
   Applies cinematic subtitle styling with outline, blur, and color control.
 
 ---
+## 📂 Datasets
+
+This configuration relies on external datasets for binaural rendering and theatre ambience.  
+Place all datasets in: %APPDATA%\mpv\script-opts\sofa\
+
+### Included in repo
+- `hrtf_M_normal_pinna_resolution_0.5_deg.sofa` — KEMAR HRTF dataset (open license)  
+- `theatre_ir_stereo_48k.wav` — Theatre impulse response  
+
+### External download required
+- `ClubFritz12.sofa` — BRIR dataset for immersive room realism  
+  → Download from the official SOFA conventions repository or ARI database, then copy into the `sofa/` folder.
 
 ## Installation
 1. Download or clone this repository.  
@@ -268,7 +280,12 @@ gpu-api=vulkan
 ---
 
 ### Usage Note
-Optimized for headphone immersion, but equally enhances clarity and depth on speaker systems. Quick start: place [main.lua] in [mpv/scripts/], optional SOFA/IR assets in [mpv/scripts/sofalizer/]; press F9 to toggle the chain, F10 for dynamics, F11 for universal mode.
+• 	F9 → Headset Atmos chain
+• 	F10 → Cinema chain
+• 	F11 → Reset filters
+• 	Shift+F11 → Inspect filters
+• 	Profiles (Anime, Realism, Sports, 8K) via CLI or F1–F4
+• 	Utility menus via O, Y, H, K, V, A, S, P
 
 ---
 
