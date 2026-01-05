@@ -244,13 +244,26 @@ A set of Lua scripts enhances automation, stability, and playback intelligence.
 This configuration relies on external datasets for binaural rendering and theatre ambience.  
 Place all datasets in: %APPDATA%\mpv\script-opts\sofa\
 
+
 ### Included in repo
-- `hrtf_M_normal_pinna_resolution_0.5_deg.sofa` — KEMAR HRTF dataset (open license)  
-- `theatre_ir_stereo_48k.wav` — Theatre impulse response  
+- `theatre_ir_stereo_48k.wav` — Theatre impulse response (open license)
 
 ### External download required
-- `ClubFritz12.sofa` — BRIR dataset for immersive room realism  
-  → Download from the official SOFA conventions repository or ARI database, then copy into the `sofa/` folder.
+- [`hrtf_M_normal_pinna_resolution_0.5_deg.sofa`](https://zenodo.org/records/3250072/hrtf_M_normal_pinna_resolution_0.5_deg.sofa)  
+  KEMAR HRTF dataset (open research license, safe to redistribute with attribution).  
+
+- [`ClubFritz12.sofa`](https://sofacoustics.org/data/database/clubfritz/ClubFritz12.sofa)  
+  BRIR dataset for immersive room realism (research use, download directly from SOFA Acoustics).
+
+---
+
+### Audio Chain Note
+- **Headset Atmos (F9)** uses both:  
+  - `hrtf_M_normal_pinna_resolution_0.5_deg.sofa`  
+  - `ClubFritz12.sofa`  
+
+- **Cinema Chain (F10)** uses:  
+  - `theatre_ir_stereo_48k.wav`
 
 ## Installation
 1. Download or clone this repository.  
