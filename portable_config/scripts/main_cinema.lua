@@ -1,11 +1,11 @@
 -- main_cinema.lua
--- Best-of-the-best speaker audio chain for mpv
+-- Cinema-grade speaker audio chain for mpv
 -- Reads parameters from script-opts/main_cinema.conf
 
 local mp = require 'mp'
 local options = require 'mp.options'
 
--- Default values (will be overridden by main_cinema.conf)
+-- Default values (overridden by main_cinema.conf)
 local o = {
     sofa_path = "sofa/hrtf_M_normal_pinna_resolution_0.5_deg.sofa",
     brir_path = "sofa/ClubFritz12.sofa",
@@ -13,12 +13,12 @@ local o = {
     sample_rate = 48000,
     channel_layout_speakers = "5.1",
     speaker_eq_profile = "cinema",
-    loudnorm_speaker = true,
+    loudnorm_speaker = "yes",   -- use yes/no instead of true/false
     loudnorm_I = -24,
     loudnorm_TP = -2,
     loudnorm_LRA = 8,
-    normalize_fir = true,
-    dynamic_enabled = true,
+    normalize_fir = "yes",      -- corrected boolean syntax
+    dynamic_enabled = "yes",    -- corrected boolean syntax
 }
 
 options.read_options(o, "main_cinema")
@@ -27,19 +27,24 @@ options.read_options(o, "main_cinema")
 -- Functions
 ------------------------------------------------------------
 local function speaker_best()
-    mp.commandv("af", "set",
-        string.format("lavfi=[aformat=sample_rates=%d:channel_layout=%s," ..
-        (o.loudnorm_speaker and
-            string.format("loudnorm=I=%d:TP=%f:LRA=%d,", o.loudnorm_I, o.loudnorm_TP, o.loudnorm_LRA)
-            or "") ..
-        "afir=%s:dry=0.92:wet=0.12," ..
+    local filters = string.format("aformat=sample_rates=%d:channel_layout=%s,", 
+        o.sample_rate, o.channel_layout_speakers)
+
+    if o.loudnorm_speaker == "yes" then
+        filters = filters .. string.format("loudnorm=I=%d:TP=%f:LRA=%d,", 
+            o.loudnorm_I, o.loudnorm_TP, o.loudnorm_LRA)
+    end
+
+    filters = filters ..
+        string.format("afir=%s:dry=0.92:wet=0.12,", o.ir_path) ..
         "equalizer=f=60:t=q:w=1:g=2," ..
         "equalizer=f=250:t=q:w=1:g=1," ..
         "equalizer=f=4000:t=q:w=1:g=1.5," ..
         "equalizer=f=8000:t=q:w=1:g=1," ..
         "equalizer=f=12000:t=q:w=0.7:g=-0.5," ..
-        "alimiter=level_in=1:level_out=0.985:limit=0.0625]",
-        o.sample_rate, o.channel_layout_speakers, o.ir_path))
+        "alimiter=level_in=1:level_out=0.985:limit=0.0625"
+
+    mp.commandv("af", "set", "lavfi=[" .. filters .. "]")
     mp.osd_message("🎬 Speaker Best chain active")
 end
 
