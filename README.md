@@ -240,8 +240,7 @@ A set of Lua scripts enhances automation, stability, and playback intelligence.
   Applies cinematic subtitle styling with outline, blur, and color control.
 
 ---
-## 📂 Datasets
-
+## Datasets
 This configuration relies on external datasets for binaural rendering and theatre ambience.  
 Place all datasets in: %APPDATA%\mpv\script-opts\sofa\
 
