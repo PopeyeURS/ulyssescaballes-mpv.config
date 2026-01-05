@@ -260,14 +260,28 @@ Place all datasets in: %APPDATA%\mpv\script-opts\sofa\
 %APPDATA%\mpv\
 ├── mpv.conf
 ├── input.conf
+├── profiles.conf
 ├── scripts/
 │   ├── sofalizer/
+│   │   └── main.lua
 │   ├── main_cinema.lua
 │   ├── main_headset.lua
 │   ├── shader-recover.lua
 │   └── profile-auto.lua
 ├── shaders/
+│   ├── FSRCNNX/
+│   ├── SSim/
+│   ├── Adaptive_sharpen/
+│   ├── Glimmer_sharpen/
+│   ├── Depth_reality_boost/
+│   └── FilmEmulation_Kodak/
 └── script-opts/
+    ├── main_cinema.conf
+    ├── main_headset.conf
+    └── sofa/
+        ├── hrtf_M_normal_pinna_resolution_0.5_deg.sofa
+        ├── theatre_ir_stereo_48k.wav
+        └── ClubFritz12.sofa   (external download required)
 ```
 
 3. Ensure your GPU is set to **Vulkan** mode:
