@@ -295,12 +295,13 @@ gpu-api=vulkan
 ---
 
 ### Usage Note
-• 	F9 → Headset Atmos chain
-• 	F10 → Cinema chain
-• 	F11 → Reset filters
-• 	Shift+F11 → Inspect filters
-• 	Profiles (Anime, Realism, Sports, 8K) via CLI or F1–F4
-• 	Utility menus via O, Y, H, K, V, A, S, P
+
+- **F9** → Headset Atmos chain  
+- **F10** → Cinema chain  
+- **F11** → Reset filters  
+- **Shift+F11** → Inspect filters  
+- **Profiles** (Anime, Realism, Sports, 8K) via CLI or **F1–F4**  
+- **Utility menus** via **O, Y, H, K, V, A, S, P**
 
 ---
 
