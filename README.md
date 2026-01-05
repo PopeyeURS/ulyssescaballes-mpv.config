@@ -249,10 +249,10 @@ Place all datasets in: %APPDATA%\mpv\script-opts\sofa\
 - `theatre_ir_stereo_48k.wav` — Theatre impulse response (open license)
 
 ### External download required
-- [`hrtf_M_normal_pinna_resolution_0.5_deg.sofa`](https://zenodo.org/records/3250072/hrtf_M_normal_pinna_resolution_0.5_deg.sofa)  
+- [`hrtf_M_normal_pinna_resolution_0.5_deg.sofa`](https://zenodo.org/records/3250072)  
   KEMAR HRTF dataset (open research license, safe to redistribute with attribution).  
 
-- [`ClubFritz12.sofa`](https://sofacoustics.org/data/database/clubfritz/ClubFritz12.sofa)  
+- [`ClubFritz12.sofa`](https://sofacoustics.org/data/database)  
   BRIR dataset for immersive room realism (research use, download directly from SOFA Acoustics).
 
 ---
