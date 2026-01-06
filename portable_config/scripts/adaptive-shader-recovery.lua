@@ -1,18 +1,20 @@
+-- adaptive-shader-recovery.lua
 -- Adaptive shader toggling based on dropped frames
+-- Corrected version: mirrors mpv.conf baseline stack, clears before reapply
+
 local drop_threshold = 10        -- disable shaders if dropped frames ≥ this
 local recovery_threshold = 2     -- re-enable shaders if dropped frames ≤ this
 local check_interval = 5         -- seconds between checks
 local shader_disabled = false
 
--- Define your default shader stack here
+-- Define your baseline shader stack (mirrors mpv.conf)
 local default_shaders = {
     "~~/shaders/FSRCNNX/FSRCNNX_x2_16-0-4-1_enhanced.glsl",
     "~~/shaders/SSim/SSimSuperRes.glsl",
-    "~~/shaders/SSim/SSimDownscaler.glsl",
-    "~~/shaders/depth_reality_boost.glsl",
-    "~~/shaders/glimmer-sharpen_0.35.glsl",
-    "~~/shaders/fine-sharpen_0.35.glsl",
-    "~~/shaders/film-grain.glsl:intensity=0.03"
+    "~~/shaders/Adaptive_sharpen/adaptive-sharpen-1.0.glsl",
+    "~~/shaders/Glimmer_sharpen/glimmer-sharpen_0.41.glsl",
+    "~~/shaders/Depth_reality_boost/depth_reality_boost.glsl",
+    "~~/shaders/FilmEmulation_Kodak/Kodak_2383_Procedural.glsl"
 }
 
 -- Helper to reapply shaders cleanly
