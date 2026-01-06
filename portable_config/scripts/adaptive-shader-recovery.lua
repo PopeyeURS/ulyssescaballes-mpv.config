@@ -4,6 +4,26 @@ local recovery_threshold = 2     -- re-enable shaders if dropped frames ≤ this
 local check_interval = 5         -- seconds between checks
 local shader_disabled = false
 
+-- Define your default shader stack here
+local default_shaders = {
+    "~~/shaders/FSRCNNX/FSRCNNX_x2_16-0-4-1_enhanced.glsl",
+    "~~/shaders/SSim/SSimSuperRes.glsl",
+    "~~/shaders/SSim/SSimDownscaler.glsl",
+    "~~/shaders/depth_reality_boost.glsl",
+    "~~/shaders/glimmer-sharpen_0.35.glsl",
+    "~~/shaders/fine-sharpen_0.35.glsl",
+    "~~/shaders/film-grain.glsl:intensity=0.03"
+}
+
+-- Helper to reapply shaders cleanly
+local function reapply_shaders()
+    mp.command("glsl-shader-clear")
+    for _, shader in ipairs(default_shaders) do
+        mp.commandv("glsl-shader-append", shader)
+    end
+end
+
+-- Performance check logic
 local function check_performance()
     local dropped = mp.get_property_number("vo-drop-frame-count", 0)
 
@@ -11,23 +31,16 @@ local function check_performance()
         mp.command("glsl-shader-clear")
         shader_disabled = true
         mp.osd_message("Shaders disabled: dropped frames exceeded", 3)
+
     elseif dropped <= recovery_threshold and shader_disabled then
-        -- Re-apply your default shader stack
-        mp.commandv("glsl-shader-append", "~~/shaders/FSRCNNX/FSRCNNX_x2_16-0-4-1_enhanced.glsl")
-        mp.commandv("glsl-shader-append", "~~/shaders/SSim/SSimSuperRes.glsl")
-        mp.commandv("glsl-shader-append", "~~/shaders/SSim/SSimDownscaler.glsl")
-        mp.commandv("glsl-shader-append", "~~/shaders/depth_reality_boost.glsl")
-        mp.commandv("glsl-shader-append", "~~/shaders/glimmer-sharpen_0.35.glsl")
-        mp.commandv("glsl-shader-append", "~~/shaders/fine-sharpen_0.35.glsl")
-        mp.commandv("glsl-shader-append", "~~/shaders/film-grain.glsl:intensity=0.03")
+        reapply_shaders()
         shader_disabled = false
         mp.osd_message("Shaders re-enabled: performance recovered", 3)
     end
 end
 
+-- Start periodic monitoring when a file is loaded
 mp.register_event("file-loaded", function()
     shader_disabled = false
-    mp.add_timeout(check_interval, function()
-        mp.add_periodic_timer(check_interval, check_performance)
-    end)
+    mp.add_periodic_timer(check_interval, check_performance)
 end)
