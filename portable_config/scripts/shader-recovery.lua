@@ -1,18 +1,21 @@
 -- shader-recovery.lua
 -- Modular shader stack recovery with conditional profiles
--- Corrected version: clears before reapply to avoid duplication
+-- Corrected version: mirrors mpv.conf baseline stack, clears before reapply
 
 local mp = require 'mp'
 
 -- Define named shader profiles
 local shader_profiles = {
-    ["default"] = {
-        "~~/shaders/KrigBilateral.glsl",
-        "~~/shaders/SSimSuperRes.glsl",
-        "~~/shaders/AdaptiveSharpen.glsl"
+    ["cinema_default"] = {
+        "~~/shaders/FSRCNNX/FSRCNNX_x2_16-0-4-1_enhanced.glsl",
+        "~~/shaders/SSim/SSimSuperRes.glsl",
+        "~~/shaders/Adaptive_sharpen/adaptive-sharpen-1.0.glsl",
+        "~~/shaders/Glimmer_sharpen/glimmer-sharpen_0.41.glsl",
+        "~~/shaders/Depth_reality_boost/depth_reality_boost.glsl",
+        "~~/shaders/FilmEmulation_Kodak/Kodak_2383_Procedural.glsl"
     },
     ["8k_performance"] = {
-        "~~/shaders/SSimSuperRes.glsl"
+        "~~/shaders/SSim/SSimSuperRes.glsl"
     },
     ["anime_soft"] = {
         "~~/shaders/Anime4K.glsl",
@@ -31,7 +34,7 @@ local function select_profile()
     elseif path:match("[Aa]nime") then
         return "anime_soft"
     else
-        return "default"
+        return "cinema_default"
     end
 end
 
