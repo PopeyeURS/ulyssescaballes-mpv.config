@@ -138,9 +138,9 @@ While the shader chain delivers uncompromising visual fidelity, this configurati
 
 | Key | Mode              | Description                                      |
 |-----|-------------------|--------------------------------------------------|
-| F9  | Headphone Atmos   | SOFAlizer + EQ + IR for immersive binaural audio |
-| F10 | Dynamics Toggle   | Compression/limiter for consistent playback      |
-| F11 | Universal Mode    | Stereo Cinema EQ + IR for theatre‑like sound     |
+| F9  | Headset Profile   | SOFAlizer + EQ + IR for immersive binaural audio |
+| F10 | Cinema Profile    | Compression/limiter for consistent playback      |
+| F11 | Reset Filters     | Clears all audio filters                         |
 
 ---
 
@@ -252,15 +252,11 @@ Place all datasets in: %APPDATA%\mpv\script-opts\sofa\
 - [`hrtf_M_normal_pinna_resolution_0.5_deg.sofa`](https://zenodo.org/records/3250072)  
   KEMAR HRTF dataset (open research license, safe to redistribute with attribution).  
 
-- [`ClubFritz12.sofa`](https://sofacoustics.org/data/database/clubfritz)  
-  BRIR dataset for immersive room realism (research use, download directly from SOFA Acoustics).
-
 ---
 
 ### Audio Chain Note
 - **Headset Atmos (F9)** uses both:  
   - `hrtf_M_normal_pinna_resolution_0.5_deg.sofa`  
-  - `ClubFritz12.sofa`  
 
 - **Cinema Chain (F10)** uses:  
   - `theatre_ir_stereo_48k.wav`
@@ -270,6 +266,7 @@ Place all datasets in: %APPDATA%\mpv\script-opts\sofa\
 2. Place the folders into your MPV directory:
 
 ```
+%APPDATA%\mpv\
 %APPDATA%\mpv\
 ├── mpv.conf
 ├── input.conf
@@ -293,8 +290,7 @@ Place all datasets in: %APPDATA%\mpv\script-opts\sofa\
     ├── main_headset.conf
     └── sofa/
         ├── hrtf_M_normal_pinna_resolution_0.5_deg.sofa
-        ├── theatre_ir_stereo_48k.wav
-        └── ClubFritz12.sofa   (external download required)
+        └── theatre_ir_stereo_48k.wav
 ```
 
 3. Ensure your GPU is set to **Vulkan** mode:
