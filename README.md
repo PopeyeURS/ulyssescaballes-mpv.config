@@ -274,9 +274,7 @@ Place all datasets in: %APPDATA%\mpv\script-opts\sofa\
 ├── scripts/
 │   ├── sofalizer/
 │   │   └── main.lua
-│   ├── main_cinema.lua
-│   ├── main_headset.lua
-│   ├── shader-recover.lua
+│   │── shader-recover.lua
 │   └── profile-auto.lua
 ├── shaders/
 │   ├── FSRCNNX/
