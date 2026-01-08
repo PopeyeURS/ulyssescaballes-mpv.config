@@ -124,24 +124,19 @@ While the shader chain delivers uncompromising visual fidelity, this configurati
    * Treble sparkle and air for dialogue clarity and high‑frequency detail.  
    * Subharmonic enhancement for added depth.  
 
-3. **Impulse Response Convolution (IR)**  
-   * Authentic theatre ambience via `theatre_ir_stereo_48k.wav`.  
-   * Dry/wet mix balanced for subtle spaciousness without overwhelming the direct signal.  
-   * Replaces synthetic echo with real hall reflections.  
-
-4. **Dynamics Control**  
+3. **Dynamics Control**  
    * Loudness normalization for consistent playback.  
    * Musical compression to smooth peaks while preserving dynamics.  
    * Final limiter ensures safety against clipping.  
 
 ### Mode Switching
 
-| Key | Mode              | Description                                      |
-|-----|-------------------|--------------------------------------------------|
-| F9  | Headset Profile   | SOFAlizer + EQ + IR for immersive binaural audio |
-| F10 | Cinema Profile    | Compression/limiter for consistent playback      |
-| F11 | Reset Filters     | Clears all audio filters                         |
-
+| Key  | Mode             | Description                                                   |
+|------|------------------|---------------------------------------------------------------|
+| F9   | Headset Profile  | SOFAlizer + EQ + IR for immersive binaural audio              |
+| F10  | Cinema Profile   | Compression/limiter for consistent playback                   |
+| F11  | Reset Filters    | Clears all audio filters                                      |
+| F12  | Music Mode       | Balanced EQ + stereo field: instrument, vocals, and live feel |
 ---
 
 *Optimized for headphone immersion, but equally enhances clarity and depth on speaker systems.*  
@@ -244,10 +239,6 @@ A set of Lua scripts enhances automation, stability, and playback intelligence.
 This configuration relies on external datasets for binaural rendering and theatre ambience.  
 Place all datasets in: %APPDATA%\mpv\script-opts\sofa\
 
-
-### Included in repo
-- `theatre_ir_stereo_48k.wav` — Theatre impulse response (open license)
-
 ### External download required
 - [`hrtf_M_normal_pinna_resolution_0.5_deg.sofa`](https://zenodo.org/records/3250072)  
   KEMAR HRTF dataset (open research license, safe to redistribute with attribution).  
@@ -255,11 +246,8 @@ Place all datasets in: %APPDATA%\mpv\script-opts\sofa\
 ---
 
 ### Audio Chain Note
-- **Headset Atmos (F9)** uses both:  
+- **Headset Atmos (F9) & Cinema Chain (F10)** uses:  
   - `hrtf_M_normal_pinna_resolution_0.5_deg.sofa`  
-
-- **Cinema Chain (F10)** uses:  
-  - `theatre_ir_stereo_48k.wav`
 
 ## Installation
 1. Download or clone this repository.  
@@ -287,8 +275,7 @@ Place all datasets in: %APPDATA%\mpv\script-opts\sofa\
     ├── main_cinema.conf
     ├── main_headset.conf
     └── sofa/
-        ├── hrtf_M_normal_pinna_resolution_0.5_deg.sofa
-        └── theatre_ir_stereo_48k.wav
+        └── hrtf_M_normal_pinna_resolution_0.5_deg.sofa
 ```
 
 3. Ensure your GPU is set to **Vulkan** mode:
