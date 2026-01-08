@@ -3,7 +3,7 @@ local mp = require "mp"
 -- Path to SOFA file (escape colon for lavfi)
 local SOFA_PATH = "C\\:/Users/ulyss/AppData/Roaming/mpv/portable_config/scripts/sofalizer/hrtf_M_normal_pinna_resolution_0.5_deg.sofa"
 
--- Enhanced Headset profile (immersive bubble, refined clarity)
+-- Enhanced Headset profile
 local function set_headset_audio()
     mp.commandv("af", "set",
         "lavfi=[aid]sofalizer=sofa='" .. SOFA_PATH .. "':gain=1.0:type=hrtf," ..
@@ -23,7 +23,7 @@ local function set_headset_audio()
     mp.add_timeout(3, function() mp.osd_message("") end)
 end
 
--- Enhanced Cinema profile (SOFA-based, tuned for speakers)
+-- Enhanced Cinema profile
 local function set_cinema_audio()
     mp.commandv("af", "set",
         "lavfi=[aid]sofalizer=sofa='" .. SOFA_PATH .. "':gain=1.0:type=hrtf," ..
@@ -43,6 +43,28 @@ local function set_cinema_audio()
     mp.add_timeout(3, function() mp.osd_message("") end)
 end
 
+-- Music mode profile (Plus: enhanced clarity, separation, and wider stage)
+local function set_music_audio_plus()
+    mp.commandv("af", "set",
+        "lavfi=[aid]sofalizer=sofa='" .. SOFA_PATH .. "':gain=1.0:type=hrtf," ..
+        "loudnorm=I=-23:TP=-2:LRA=8," ..
+        "acompressor=threshold=-20dB:ratio=2.2:attack=8:release=90," ..
+        "equalizer=f=50:t=q:w=1.2:g=2," ..       -- bass foundation
+        "equalizer=f=250:t=q:w=1:g=-1.5," ..    -- reduce muddiness
+        "equalizer=f=1000:t=q:w=0.8:g=2," ..    -- vocal clarity (narrower Q for precision)
+        "equalizer=f=3000:t=q:w=0.8:g=2.5," ..  -- instrument separation
+        "equalizer=f=5000:t=q:w=0.8:g=2.5," ..  -- presence boost (cymbals, snare, brass)
+        "equalizer=f=8000:t=q:w=0.7:g=1.5," ..  -- upper presence (guitar strings, piano harmonics)
+        "equalizer=f=12000:t=q:w=0.7:g=2," ..   -- treble shimmer
+        "equalizer=f=16000:t=q:w=0.7:g=1.5," .. -- air & sparkle
+        "stereotools=mlev=1.08:slev=1.08:phase=1:width=1.35," .. -- wider stereo field
+        "alimiter=level_in=1:level_out=0.985:limit=0.0625," ..
+        "aresample=48000]"
+    )
+    mp.osd_message("🎵 Music Mode Plus", 4000)
+    mp.add_timeout(4, function() mp.osd_message("") end)
+end
+
 -- Clear filters
 local function clear_filters()
     mp.commandv("af", "clr")
@@ -50,7 +72,7 @@ local function clear_filters()
     mp.add_timeout(3, function() mp.osd_message("") end)
 end
 
--- Inspector: show current filter chain
+-- Inspector
 local function show_filters()
     local filters = mp.get_property("af")
     if filters == "" then
@@ -63,12 +85,8 @@ local function show_filters()
 end
 
 -- Bindings
-mp.add_key_binding(nil, "headset_best", set_headset_audio)
-mp.add_key_binding(nil, "cinema_best", set_cinema_audio)
-mp.add_key_binding(nil, "reset_filters", clear_filters)
-mp.add_key_binding(nil, "show_filters", show_filters)
-
 mp.add_forced_key_binding("F9", "headset_best_key", set_headset_audio)
 mp.add_forced_key_binding("F10", "cinema_best_key", set_cinema_audio)
+mp.add_forced_key_binding("F12", "music_best_key", set_music_audio)
 mp.add_forced_key_binding("F11", "reset_filters_key", clear_filters)
 mp.add_forced_key_binding("Shift+F11", "show_filters_key", show_filters)
