@@ -237,7 +237,7 @@ A set of Lua scripts enhances automation, stability, and playback intelligence.
 ---
 ## Datasets
 This configuration relies on external datasets for binaural rendering and theatre ambience.  
-Place all datasets in: %APPDATA%\mpv\script-opts\sofa\
+Place all datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
 
 ### External download required
 - [`hrtf_M_normal_pinna_resolution_0.5_deg.sofa`](https://zenodo.org/records/3250072)  
