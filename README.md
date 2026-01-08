@@ -115,19 +115,19 @@ While the shader chain delivers uncompromising visual fidelity, this configurati
 ### Pipeline Overview
 1. **SOFAlizer (HRTF Virtualization)**  
    * Uses the `hrtf_M_normal_pinna_0.5deg.sofa` dataset for binaural rendering.  
-   * Provides Atmos/IMAX‑style immersion on headphones.  
-   * Gain and normalization tuned for clarity without distortion.  
+   * Provides Atmos/IMAX‑style immersion on headphones for both film and music.  
+   * Gain and normalization tuned for clarity without distortion, ensuring musical detail remains intact.  
 
-2. **Cinema EQ Chain**  
-   * Bass reinforcement for sub‑rumble and fullness.  
-   * Midrange cleanup to reduce muddiness.  
-   * Treble sparkle and air for dialogue clarity and high‑frequency detail.  
-   * Subharmonic enhancement for added depth.  
+2. **Cinema & Music EQ Chain**  
+   * Bass reinforcement for sub‑rumble and fullness in cinematic effects and musical low‑end.  
+   * Midrange cleanup to reduce muddiness, enhancing dialogue and instrumental separation.  
+   * Treble sparkle and air for dialogue clarity and high‑frequency detail in vocals and instruments.  
+   * Subharmonic enhancement for added depth, enriching both soundtracks and music playback.  
 
 3. **Dynamics Control**  
-   * Loudness normalization for consistent playback.  
-   * Musical compression to smooth peaks while preserving dynamics.  
-   * Final limiter ensures safety against clipping.  
+   * Loudness normalization for consistent playback across movies and music tracks.  
+   * Musical compression to smooth peaks while preserving expressive dynamics.  
+   * Final limiter ensures safety against clipping, keeping both cinematic and musical experiences distortion‑free.
 
 ### Mode Switching
 
