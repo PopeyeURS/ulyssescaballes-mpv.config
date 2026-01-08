@@ -133,7 +133,7 @@ While the shader chain delivers uncompromising visual fidelity, this configurati
 
 | Key  | Mode             | Description                                                   |
 |------|------------------|---------------------------------------------------------------|
-| F9   | Headset Profile  | SOFAlizer + EQ + IR for immersive binaural audio              |
+| F9   | Headset Profile  | SOFAlizer + EQ for immersive binaural audio              |
 | F10  | Cinema Profile   | Compression/limiter for consistent playback                   |
 | F11  | Reset Filters    | Clears all audio filters                                      |
 | F12  | Music Mode       | Balanced EQ + stereo field: instrument, vocals, and live feel |
