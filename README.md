@@ -254,28 +254,23 @@ Place all datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
 2. Place the folders into your MPV directory:
 
 ```
-%APPDATA%\mpv\
-%APPDATA%\mpv\
+%APPDATA%\Roaming\mpv\
 ├── mpv.conf
 ├── input.conf
 ├── profiles.conf
 ├── scripts/
 │   ├── sofalizer/
-│   │   └── main.lua
+│   |   └── main.lua
+|   |   └── hrtf_M_normal_pinna_resolution_0.5_deg.sofa
 │   │── shader-recover.lua
 │   └── profile-auto.lua
-├── shaders/
-│   ├── FSRCNNX/
-│   ├── SSim/
-│   ├── Adaptive_sharpen/
-│   ├── Glimmer_sharpen/
-│   ├── Depth_reality_boost/
-│   └── FilmEmulation_Kodak/
-└── script-opts/
-    ├── main_cinema.conf
-    ├── main_headset.conf
-    └── sofa/
-        └── hrtf_M_normal_pinna_resolution_0.5_deg.sofa
+└── shaders/
+    ├── FSRCNNX/
+    ├── SSim/
+    ├── Adaptive_sharpen/
+    ├── Glimmer_sharpen/
+    ├── Depth_reality_boost/
+    └── FilmEmulation_Kodak/
 ```
 
 3. Ensure your GPU is set to **Vulkan** mode:
