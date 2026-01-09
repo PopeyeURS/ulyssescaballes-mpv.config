@@ -255,11 +255,11 @@ Place all datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
 
 ```
 %APPDATA%\Roaming\mpv\
-├──────mpv.conf
-├──────input.conf
-├──────profiles.conf
-└────portable_config
-  |  ├── scripts/
+├──portable_config
+  ├────mpv.conf
+  ├────input.conf
+  ├────profiles.conf
+  ├── scripts/
   |  ├── sofalizer/
   |  └── main.lua
   |  |  └── hrtf_M_normal_pinna_resolution_0.5_deg.sofa
