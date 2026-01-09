@@ -44,7 +44,7 @@ local function set_cinema_audio()
 end
 
 -- Music mode profile (Plus: enhanced clarity, separation, and wider stage)
-local function set_music_audio_plus()
+local function set_music_audio()
     mp.commandv("af", "set",
         "lavfi=[aid]sofalizer=sofa='" .. SOFA_PATH .. "':gain=1.0:type=hrtf," ..
         "loudnorm=I=-23:TP=-2:LRA=8," ..
