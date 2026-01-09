@@ -255,16 +255,17 @@ Place all datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
 
 ```
 %APPDATA%\Roaming\mpv\
-├── mpv.conf
-├── input.conf
-├── profiles.conf
-├── scripts/
-│   ├── sofalizer/
-│   |   └── main.lua
-|   |   └── hrtf_M_normal_pinna_resolution_0.5_deg.sofa
-│   │── shader-recover.lua
-│   └── profile-auto.lua
-└── shaders/
+├──────mpv.conf
+├──────input.conf
+├──────profiles.conf
+└────portable_config
+  |  ├── scripts/
+  |  ├── sofalizer/
+  |  └── main.lua
+  |  |  └── hrtf_M_normal_pinna_resolution_0.5_deg.sofa
+  |  │── shader-recover.lua
+  |  └── profile-auto.lua
+  └── shaders/
     ├── FSRCNNX/
     ├── SSim/
     ├── Adaptive_sharpen/
