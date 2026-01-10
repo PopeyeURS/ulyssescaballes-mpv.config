@@ -251,7 +251,7 @@ Place all datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
 
 ## Installation
 1. Download or clone this repository.  
-2. Place the folders into your MPV directory:
+2. Place the folders into your MPV directory: eg. "C:/Users/<user_name>/AppData/Roaming/mpv/portable_config/scripts/sofalizer/Kemar_HRTF_sofa.sofa"
 
 ```
 %APPDATA%\mpv\portable_config\
