@@ -1,7 +1,7 @@
 local mp = require "mp"
 
 -- Path to SOFA file (escape colon for lavfi)
-local SOFA_PATH = "C\\:/Users/ulyss/AppData/Roaming/mpv/portable_config/scripts/sofalizer/hrtf_M_normal_pinna_resolution_0.5_deg.sofa"
+local SOFA_PATH = "C\\:/Users/user/AppData/Roaming/mpv/portable_config/scripts/sofalizer/Kemar_HRTF_sofa.sofa"
 
 -- Enhanced Headset profile
 local function set_headset_audio()
