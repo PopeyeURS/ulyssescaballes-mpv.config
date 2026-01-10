@@ -114,7 +114,7 @@ While the shader chain delivers uncompromising visual fidelity, this configurati
 
 ### Pipeline Overview
 1. **SOFAlizer (HRTF Virtualization)**  
-   * Uses the `hrtf_M_normal_pinna_0.5deg.sofa` dataset for binaural rendering.  
+   * Uses the `Kemar_HRTF_sofa.sofa` dataset for binaural rendering.  
    * Provides Atmos/IMAX‑style immersion on headphones for both film and music.  
    * Gain and normalization tuned for clarity without distortion, ensuring musical detail remains intact.  
 
@@ -240,14 +240,14 @@ This configuration relies on external datasets for binaural rendering and theatr
 Place all datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
 
 ### External download required
-- [`hrtf_M_normal_pinna_resolution_0.5_deg.sofa`](https://zenodo.org/records/3250072)  
+- [`Kemar_HRTF_sofa.sofa`](https://sofacoustics.org/data/database/aachen%20%28high-resolution%20kemar%29/Kemar_HRTF_sofa.sofa)  
   KEMAR HRTF dataset (open research license, safe to redistribute with attribution).  
 
 ---
 
 ### Audio Chain Note
 - **Headset Atmos (F9) & Cinema Chain (F10)** uses:  
-  - `hrtf_M_normal_pinna_resolution_0.5_deg.sofa`  
+  - `Kemar_HRTF_sofa.sofa`  
 
 ## Installation
 1. Download or clone this repository.  
@@ -262,7 +262,7 @@ Place all datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
 ├── script-opts\
 ├── scripts\
 │   └── sofalizer\
-│       └── hrtf_M_normal_pinna_resolution_0.5_deg.sofa
+│       └── Kemar_HRTF_sofa.sofa
 │           └── main.lua
 └── shaders\
     ├── FSRCNNX\
