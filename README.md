@@ -251,8 +251,7 @@ Place all datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
 
 ## Installation
 1. Download or clone this repository.  
-2. Place the folders into your MPV directory: eg. "C:/Users/<user_name>/AppData/Roaming/mpv/portable_config/scripts/sofalizer/Kemar_HRTF_sofa.sofa"
-
+2. Place the folders into your MPV directory: eg. "C:/Users/<user_name>/AppData/Roaming/mpv/portable_config/scripts/sofalizer/Kemar_HRTF_sofa.sofa"  
 ```
 %APPDATA%\mpv\portable_config\
 │
@@ -285,10 +284,10 @@ gpu-api=vulkan
 
 ### Usage Note
 
-- **F9** → Headset Atmos chain  
-- **F10** → Cinema chain  
+- **F9** → Enhanced Headset  
+- **F10** → Enhanced Cinema  
 - **F11** → Reset filters  
-- **Shift+F11** → Inspect filters  
+- **F12** → Nusic Mode Plus  
 - **Profiles** (Anime, Realism, Sports, 8K) via CLI or **F1–F4**  
 - **Utility menus** via **O, Y, H, K, V, A, S, P**
 
