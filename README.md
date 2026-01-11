@@ -287,7 +287,7 @@ gpu-api=vulkan
 - **F9** → Enhanced Headset  
 - **F10** → Enhanced Cinema  
 - **F11** → Reset filters  
-- **F12** → Nusic Mode Plus  
+- **F12** → Music Mode Plus  
 - **Profiles** (Anime, Realism, Sports, 8K) via CLI or **F1–F4**  
 - **Utility menus** via **O, Y, H, K, V, A, S, P**
 
