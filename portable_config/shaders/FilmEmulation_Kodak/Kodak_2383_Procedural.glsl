@@ -8,7 +8,7 @@
  //!PARAM shadow_softness:float=0.50       // gentle shadow compression
  //!PARAM highlight_rolloff:float=0.40     // highlight shoulder strength
  //!PARAM saturation:float=1.00            // global saturation
- //!PARAM print_tint:vec3=1.00,0.98,0.95   // subtle print stock tint (R,G,B)
+ //!PARAM print_tint:vec3=(1.00,0.98,0.95) // subtle print stock tint (R,G,B)
 
 // Utility
 vec3 to_luma_coeffs() { return vec3(0.2126, 0.7152, 0.0722); }
@@ -26,12 +26,9 @@ vec3 kodak_tone(vec3 c, float gamma_lift, float lut_strength) {
     c = pow(max(c, vec3(0.0)), vec3(1.0 / max(gamma_lift, 1e-6)));
 
     // Procedural film response:
-    // - Toe via exponential lift
-    // - Mid contrast via S-curve
-    // - Shoulder via soft compression
-    vec3 toe      = vec3(1.0) - exp(-c * 1.35);          // lifts shadows smoothly
-    vec3 mid      = c / (c + vec3(0.35));                // gentle S-curve
-    vec3 shoulder = pow(c, vec3(0.85));                  // soft highlight shoulder
+    vec3 toe      = vec3(1.0) - exp(-c * 1.35);   // lifts shadows smoothly
+    vec3 mid      = c / (c + vec3(0.35));         // gentle S-curve
+    vec3 shoulder = pow(c, vec3(0.85));           // soft highlight shoulder
 
     // Blend components to emulate print density behavior
     vec3 film = mix(c, toe,      0.40);
@@ -47,16 +44,16 @@ vec3 kodak_tone(vec3 c, float gamma_lift, float lut_strength) {
 // Shadow softening—compresses deep tones without crushing
 vec3 soften_shadows(vec3 c, float shadow_softness) {
     float Y = luma(c);
-    float mask = smoothstep(0.00, 0.30, Y);               // only affects low luma
-    vec3  soft = c * 0.85;                                // mild compression
+    float mask = smoothstep(0.00, 0.30, Y);   // only affects low luma
+    vec3  soft = c * 0.85;                    // mild compression
     return mix(c, soft, mask * clamp(shadow_softness, 0.0, 1.0));
 }
 
 // Highlight rolloff—adds shoulder without flattening mids
 vec3 rolloff_highlights(vec3 c, float highlight_rolloff) {
     float peak = max(c.r, max(c.g, c.b));
-    float mask = smoothstep(0.70, 1.00, peak);            // only affects high luma
-    vec3  roll = pow(c, vec3(0.90));                      // gentle shoulder
+    float mask = smoothstep(0.70, 1.00, peak); // only affects high luma
+    vec3  roll = pow(c, vec3(0.90));           // gentle shoulder
     return mix(c, roll, mask * clamp(highlight_rolloff, 0.0, 1.0));
 }
 
