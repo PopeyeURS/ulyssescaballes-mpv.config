@@ -24,7 +24,6 @@ A hand‑crafted cinema engine delivering IMAX‑inspired immersion with SOFAliz
 - [Shader Pipeline](#shader-pipeline)  
 - [Audio Pipeline](#audio-pipeline)  
 - [Profiles](#profiles)  
-- [Profile Switching](#profile-switching)  
 - [Keyboard Function Shortcuts](#keyboard-function-shortcuts)  
 - [Menu & Utility Shortcuts](#menu--utility-shortcuts)  
 - [Script Suite](#script-suite)  
@@ -133,10 +132,10 @@ While the shader chain delivers uncompromising visual fidelity, this configurati
 
 | Key  | Mode             | Description                                                   |
 |------|------------------|---------------------------------------------------------------|
-| F9   | Headset Profile  | SOFAlizer + EQ for immersive binaural audio              |
+| F9   | Headset Profile  | SOFAlizer + EQ for immersive binaural audio                   |
 | F10  | Cinema Profile   | Compression/limiter for consistent playback                   |
-| F11  | Reset Filters    | Clears all audio filters                                      |
-| F12  | Music Mode       | Balanced EQ + stereo field: instrument, vocals, and live feel |
+| F11  | Music Mode       | Balanced EQ + stereo field: instrument, vocals, and live feel |
+| F12  | Reset Filters    | Clears all audio filters                                      |
 ---
 
 *Optimized for headphone immersion, but equally enhances clarity and depth on speaker systems.*  
@@ -169,26 +168,6 @@ This configuration includes multiple playback profiles tailored for different co
 - Minimal grain  
 - Precision tone mapping  
 - GPU‑efficient scaling  
-
----
-
-## Profile Switching
-
-### Method 1 — Command Line
-```
-mpv --profile=anime video.mkv
-mpv --profile=realism video.mkv
-mpv --profile=sports video.mkv
-mpv --profile=8k video.mkv
-```
-
-### Method 2 — Keyboard Shortcuts (Optional)
-If you enable the included keybinds:
-
-- **F1** → Anime  
-- **F2** → Realism  
-- **F3** → Sports  
-- **F4** → 8K  
 
 ---
 
