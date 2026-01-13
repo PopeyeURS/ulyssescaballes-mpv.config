@@ -5,14 +5,14 @@
 //!HEIGHT HOOKED.height
 
 // Ultra refinement tuning
-const float base_strength    = 0.94;   // balanced micro-contrast
-const float radius           = 0.80;   // tight blur radius
+const float base_strength    = 0.96;   // balanced micro-contrast
+const float radius           = 0.75;   // tight blur radius
 const float warmth           = 0.12;
-const float glow_intensity   = 0.10;
-const float chroma_offset    = 0.35;
+const float glow_intensity   = 0.09;
+const float chroma_offset    = 0.30;
 const float grain_strength   = 0.0;    // pure clarity
-const float vignette_strength= 0.28;
-const float sharpen_mix      = 0.175;  // micro-boosted sharpen blend
+const float vignette_strength= 0.24;
+const float sharpen_mix      = 0.19;  // micro-boosted sharpen blend
 
 // Filmic tone curve
 vec3 filmic_hdr_tonecurve(vec3 x) {
