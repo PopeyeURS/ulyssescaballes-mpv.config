@@ -6,17 +6,17 @@
 //!DESC adaptive-sharpen-1.0.glsl — best tuned version
 
 //--------------------------------------- Settings ------------------------------------------------
-#define curve_height    0.95   // main sharpening strength (sweet spot: 0.9–1.2)
+#define curve_height    1.05   // main sharpening strength (sweet spot: 0.9–1.2)
 #define overshoot_ctrl  true   // allow stronger sharpening on consistent edges
 
 // Optimal constants (do not change unless re-engineering)
 #define curveslope      0.5
-#define L_compr_low     0.167
+#define L_compr_low     0.14
 #define L_compr_high    0.334
-#define D_compr_low     0.250
+#define D_compr_low     0.22
 #define D_compr_high    0.500
-#define scale_lim       0.10
-#define scale_cs        0.056
+#define scale_lim       0.08
+#define scale_cs        0.07
 #define pm_p            1.0
 //-------------------------------------------------------------------------------------------------
 
