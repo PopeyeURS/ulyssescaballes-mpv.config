@@ -1,14 +1,16 @@
 //!HOOK OUTPUT
 //!BIND HOOKED
-//!DESC Kodak 2383 Film Curve (simple)
+//!DESC Kodak 2383 Film Curve (brighter, sharp, glittery)
 
-// Simple Kodak-style curve: light warmth + contrast
+// Adjusted Kodak-style curve: brighter + sparkle-friendly
 vec3 kodak_curve(vec3 c) {
-    // Gentle shadow lift
-    c = pow(c, vec3(0.96));
-    // Mild contrast
+    // Slightly stronger shadow lift for brightness
+    c = pow(c, vec3(0.94));
+    // Mild contrast preserved
     c = mix(c, c * 1.04, 0.5);
-    // Subtle warmth
+    // Global brightness boost
+    c *= 1.02;
+    // Subtle warmth balance
     c.r *= 1.02;
     c.g *= 0.99;
     c.b *= 0.98;
