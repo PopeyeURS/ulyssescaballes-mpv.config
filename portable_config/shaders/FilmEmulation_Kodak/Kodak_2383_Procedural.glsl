@@ -5,15 +5,15 @@
 // Adjusted Kodak-style curve: brighter + sparkle-friendly
 vec3 kodak_curve(vec3 c) {
     // Slightly stronger shadow lift for brightness
-    c = pow(c, vec3(0.94));
+    c = pow(c, vec3(0.945));
     // Mild contrast preserved
     c = mix(c, c * 1.04, 0.5);
     // Global brightness boost
     c *= 1.02;
     // Subtle warmth balance
-    c.r *= 1.02;
-    c.g *= 0.99;
-    c.b *= 0.98;
+    c.r *= 1.015;
+    c.g *= 0.995;
+    c.b *= 0.99;
     return clamp(c, 0.0, 1.0);
 }
 
