@@ -3,13 +3,13 @@
 //!DESC Glimmer Sharpen 0.41 — Ulysses' Microscopic Depth Edition (fixed best values)
 
 const float strength        = 0.88;   // edge crispness
-const float glint_boost     = 0.72;   // sparkle intensity
-const float glint_threshold = 0.58;   // luma threshold for glimmer
+const float glint_boost     = 0.80;   // sparkle intensity
+const float glint_threshold = 0.55;   // luma threshold for glimmer
 const float softness        = 0.12;   // blend with base for natural look
-const float noise_intensity = 0.020;  // subtle micro-noise
-const float reflection_mix  = 0.15;   // gentle refraction shimmer
-const float micro_detail    = 1.05;   // fine texture enhancement
-const float depth_factor    = 0.60;   // depth blur strength
+const float noise_intensity = 0.025;  // subtle micro-noise
+const float reflection_mix  = 0.18;   // gentle refraction shimmer
+const float micro_detail    = 1.08;   // fine texture enhancement
+const float depth_factor    = 0.55;   // depth blur strength
 const vec3  tint_color      = vec3(1.03, 1.00, 0.97); // slight warm tint
 const float tint_strength   = 0.09;   // tint blend
 const bool  enable_depth    = true;   // always on
