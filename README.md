@@ -225,7 +225,7 @@ Place all datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
 ---
 
 ### Audio Chain Note
-- **Enhanced Headset (F9), Enhanced Cinema (F10) & Music Mode Plus (F12)** uses:  
+- **Enhanced Headset (F9), Enhanced Cinema (F10) & Music Mode Plus (F11)** uses:  
   - `Kemar_HRTF_sofa.sofa`  
 
 ## Installation
