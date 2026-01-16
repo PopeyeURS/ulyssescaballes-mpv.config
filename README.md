@@ -267,8 +267,8 @@ gpu-api=vulkan
 - **F10** → Enhanced Cinema  
 - **F11** → Music Mode Plus  
 - **F12** → Reset Filters  
-- **Profiles** (Anime, Realism, Sports, 8K) via CLI or **F1–F4**  
-- **Utility menus** via **O, Y, H, K, V, A, S, P**
+- **Profiles** (Anime, Realism, Sports, 8K) via CLI **  
+- **Utility menus** via **O, Y, H, K, V, A, S, P**  
 
 ---
 
