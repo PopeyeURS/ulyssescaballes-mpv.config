@@ -1,7 +1,9 @@
 local mp = require "mp"
 
+-- "Delicately Fine Tuned by UlyssesCaballes."
+
 -- Path to SOFA file (escape colon for lavfi)
-local SOFA_PATH = "C\\:/Users/<UserName>/AppData/Roaming/mpv/portable_config/scripts/sofalizer/Kemar_HRTF_sofa.sofa"
+local SOFA_PATH = "C\\:/Users/ulyss/AppData/Roaming/mpv/portable_config/scripts/sofalizer/Kemar_HRTF_sofa.sofa"
 
 -- OSD helper (duration in seconds)
 local function show(msg, duration)
@@ -51,16 +53,25 @@ local function set_music_audio()
     mp.commandv("af", "set",
         "lavfi=[aid]sofalizer=sofa='" .. SOFA_PATH .. "':gain=1.0:type=hrtf:normalize=1:interpolate=1," ..
         "loudnorm=I=-23:TP=-2:LRA=8," ..
-        "acompressor=threshold=-20dB:ratio=2.2:attack=8:release=90," ..
+        "acompressor=threshold=-20dB:ratio=2.0:attack=8:release=110," ..
         "equalizer=f=50:t=q:w=1.2:g=2," ..
+        "equalizer=f=65:t=q:w=1.2:g=1.2," ..
+        "equalizer=f=80:t=q:w=1.0:g=0.8," ..
+        "equalizer=f=95:t=q:w=1.0:g=1.0," .. 
+        "equalizer=f=120:t=q:w=1.0:g=-0.5," ..
+        "equalizer=f=145:t=q:w=1.0:g=0.7," ..
+        "equalizer=f=500:t=q:w=1.0:g=0.5," ..
         "equalizer=f=250:t=q:w=1:g=-1.5," ..
         "equalizer=f=1000:t=q:w=0.8:g=2," ..
+        "equalizer=f=2000:t=q:w=0.8:g=0.9," ..
         "equalizer=f=3000:t=q:w=0.8:g=2.5," ..
+        "equalizer=f=4000:t=q:w=0.8:g=0.7," ..
         "equalizer=f=5000:t=q:w=0.8:g=2.5," ..
-        "equalizer=f=8000:t=q:w=0.7:g=1.5," ..
-        "equalizer=f=12000:t=q:w=0.7:g=2," ..
-        "equalizer=f=16000:t=q:w=0.7:g=1.5," ..
-        "stereotools=mlev=1.08:slev=1.08:phase=0.85:width=1.35," ..
+        "equalizer=f=8000:t=q:w=0.7:g=1.9," ..
+        "equalizer=f=12000:t=q:w=0.7:g=2.4," ..
+        "equalizer=f=16000:t=q:w=0.7:g=1.9," ..
+        "stereotools=mlev=1.08:slev=1.08:phase=0.85:width=1.43," ..
+        "aecho=0.8:0.9:30:0.25," ..
         "alimiter=level_in=1:level_out=0.985:limit=0.09," ..
         "aresample=48000]"
     )
