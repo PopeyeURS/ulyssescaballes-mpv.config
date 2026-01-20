@@ -1,6 +1,8 @@
 //!HOOK MAIN
 //!BIND HOOKED
-//!DESC Glimmer Sharpen 0.41 — Ulysses' Microscopic Depth Edition (fixed best values)
+//!DESC Glimmer Sharpen 0.41 — UlyssesCaballes' Microscopic Depth Edition (fixed best values)
+
+uniform float HOOKED_time;   // playback time in seconds, provided by mpv/libplacebo
 
 const float strength        = 0.88;   // edge crispness
 const float glint_boost     = 0.80;   // sparkle intensity
