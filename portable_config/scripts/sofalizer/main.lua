@@ -16,12 +16,12 @@ local function set_headset_audio()
         "lavfi=[aid]sofalizer=sofa='" .. SOFA_PATH .. "':gain=1.0:type=hrtf:normalize=1:interpolate=1," ..
         "loudnorm=I=-23:TP=-2:LRA=7," ..
         "acompressor=threshold=-19dB:ratio=2.3:attack=10:release=100," ..
-        "equalizer=f=40:t=q:w=1.2:g=2," ..
-        "equalizer=f=150:t=q:w=1:g=-1," ..
-        "equalizer=f=2500:t=q:w=1:g=2.5," ..
-        "equalizer=f=4500:t=q:w=1:g=2.5," ..
-        "equalizer=f=11000:t=q:w=0.7:g=2," ..
-        "equalizer=f=15000:t=q:w=0.7:g=1," ..
+        "equalizer=f=40:t=q:w=1.2:g=2.0," ..
+        "equalizer=f=150:t=q:w=1.0:g=-1.0," ..
+        "equalizer=f=2500:t=q:w=1.0:g=2.5," ..
+        "equalizer=f=4500:t=q:w=1.0:g=2.5," ..
+        "equalizer=f=11000:t=q:w=0.7:g=2.0," ..
+        "equalizer=f=15000:t=q:w=0.7:g=1.0," ..
         "stereotools=mlev=1.22:slev=1.22:phase=0.9," ..
         "alimiter=level_in=1:level_out=0.985:limit=0.08," ..
         "aresample=48000]"
@@ -33,16 +33,25 @@ end
 local function set_cinema_audio()
     mp.commandv("af", "set",
         "lavfi=[aid]sofalizer=sofa='" .. SOFA_PATH .. "':gain=1.0:type=hrtf:normalize=1:interpolate=1," ..
-        "loudnorm=I=-24:TP=-2:LRA=9," ..
-        "acompressor=threshold=-18dB:ratio=2.0:attack=12:release=120," ..
-        "equalizer=f=40:t=q:w=1.2:g=2," ..
-        "equalizer=f=500:t=q:w=1:g=-1," ..
-        "equalizer=f=2000:t=q:w=1:g=3.5," ..
-        "equalizer=f=3500:t=q:w=1:g=3.5," ..
-        "equalizer=f=11000:t=q:w=0.7:g=2," ..
-        "equalizer=f=15000:t=q:w=0.7:g=1," ..
-        "stereotools=mlev=1.08:slev=1.08:phase=0.85," ..
-        "alimiter=level_in=1:level_out=0.985:limit=0.085," ..
+        "loudnorm=I=-24:TP=-2:LRA=10," ..
+        "acompressor=threshold=-18dB:ratio=2.2:attack=8:release=100," ..
+        "equalizer=f=40:t=q:w=1.2:g=3.0," ..
+        "equalizer=f=80:t=q:w=1.0:g=2.0," ..
+        "equalizer=f=200:t=q:w=1.0:g=1.5," ..
+        "equalizer=f=300:t=q:w=1.0:g=1.5," ..
+        "equalizer=f=400:t=q:w=1.0:g=1.2," ..
+        "equalizer=f=500:t=q:w=1.0:g=-1.2," ..
+        "equalizer=f=1200:t=q:w=0.9:g=1.5," ..
+        "equalizer=f=2000:t=q:w=1.0:g=2.0," ..
+        "equalizer=f=3500:t=q:w=1.0:g=3.0," ..
+        "equalizer=f=7000:t=q:w=0.8:g=1.5," ..
+        "equalizer=f=9000:t=q:w=0.7:g=1.8," ..
+        "equalizer=f=11000:t=q:w=0.7:g=2.0," ..
+        "equalizer=f=12000:t=q:w=0.7:g=2.5," ..
+        "equalizer=f=15000:t=q:w=0.7:g=1.5," ..
+        "stereotools=mlev=1.10:slev=1.10:phase=0.88:width=1.30," ..
+        "aecho=0.7:0.8:40:0.25," ..
+        "alimiter=level_in=1:level_out=0.99:limit=0.14," ..
         "aresample=48000]"
     )
     show("🏛️ Enhanced Cinema", 3)
