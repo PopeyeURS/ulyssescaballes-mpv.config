@@ -71,7 +71,7 @@ local function set_music_audio()
         "equalizer=f=120:t=q:w=1.0:g=-0.5," ..
         "equalizer=f=145:t=q:w=1.0:g=0.7," ..
         "equalizer=f=200:t=q:w=1.0:g=1.8," ..
-        "equalizer=f=250:t=q:w=1:g=-1.5," ..
+        "equalizer=f=250:t=q:w=1.0:g=-1.5," ..
         "equalizer=f=350:t=q:w=1.0:g=1.2," ..
         "equalizer=f=400:t=q:w=1.0:g=1.5," ..
         "equalizer=f=500:t=q:w=1.0:g=0.5," ..
