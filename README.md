@@ -1,6 +1,6 @@
 # Ulysses Caballes’ MPV Configuration  
 
-A hand‑crafted cinema engine built for ultimate IMAX‑grade immersion. Designed with SOFAlizer HRTF, bespoke impulse responses, and a finely tuned EQ/convolution chain, it envelops you in spatially rich audio with uncompromising fidelity. Fully adaptable to headphones and multi-speaker arrays, it pairs pristine sound with high-fidelity video playback—featuring true 3D depth, precise color reproduction, exceptional detail, and fluid motion.    
+A hand‑crafted cinema engine built for ultimate IMAX‑grade immersion. Designed with SOFAlizer HRTF, bespoke impulse responses, and a finely tuned EQ/convolution chain, it envelops you in spatially rich audio with uncompromising fidelity. Fully adaptable to headphones and multi-speaker arrays, it pairs pristine sound with high-fidelity video playback. Featuring true 3D depth, precise color reproduction, exceptional detail, and fluid motion.    
 
 ## Core Components  
 
