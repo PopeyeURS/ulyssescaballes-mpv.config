@@ -86,7 +86,7 @@ vec4 hook() {
 
     // Tone mapping with subtle gamma boost
     graded = filmic_hdr_tonecurve(graded);
-    graded = pow(max(graded, 0.0), vec3(1.065));
+    graded = pow(max(graded, 0.0), vec3(0.985));
 
     // Specular sparkle enhancer
     float sparkle_mask = smoothstep(0.85, 1.0, luma);
