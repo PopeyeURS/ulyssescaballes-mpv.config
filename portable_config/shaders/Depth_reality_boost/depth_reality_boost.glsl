@@ -1,18 +1,18 @@
 //!HOOK RGB
 //!BIND HOOKED
-//!DESC Depth Reality Boost — Pristine Detail Ultra Edition v3.2
+//!DESC Depth Reality Boost — UlyssesCaballes' Pristine Detail Ultra Edition v3.3
 //!WIDTH HOOKED.width
 //!HEIGHT HOOKED.height
 
-// Ultra refinement tuning
-const float base_strength    = 0.96;   // balanced micro-contrast
-const float radius           = 0.75;   // tight blur radius
-const float warmth           = 0.12;
-const float glow_intensity   = 0.09;
-const float chroma_offset    = 0.30;
-const float grain_strength   = 0.0;    // pure clarity
-const float vignette_strength= 0.24;
-const float sharpen_mix      = 0.19;  // micro-boosted sharpen blend
+// Ultra refinement tuning (constants are Vulkan-safe)
+const float base_strength     = 0.96;   // balanced micro-contrast
+const float radius            = 0.75;   // tight blur radius
+const float warmth            = 0.12;
+const float glow_intensity    = 0.09;
+const float chroma_offset     = 0.30;
+const float grain_strength    = 0.0;    // pure clarity
+const float vignette_strength = 0.24;
+const float sharpen_mix       = 0.19;   // micro-boosted sharpen blend
 
 // Filmic tone curve
 vec3 filmic_hdr_tonecurve(vec3 x) {
@@ -88,9 +88,9 @@ vec4 hook() {
     graded = filmic_hdr_tonecurve(graded);
     graded = pow(max(graded, 0.0), vec3(1.065));
 
-    // Specular sparkle enhancer (only on ultra-bright highlights)
+    // Specular sparkle enhancer
     float sparkle_mask = smoothstep(0.85, 1.0, luma);
-    vec3 sparkle = graded + sparkle_mask * 0.02; // tiny shimmer lift
+    vec3 sparkle = graded + sparkle_mask * 0.02;
     graded = mix(graded, sparkle, sparkle_mask);
 
     // Vignette
@@ -101,7 +101,7 @@ vec4 hook() {
     // Soft diffusion
     graded = mix(graded, blur, 0.045);
 
-    // Final sharpen mix with luminance mask
+    // Final sharpen mix
     float detail_mask = smoothstep(0.28, 0.72, luma);
     vec3 final_output = mix(graded, sharpen, sharpen_mix * detail_mask);
     final_output = clamp(final_output, 0.0, 1.0);
