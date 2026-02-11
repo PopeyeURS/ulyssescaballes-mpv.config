@@ -1,19 +1,19 @@
 // Adaptive Sharpen 1.0 — Ultimate Edition
 // Copyright (c) 2015-2021, bacondither
-// Enhanced and polished for mpv by Ulysses
+// Enhanced and polished for mpv by UlyssesRSCaballes
 //!HOOK OUTPUT
 //!BIND HOOKED
 //!DESC adaptive-sharpen-1.0.glsl — best tuned version
 
 //--------------------------------------- Settings ------------------------------------------------
-#define curve_height    1.07   // main sharpening strength (sweet spot: 0.9–1.2)
+#define curve_height    1.18   // main sharpening strength (sweet spot: 0.9–1.2)
 #define overshoot_ctrl  true   // allow stronger sharpening on consistent edges
 
 // Optimal constants (do not change unless re-engineering)
-#define curveslope      0.5
-#define L_compr_low     0.13
+#define curveslope      0.45
+#define L_compr_low     0.11
 #define L_compr_high    0.334
-#define D_compr_low     0.21
+#define D_compr_low     0.19
 #define D_compr_high    0.500
 #define scale_lim       0.075
 #define scale_cs        0.08
