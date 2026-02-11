@@ -193,7 +193,7 @@ Place datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
 │       └── Kemar_HRTF_sofa.sofa
 │           └── main.lua
 └── shaders\
-    ├── FSRCNNX\
+    ├── CuNNy-8x32-DS.glsl\
     ├── SSim\
     ├── Adaptive_sharpen\
     └── Depth_reality_boost\
