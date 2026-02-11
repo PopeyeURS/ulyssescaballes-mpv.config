@@ -5,14 +5,14 @@
 //!HEIGHT HOOKED.height
 
 // Ultra refinement tuning (constants are Vulkan-safe)
-const float base_strength     = 0.96;   // balanced micro-contrast
+const float base_strength     = 1.15;   // balanced micro-contrast
 const float radius            = 0.75;   // tight blur radius
-const float warmth            = 0.12;
-const float glow_intensity    = 0.09;
+const float warmth            = 0.25;
+const float glow_intensity    = 0.14;
 const float chroma_offset     = 0.30;
-const float grain_strength    = 0.0;    // pure clarity
+const float grain_strength    = 0.08;    // pure clarity
 const float vignette_strength = 0.24;
-const float sharpen_mix       = 0.19;   // micro-boosted sharpen blend
+const float sharpen_mix       = 0.35;   // micro-boosted sharpen blend
 
 // Filmic tone curve
 vec3 filmic_hdr_tonecurve(vec3 x) {
@@ -67,12 +67,18 @@ vec4 hook() {
     vec3 graded = glow;
     graded.r += warmth * 0.05;
     graded.b -= warmth * 0.05;
-    graded = mix(graded, vec3(graded.r * 1.06, graded.g * 0.98, graded.b * 0.95), 0.30);
+    graded = mix(graded, vec3(graded.r * 1.08, graded.g * 0.99, graded.b * 0.95), 0.30);
+
+    // Subtle midtone vibrance/contrast lift for natural skin color
+graded = mix(graded, graded * vec3(1.02, 1.02, 1.02), 0.20);
+
+    // Subtle vibrance lift for healthier skin tones
+graded *= vec3(1.02, 1.02, 1.02);
 
     // Depth cues
     float luma = dot(center, lumaCoeffs());
     float depth_boost = smoothstep(0.20, 0.80, luma);
-    graded *= mix(1.0, 1.055, depth_boost);
+    graded *= mix(1.0, 1.07, depth_boost);
     graded *= mix(1.0, 0.92, smoothstep(0.0, 0.5, luma));
 
     // Chromatic aberration
@@ -88,12 +94,16 @@ vec4 hook() {
     graded = filmic_hdr_tonecurve(graded);
     graded = pow(max(graded, 0.0), vec3(0.985));
 
-    // Specular sparkle enhancer
-    float sparkle_mask = smoothstep(0.85, 1.0, luma);
-    vec3 sparkle = graded + sparkle_mask * 0.02;
+    // Specular sparkle enhancer — maximum vivid sparkle
+    float sparkle_mask = smoothstep(0.92, 1.0, luma); // very tight threshold,  only brightest highlights
+    vec3 sparkle = graded + sparkle_mask * vec3(0.06, 0.06, 0.065); // stronger  crystalline boost
     graded = mix(graded, sparkle, sparkle_mask);
 
-    // Vignette
+    float depth_mask = smoothstep(0.25, 0.75, luma);
+    vec3 sparkle = graded + depth_mask * vec3(0.025, 0.025, 0.03);
+    graded = mix(graded, sparkle, depth_mask * 0.5);
+
+    // Vignett
     vec2 d = uv - 0.5;
     float vignette = smoothstep(0.70, 0.95, length(d));
     graded *= mix(1.0, 1.0 - vignette_strength, vignette);
