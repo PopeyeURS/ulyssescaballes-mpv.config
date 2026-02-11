@@ -29,7 +29,7 @@ local function set_headset_audio()
     show("🎧 Enhanced Headset", 3)
 end
 
--- 🏛️ Enhanced Cinema profile
+-- 🏛️ Enhanced Cinema Plus profile
 local function set_cinema_audio()
     mp.commandv("af", "set",
         "lavfi=[aid]sofalizer=sofa='" .. SOFA_PATH .. "':gain=1.0:type=hrtf:normalize=1:interpolate=1," ..
@@ -104,6 +104,12 @@ local function clear_filters()
     mp.commandv("af", "clr")
     show("🔄 Filters cleared", 3)
 end
+
+-- Register script messages (place here, after functions are defined)
+mp.register_script_message("headset-mode", set_headset_audio)
+mp.register_script_message("cinema-mode", set_cinema_audio)
+mp.register_script_message("music-mode", set_music_audio)
+mp.register_script_message("reset-filters", clear_filters)
 
 -- Key bindings
 mp.add_forced_key_binding("F9",  "headset_best_key", set_headset_audio)
