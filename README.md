@@ -1,6 +1,7 @@
 # Ulysses Caballes’ MPV Configuration  
 
-A hand‑crafted cinema engine built for ultimate IMAX‑grade immersion. Designed with SOFAlizer HRTF, bespoke impulse responses, and a finely tuned EQ/convolution chain, it envelops you in spatially rich audio with uncompromising fidelity. Fully adaptable to headphones and multi-speaker arrays, it pairs pristine sound with high-fidelity video playback. Featuring true 3D depth, precise color reproduction, exceptional detail, and fluid motion.    
+A hand‑crafted cinema engine built for IMAX‑grade immersion. It pairs pristine video fidelity with spatially rich audio, adaptable to headphones and multi‑speaker arrays. Every shader, script, and profile is tuned for clarity, depth, and realism.  
+    
 
 ## Core Components  
 
@@ -40,15 +41,13 @@ A hand‑crafted cinema engine built for ultimate IMAX‑grade immersion. Design
 ---
 
 ## Overview
-This MPV configuration is engineered for viewers who demand cinematic fidelity, artifact‑free rendering, and adaptive precision across all content types — anime, films, sports, and 8K HDR.
+This MPV configuration is engineered for viewers who demand cinematic fidelity, artifact‑free rendering, and adaptive precision across all content types — anime, films, sports, and 8K HDR.  
 
-Every component is tuned for clarity, depth, and realism, powered by a custom shader pipeline and a suite of Lua automation scripts.
+Every component is tuned for clarity, depth, and realism, powered by a custom shader pipeline and a suite of Lua automation scripts.  
 
 ---
 
 ## Features
-- Fade‑aware debanding with fruit dithering  
-- BT.2390 tone mapping with contrast recovery  
 - Custom GLSL pipeline for super‑resolution, sharpening, depth, and film emulation  
 - Vulkan‑optimized GPU context  
 - Modular profiles for anime, realism, sports, and 8K  
@@ -86,93 +85,55 @@ This clip was rendered and played using my MPV config with HEVC Main 10, tone ma
 ---
 
 ## Shader Pipeline
-The heart of this configuration is a carefully sequenced GLSL pipeline designed for clarity, depth, and cinematic texture — without introducing artifacts or unnecessary GPU load.
-
-### Pipeline Overview
-Each shader is placed with intent, forming a cohesive chain:
 
 1. **Debanding (fade‑aware, fruit dithering)**  
-   Eliminates banding in gradients, skies, shadows, and anime backgrounds while preserving fine detail.
 
 2. **Tone Mapping (BT.2390 with contrast recovery)**  
-   Converts HDR → SDR or SDR → HDR with natural highlight roll‑off and shadow depth.
 
-3. **Super‑Resolution & Sharpening**  
-   Enhances micro‑detail without halos or overshoot, ideal for anime linework and live‑action textures.
+3. **Resampling - 26-tap separable kernel**  
 
-4. **Depth & Local Contrast Enhancement**  
-   Adds dimensionality and presence without artificial edge glow.
+4. **Adaptive Sharpen - linear-light, curve height tuned, overshoot control**  
 
-5. **Film Emulation Layer**  
-   A subtle grain and color‑response pass that restores organic texture.
+5. **Depth Reality Boost - perceptual depyh cues without halos**  
 
 ---
 
 ## Audio Pipeline
-While the shader chain delivers uncompromising visual fidelity, this configuration also integrates a cinema‑grade audio pipeline designed for both headphone and speaker playback.
 
-### Pipeline Overview
-1. **SOFAlizer (HRTF Virtualization)**  
-   * Uses the `Kemar_HRTF_sofa.sofa` dataset for binaural rendering.  
-   * Provides Atmos/IMAX‑style immersion on headphones for both film and music.  
-   * Gain and normalization tuned for clarity without distortion, ensuring musical detail remains intact.  
+1. **SOFAlizer (HRTF Virtualization) - Kemar dataset, customized via [main.lua]**  
 
-2. **Cinema & Music EQ Chain**  
-   * Bass reinforcement for sub‑rumble and fullness in cinematic effects and musical low‑end.  
-   * Midrange cleanup to reduce muddiness, enhancing dialogue and instrumental separation.  
-   * Treble sparkle and air for dialogue clarity and high‑frequency detail in vocals and instruments.  
-   * Subharmonic enhancement for added depth, enriching both soundtracks and music playback.  
+2. **EQ Chain - bass reinforcement, midrange cleanup, treble clarity, subharmonic depth**  
 
-3. **Dynamics Control**  
-   * Loudness normalization for consistent playback across movies and music tracks.  
-   * Musical compression to smooth peaks while preserving expressive dynamics.  
-   * Final limiter ensures safety against clipping, keeping both cinematic and musical experiences distortion‑free.
-
-### Mode Switching
-
-| Key  | Mode             | Description                                                   |
-|------|------------------|---------------------------------------------------------------|
-| F9   | Headset Profile  | SOFAlizer + EQ for immersive binaural audio                   |
-| F10  | Cinema Profile   | Compression/limiter for consistent playback                   |
-| F11  | Music Mode       | Balanced EQ + stereo field: instrument, vocals, and live feel |
-| F12  | Reset Filters    | Clears all audio filters                                      |
----
-
-*Optimized for headphone immersion, but equally enhances clarity and depth on speaker systems.*  
+3. **Dynamics Control - normalization, compression, limiter for safe playback**  
 
 ---
 
 ## Profiles
 This configuration includes multiple playback profiles tailored for different content types. Each profile adjusts shaders, scaling, tone mapping, and enhancement strength.
 
-### Anime Profile
-- Line‑art‑safe sharpening  
-- High‑quality debanding  
-- Gentle color vibrancy  
-- Lightweight grain for texture  
+### Anime  
+- Line‑art‑safe sharpen, debanding, gentle vibrancy, light grain  
 
-### Realism / Live‑Action Profile
-- Balanced sharpening  
-- Depth‑enhancing local contrast  
-- Filmic grain  
-- Natural color response  
+### Realism  
+- Balanced sharpen, depth boost, filmic grain, natural color  
 
-### Sports Profile
-- Motion‑clarity‑oriented sharpening  
-- Reduced grain  
-- High visibility in highlights  
-- Clean gradients for broadcast content  
+### Sports  
+- Motion‑clarity‑oriented sharpen, reduced grain, highlight visibility, clean gradients  
 
-### 8K / High‑Resolution Profile
-- Super‑resolution tuned for large displays  
-- Minimal grain  
-- Precision tone mapping  
-- GPU‑efficient scaling  
+### 8K 
+- Super‑resolution, minimal grain, precision tone mapping, GPU-efficient scaling  
 
 ---
 
 ## Keyboard Function Shortcuts
-These optional function bindings provide rapid access to internal presets and debugging utilities. Each shortcut triggers a specific mode designed to streamline testing, profile switching, and visual experimentation.
+  
+| Shortcut | Function Name | Description |
+|---------|----------------|-------------|
+| Ctrl + 1 | clear_default | Reset to baseline configuration. |
+| Ctrl + 2 | anime_hdr | Anime HDR preset. |
+| Ctrl + 3 | realism | Realism preset. |
+| Ctrl + 4 | sports | Sports preset. |
+| Ctrl + 5 | debug | Debugging overlays. |
 
 ### Menu & Utility Shortcuts
 
@@ -187,45 +148,34 @@ These optional function bindings provide rapid access to internal presets and de
 | S | Subtitle Settings |
 | P | Screenshot Menu |
 
-### Function Overview
 
-| Shortcut | Function Name | Description |
-|---------|----------------|-------------|
-| Ctrl + 1 | clear_default | Resets MPV to the baseline configuration. Ideal for clearing active shaders, profiles, or overrides during testing. |
-| Ctrl + 2 | anime_hdr | Activates the Anime HDR preset — tuned for stylized line art, vibrant color response, and high‑contrast anime rendering. |
-| Ctrl + 3 | realism | Switches to the Realism preset, emphasizing natural contrast, filmic grain, and lifelike texture. |
-| Ctrl + 4 | sports | Enables the Sports preset, optimized for clarity in motion, highlight visibility, and clean gradients. |
-| Ctrl + 5 | debug | Opens the debugging mode, revealing internal states, shader activity, and diagnostic overlays. |
-
-## Script Suite
-A set of Lua scripts enhances automation, stability, and playback intelligence.
-
-### Included Scripts
+## Script Suite  
 - **shader-recover.lua**  
-  Automatically reloads shaders if MPV encounters a pipeline error.
+  Reloads shaders if errors occur.  
 
 - **profile-auto.lua**  
-  Detects resolution, framerate, and content type to select the best profile.
+  Auto-selects profile by resolution/framerate.  
 
 - **stats-overlay.lua**  
-  Displays GPU load, tone mapping state, and active shaders.
+  GPU load, tone mapping, active shaders.  
 
 - **subtitle-style.lua**  
-  Applies cinematic subtitle styling with outline, blur, and color control.
+  Cinematic subtitle styling.  
+
+- **sofalizer/main.lua**  
+  Customized HRTF virtualization.  
 
 ---
 ## Datasets
-This configuration relies on external datasets for binaural rendering and theatre ambience.  
-Place all datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
+Place datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\  
 
-### External download required
 - [`Kemar_HRTF_sofa.sofa`](https://sofacoustics.org/data/database/aachen%20%28high-resolution%20kemar%29/Kemar_HRTF_sofa.sofa)  
   KEMAR HRTF dataset (open research license, safe to redistribute with attribution).  
 
 ---
 
 ### Audio Chain Note
-- **Enhanced Headset (F9), Enhanced Cinema (F10) & Music Mode Plus (F11)** uses:  
+- **Enhanced Headset (F9), Enhanced Cinema (F10) & Music Mode Plus (F12)** uses:  
   - `Kemar_HRTF_sofa.sofa`  
 
 ## Installation
@@ -246,9 +196,8 @@ Place all datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
     ├── FSRCNNX\
     ├── SSim\
     ├── Adaptive_sharpen\
-    ├── Glimmer_sharpen\
-    ├── Depth_reality_boost\
-    └── FilmEmulation_Kodak\
+    └── Depth_reality_boost\
+
 ```
 
 3. Ensure your GPU is set to **Vulkan** mode:
@@ -267,8 +216,6 @@ gpu-api=vulkan
 - **F10** → Enhanced Cinema  
 - **F11** → Music Mode Plus  
 - **F12** → Reset Filters  
-- **Profiles** (Anime, Realism, Sports, 8K) via CLI **  
-- **Utility menus** via **O, Y, H, K, V, A, S, P**  
 
 ---
 
@@ -282,7 +229,7 @@ gpu-api=vulkan
 |                       | `osc=yes`          | Enables the familiar UI with playback controls.                        |
 | **Window Border**     | `border=no`        | Removes title bar for a cinema‑style presentation.                     |
 |                       | `border=yes`       | Restores standard window controls.                                     |
-| **Volume Max**        | `volume-max=200`   | Allows boosting volume beyond 100% (use with care to avoid distortion).|
+| **Volume Max**        | `volume-max=130`   | Allows boosting volume beyond 100% (use with care to avoid distortion).|
 
 ---
 
