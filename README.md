@@ -20,7 +20,7 @@ A hand‑crafted cinema engine built for IMAX‑grade immersion. It pairs pristi
 - [Overview](#overview)  
 - [Features](#features)  
 - [Requirements](#requirements)
-- [Platform Performance Note](platform-performance-note)  
+- [Platform_Performance_Note](platform-performance-note)  
 - [Demo Clip](#demo-clip)  
 - [Screenshots](#screenshots)  
 - [Shader Pipeline](#shader-pipeline)  
