@@ -62,6 +62,9 @@ Every component is tuned for clarity, depth, and realism, powered by a custom sh
 - **Vulkan‑capable GPU**  
 - **Windows 11** (recommended)
 
+Download MPV (Shinchiro builds):  
+https://github.com/shinchiro/mpv-winbuild-cmake/releases
+
 ---
 
 ## Platform Performance Note:   
@@ -71,9 +74,6 @@ Recommended for Linux/AMD setups:
 • CuNNy-4x32 or CuNNy-2x32 → reduced demand with good perceptual quality
 • Hybrid stacks (FSRCNNX + Adaptive Sharpen / Depth Reality Boost) → balance between speed and sharpness
 This ensures smoother playback while preserving detail.   
-
-Download MPV (Shinchiro builds):  
-https://github.com/shinchiro/mpv-winbuild-cmake/releases
 
 ---
 
