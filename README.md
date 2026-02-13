@@ -62,6 +62,8 @@ Every component is tuned for clarity, depth, and realism, powered by a custom sh
 - **Vulkan‑capable GPU**  
 - **Windows 11** (recommended)
 
+---
+
 ## Platform Performance Note:   
 The CuNNy-8x32-DS shader profile is optimized for Windows 11 environments and may cause performance issues (lag or dropped frames) on Linux systems with AMD GPUs.
 Recommended for Linux/AMD setups:   
