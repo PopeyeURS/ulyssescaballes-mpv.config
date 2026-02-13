@@ -19,7 +19,8 @@ A hand‑crafted cinema engine built for IMAX‑grade immersion. It pairs pristi
 ## Table of Contents
 - [Overview](#overview)  
 - [Features](#features)  
-- [Requirements](#requirements)  
+- [Requirements](#requirements)
+- [Platform Performance Note](platform-performance-note)  
 - [Demo Clip](#demo-clip)  
 - [Screenshots](#screenshots)  
 - [Shader Pipeline](#shader-pipeline)  
@@ -61,13 +62,13 @@ Every component is tuned for clarity, depth, and realism, powered by a custom sh
 - **Vulkan‑capable GPU**  
 - **Windows 11** (recommended)
 
-Platform Performance Note:
+## Platform Performance Note:   
 The CuNNy-8x32-DS shader profile is optimized for Windows 11 environments and may cause performance issues (lag or dropped frames) on Linux systems with AMD GPUs.
-Recommended for Linux/AMD setups:
+Recommended for Linux/AMD setups:   
 • FSRCNNX-x2_16-0-4-1 → lighter, stable, and cross-platform friendly
 • CuNNy-4x32 or CuNNy-2x32 → reduced demand with good perceptual quality
 • Hybrid stacks (FSRCNNX + Adaptive Sharpen / Depth Reality Boost) → balance between speed and sharpness
-This ensures smoother playback while preserving detail.
+This ensures smoother playback while preserving detail.   
 
 Download MPV (Shinchiro builds):  
 https://github.com/shinchiro/mpv-winbuild-cmake/releases
