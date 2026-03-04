@@ -190,9 +190,18 @@ Place datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
   - `Kemar_HRTF_sofa.sofa`  
 
 ## Installation
-1. Download or clone this repository.  
-2. Place the folders into your MPV directory: eg. "C:/Users/<user_name>/AppData/Roaming/mpv/portable_config/scripts/sofalizer/Kemar_HRTF_sofa.sofa"  
+1. Open Windows folder [Explorer].  
+2. Click [Views] and scroll [Pulldown Menu] to [Show] and tick [Hidden Items].  
+3. Create a new 'Folder' and name it [MPV] on [C:Drive], [Users], [UserName], [AppData], [Roaming].  
+4. Extract all contents of MPV.v3 (Shinchiro Build) into [MPV] folder.  
+5. Install MPV and assign [MediaFile/s] to be played/opened by MPV as default player.  
+6. Right click on [Updater.bat] to update MPV, then select on your choice/s as required.  
+8. Download or clone this repository to extract the [portable_config].  
+9. Place the [portable_config] in [MPV] folder.  
+10. Place [Kemar_HRTF] into "C:/Users/<user_name>/AppData/Roaming/mpv/portable_config/scripts/sofalizer/Kemar_HRTF_sofa.sofa".    
+11. Now, you may double-click any media file/s stored on your PC and MPV will play it. ENJOY!!!  
 ```
+
 %APPDATA%\mpv\portable_config\
 │
 ├── mpv.conf
