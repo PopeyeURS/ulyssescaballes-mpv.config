@@ -197,7 +197,7 @@ Place datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
 5. Install MPV and assign [MediaFile/s] to be played/opened by MPV as default player.  
 6. Right click on [Updater.bat] to update MPV, then select on your choice/s as required.  
 8. Download or clone this repository to extract the [portable_config].  
-9. Place the [portable_config] inside [MPV] folder on [C:/Users/<UserName/AppData/Roaming].  
+9. Place the [portable_config] inside [MPV] folder on [C:/Users/<UserName>/AppData/Roaming].  
 10. Place [Kemar_HRTF] into "C:/Users/<user_name>/AppData/Roaming/mpv/portable_config/scripts/sofalizer/Kemar_HRTF_sofa.sofa".    
 11. Now, you may double-click any media file/s stored on your PC and MPV will play it. ENJOY!!!  
 ```
