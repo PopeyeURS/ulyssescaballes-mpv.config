@@ -178,7 +178,7 @@ This configuration includes multiple playback profiles tailored for different co
 
 ---
 ## Datasets
-Place datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\  
+Download and place datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\  
 
 - [`Kemar_HRTF_sofa.sofa`](https://sofacoustics.org/data/database/aachen%20%28high-resolution%20kemar%29/Kemar_HRTF_sofa.sofa)  
 - [`SADIE_KEMAR_DFC_256_order_fir_48000.sofa`](https://zenodo.org/records/12542676/files/SADIE_KEMAR_DFC_256_order_fir_48000.sofa?download=1)  
