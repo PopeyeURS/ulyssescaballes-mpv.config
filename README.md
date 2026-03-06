@@ -181,25 +181,30 @@ This configuration includes multiple playback profiles tailored for different co
 Place datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\  
 
 - [`Kemar_HRTF_sofa.sofa`](https://sofacoustics.org/data/database/aachen%20%28high-resolution%20kemar%29/Kemar_HRTF_sofa.sofa)  
+- [`SADIE_KEMAR_DFC_256_order_fir_48000.sofa`](https://zenodo.org/records/12542676/files/SADIE_KEMAR_DFC_256_order_fir_48000.sofa?download=1)  
   KEMAR HRTF dataset (open research license, safe to redistribute with attribution).  
-
+  Official SADIE II Dataset (University of York). For personal/research use only.
+  
 ---
 
 ### Audio Chain Note
 - **Enhanced Headset (F9), Enhanced Cinema (F10) & Music Mode Plus (F12)** uses:  
   - `Kemar_HRTF_sofa.sofa`  
+  - `SADIE_KEMAR_DFC_256_order_fir_48000.sofa`
 
 ## Installation
-1. Open Windows folder [Explorer].  
-2. Click [View] and scroll [Pulldown Menu] to [Show] and tick [Hidden Items].  
-3. Create a new 'Folder' named [MPV] and place it on "C:/Users/<user_name>/AppData/Roaming".  
-4. Extract all contents of MPV.v3 (Shinchiro Build) into [MPV] folder.  
-5. Install MPV and assign [MediaFile/s] to be played/opened by MPV as default player.  
-6. Right click on [Updater.bat] to update MPV, then select on your choice/s as required.  
-8. Download or clone this repository to extract the [portable_config].  
-9. Place the [portable_config] inside [MPV] folder on "C:/Users/<user_name>/AppData/Roaming".  
-10. Place [Kemar_HRTF] into "C:/Users/<user_name>/AppData/Roaming/mpv/portable_config/scripts/sofalizer/Kemar_HRTF_sofa.sofa".    
-11. Now, you may double-click any media file/s stored on your PC and MPV will play it. ENJOY!!!  
+1. Open Windows Explorer.  
+2. Click View, scroll the Pulldown Menu to Show, and tick Hidden Items.  
+3. Create a new folder named [MPV] at "C:/Users/<user_name>/AppData/Roaming".  
+4. Extract all contents of MPV.v3 (Shinchiro Build) into MPV folder.  
+5. Install MPV and assign media files to be opened/played by MPV as the default player.  
+6. Right click on Updater.bat to update MPV, then select options as required.  
+7. Download or clone this repository to extract the portable_config folder.  
+8. Place the portable_config folder inside the MPV folder at "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config".  
+9. Place the KEMAR HRTF file here:  "C:/Users/<user_name>/AppData/Roaming/mpv/portable_config/scripts/sofalizer/Kemar_HRTF_sofa.sofa".  
+10. Place the SADIE KEMAR BRIR file here:  
+"C:/Users/<user_name>/AppData/Roaming/MPV/portable_config/scripts/sofalizer/SADIE_KEMAR_DFC_256_order_fir_48000.sofa".  
+11. Now, you may double-click any media file/s on your PC and MPV will play it Ultimate Cinema and Music Hall modes enabled. ENJOY!!!  
 ```
 
 %APPDATA%\mpv\portable_config\
@@ -210,14 +215,14 @@ Place datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
 ├── script-opts\
 ├── scripts\
 │   └── sofalizer\
-│       └── Kemar_HRTF_sofa.sofa
-│           └── main.lua
+│       ├── Kemar_HRTF_sofa.sofa
+│       ├── SADIE_KEMAR_DFC_256_order_fir_48000.sofa
+│       └── main.lua
 └── shaders\
     ├── CuNNy-8x32-DS.glsl\
     ├── SSim\
     ├── Adaptive_sharpen\
     └── Depth_reality_boost\
-
 ```
 
 3. Ensure your GPU is set to **Vulkan** mode:
