@@ -206,8 +206,8 @@ Place datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
 "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config/scripts/sofalizer/SADIE_KEMAR_DFC_256_order_fir_48000.sofa".  
 11. EDIT/RENAME <user_name> entry accordingly, exactly the same name as the actual PC's <user_name>, in sofalizer's "main.lua".  
 -- Paths to SOFA files  
-local KEMAR_SOFA =  "C:/Users/<****>/AppData/Roaming/mpv/portable_config/scripts/sofalizer/KEMAR_HRTF.sofa"  
-local SADIE_BRIR =  "C:/Users/<****>/AppData/Roaming/mpv/portable_config/scripts/sofalizer/SADIE_KEMAR_DFC_256_order_fir_48000.sofa"  
+local KEMAR_SOFA =  "C:/Users/<user_name>/AppData/Roaming/mpv/portable_config/scripts/sofalizer/KEMAR_HRTF.sofa"  
+local SADIE_BRIR =  "C:/Users/<user_name>/AppData/Roaming/mpv/portable_config/scripts/sofalizer/SADIE_KEMAR_DFC_256_order_fir_48000.sofa"  
 12. Now, you may double-click any media file/s on your PC and MPV will play it with Ultimate Cinema and Music Hall modes enabled. ENJOY!!!  
 ```
 
