@@ -204,7 +204,7 @@ Place datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
 9. Place the KEMAR HRTF file here:  "C:/Users/<user_name>/AppData/Roaming/mpv/portable_config/scripts/sofalizer/Kemar_HRTF_sofa.sofa".  
 10. Place the SADIE KEMAR BRIR file here:  
 "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config/scripts/sofalizer/SADIE_KEMAR_DFC_256_order_fir_48000.sofa".  
-11. EDIT/RENAME <user_name> entry accordingly, exactly the same as the actual PC's <user_name>, in sofalizer's "main.lua".  
+11. EDIT/RENAME <user_name> entry accordingly, exactly the same name as the actual PC's <user_name>, in sofalizer's "main.lua".  
 -- Paths to SOFA files  
 local KEMAR_SOFA =  "C:/Users/<****>/AppData/Roaming/mpv/portable_config/scripts/sofalizer/KEMAR_HRTF.sofa"  
 local SADIE_BRIR =  "C:/Users/<****>/AppData/Roaming/mpv/portable_config/scripts/sofalizer/SADIE_KEMAR_DFC_256_order_fir_48000.sofa"  
