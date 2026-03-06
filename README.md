@@ -204,7 +204,7 @@ Place datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
 9. Place the KEMAR HRTF file here:  "C:/Users/<user_name>/AppData/Roaming/mpv/portable_config/scripts/sofalizer/Kemar_HRTF_sofa.sofa".  
 10. Place the SADIE KEMAR BRIR file here:  
 "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config/scripts/sofalizer/SADIE_KEMAR_DFC_256_order_fir_48000.sofa".  
-11. Now, you may double-click any media file/s on your PC and MPV will play it Ultimate Cinema and Music Hall modes enabled. ENJOY!!!  
+11. Now, you may double-click any media file/s on your PC and MPV will play it with Ultimate Cinema and Music Hall modes enabled. ENJOY!!!  
 ```
 
 %APPDATA%\mpv\portable_config\
