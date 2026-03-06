@@ -180,7 +180,7 @@ This configuration includes multiple playback profiles tailored for different co
 ## Datasets
 Download and place datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\  
 
-- [`Kemar_HRTF_sofa.sofa`](https://sofacoustics.org/data/database/aachen%20%28high-resolution%20kemar%29/Kemar_HRTF_sofa.sofa)
+- [`Kemar_HRTF_sofa.sofa`](https://sofacoustics.org/data/database/aachen%20%28high-resolution%20kemar%29/Kemar_HRTF_sofa.sofa)  
   KEMAR HRTF dataset (open research license, safe to redistribute with attribution).  
 - [`SADIE_KEMAR_DFC_256_order_fir_48000.sofa`](https://zenodo.org/records/12542676/files/SADIE_KEMAR_DFC_256_order_fir_48000.sofa?download=1)  
   Official SADIE II Dataset (University of York). For personal/research use only.  
