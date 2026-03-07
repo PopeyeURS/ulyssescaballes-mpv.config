@@ -229,13 +229,13 @@ local SADIE_BRIR =  "C:/Users/<user_name>/AppData/Roaming/mpv/portable_config/sc
     └── Depth_reality_boost\
 ```
 
-3. Ensure your GPU is set to **Vulkan** mode:
+13. Ensure your GPU is set to **Vulkan** mode:
 
 ```
 gpu-api=vulkan
 ```
 
-4. Launch MPV — the configuration activates automatically.
+14. Launch MPV — the configuration activates automatically.
 
 ---
 
