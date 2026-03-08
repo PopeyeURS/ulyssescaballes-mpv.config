@@ -277,7 +277,7 @@ gpu-api=vulkan
 
 ## **mpv plays YouTube**  
 Instructions on how to enable mpv to directly open and play YouTube stream from web browser **(Enabled only on any FireFox variant)**:  
-1. Install FireFox, recommended "Floorp" browser.  
+1. Download and install FireFox web browser or any of its variant, [`Floorp'](https://floorp.app/download) browser is highly recommended.  
 2. Install brower extension: "ff2mpv (for Windows)" from FireFox Browser ADD-ONS.  
 3. Download: [`ff2mpv-master.zip`](https://github.com/eastmarch/ff2mpv/archive/master.zip)  
 4. Extract "ff2mpv-master.zip" inside "MPV" folder.  
