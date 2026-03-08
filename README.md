@@ -33,7 +33,8 @@ A hand‑crafted cinema engine built for IMAX‑grade immersion. It pairs pristi
 - [Installation](#installation)  
 - [Usage Note](#usage-note)  
 - [Common Toggles & Beginner Notes](#common-toggles--beginner-notes)  
-- [Optional Add-ons](#optional-add-ons)  
+- [Optional Add-ons](#optional-add-ons)
+- [MPV Plays YouTube](#mpv-plays-YouTube)  
 - [Philosophy](#philosophy)  
 - [Repo Hygiene](#repo-hygiene)  
 - [Final Word](#final-word)  
@@ -271,6 +272,19 @@ gpu-api=vulkan
 | **RAVU**            | High‑precision scaling                   |
 | **SVP / Motion Interpolation** | Smoother playback for sports and fast motion |
 | **External LUTs**   | Custom color grading for cinematic tone  |
+
+---
+
+## **mpv plays YouTube**  
+Instructions on how to enable mpv to directly open and play YouTube stream from web browser **(Apllicable only on any FireFox variant)**:  
+1. Install FireFox, recommended "Floorp" browser.  
+2. Install brower extension: "ff2mpv (for Windows).  
+3. Download: [`ff2mpv-master.zip`](https://github.com/eastmarch/ff2mpv/archive/master.zip)  
+4. Extract "ff2mpv-master.zip" inside "MPV" folder.  
+5. Open "ff2mpv-master" folder, copy "ytdlProtocol.bat" then paste it outside "ff2mpv-master" folder to sit where "mpv.exe" is placed inside "MPV" folder.  
+6. Right click and "Run as administrator" the "ytdlProtocol.bat" just once.   
+7. Reboot your PC.  
+8. Open YouTube on your browser, right-click on a video, scroll down and click "Play link in MPV".  
 
 ---
 
