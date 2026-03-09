@@ -287,7 +287,7 @@ Instructions on how to enable mpv to directly open and play YouTube stream from 
 "C:/Users/<user_name>/AppData/Roaming/MPV/ytdlProtocol.bat".  
 7. Right click and "Run as administrator" on the "ytdlProtocol.bat", just once.   
 8. Reboot your PC.  
-9. Open YouTube on your browser, select and right-click on any video stream available on display, scroll down on Explorer and click "Play link in MPV". MPV will open and automatically play the selected video stream from YouTube.  
+9. Open YouTube on your browser, select and right-click on any video stream available on display, scroll down on Explorer and click "Play link in MPV". MPV will open and automatically play the selected video stream directly from YouTube.  
 
 ---
 
