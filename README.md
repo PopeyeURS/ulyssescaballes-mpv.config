@@ -196,7 +196,7 @@ Download and place datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
 ## Installation
 1. Open Windows Explorer.  
 2. Click "View", scroll the Pulldown Menu to "Show", and tick "Hidden Items".  
-3. Create a new folder named [MPV] here: "C:/Users/<user_name>/AppData/Roaming".  
+3. Create a new folder named [MPV] here:  "C:/Users/<user_name>/AppData/Roaming".  
 4. Extract all contents of "mpv-x86_64-v3" (Shinchiro Build) into the newly created [MPV] folder.  
 5. Install "mpv" and assign media files to be opened/played by "mpv" as the default player.  
 6. Right click on "Updater.bat" then "Run as administrator" to update "mpv", then select options as required.  
