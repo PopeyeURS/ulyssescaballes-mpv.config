@@ -196,12 +196,12 @@ Download and place datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
 ## Installation
 1. Open Windows Explorer.  
 2. Click "View", scroll the Pulldown Menu to "Show", and tick "Hidden Items".  
-3. Create a new folder named [MPV] here:  "C:/Users/<user_name>/AppData/Roaming".  
+3. Create a new folder named [MPV] here:   "C:/Users/<user_name>/AppData/Roaming".  
 4. Extract all contents of "mpv-x86_64-v3" (Shinchiro Build) into the newly created [MPV] folder.  
 5. Install "mpv" and assign media files to be opened/played by "mpv" as the default player.  
 6. Right click on "Updater.bat" then "Run as administrator" to update "mpv", then select options as required.  
 7. Download or clone this repository to extract the "portable_config" folder.  
-8. Place the "portable_config" folder inside the [MPV] folder here:  "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config".  
+8. Place the "portable_config" folder inside the [MPV] folder here:   "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config".  
 9. Place the KEMAR HRTF file here:  "C:/Users/<user_name>/AppData/Roaming/mpv/portable_config/scripts/sofalizer/Kemar_HRTF_sofa.sofa".  
 10. Place the SADIE KEMAR BRIR file here:  
 "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config/scripts/sofalizer/SADIE_KEMAR_DFC_256_order_fir_48000.sofa".  
@@ -281,7 +281,7 @@ Instructions on how to enable mpv to directly open and play YouTube stream from 
 2. Install brower extension: [`ff2mpv (for Windows)`](https://addons.mozilla.org/en-US/firefox/addon/ff2mpv-for-windows/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search) from FireFox Browser ADD-ONS.  
 3. Download: [`ff2mpv-master.zip`](https://github.com/eastmarch/ff2mpv/archive/master.zip)  
 4. Extract "ff2mpv-master.zip" inside [MPV] folder.  
-5. Open "ff2mpv-master" folder, copy "ytdlProtocol.bat" then paste it outside "ff2mpv-master" folder to sit where "mpv.exe" is placed inside [MPV] folder, here:  "C:/Users/<user_name>/AppData/Roaming/MPV/ytdlProtocol.bat".  
+5. Open "ff2mpv-master" folder, copy "ytdlProtocol.bat" then paste it outside "ff2mpv-master" folder to sit where "mpv.exe" is placed inside [MPV] folder, here:   "C:/Users/<user_name>/AppData/Roaming/MPV/ytdlProtocol.bat".  
 6. Right click and "Run as administrator" on the "ytdlProtocol.bat", just once.   
 7. Reboot your PC.  
 8. Open YouTube on your browser, select and right-click on any video stream available on display, scroll down on Explorer and click "Play link in MPV". MPV will open and automatically play the selected video stream from YouTube.  
