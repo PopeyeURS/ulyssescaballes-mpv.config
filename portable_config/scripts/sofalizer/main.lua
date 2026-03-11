@@ -1,169 +1,245 @@
 local mp = require "mp"
+local utils = require "mp.utils"
 
--- "Delicately Fine Tuned by UlyssesRSCaballes. The ULTIMATE version."
+-- "Delicately Fine Tuned by UlyssesRSCaballes. The ULTIMATE ver.2.0."
 
--- Paths to SOFA files
+-- CONFIG
+
 local KEMAR_SOFA = "C:/Users/ulyss/AppData/Roaming/mpv/portable_config/scripts/sofalizer/KEMAR_HRTF.sofa"
 local SADIE_BRIR = "C:/Users/ulyss/AppData/Roaming/mpv/portable_config/scripts/sofalizer/SADIE_KEMAR_DFC_256_order_fir_48000.sofa"
 
--- OSD helper
+-- HELPERS
+
 local function show(msg, duration)
     mp.osd_message(msg, duration or 3)
 end
 
--- 🎧 HEADSET REFERENCE MODE
+local function file_exists(path)
+    return utils.file_info(path) ~= nil
+end
+
+local function apply_filters(filters)
+    mp.commandv("af", "set", table.concat(filters, ","))
+end
+
+local function is_stereo()
+    local ch = mp.get_property_number("audio-params/channel-count",2)
+    return ch <= 2
+end
+
+-- CORE FILTER BLOCKS
+
+local function headroom()
+    return "volume=0.90"
+end
+
+local function crossfeed()
+    return "bs2b=profile=jmeier"
+end
+
+local function micro_head_motion()
+    return {
+        "haas=left_delay=1.8:right_delay=2.1:left_gain=0.97:right_gain=0.97",
+        "stereotools=delay=0.15:phase=0.85"
+    }
+end
+
+local function room_reflections()
+    return "haas=left_delay=2.2:right_delay=2.7:left_gain=0.96:right_gain=0.96"
+end
+
+local function hall_reflections()
+    return "haas=left_delay=3.5:right_delay=4.1:left_gain=0.95:right_gain=0.95"
+end
+
+local function hrtf(radius,gain)
+    return "sofalizer=sofa='"..KEMAR_SOFA..
+    "':type=hrtf:interpolate=3:normalize=1"..
+    ":radius="..radius..
+    ":gain="..gain..
+    ":speakers=FL+30*FR-30*FC+0*LFE+0*SL+110*SR-110"
+end
+
+local function binaural_subwoofer()
+    return {
+        "firequalizer=gain_entry='entry(20,4);entry(30,4);entry(40,3);entry(60,2);entry(90,1)'",
+        "acompressor=threshold=-24dB:ratio=1.8:attack=8:release=120",
+        "extrastereo=m=1.05"
+    }
+end
+
+local function impact_enhancer()
+    return {
+        "acompressor=threshold=-26dB:ratio=2.2:attack=5:release=80",
+        "firequalizer=gain_entry='entry(35,2);entry(50,2);entry(70,1.2)'"
+    }
+end
+
+local function dialogue_enhancer()
+    return {
+        "equalizer=f=1700:t=q:w=1.2:g=1.4",
+        "equalizer=f=3000:t=q:w=1.1:g=2.0"
+    }
+end
+
+local function surround_width()
+    local ch = mp.get_property_number("audio-params/channel-count",2)
+
+    if ch >= 6 then
+        return "stereotools=width=1.65:mlev=1.18:slev=1.18:phase=0.8"
+    else
+        return "stereotools=width=1.45:mlev=1.15:slev=1.15:phase=0.9"
+    end
+end
+
+local function limiter(limit)
+    return "alimiter=limit="..limit..":level_out=0.98"
+end
+
+local function resampler()
+    return "aresample=resampler=soxr:precision=33:cheby=1:sample_rate=96000:dither_method=shibata"
+end
+
+-- HEADSET MODE
 
 local function set_headset_audio()
 
-    mp.commandv("af", "set",
+    local filters = {
+        headroom(),
+        crossfeed()
+    }
 
-        -- Crossfeed (speaker-like presentation)
-        "bs2b=profile=cmoy," ..
+    for _,f in ipairs(micro_head_motion()) do table.insert(filters,f) end
 
-        -- Spatial HRTF
-        "sofalizer=sofa='" .. KEMAR_SOFA ..
-        "':type=hrtf:interpolate=1:normalize=1:radius=1.5:gain=1.02," ..
+    table.insert(filters, room_reflections())
+    table.insert(filters, hrtf(1.7,1.02))
 
-        -- Bass control
-        "firequalizer=gain_entry='entry(30,3);entry(50,2);entry(80,1)'," ..
+    table.insert(filters,"firequalizer=gain_entry='entry(30,3);entry(50,2);entry(80,1)'")
 
-        -- Clarity EQ
-        "equalizer=f=2500:t=q:w=1.0:g=2.2," ..
-        "equalizer=f=4500:t=q:w=1.0:g=2.0," ..
-        "equalizer=f=10000:t=q:w=0.8:g=1.8," ..
+    table.insert(filters,"equalizer=f=2500:t=q:w=1:g=2.2")
+    table.insert(filters,"equalizer=f=4500:t=q:w=1:g=2.0")
+    table.insert(filters,"equalizer=f=10000:t=q:w=0.8:g=1.8")
 
-        -- Stereo depth
-        "stereotools=mlev=1.15:slev=1.15:phase=0.9:width=1.55," ..
+    table.insert(filters,surround_width())
 
-        -- Gentle dynamics
-        "acompressor=threshold=-20dB:ratio=1.6:attack=12:release=120," ..
+    table.insert(filters,"acompressor=threshold=-20dB:ratio=1.6:attack=12:release=120")
 
-        -- Limiter
-        "alimiter=limit=0.09:level_out=0.985," ..
+    table.insert(filters,limiter(0.09))
+    table.insert(filters,resampler())
 
-        -- High quality resampling
-        "aresample=resampler=soxr:precision=33:sample_rate=96000:dither_method=shibata"
-    )
+    apply_filters(filters)
 
-    show("🎧 Headset Reference Mode Activated", 3)
+    show("🎧 Headset Reference Mode Activated")
 end
 
--- 🎬 ULTIMATE CINEMA MODE
+-- CINEMA MODE
 
 local function set_cinema_mode()
 
-    mp.commandv("af", "set",
+    local filters = {
+        headroom()
+    }
 
-        -- Upmix stereo → 5.1 before virtualization
-        "surround=chl_in=stereo:chl_out=5.1," ..
+    if is_stereo() then
+        table.insert(filters,"surround=chl_in=stereo:chl_out=5.1")
+    end
 
-        -- Crossfeed for speaker realism
-        "bs2b=profile=cmoy," ..
+    table.insert(filters,crossfeed())
 
-        -- Main HRTF spatialization
-        "sofalizer=sofa='" .. KEMAR_SOFA ..
-        "':type=hrtf:interpolate=1:normalize=1:radius=1.95:gain=1.08," ..
+    for _,f in ipairs(micro_head_motion()) do table.insert(filters,f) end
 
-        -- Psychoacoustic early reflections
-        "haas=left_delay=2.5:right_delay=3.1:left_gain=0.95:right_gain=0.95," ..
+    table.insert(filters,room_reflections())
 
-        -- Room impulse (large theater simulation)
-        "afir=file='" .. SADIE_BRIR .. "'," ..
+    table.insert(filters,hrtf(2.1,1.08))
 
-        -- Subwoofer style bass management
-        "firequalizer=gain_entry='entry(25,4);entry(40,3);entry(60,2)'," ..
+    table.insert(filters,"afir=file='"..SADIE_BRIR.."'")
 
-        -- Cinematic EQ
-        "equalizer=f=900:t=q:w=1.0:g=1.0," ..
-        "equalizer=f=1800:t=q:w=1.0:g=1.6," ..
-        "equalizer=f=2200:t=q:w=1.0:g=1.2," ..
-        "equalizer=f=3000:t=q:w=1.0:g=2.4," ..
-        "equalizer=f=6000:t=q:w=0.8:g=2.2," ..
-        "equalizer=f=12000:t=q:w=0.7:g=2.6," ..
-        "equalizer=f=16000:t=q:w=0.6:g=2.0," ..
+    for _,f in ipairs(binaural_subwoofer()) do table.insert(filters,f) end
+    for _,f in ipairs(impact_enhancer()) do table.insert(filters,f) end
+    for _,f in ipairs(dialogue_enhancer()) do table.insert(filters,f) end
 
-        -- Early reflections for depth
-        "aecho=0.6:0.5:30:0.15," ..
+    table.insert(filters,surround_width())
 
-        -- Surround perception enhancement
-        "stereotools=mlev=1.18:slev=1.18:phase=0.8:width=1.55:mode=lr>lr," ..
+    table.insert(filters,"acompressor=threshold=-18dB:ratio=1.4:attack=18:release=180")
 
-        -- Gentle cinema compression
-        "acompressor=threshold=-18dB:ratio=1.4:attack=18:release=180," ..
+    table.insert(filters,limiter(0.07))
+    table.insert(filters,resampler())
 
-        -- Safety limiter
-        "alimiter=limit=0.07:level_out=0.97," ..
+    apply_filters(filters)
 
-        -- High-precision resampling
-        "aresample=resampler=soxr:precision=33:sample_rate=96000:dither_method=shibata"
-    )
-
-    show("🎬 Ultimate Cinema Mode Activated", 4)
+    show("🎬 Ultimate Cinema Mode Activated")
 end
 
--- 🎼 MUSIC HALL MODE
+-- MUSIC MODE
 
 local function set_music_hall_mode()
 
-    mp.commandv("af", "set",
+    local filters = {
+        headroom(),
+        crossfeed()
+    }
 
-        -- Crossfeed
-        "bs2b=profile=cmoy," ..
+    for _,f in ipairs(micro_head_motion()) do table.insert(filters,f) end
 
-        -- HRTF
-        "sofalizer=sofa='" .. KEMAR_SOFA ..
-        "':type=hrtf:interpolate=1:normalize=1:radius=1.6:gain=1.05," ..
+    table.insert(filters,hall_reflections())
 
-        -- Concert hall BRIR
-        "afir=file='" .. SADIE_BRIR .. "'," ..
+    table.insert(filters,hrtf(1.8,1.05))
 
-        -- Smooth orchestral bass
-        "firequalizer=gain_entry='entry(35,2);entry(60,1.8);entry(120,1)'," ..
+    table.insert(filters,"afir=file='"..SADIE_BRIR.."'")
 
-        -- Musical EQ balance
-        "equalizer=f=250:t=q:w=1.0:g=1.2," ..
-        "equalizer=f=500:t=q:w=1.0:g=1.0," ..
-        "equalizer=f=1800:t=q:w=0.9:g=1.4," ..
-        "equalizer=f=3200:t=q:w=0.8:g=2.0," ..
-        "equalizer=f=7000:t=q:w=0.8:g=1.8," ..
-        "equalizer=f=12000:t=q:w=0.7:g=2.2," ..
+    table.insert(filters,"firequalizer=gain_entry='entry(35,2);entry(60,1.8);entry(120,1)'")
 
-        -- Concert hall reflections
-        "aecho=0.8:0.7:45:0.28," ..
+    table.insert(filters,"equalizer=f=250:t=q:w=1:g=1.2")
+    table.insert(filters,"equalizer=f=500:t=q:w=1:g=1.0")
+    table.insert(filters,"equalizer=f=1800:t=q:w=0.9:g=1.4")
+    table.insert(filters,"equalizer=f=3200:t=q:w=0.8:g=2.0")
+    table.insert(filters,"equalizer=f=7000:t=q:w=0.8:g=1.8")
+    table.insert(filters,"equalizer=f=12000:t=q:w=0.7:g=2.2")
 
-        -- Natural stereo width
-        "stereotools=mlev=1.12:slev=1.12:phase=0.82:width=1.55," ..
+    table.insert(filters,surround_width())
 
-        -- Very light dynamics
-        "dynaaudnorm=f=250:g=6:p=0.9," ..
+    table.insert(filters,"dynaaudnorm=f=250:g=6:p=0.9")
 
-        -- limiter
-        "alimiter=limit=0.08:level_out=0.985," ..
+    table.insert(filters,limiter(0.08))
+    table.insert(filters,resampler())
 
-        -- High resolution audio
-        "aresample=sample_rate=96000"
-    )
+    apply_filters(filters)
 
-    show("🎼 Music Hall Mode Activated", 4)
+    show("🎼 Music Hall Mode Activated")
 end
 
--- 🔄 CLEAR FILTERS
+-- RESET
 
 local function clear_filters()
-    mp.commandv("af", "clr")
-    show("🔄 Filters Cleared", 3)
+    mp.commandv("af","clr")
+    show("🔄 Filters Cleared")
 end
 
--- Script message registration
+-- =========================
+-- FILE CHECK
+-- =========================
 
-mp.register_script_message("headset-mode", set_headset_audio)
-mp.register_script_message("cinema-mode", set_cinema_mode)
-mp.register_script_message("music-mode", set_music_hall_mode)
-mp.register_script_message("reset-filters", clear_filters)
+if not file_exists(KEMAR_SOFA) then
+    show("❌ Missing KEMAR HRTF file!",5)
+end
 
--- Key bindings
+-- OPTIONAL INFO MESSAGE
 
-mp.add_forced_key_binding("F9",  "headset_audio_key", set_headset_audio)
-mp.add_forced_key_binding("F10", "cinema_mode_key", set_cinema_mode)
-mp.add_forced_key_binding("F11", "music_hall_key",  set_music_hall_mode)
-mp.add_forced_key_binding("F12", "reset_filters_key", clear_filters)
+mp.register_event("file-loaded", function()
+
+    local ch = mp.get_property_number("audio-params/channel-count",2)
+
+    if ch <= 2 then
+        mp.osd_message("🎧 Stereo audio detected")
+    else
+        mp.osd_message("🎬 Surround audio detected")
+    end
+
+end)
+
+-- KEYBINDS
+
+mp.add_forced_key_binding("F9","headset_audio_key",set_headset_audio)
+mp.add_forced_key_binding("F10","cinema_mode_key",set_cinema_mode)
+mp.add_forced_key_binding("F11","music_hall_key",set_music_hall_mode)
+mp.add_forced_key_binding("F12","reset_filters_key",clear_filters)
