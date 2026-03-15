@@ -8,7 +8,6 @@ Every shader, script, and profile is tuned for **clarity, depth, and cinematic r
 </p>
 
 <p align="center">
-
 ## Core Components  
 
 ![License](https://img.shields.io/badge/License-GPLv3-blue)  
@@ -19,7 +18,6 @@ Every shader, script, and profile is tuned for **clarity, depth, and cinematic r
 ![Playback](https://img.shields.io/badge/Playback-Cinematic%208K%20HDR-critical)  
 ![Shaders](https://img.shields.io/badge/Shader%20Pipeline-Custom%20GLSL-purple)  
 ![Profiles](https://img.shields.io/badge/Profiles-Anime%20%7C%20Realism%20%7C%20Sports%20%7C%208K-green)  
-
 </p>
 
 <p align="center">
