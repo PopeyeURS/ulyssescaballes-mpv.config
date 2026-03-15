@@ -1,14 +1,14 @@
 local mp = require "mp"
 local utils = require "mp.utils"
 
--- "Refined by UlyssesRSCaballes. The ULTIMATE ver.3.0 (7.1 + Dynamic Spatial + Subwoofer + Concert Air Enhancer)"
+-- "Refined/Enhanced/Improved by UlyssesRSCaballes. The ULTIMATE ver.3.1 (for 7.1 Speaker Array + Dynamic Spatial + Subwoofer + Concert Air Enhancer)"
 
 -- ======
 -- CONFIG
 -- ======
 
-local KEMAR_SOFA = "C:/Users/user_name/AppData/Roaming/mpv/portable_config/scripts/sofalizer/KEMAR_HRTF.sofa"
-local SADIE_BRIR = "C:/Users/user_name/AppData/Roaming/mpv/portable_config/scripts/sofalizer/SADIE_KEMAR_DFC_256_order_fir_48000.sofa"
+local KEMAR_SOFA = "C:/Users/ulyss/AppData/Roaming/mpv/portable_config/scripts/sofalizer/KEMAR_HRTF.sofa"
+local SADIE_BRIR = "C:/Users/ulyss/AppData/Roaming/mpv/portable_config/scripts/sofalizer/SADIE_KEMAR_DFC_256_order_fir_48000.sofa"
 
 -- =======
 -- HELPERS
@@ -27,7 +27,8 @@ local function apply_filters(filters)
 end
 
 local function is_stereo()
-    return mp.get_property_number("audio-params/channel-count",2) <= 2
+    local ch = mp.get_property_number("audio-params/channel-count", 2)
+    return ch ~= nil and ch <= 2
 end
 
 local function channel_count()
@@ -80,7 +81,7 @@ end
 -- CROSSFEED
 -- ==========
 local function crossfeed()
-    return "bs2b=profile=jmeier"
+    return "bs2b=profile=jmeier:fcut=700:feed=50"
 end
 
 -- ==========
@@ -98,7 +99,7 @@ end
 -- RESAMPLER
 -- ==========
 local function resampler()
-    return "aresample=resampler=soxr:precision=28"
+    return "aresample=resampler=soxr:precision=33:cheby=1"
 end
 
 -- ==========
@@ -129,7 +130,8 @@ local function set_headset_audio()
     table.insert(filters, compressor())
     table.insert(filters, limiter())
     table.insert(filters, resampler())
-    apply_filters(filters)
+    mp.commandv("af","clr")
+apply_filters(filters)
     show("🎧 Headset Reference Mode Activated")
 end
 
@@ -154,7 +156,8 @@ local function set_cinema_mode()
     table.insert(filters, compressor())
     table.insert(filters, limiter())
     table.insert(filters, resampler())
-    apply_filters(filters)
+    mp.commandv("af","clr")
+apply_filters(filters)
     show("🎬 Cinema Mode (7.1 + Concert Air) Activated")
 end
 
@@ -179,7 +182,8 @@ local function set_music_hall_mode()
     table.insert(filters,"dynaaudnorm=f=200:g=4:p=0.9")
     table.insert(filters, limiter())
     table.insert(filters, resampler())
-    apply_filters(filters)
+    mp.commandv("af","clr")
+apply_filters(filters)
     show("🎼 Music Hall Mode (Concert Spatial + Air) Activated")
 end
 
