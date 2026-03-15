@@ -121,6 +121,7 @@ This clip was rendered and played using my MPV config with HEVC Main 10, tone ma
 
 ![Screenshot 2](images/screenshot2.png)  
 *Styled subtitles and shader stack delivering cinematic realism.*
+
 ---
 
 ## Visual Improvements
