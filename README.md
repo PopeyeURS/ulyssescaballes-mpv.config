@@ -16,7 +16,7 @@ Every shader, script, and profile is tuned for **clarity, depth, and cinematic r
 ![Shaders](https://img.shields.io/badge/Shader%20Pipeline-Custom%20GLSL-purple)  
 ![Profiles](https://img.shields.io/badge/Profiles-Anime%20%7C%20Realism%20%7C%20Sports%20%7C%208K-green)  
 
-**What This Config Delivers**
+This configuration delivers:
 
 ✔ Cinema-grade HDR tone mapping  
 ✔ AI-based super-resolution scaling  
@@ -24,7 +24,6 @@ Every shader, script, and profile is tuned for **clarity, depth, and cinematic r
 ✔ HRTF spatial audio virtualization  
 ✔ Automatic playback profiles for different content  
 ✔ A modular system designed for experimentation  
----
 
 ## Performance Expectations
 
@@ -35,7 +34,6 @@ Every shader, script, and profile is tuned for **clarity, depth, and cinematic r
 | RTX 3060 / RX 6700 XT | 4K | Recommended |
 | GTX 1660 / RX 5600 XT | 1080p–1440p | Use lighter profiles |
 | Integrated GPUs | 1080p | FSRCNNX recommended |
----
 
 ## GPU Compatibility
 
@@ -45,7 +43,6 @@ Every shader, script, and profile is tuned for **clarity, depth, and cinematic r
 | AMD | Excellent | Linux may need lighter CuNNy variants |
 | Intel Arc | Good | Works with FSRCNNX |
 | Intel iGPU | Limited | Use lighter profiles |
----
 
 ## Table of Contents
 - [Overview](#overview)  
