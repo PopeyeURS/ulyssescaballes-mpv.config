@@ -127,7 +127,7 @@ This clip was rendered and played using my MPV config with HEVC Main 10, tone ma
 
 ## Visual Improvements
 
-| Without Config | With Ulysses MPV Config |
+| Without Config | With UlyssesCaballes - MPV Config |
 |---------------|------------------------|
 | Flat colors | Cinematic tone mapping |
 | Aliasing artifacts | Neural upscaling |
