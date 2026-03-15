@@ -1,9 +1,13 @@
-# Ulysses Caballes - MPV Configuration  
+<h1 align="center">Ulysses Caballes - MPV Configuration</h1>  
 
+<p align="center">
 A hand-crafted cinema engine built for IMAX-grade immersion.  
 It combines pristine video fidelity with spatially rich audio, adaptable to headphones and multi-speaker systems.  
 
-Every shader, script, and profile is tuned for **clarity, depth, and cinematic realism**.      
+Every shader, script, and profile is tuned for **clarity, depth, and cinematic realism**.  
+</p>
+
+<p align="center">
 
 ## Core Components  
 
@@ -16,7 +20,11 @@ Every shader, script, and profile is tuned for **clarity, depth, and cinematic r
 ![Shaders](https://img.shields.io/badge/Shader%20Pipeline-Custom%20GLSL-purple)  
 ![Profiles](https://img.shields.io/badge/Profiles-Anime%20%7C%20Realism%20%7C%20Sports%20%7C%208K-green)  
 
-⭐ <b>If you find this project useful, consider giving it a star on GitHub!</b>
+</p>
+
+<p align="center">
+⭐ If you find this project useful, consider giving it a star!  
+</p>
 
 This configuration delivers:
 
