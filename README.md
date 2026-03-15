@@ -17,7 +17,7 @@ Every shader, script, and profile is tuned for **clarity, depth, and cinematic r
 ![Profiles](https://img.shields.io/badge/Profiles-Anime%20%7C%20Realism%20%7C%20Sports%20%7C%208K-green)  
 ---
 
-## What This Config Delivers  
+What This Config Delivers
 
 ✔ Cinema-grade HDR tone mapping  
 ✔ AI-based super-resolution scaling  
@@ -27,7 +27,7 @@ Every shader, script, and profile is tuned for **clarity, depth, and cinematic r
 ✔ A modular system designed for experimentation  
 ---
 
-## Performance Expectations  
+## Performance Expectations
 
 | GPU Class | Resolution | Expected Performance |
 |-----------|-----------|----------------------|
@@ -38,7 +38,7 @@ Every shader, script, and profile is tuned for **clarity, depth, and cinematic r
 | Integrated GPUs | 1080p | FSRCNNX recommended |
 ---
 
-## GPU Compatibility  
+## GPU Compatibility
 
 | Vendor | Status | Notes |
 |------|------|------|
