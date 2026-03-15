@@ -1,19 +1,51 @@
-# Ulysses Caballes’ MPV Configuration  
+# Ulysses Caballes MPV Configuration  
 
-A hand‑crafted cinema engine built for IMAX‑grade immersion. It pairs pristine video fidelity with spatially rich audio, adaptable to headphones and multi‑speaker arrays. Every shader, script, and profile is tuned for clarity, depth, and realism.  
-    
+A hand-crafted cinema engine built for IMAX-grade immersion.  
+It combines pristine video fidelity with spatially rich audio, adaptable to headphones and multi-speaker systems.  
+
+Every shader, script, and profile is tuned for **clarity, depth, and cinematic realism**.      
 
 ## Core Components  
 
 ![License](https://img.shields.io/badge/License-GPLv3-blue)  
+![MPV](https://img.shields.io/badge/MPV-v0.41+-blue)  
 ![GPU](https://img.shields.io/badge/GPU-Vulkan%20Optimized-orange)  
 ![Config](https://img.shields.io/badge/config-remixable-green)  
-![MPV](https://img.shields.io/badge/MPV-v0.40%2B-blue)  
 ![Platform](https://img.shields.io/badge/Platform-Windows%2011-lightgrey)  
-![GLSL](https://img.shields.io/badge/GLSL-Custom%20Pipeline-purple)  
-![Playback](https://img.shields.io/badge/Playback-Cinematic%20HDR%208K-critical)  
-![Profiles](https://img.shields.io/badge/Profiles-Anime%2C%20Realism%2C%208K%2C%20Sports-green)  
+![Playback](https://img.shields.io/badge/Playback-Cinematic%208K%20HDR-critical)  
+![Shaders](https://img.shields.io/badge/Shader%20Pipeline-Custom%20GLSL-purple)  
+![Profiles](https://img.shields.io/badge/Profiles-Anime%20%7C%20Realism%20%7C%20Sports%20%7C%208K-green)  
+---
 
+## What This Config Delivers
+
+✔ Cinema-grade HDR tone mapping  
+✔ AI-based super-resolution scaling  
+✔ Adaptive sharpening and depth enhancement  
+✔ HRTF spatial audio virtualization  
+✔ Automatic playback profiles for different content  
+✔ A modular system designed for experimentation  
+---
+
+## Performance Expectations
+
+| GPU Class | Resolution | Expected Performance |
+|-----------|-----------|----------------------|
+| RTX 4090 / RX 7900 XTX | 8K | Full pipeline |
+| RTX 3080 / RX 6800 XT | 4K–8K | Minor shader tuning may help |
+| RTX 3060 / RX 6700 XT | 4K | Recommended |
+| GTX 1660 / RX 5600 XT | 1080p–1440p | Use lighter profiles |
+| Integrated GPUs | 1080p | FSRCNNX recommended |
+---
+
+## GPU Compatibility
+
+| Vendor | Status | Notes |
+|------|------|------|
+| NVIDIA | Excellent | Full Vulkan performance |
+| AMD | Excellent | Linux may need lighter CuNNy variants |
+| Intel Arc | Good | Works with FSRCNNX |
+| Intel iGPU | Limited | Use lighter profiles |
 ---
 
 ## Table of Contents
@@ -45,7 +77,7 @@ A hand‑crafted cinema engine built for IMAX‑grade immersion. It pairs pristi
 ## Overview
 This MPV configuration is engineered for viewers who demand cinematic fidelity, artifact‑free rendering, and adaptive precision across all content types — anime, films, sports, and 8K HDR.  
 
-Every component is tuned for clarity, depth, and realism, powered by a custom shader pipeline and a suite of Lua automation scripts.  
+Every component is tuned for clarity, depth, and realism. Powered by a custom shader pipeline and a suite of Lua automation scripts.  
 
 ---
 
@@ -54,7 +86,7 @@ Every component is tuned for clarity, depth, and realism, powered by a custom sh
 - Vulkan‑optimized GPU context  
 - Modular profiles for anime, realism, sports, and 8K  
 - Lua automation for adaptive playback and shader recovery  
-- Clean, cache‑free, remixable structure  
+- Clean, cache‑free, and remixable structure  
 
 ---
 
@@ -93,20 +125,29 @@ This clip was rendered and played using my MPV config with HEVC Main 10, tone ma
 
 ![Screenshot 2](images/screenshot2.png)  
 *Styled subtitles and shader stack delivering cinematic realism.*
+---
 
+## Visual Improvements
+
+| Without Config | With Ulysses MPV Config |
+|---------------|------------------------|
+| Flat colors | Cinematic tone mapping |
+| Aliasing artifacts | Neural upscaling |
+| Washed HDR | Contrast recovery |
+| Weak audio stage | Spatial HRTF audio |
 ---
 
 ## Shader Pipeline
 
-1. **Debanding (fade‑aware, fruit dithering)**  
+1. **Debanding (fade‑aware, error diffusion dithering)**  
 
 2. **Tone Mapping (BT.2390 with contrast recovery)**  
 
-3. **Resampling - 26-tap separable kernel**  
+3. **Resampling — 26-tap separable kernel**  
 
 4. **Adaptive Sharpen - linear-light, curve height tuned, overshoot control**  
 
-5. **Depth Reality Boost - perceptual depyh cues without halos**  
+5. **Depth Reality Boost - perceptual depth cues without halos**  
 
 ---
 
@@ -114,7 +155,7 @@ This clip was rendered and played using my MPV config with HEVC Main 10, tone ma
 
 1. **SOFAlizer (HRTF Virtualization) - Kemar dataset, customized via [main.lua]**  
 
-2. **EQ Chain - bass reinforcement, midrange cleanup, treble clarity, subharmonic depth**  
+2. **EQ Chain - bass reinforcement, midrange cleanup, treble clarity, and subharmonic depth**  
 
 3. **Dynamics Control - normalization, compression, limiter for safe playback**  
 
@@ -132,7 +173,7 @@ This configuration includes multiple playback profiles tailored for different co
 ### Sports  
 - Motion‑clarity‑oriented sharpen, reduced grain, highlight visibility, clean gradients  
 
-### 8K 
+### 8K  
 - Super‑resolution, minimal grain, precision tone mapping, GPU-efficient scaling  
 
 ---
@@ -199,19 +240,19 @@ Download and place datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
 3. Create a new folder named [MPV] here:  
 "C:/Users/<user_name>/AppData/Roaming/MPV".  
 5. Extract all contents of [`mpv-x86_64-v3_(Shinchiro Build)`](https://github.com/shinchiro/mpv-winbuild-cmake/releases) into the newly created [MPV] folder.  
-6. Install "mpv" and assign media files to be opened/played by "mpv" as the default player.  
+6. Install mpv and set it as the default player for media files.    
 7. Right click on "Updater.bat" then "Run as administrator" to update "mpv", then select options as required.  
 8. Download or clone this repository to extract the [`portable_config`](https://github.com/PopeyeURS/ulyssescaballes-mpv.config/archive/refs/heads/main.zip) folder.  
 9. Place the "portable_config" folder inside the [MPV] folder here:  
 "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config".  
-11. Place the KEMAR HRTF file here:  "C:/Users/<user_name>/AppData/Roaming/mpv/portable_config/scripts/sofalizer/Kemar_HRTF_sofa.sofa".  
-12. Place the SADIE KEMAR BRIR file here:  
+10. Place the Kemar_HRTF_sofa.sofa file here:  "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config/scripts/sofalizer/Kemar_HRTF_sofa.sofa".  
+11. Place the SADIE KEMAR BRIR file here:  
 "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config/scripts/sofalizer/SADIE_KEMAR_DFC_256_order_fir_48000.sofa".  
-13. **VERY IMPORTANT**: Make **SURE** to **EDIT/RENAME** the <user_name> entry accordingly, exactly the same name as the actual PC's <user_name>, in sofalizer's "main.lua", otherwise "KEMAR_SOFA" and "SADIE_BRIR" will not be enabled.  
+12. **VERY IMPORTANT**: Make **SURE** to **EDIT/RENAME** the <user_name> entry accordingly, exactly the same name as the actual PC's <user_name>, in sofalizer's "main.lua", otherwise "KEMAR_SOFA" and "SADIE_BRIR" will not be enabled.  
 -- Paths to SOFA files  
 local KEMAR_SOFA =  "C:/Users/<user_name>/AppData/Roaming/mpv/portable_config/scripts/sofalizer/KEMAR_HRTF.sofa"  
 local SADIE_BRIR =  "C:/Users/<user_name>/AppData/Roaming/mpv/portable_config/scripts/sofalizer/SADIE_KEMAR_DFC_256_order_fir_48000.sofa"  
-14. Now, you may double-click any media file/s on your PC and MPV will play it with Ultimate Cinema and Music Hall modes enabled. ENJOY!!!  
+13. You may now double-click any media file on your PC and MPV will play it with Ultimate Cinema and Music Hall modes enabled. ENJOY!!!  
 ```
 
 %APPDATA%\mpv\portable_config\
@@ -232,7 +273,7 @@ local SADIE_BRIR =  "C:/Users/<user_name>/AppData/Roaming/mpv/portable_config/sc
     └── Depth_reality_boost\
 ```
 
-13. Ensure your GPU is set to **Vulkan** mode:
+13. Ensure MPV is configured to use **Vulkan**:  
 
 ```
 gpu-api=vulkan
@@ -277,17 +318,17 @@ gpu-api=vulkan
 
 ---
 
-## **mpv plays YouTube**  
-Instructions on how to enable mpv to directly open and play YouTube stream from web browser **(Enabled only on any FireFox variant)**:  
-1. Download and install FireFox web browser or any of its variant, [`Floorp`](https://floorp.app/download) browser is highly recommended.  
-2. Install brower extension: [`ff2mpv (for Windows)`](https://addons.mozilla.org/en-US/firefox/addon/ff2mpv-for-windows/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search) from FireFox Browser ADD-ONS.  
+## **MPV plays YouTube**  
+Instructions on how to enable MPV to directly open and play YouTube streams from a web browser **(Enabled only on any FireFox variant)**:  
+1. Download and install Firefox web browser or any of its variant, [`Floorp`](https://floorp.app/download) browser is highly recommended.  
+2. Install browser extension: [`ff2mpv (for Windows)`](https://addons.mozilla.org/en-US/firefox/addon/ff2mpv-for-windows/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search) from FireFox Browser ADD-ONS.  
 3. Download: [`ff2mpv-master.zip`](https://github.com/eastmarch/ff2mpv/archive/master.zip)  
 4. Extract "ff2mpv-master.zip" inside [MPV] folder.  
 5. Open "ff2mpv-master" folder, copy "ytdlProtocol.bat" then paste it outside "ff2mpv-master" folder to sit where "mpv.exe" is placed inside [MPV] folder, here:  
 "C:/Users/<user_name>/AppData/Roaming/MPV/ytdlProtocol.bat".  
 7. Right click and "Run as administrator" on the "ytdlProtocol.bat", just once.   
 8. Reboot your PC.  
-9. Open YouTube on your browser, select and right-click on any video stream available on display, scroll down on Explorer and click "Play link in MPV". MPV will open and automatically play the selected video stream directly from YouTube.  
+9. Open YouTube on your browser, select and right-click on any video stream available on display, scroll down in the context menu and click "Play link in MPV". MPV will open and automatically play the selected video stream directly from YouTube.  
 
 ---
 
@@ -324,7 +365,7 @@ You can adopt the entire system or extract only the parts you love.
 ---
 
 ## Final Word  
-Playback perfection isn’t measured in numbers alone, it’s defined by how it feels. This hand‑crafted cinema engine reflects my journey toward that feeling. If it helps you step closer to your own, then it has fulfilled its purpose.  
+Playback perfection isn’t measured in numbers alone — it’s defined by how it feels. This hand‑crafted cinema engine reflects my journey toward that feeling. If it helps you step closer to your own, then it has fulfilled its purpose.  
 
 **Ulysses RS Caballes [PopeyeURS]**  
 *Crafting cinema in pixels, one shader at a time.*
