@@ -201,7 +201,7 @@ Download and place datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
 5. Extract all contents of [`mpv-x86_64-v3_(Shinchiro Build)`](https://github.com/shinchiro/mpv-winbuild-cmake/releases) into the newly created [MPV] folder.  
 6. Install "mpv" and assign media files to be opened/played by "mpv" as the default player.  
 7. Right click on "Updater.bat" then "Run as administrator" to update "mpv", then select options as required.  
-8. Download or clone this repository to extract the "portable_config" folder.  
+8. Download or clone this repository to extract the [`portable_config`](https://github.com/PopeyeURS/ulyssescaballes-mpv.config/tree/main/portable_config) folder.  
 9. Place the "portable_config" folder inside the [MPV] folder here:  
 "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config".  
 11. Place the KEMAR HRTF file here:  "C:/Users/<user_name>/AppData/Roaming/mpv/portable_config/scripts/sofalizer/Kemar_HRTF_sofa.sofa".  
