@@ -19,7 +19,6 @@ Every shader, script, and profile is tuned for **clarity, depth, and cinematic r
 This configuration delivers:
 
 ✔ Cinema-grade HDR tone mapping  
-✔ AI-based super-resolution scaling  
 ✔ Adaptive sharpening and depth enhancement  
 ✔ HRTF spatial audio virtualization  
 ✔ Automatic playback profiles for different content  
