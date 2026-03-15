@@ -1,4 +1,4 @@
-# Ulysses Caballes MPV Configuration  
+# Ulysses Caballes - MPV Configuration  
 
 A hand-crafted cinema engine built for IMAX-grade immersion.  
 It combines pristine video fidelity with spatially rich audio, adaptable to headphones and multi-speaker systems.  
