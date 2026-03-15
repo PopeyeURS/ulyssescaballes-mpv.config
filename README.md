@@ -366,7 +366,8 @@ Playback perfection isn’t measured in numbers alone — it’s defined by how 
 **Ulysses RS Caballes [PopeyeURS]**  
 *Crafting cinema in pixels, one shader at a time.*
 
-⭐ If you find this project useful, consider giving it a star!
+⭐ If you find this project useful, consider giving it a star!  
+
 ---
 
 ## License  
