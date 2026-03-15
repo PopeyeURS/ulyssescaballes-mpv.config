@@ -16,6 +16,8 @@ Every shader, script, and profile is tuned for **clarity, depth, and cinematic r
 ![Shaders](https://img.shields.io/badge/Shader%20Pipeline-Custom%20GLSL-purple)  
 ![Profiles](https://img.shields.io/badge/Profiles-Anime%20%7C%20Realism%20%7C%20Sports%20%7C%208K-green)  
 
+⭐ If you find this project useful, consider giving it a star!  
+
 This configuration delivers:
 
 - Cinema-grade HDR tone mapping  
@@ -365,8 +367,6 @@ Playback perfection isn’t measured in numbers alone — it’s defined by how 
 
 **Ulysses RS Caballes [PopeyeURS]**  
 *Crafting cinema in pixels, one shader at a time.*
-
-⭐ If you find this project useful, consider giving it a star!  
 
 ---
 
