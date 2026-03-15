@@ -8,7 +8,7 @@ Every shader, script, and profile is tuned for **clarity, depth, and cinematic r
 </p>
 
 <p align="center">
-## Core Components  
+Core Components  
 
 ![License](https://img.shields.io/badge/License-GPLv3-blue)  
 ![MPV](https://img.shields.io/badge/MPV-v0.41+-blue)  
