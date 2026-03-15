@@ -17,7 +17,7 @@ Every shader, script, and profile is tuned for **clarity, depth, and cinematic r
 ![Profiles](https://img.shields.io/badge/Profiles-Anime%20%7C%20Realism%20%7C%20Sports%20%7C%208K-green)  
 ---
 
-What This Config Delivers
+**What This Config Delivers**
 
 ✔ Cinema-grade HDR tone mapping  
 ✔ AI-based super-resolution scaling  
