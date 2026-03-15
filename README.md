@@ -198,7 +198,7 @@ Download and place datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
 2. Click "View", scroll the Pulldown Menu to "Show", and tick "Hidden Items".  
 3. Create a new folder named [MPV] here:  
 "C:/Users/<user_name>/AppData/Roaming/MPV".  
-5. Extract all contents of "mpv-x86_64-v3" (Shinchiro Build) into the newly created [MPV] folder.  
+5. Extract all contents of [`mpv-x86_64-v3_(Shinchiro Build)`](https://github.com/shinchiro/mpv-winbuild-cmake/releases) into the newly created [MPV] folder.  
 6. Install "mpv" and assign media files to be opened/played by "mpv" as the default player.  
 7. Right click on "Updater.bat" then "Run as administrator" to update "mpv", then select options as required.  
 8. Download or clone this repository to extract the "portable_config" folder.  
