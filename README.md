@@ -1,9 +1,7 @@
-# Ulysses Caballes - MPV Configuration  
-
-A hand-crafted cinema engine built for IMAX-grade immersion.  
-It combines pristine video fidelity with spatially rich audio, adaptable to headphones and multi-speaker systems.  
-
-Every shader, script, and profile is tuned for **clarity, depth, and cinematic realism**.      
+<p align="center"><b>Ulysses Caballes - MPV Configuration</b></p>
+<p align="center">A hand-crafted cinema engine built for IMAX-grade immersion.</p>
+<p align="center">It combines pristine video fidelity with spatially rich audio, adaptable to headphones and multi-speaker systems.</p>
+<p align="center">Every shader, script, and profile is tuned for clarity, depth, and cinematic realism.</p>
 
 ## Core Components  
 
