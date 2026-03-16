@@ -5,14 +5,16 @@
 
 ## Core Components  
 
-![License](https://img.shields.io/badge/License-GPLv3-blue)  
-![MPV](https://img.shields.io/badge/MPV-v0.41+-blue)  
-![GPU](https://img.shields.io/badge/GPU-Vulkan%20Optimized-orange)  
-![Config](https://img.shields.io/badge/config-remixable-green)  
-![Platform](https://img.shields.io/badge/Platform-Windows%2011-lightgrey)  
-![Playback](https://img.shields.io/badge/Playback-Cinematic%208K%20HDR-critical)  
-![Shaders](https://img.shields.io/badge/Shader%20Pipeline-Custom%20GLSL-purple)  
-![Profiles](https://img.shields.io/badge/Profiles-Anime%20%7C%20Realism%20%7C%20Sports%20%7C%208K-green)  
+<p align="center">
+  <img src="https://img.shields.io/badge/License-GPLv3-blue" />
+  <img src="https://img.shields.io/badge/MPV-v0.41+-blue" />
+  <img src="https://img.shields.io/badge/GPU-Vulkan%20Optimized-orange" />
+  <img src="https://img.shields.io/badge/config-remixable-green" />
+  <img src="https://img.shields.io/badge/Platform-Windows%2011-lightgrey" />
+  <img src="https://img.shields.io/badge/Playback-Cinematic%208K%20HDR-critical" />
+  <img src="https://img.shields.io/badge/Shader%20Pipeline-Custom%20GLSL-purple" />
+  <img src="https://img.shields.io/badge/Profiles-Anime%20%7C%20Realism%20%7C%20Sports%20%7C%208K-green" />
+</p>
 
 <hr>
 <p align="center"><b><span style="color:gold">⭐ If you find this project useful, consider giving it a star! ⭐</span></b></p>
