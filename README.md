@@ -16,7 +16,9 @@ Every shader, script, and profile is tuned for **clarity, depth, and cinematic r
 ![Shaders](https://img.shields.io/badge/Shader%20Pipeline-Custom%20GLSL-purple)  
 ![Profiles](https://img.shields.io/badge/Profiles-Anime%20%7C%20Realism%20%7C%20Sports%20%7C%208K-green)  
 
-⭐ <ins>If you find this project useful, consider giving it a star!</ins>  
+<hr>
+<p align="center"><b><span style="color:gold">⭐ If you find this project useful, consider giving it a star! ⭐</span></b></p>
+<hr>
 
 This configuration delivers:
 
