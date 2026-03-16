@@ -1,7 +1,7 @@
 local mp = require "mp"
 local utils = require "mp.utils"
 
--- "Refined/Enhanced/Improved by UlyssesRSCaballes. The ULTIMATE GOLD-Standard ver.3.2 (7.1 Speaker Array + Dynamic Spatial + Sub + Concert Air Enhancer)"
+-- "Refined/Enhanced/Improved by UlyssesRSCaballes. The ULTIMATE GOLD-Standard ver.3.3 (7.1 Speaker Array + Dynamic Spatial + Sub + Concert Air Enhancer)"
 
 -- ======
 -- CONFIG
@@ -105,7 +105,7 @@ local function set_headset_audio()
         limiter()
     })
     build_mode(mode_filters)
-    show("🎧 Headset Reference Mode Activated")
+    show("🎧 Enhanced Headset", 5)
 end
 
 local function set_cinema_mode()
@@ -126,10 +126,10 @@ local function set_cinema_mode()
     table.insert(mode_filters, compressor())
     table.insert(mode_filters, limiter())
     build_mode(mode_filters)
-    show("🎬 Cinema Mode (7.1 + Concert Air) Activated")
+    show("🎬 Enhanced Cinema Mode Activated", 5)
 end
 
-local function set_music_hall_mode()
+local function set_music_mode_()
     local mode_filters = {}
     add_filters(mode_filters, micro_head_motion())
     table.insert(mode_filters, hall_reflections())
@@ -149,7 +149,7 @@ local function set_music_hall_mode()
     table.insert(mode_filters,"dynaaudnorm=f=200:g=4:p=0.9")
     table.insert(mode_filters, limiter())
     build_mode(mode_filters)
-    show("🎼 Music Hall Mode (Concert Spatial + Air) Activated")
+    show("🎼 Music Mode Plus Activated", 5)
 end
 
 -- =====
@@ -157,7 +157,7 @@ end
 -- =====
 local function clear_filters()
     mp.commandv("af","clr")
-    show("🔄 Filters Cleared")
+    show("🔄 Filters Cleared", 5)
 end
 
 -- ===========
@@ -176,13 +176,13 @@ verify_files()
 mp.register_event("file-loaded",function()
     verify_files()
     local ch = channel_count()
-    mp.osd_message(ch <= 2 and "🎧 Stereo audio detected" or "🎬 Surround audio detected")
+    mp.osd_message(ch <= 2 and "🎧 Stereo audio detected" or "🎬 Surround audio detected", 5)
 end)
 
 -- ========
 -- KEYBINDS
 -- ========
-mp.add_forced_key_binding("F9","headset_audio_key",set_headset_audio)
+mp.add_forced_key_binding("F9","headset_mode_key",set_headset_audio)
 mp.add_forced_key_binding("F10","cinema_mode_key",set_cinema_mode)
-mp.add_forced_key_binding("F11","music_hall_key",set_music_hall_mode)
+mp.add_forced_key_binding("F11","music_mode_key",set_music_mode_)
 mp.add_forced_key_binding("F12","reset_filters_key",clear_filters)
