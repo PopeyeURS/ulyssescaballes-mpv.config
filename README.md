@@ -1,3 +1,5 @@
+<p align="center" id="top">⚓</p>
+
 <p align="center"><b>Ulysses Caballes - MPV Configuration</b></p>
 <p align="center">A hand-crafted cinema engine built for IMAX-grade immersion.</p>
 <p align="center">It combines pristine video fidelity with spatially rich audio, adaptable to headphones and multi-speaker systems.</p>
@@ -390,4 +392,7 @@ See the [LICENSE](LICENSE) file for details.
 
 ---
 
-[⬆️ Back to top](#ulysses-caballes---mpv-configuration)
+<p align="center">
+  <a href="#top"><b>⬆️ Back to top</b></a>
+</p>
+
