@@ -225,15 +225,16 @@ Download and place datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
   - `Kemar_HRTF_sofa.sofa`  
   - `SADIE_KEMAR_DFC_256_order_fir_48000.sofa`
 
-## Installation
+---
 
-Requirements
+## Installation
+Requirements  
 - **MPV v0.41+**  
 - **Vulkan‑capable GPU**  
-- **Windows 11** (recommended)
+- **Windows 11** (recommended)  
 
 Download mpv-x86_64-v3 (Shinchiro builds):  
-https://github.com/shinchiro/mpv-winbuild-cmake/releases 
+https://github.com/shinchiro/mpv-winbuild-cmake/releases  
 
 1. Open File Explorer  
 2. Enable: View → Show → Hidden Items
