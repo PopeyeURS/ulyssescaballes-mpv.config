@@ -390,9 +390,4 @@ See the [LICENSE](LICENSE) file for details.
 
 ---
 
-<p align="center">
-  <a href="#readme" style="text-decoration:none;">
-    <b>⬆️ Back to top</b>
-  </a>
-</p>
-
+[⬆️ Back to top](#ulysses-caballes---mpv-configuration)
