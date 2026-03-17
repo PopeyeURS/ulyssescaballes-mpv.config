@@ -377,7 +377,7 @@ This hand‑crafted cinema engine reflects my journey toward that feeling.
 If it helps you step closer to your own, then it has fulfilled its purpose.
 </p>
 
-<p align="center"><b>— Ulysses RS Caballes [PopeyeURS]</b></p>
+<p align="center"><b>||||⚓ Ulysses RS Caballes [PopeyeURS]</b></p>
 <p align="center"><i>Crafting cinema in pixels, one shader at a time.</i></p>
 
 <hr>
