@@ -52,7 +52,6 @@ This configuration delivers:
 ## Table of Contents
 - [Overview](#overview)  
 - [Features](#features)  
-- [Requirements](#requirements)
 - [Platform Performance Note](#platform-performance-note)  
 - [Demo Clip](#demo-clip)  
 - [Screenshots](#screenshots)  
@@ -88,16 +87,6 @@ Every component is tuned for clarity, depth, and realism. Powered by a custom sh
 - Modular profiles for anime, realism, sports, and 8K  
 - Lua automation for adaptive playback and shader recovery  
 - Clean, cache‑free, and remixable structure  
-
----
-
-## Requirements
-- **MPV v0.41+**  
-- **Vulkan‑capable GPU**  
-- **Windows 11** (recommended)
-
-Download mpv-x86_64-v3 (Shinchiro builds):  
-https://github.com/shinchiro/mpv-winbuild-cmake/releases
 
 ---
 
@@ -237,26 +226,36 @@ Download and place datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
   - `SADIE_KEMAR_DFC_256_order_fir_48000.sofa`
 
 ## Installation
-1. Open Windows Explorer.  
-2. Click "View", scroll the Pulldown Menu to "Show", and tick "Hidden Items".  
-3. Create a new folder named [MPV] here:  
-"C:/Users/<user_name>/AppData/Roaming/MPV".  
-5. Extract all contents of [`mpv-x86_64-v3_(Shinchiro Build)`](https://github.com/shinchiro/mpv-winbuild-cmake/releases) into the newly created [MPV] folder.  
+
+Requirements
+- **MPV v0.41+**  
+- **Vulkan‑capable GPU**  
+- **Windows 11** (recommended)
+
+Download mpv-x86_64-v3 (Shinchiro builds):  
+https://github.com/shinchiro/mpv-winbuild-cmake/releases 
+
+1. Open File Explorer  
+2. Enable: View → Show → Hidden Items
+3. Navigate to %APPDATA%  
+4. Create folder:  
+MPV  
+5. Extract MPV build into this folder  
 6. Install mpv and set it as the default player for media files.    
-7. Right click on "Updater.bat" then "Run as administrator" to update "mpv", then select options as required.  
+7. Right click on "Updater.bat" then "Run as administrator" to update "mpv", then select options as shown.  
 8. Download or clone this repository to extract the [`portable_config`](https://github.com/PopeyeURS/ulyssescaballes-mpv.config/archive/refs/heads/main.zip) folder.  
-9. Place the "portable_config" folder inside the [MPV] folder here:  
+9. Place the "portable_config" folder here:  
 "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config".  
 10. Place the Kemar_HRTF_sofa.sofa file here:  "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config/scripts/sofalizer/Kemar_HRTF_sofa.sofa".  
 11. Place the SADIE KEMAR BRIR file here:  
 "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config/scripts/sofalizer/SADIE_KEMAR_DFC_256_order_fir_48000.sofa".  
-12. **VERY IMPORTANT**: Make **SURE** to **EDIT/RENAME** the <user_name> entry accordingly, exactly the same name as the actual PC's <user_name>, in sofalizer's "main.lua", otherwise "KEMAR_SOFA" and "SADIE_BRIR" will not be enabled.  
+12. **VERY IMPORTANT**: **REPLACE** the <user_name> with your system username, on sofalizer's "main.lua", otherwise "KEMAR_SOFA" and "SADIE_BRIR" will not be enabled.  
 -- Paths to SOFA files  
-local KEMAR_SOFA =  "C:/Users/<user_name>/AppData/Roaming/mpv/portable_config/scripts/sofalizer/KEMAR_HRTF.sofa"  
-local SADIE_BRIR =  "C:/Users/<user_name>/AppData/Roaming/mpv/portable_config/scripts/sofalizer/SADIE_KEMAR_DFC_256_order_fir_48000.sofa"  
-13. You may now double-click any media file on your PC and MPV will play it with Ultimate Cinema and Music Hall modes enabled. ENJOY!!!  
-```
+local KEMAR_SOFA =  "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config/scripts/sofalizer/KEMAR_HRTF.sofa.sofa"  
+local SADIE_BRIR =  "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config/scripts/sofalizer/SADIE_KEMAR_DFC_256_order_fir_48000.sofa"  
+13. You may now double-click any media file on your PC and MPV will play it with Ultimate Cinema and Music Hall modes enabled. Enjoy the experience.  
 
+```
 %APPDATA%\mpv\portable_config\
 │
 ├── mpv.conf
