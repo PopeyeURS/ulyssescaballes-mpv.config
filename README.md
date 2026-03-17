@@ -274,13 +274,13 @@ local SADIE_BRIR =  "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config/sc
     └── Depth_reality_boost\
 ```
 
-13. Ensure MPV is configured to use **Vulkan**:  
+14. Ensure MPV is configured to use **Vulkan**:  
 
 ```
 gpu-api=vulkan
 ```
 
-14. Launch MPV — the configuration activates automatically.
+15. Launch MPV — the configuration activates automatically.
 
 ---
 
@@ -327,9 +327,9 @@ Instructions on how to enable MPV to directly open and play YouTube streams from
 4. Extract "ff2mpv-master.zip" inside [MPV] folder.  
 5. Open "ff2mpv-master" folder, copy "ytdlProtocol.bat" then paste it outside "ff2mpv-master" folder to sit where "mpv.exe" is placed inside [MPV] folder, here:  
 "C:/Users/<user_name>/AppData/Roaming/MPV/ytdlProtocol.bat".  
-7. Right click and "Run as administrator" on the "ytdlProtocol.bat", just once.   
-8. Reboot your PC.  
-9. Open YouTube on your browser, select and right-click on any video stream available on display, scroll down in the context menu and click "Play link in MPV". MPV will open and automatically play the selected video stream directly from YouTube.  
+6. Right click and "Run as administrator" on the "ytdlProtocol.bat", just once.   
+7. Reboot your PC.  
+8. Open YouTube on your browser, select and right-click on any video stream available on display, scroll down in the context menu and click "Play link in MPV". MPV will open and automatically play the selected video stream directly from YouTube.  
 
 ---
 
