@@ -242,14 +242,14 @@ https://github.com/shinchiro/mpv-winbuild-cmake/releases
 4. Create folder:  
 MPV  
 5. Extract MPV build into this folder  
-6. Install mpv and set it as the default player for media files.    
-7. Right click on "Updater.bat" then "Run as administrator" to update "mpv", then select options as shown.  
-8. Download or clone this repository to extract the [`portable_config`](https://github.com/PopeyeURS/ulyssescaballes-mpv.config/archive/refs/heads/main.zip) folder.  
+6. Install mpv and set it as the default player for media files  
+7. Right click on "Updater.bat" then "Run as administrator" to update "mpv", then select options as shown  
+8. Download or clone this repository to extract the [`portable_config`](https://github.com/PopeyeURS/ulyssescaballes-mpv.config/archive/refs/heads/main.zip) folder  
 9. Place the "portable_config" folder here:  
-"C:/Users/<user_name>/AppData/Roaming/MPV/portable_config".  
-10. Place the Kemar_HRTF_sofa.sofa file here:  "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config/scripts/sofalizer/Kemar_HRTF_sofa.sofa".  
+"C:/Users/<user_name>/AppData/Roaming/MPV/portable_config"  
+10. Place the Kemar_HRTF_sofa.sofa file here:  "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config/scripts/sofalizer/Kemar_HRTF_sofa.sofa"  
 11. Place the SADIE KEMAR BRIR file here:  
-"C:/Users/<user_name>/AppData/Roaming/MPV/portable_config/scripts/sofalizer/SADIE_KEMAR_DFC_256_order_fir_48000.sofa".  
+"C:/Users/<user_name>/AppData/Roaming/MPV/portable_config/scripts/sofalizer/SADIE_KEMAR_DFC_256_order_fir_48000.sofa"  
 12. **VERY IMPORTANT**: **REPLACE** the <user_name> with your system username, on sofalizer's "main.lua", otherwise "KEMAR_SOFA" and "SADIE_BRIR" will not be enabled.  
 -- Paths to SOFA files  
 local KEMAR_SOFA =  "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config/scripts/sofalizer/KEMAR_HRTF.sofa.sofa"  
