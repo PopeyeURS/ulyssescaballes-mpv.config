@@ -254,7 +254,7 @@ MPV
 -- Paths to SOFA files  
 local KEMAR_SOFA =  "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config/scripts/sofalizer/KEMAR_HRTF.sofa.sofa"  
 local SADIE_BRIR =  "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config/scripts/sofalizer/SADIE_KEMAR_DFC_256_order_fir_48000.sofa"  
-13. You may now double-click any media file on your PC and MPV will play it with Ultimate Cinema and Music Hall modes enabled. Enjoy the experience.  
+13. You may now double-click any media file on your PC and MPV will play it with Ultimate Cinema [F10] or Music Hall [F11] modes enabled. Enjoy the experience.  
 
 ```
 %APPDATA%\mpv\portable_config\
@@ -328,9 +328,9 @@ Instructions on how to enable MPV to directly open and play YouTube streams from
 4. Extract "ff2mpv-master.zip" inside [MPV] folder.  
 5. Open "ff2mpv-master" folder, copy "ytdlProtocol.bat" then paste it outside "ff2mpv-master" folder to sit where "mpv.exe" is placed inside [MPV] folder, here:  
 "C:/Users/<user_name>/AppData/Roaming/MPV/ytdlProtocol.bat".  
-6. Right click and "Run as administrator" on the "ytdlProtocol.bat", just once.   
+6. Right click "ytdlProtocol.bat", then "Run as Administrator" once.  
 7. Reboot your PC.  
-8. Open YouTube on your browser, select and right-click on any video stream available on display, scroll down in the context menu and click "Play link in MPV". MPV will open and automatically play the selected video stream directly from YouTube.  
+8. Open YouTube on your browser, select and right-click on any video stream available on display, scroll down the context menu and click "Play link in MPV". MPV will open and automatically play the selected video stream directly from YouTube.  
 
 ---
 
