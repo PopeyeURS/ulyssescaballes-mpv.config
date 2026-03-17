@@ -387,3 +387,12 @@ If it helps you step closer to your own, then it has fulfilled its purpose.
 This project is licensed under the GNU General Public License v3.0. Feel free to fork, adapt, and share.
 
 See the [LICENSE](LICENSE) file for details.
+
+---
+
+<p align="center">
+  <a href="#readme" style="text-decoration:none;">
+    <b>⬆️ Back to top</b>
+  </a>
+</p>
+
