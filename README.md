@@ -1,4 +1,4 @@
-<p align="center" id="top">⚓</p>
+<p align="center" id="top">||||⚓</p>
 
 <p align="center"><b>Ulysses RS Caballes - MPV Configuration</b></p>
 <p align="center">A hand-crafted cinema engine built for IMAX-grade immersion.</p>
