@@ -5,7 +5,7 @@
 HDR tone mapping, and HRTF spatial audio into one cohesive pipeline.
 Built for precision. Tuned for feeling.</p>
 
-## Core Components  
+## Build & Capabilities
 
 <p align="center">
   <img src="https://img.shields.io/badge/License-GPLv3-blue" />
@@ -22,7 +22,7 @@ Built for precision. Tuned for feeling.</p>
 <p align="center"><b>⭐ Found this project useful? Give it a star!</b></p>
 <hr>
 
-What this Configuration Delivers
+## What This Configuration Delivers
 
 ✓ Cinema-grade HDR tone mapping with contrast fidelity  
 ✓ Adaptive sharpening with perceptual depth enhancement  
@@ -77,7 +77,7 @@ What this Configuration Delivers
 ## Overview
 This MPV configuration is engineered for viewers who demand cinematic fidelity, artifact‑free rendering, and adaptive precision across all content types — anime, films, sports, and 8K HDR.  
 
-Every component is tuned for clarity, depth, and realism. Powered by a custom shader pipeline and a suite of Lua automation scripts, it adapts dynamically to content while preserving cinematic intent.  
+Every component is tuned for clarity, depth, and realism, powered by a custom shader pipeline and a suite of Lua automation scripts that adapt dynamically to content while preserving cinematic intent.  
 
 ---
 
@@ -94,9 +94,9 @@ Every component is tuned for clarity, depth, and realism. Powered by a custom sh
 ## Platform Performance Notes:   
 The CuNNy-8x32-DS shader profile is optimized for Windows 11 environments and may cause performance issues (lag or dropped frames) on Linux systems with AMD GPUs.  
 Recommended for Linux/AMD setups:   
-• FSRCNNX-x2_16-0-4-1 → lighter, stable, and cross-platform friendly  
-• CuNNy-4x32 or CuNNy-2x32 → reduced demand with good perceptual quality  
-• Hybrid stacks (FSRCNNX + Adaptive Sharpen / Depth Reality Boost) → balance between speed and sharpness  
+✓ FSRCNNX-x2_16-0-4-1 → lighter, stable, and cross-platform friendly  
+✓ CuNNy-4x32 or CuNNy-2x32 → reduced demand with good perceptual quality  
+✓ Hybrid stacks (FSRCNNX + Adaptive Sharpen / Depth Reality Boost) → balance between speed and sharpness  
 This ensures smoother playback while preserving detail.
 
 ---
@@ -105,7 +105,7 @@ This ensures smoother playback while preserving detail.
 
 [Download the 8K MPV Demo Clip](video/ulyssescaballes-8k_video_demo.mkv)
 
-This clip was rendered and played using my MPV config with HEVC Main 10, tone mapping, and shader fidelity. Open it in MPV to experience the full effect.
+This clip was rendered and played using this configuration with HEVC Main 10, tone mapping, and full shader fidelity.
 
 ---
 
@@ -321,7 +321,7 @@ gpu-api=vulkan
 
 ---
 
-## **MPV + YouTube Integration**  
+## MPV + YouTube Integration  
 Instructions on how to enable MPV to directly open and play YouTube streams from a web browser **(Enabled only on any Firefox variant)**:  
 1. Download and install Firefox web browser or any of its variant, [`Floorp`](https://floorp.app/download) browser is highly recommended.  
 2. Install browser extension: [`ff2mpv (for Windows)`](https://addons.mozilla.org/en-US/firefox/addon/ff2mpv-for-windows/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search) from FireFox Browser ADD-ONS.  
