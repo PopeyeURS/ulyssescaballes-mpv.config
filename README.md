@@ -19,7 +19,7 @@ Built for precision. Tuned for feeling.</p>
 </p>
 
 <hr>
-<p align="center"><b><span style="color:gold">⭐ If you find this project useful, consider giving it a star! ⭐</span></b></p>
+<p align="center"><b><span style="color:gold">⭐ Found this project useful? Give it a star! </span></b></p>
 <hr>
 
 This configuration delivers:
