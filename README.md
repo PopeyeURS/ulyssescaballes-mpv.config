@@ -82,11 +82,11 @@ Every component is tuned for clarity, depth, and realism. Powered by a custom sh
 ---
 
 ## Features
-- Custom GLSL pipeline for super‑resolution, sharpening, depth, and film emulation  
-- Vulkan‑optimized GPU context  
-- Modular profiles for anime, realism, sports, and 8K  
-- Lua automation for adaptive playback and shader recovery  
-- Clean, cache‑free, and remixable structure  
+✓ Custom GLSL pipeline for super‑resolution, sharpening, depth, and film emulation  
+✓ Vulkan‑optimized GPU context  
+✓ Modular profiles for anime, realism, sports, and 8K  
+✓ Lua automation for adaptive playback and shader recovery  
+✓ Clean, cache‑free, and remixable structure  
 
 ---
 
