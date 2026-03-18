@@ -24,11 +24,11 @@ Built for precision. Tuned for feeling.</p>
 
 This configuration delivers:
 
-- Cinema-grade HDR tone mapping  
-- Adaptive sharpening and depth enhancement  
-- HRTF spatial audio virtualization  
-- Automatic playback profiles for different content  
-- A modular system designed for experimentation  
+✓ Cinema-grade HDR tone mapping  
+✓ Adaptive sharpening and depth enhancement  
+✓ HRTF spatial audio virtualization  
+✓ Automatic playback profiles for different content  
+✓ A modular system designed for experimentation  
 
 ## Performance Expectations
 
@@ -344,9 +344,9 @@ Every shader, value, and filter is chosen with intent — no bloat, no placebo s
 The goal is not “sharper” or “brighter,” but **truer** — depth, texture, and natural contrast.
 
 ### Modularity  
-Everything is remixable.  
-Every file is documented.  
-Every profile is optional.  
+✓ Everything is remixable.  
+✓ Every file is documented.  
+✓ Every profile is optional.  
 
 You can adopt the entire system or extract only the parts you love.
 
