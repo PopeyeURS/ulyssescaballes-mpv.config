@@ -22,13 +22,13 @@ Built for precision. Tuned for feeling.</p>
 <p align="center"><b>⭐ Found this project useful? Give it a star!</b></p>
 <hr>
 
-This configuration delivers:
+What this Configuration Delivers
 
-✓ Cinema-grade HDR tone mapping  
-✓ Adaptive sharpening and depth enhancement  
-✓ HRTF spatial audio virtualization  
-✓ Automatic playback profiles for different content  
-✓ A modular system designed for experimentation  
+✓ Cinema-grade HDR tone mapping with contrast fidelity  
+✓ Adaptive sharpening with perceptual depth enhancement  
+✓ HRTF-based spatial audio virtualization  
+✓ Intelligent profile switching based on content type  
+✓ A modular system designed for experimentation and control  
 
 ## Performance Expectations
 
@@ -46,7 +46,7 @@ This configuration delivers:
 |------|------|------|
 | NVIDIA | Excellent | Full Vulkan performance |
 | AMD | Excellent | Linux may need lighter CuNNy variants |
-| Intel Arc | Good | Works with FSRCNNX |
+| Intel Arc | Good | Best paired with FSRCNNX |
 | Intel iGPU | Limited | Use lighter profiles |
 
 ## Table of Contents
@@ -77,20 +77,21 @@ This configuration delivers:
 ## Overview
 This MPV configuration is engineered for viewers who demand cinematic fidelity, artifact‑free rendering, and adaptive precision across all content types — anime, films, sports, and 8K HDR.  
 
-Every component is tuned for clarity, depth, and realism. Powered by a custom shader pipeline and a suite of Lua automation scripts.  
+Every component is tuned for clarity, depth, and realism. Powered by a custom shader pipeline and a suite of Lua automation scripts, it adapts dynamically to content while preserving cinematic intent.  
 
 ---
 
 ## Features
-✓ Custom GLSL pipeline for super‑resolution, sharpening, depth, and film emulation  
-✓ Vulkan‑optimized GPU context  
-✓ Modular profiles for anime, realism, sports, and 8K  
-✓ Lua automation for adaptive playback and shader recovery  
-✓ Clean, cache‑free, and remixable structure  
+
+✓ Custom GLSL pipeline for super-resolution, sharpening, depth, and film emulation  
+✓ Vulkan-optimized rendering for high-performance playback  
+✓ Content-aware profiles (anime, realism, sports, 8K)  
+✓ Lua automation for dynamic shader control and recovery  
+✓ Clean, modular, and remixable architecture  
 
 ---
 
-## Platform Performance Note:   
+## Platform Performance Notes:   
 The CuNNy-8x32-DS shader profile is optimized for Windows 11 environments and may cause performance issues (lag or dropped frames) on Linux systems with AMD GPUs.  
 Recommended for Linux/AMD setups:   
 • FSRCNNX-x2_16-0-4-1 → lighter, stable, and cross-platform friendly  
@@ -222,16 +223,16 @@ Download and place datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
 
 ### Audio Chain Note
 - **Enhanced Headset (F9), Enhanced Cinema (F10) & Music Mode Plus (F11)** uses:  
-  - `Kemar_HRTF_sofa.sofa`  
-  - `SADIE_KEMAR_DFC_256_order_fir_48000.sofa`
+  ✓ `Kemar_HRTF_sofa.sofa`  
+  ✓ `SADIE_KEMAR_DFC_256_order_fir_48000.sofa`
 
 ---
 
 ## Installation
 Requirements  
-- **MPV v0.41+**  
-- **Vulkan‑capable GPU**  
-- **Windows 11** (recommended)  
+✓ **MPV v0.41+**  
+✓ **Vulkan‑capable GPU**  
+✓ **Windows 11** (recommended)  
 
 Download mpv-x86_64-v3 (Shinchiro builds):  
 https://github.com/shinchiro/mpv-winbuild-cmake/releases  
@@ -320,7 +321,7 @@ gpu-api=vulkan
 
 ---
 
-## **MPV plays YouTube**  
+## **MPV + YouTube Integration**  
 Instructions on how to enable MPV to directly open and play YouTube streams from a web browser **(Enabled only on any Firefox variant)**:  
 1. Download and install Firefox web browser or any of its variant, [`Floorp`](https://floorp.app/download) browser is highly recommended.  
 2. Install browser extension: [`ff2mpv (for Windows)`](https://addons.mozilla.org/en-US/firefox/addon/ff2mpv-for-windows/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search) from FireFox Browser ADD-ONS.  
