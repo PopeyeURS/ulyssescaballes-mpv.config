@@ -121,7 +121,7 @@ This clip was rendered and played using this configuration with HEVC Main 10, to
 
 ## Visual Improvements
 
-| Without Config | With UlyssesCaballes - MPV Config | How |
+| Without Config | With Ulysses RS Caballes — MPV Cinema Engine | How |
 |---------------|------------------------|------------------|
 | Flat colors | Cinematic tone mapping | BT.2390 HDR curve |
 | Aliasing artifacts | Neural upscaling | CuNNY-8x32-DS |
