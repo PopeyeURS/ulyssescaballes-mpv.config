@@ -2,7 +2,7 @@
 
 <p align="center"><b>Ulysses RS Caballes — MPV Cinema Engine</b></p>
 <p align="center">A handcrafted cinema engine for MPV — uniting neural upscaling,
-HDR tone mapping, and HRTF spatial audio into one cohesive pipeline.
+HDR tone mapping, and HRTF spatial audio into a single cohesive pipeline.
 Built for precision. Tuned for feeling.</p>
 
 ## Build & Capabilities
