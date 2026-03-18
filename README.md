@@ -91,13 +91,13 @@ Every component is tuned for clarity, depth, and realism, powered by a custom sh
 
 ---
 
-## Platform Performance Notes:   
+## Platform Performance Notes  
 The CuNNy-8x32-DS shader profile is optimized for Windows 11 environments and may cause performance issues (lag or dropped frames) on Linux systems with AMD GPUs.  
 Recommended for Linux/AMD setups:   
 ✓ FSRCNNX-x2_16-0-4-1 → lighter, stable, and cross-platform friendly  
 ✓ CuNNy-4x32 or CuNNy-2x32 → reduced demand with good perceptual quality  
 ✓ Hybrid stacks (FSRCNNX + Adaptive Sharpen / Depth Reality Boost) → balance between speed and sharpness  
-This ensures smoother playback while preserving detail.
+This ensures smoother playback while preserving visual detail and stability.  
 
 ---
 
@@ -105,7 +105,7 @@ This ensures smoother playback while preserving detail.
 
 [Download the 8K MPV Demo Clip](video/ulyssescaballes-8k_video_demo.mkv)
 
-This clip was rendered and played using this configuration with HEVC Main 10, tone mapping, and full shader fidelity.
+This clip was rendered and played using this configuration, showcasing HEVC Main 10 playback, HDR tone mapping, and full shader fidelity.
 
 ---
 
@@ -154,7 +154,7 @@ This clip was rendered and played using this configuration with HEVC Main 10, to
 ---
 
 ## Profiles
-This configuration includes multiple playback profiles tailored for different content types. Each profile adjusts shaders, scaling, tone mapping, and enhancement strength.
+This configuration includes multiple playback profiles tailored to different content types. Each profile adjusts shaders, scaling, tone mapping, and enhancement strength.
 
 ### Anime  
 - Line‑art‑safe sharpen, debanding, gentle vibrancy, light grain  
