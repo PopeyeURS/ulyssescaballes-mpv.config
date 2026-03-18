@@ -52,7 +52,7 @@ Built for precision. Tuned for feeling.</p>
 ## Table of Contents
 - [Overview](#overview)  
 - [Features](#features)  
-- [Platform Performance Note](#platform-performance-note)  
+- [Platform Performance Notes](#platform-performance-notes)  
 - [Demo Clip](#demo-clip)  
 - [Screenshots](#screenshots)  
 - [Shader Pipeline](#shader-pipeline)  
