@@ -66,7 +66,7 @@ Built for precision. Tuned for feeling.</p>
 - [Usage Note](#usage-note)  
 - [Common Toggles & Beginner Notes](#common-toggles--beginner-notes)  
 - [Optional Add-ons](#optional-add-ons)  
-- [MPV_+_YouTube_Integration](#mpv-+-YouTube-integration)  
+- [MPV_+_YouTube_Integration](#mpv--youtube-integration)  
 - [Philosophy](#philosophy)  
 - [Repo Hygiene](#repo-hygiene)  
 - [Final Word](#final-word)  
