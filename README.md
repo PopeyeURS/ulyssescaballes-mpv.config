@@ -1,9 +1,9 @@
 <p align="center" id="top">||||⚓</p>
 
 <p align="center"><b>Ulysses RS Caballes - MPV Configuration</b></p>
-<p align="center">A hand-crafted cinema engine built for IMAX-grade immersion.</p>
-<p align="center">It combines pristine video fidelity with spatially rich audio, adaptable to headphones and multi-speaker systems.</p>
-<p align="center">Every shader, script, and profile is tuned for clarity, depth, and cinematic realism.</p>
+<p align="center">A hand-crafted cinema engine for MPV — combining neural upscaling,
+HDR tone mapping, and HRTF spatial audio into a single cohesive system.
+Built for precision. Tuned for feeling.</p>
 
 ## Core Components  
 
@@ -120,12 +120,12 @@ This clip was rendered and played using my MPV config with HEVC Main 10, tone ma
 
 ## Visual Improvements
 
-| Without Config | With UlyssesCaballes - MPV Config |
-|---------------|------------------------|
-| Flat colors | Cinematic tone mapping |
-| Aliasing artifacts | Neural upscaling |
-| Washed HDR | Contrast recovery |
-| Weak audio stage | Spatial HRTF audio |
+| Without Config | With UlyssesCaballes - MPV Config | How |
+|---------------|------------------------|------------------|
+| Flat colors | Cinematic tone mapping | BT.2390 HDR curve |
+| Aliasing artifacts | Neural upscaling | CuNNY-8x32-DS |
+| Washed HDR | Contrast recovery | Reinhard + debanding |
+| Weak audio stage | Spatial HRTF audio | SOFAlizer + KEMAR |
 ---
 
 ## Shader Pipeline
@@ -377,7 +377,7 @@ This hand‑crafted cinema engine reflects my journey toward that feeling.
 If it helps you step closer to your own, then it has fulfilled its purpose.
 </p>
 
-<p align="center"><b>||||⚓ Ulysses RS Caballes [PopeyeURS]</b></p>
+<p align="center"><b>— Ulysses RS Caballes [PopeyeURS]</b></p>
 <p align="center"><i>Crafting cinema in pixels, one shader at a time.</i></p>
 
 <hr>
