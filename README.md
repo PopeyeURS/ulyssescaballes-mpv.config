@@ -77,7 +77,7 @@ Built for precision. Tuned for feeling.</p>
 ## Overview
 This MPV configuration is engineered for viewers who demand cinematic fidelity, artifact‑free rendering, and adaptive precision across all content types — anime, films, sports, and 8K HDR.  
 
-Every component is tuned for clarity, depth, and realism, powered by a custom shader pipeline and a suite of Lua automation scripts that adapt dynamically to content while preserving cinematic intent.  
+Every component is tuned for clarity, depth, and realism, powered by a custom shader pipeline and a suite of Lua automation scripts that dynamically adapts to content while preserving cinematic intent.  
 
 ---
 
