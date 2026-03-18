@@ -1,8 +1,8 @@
 <p align="center" id="top">||||⚓</p>
 
 <p align="center"><b>Ulysses RS Caballes - MPV Configuration</b></p>
-<p align="center">A hand-crafted cinema engine for MPV — combining neural upscaling,
-HDR tone mapping, and HRTF spatial audio into a single cohesive system.
+<p align="center">A handcrafted cinema engine for MPV — uniting neural upscaling,
+HDR tone mapping, and HRTF spatial audio into one cohesive pipeline.
 Built for precision. Tuned for feeling.</p>
 
 ## Core Components  
@@ -19,7 +19,7 @@ Built for precision. Tuned for feeling.</p>
 </p>
 
 <hr>
-<p align="center"><b><span style="color:gold">⭐ Found this project useful? Give it a star! </span></b></p>
+<p align="center"><b>⭐ Found this project useful? Give it a star!</b></p>
 <hr>
 
 This configuration delivers:
