@@ -18,10 +18,6 @@ Built for precision. Tuned for feeling.</p>
   <img src="https://img.shields.io/badge/Profiles-Anime%20%7C%20Realism%20%7C%20Sports%20%7C%208K-green" />
 </p>
 
-<hr>
-<p align="center"><b>⭐ Found this project useful? Give it a star!</b></p>
-<hr>
-
 ## What This Configuration Delivers
 
 ✓ Cinema-grade HDR tone mapping with contrast fidelity  
