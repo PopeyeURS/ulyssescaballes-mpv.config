@@ -139,19 +139,19 @@ This clip was rendered and played using this configuration, showcasing HEVC Main
 
 3. **Resampling — 26-tap separable kernel**  
 
-4. **Adaptive Sharpen - linear-light, curve height tuned, overshoot control**  
+4. **Adaptive Sharpen — linear-light, curve height tuned, overshoot control**  
 
-5. **Depth Reality Boost - perceptual depth cues without halos**  
+5. **Depth Reality Boost — perceptual depth cues without halos**  
 
 ---
 
 ## Audio Pipeline
 
-1. **SOFAlizer (HRTF Virtualization) - Kemar dataset, customized via [main.lua]**  
+1. **SOFAlizer (HRTF Virtualization) — Kemar dataset, customized via [main.lua]**  
 
-2. **EQ Chain - bass reinforcement, midrange cleanup, treble clarity, and subharmonic depth**  
+2. **EQ Chain — bass reinforcement, midrange cleanup, treble clarity, and subharmonic depth**  
 
-3. **Dynamics Control - normalization, compression, limiter for safe playback**  
+3. **Dynamics Control — normalization, compression, limiter for safe playback**  
 
 ---
 
