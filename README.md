@@ -8,7 +8,6 @@ Built for precision. Tuned for feeling.</p>
 ---
 
 ## Build & Capabilities
-
 <p align="center">
   <img src="https://img.shields.io/badge/License-GPLv3-blue" />
   <img src="https://img.shields.io/badge/MPV-v0.41+-blue" />
@@ -23,7 +22,6 @@ Built for precision. Tuned for feeling.</p>
 ---
 
 ## What This Configuration Delivers
-
 ✓ Cinema-grade HDR tone mapping with contrast fidelity  
 ✓ Adaptive sharpening with perceptual depth enhancement  
 ✓ HRTF-based spatial audio virtualization  
@@ -33,7 +31,6 @@ Built for precision. Tuned for feeling.</p>
 ---
 
 ## Performance Expectations
-
 | GPU Class | Resolution | Expected Performance |
 |-----------|-----------|----------------------|
 | RTX 4090 / RX 7900 XTX | 8K | Full pipeline |
@@ -45,7 +42,6 @@ Built for precision. Tuned for feeling.</p>
 ---
 
 ## GPU Compatibility
-
 | Vendor | Status | Notes |
 |------|------|------|
 | NVIDIA | Excellent | Full Vulkan performance |
