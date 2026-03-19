@@ -372,8 +372,6 @@ You can adopt the entire system or extract only the parts you love.
 ## Final Word
 <hr>
 
-<p align="center"><b>🌌 Final Word</b></p>
-
 <p align="center">
 Playback perfection isn’t measured in numbers alone — it’s defined by how it feels.  
 This hand‑crafted cinema engine reflects my journey toward that feeling.  
