@@ -5,6 +5,8 @@
 HDR tone mapping, and HRTF spatial audio into a single cohesive pipeline.
 Built for precision. Tuned for feeling.</p>
 
+---
+
 ## Build & Capabilities
 
 <p align="center">
@@ -18,6 +20,8 @@ Built for precision. Tuned for feeling.</p>
   <img src="https://img.shields.io/badge/Profiles-Anime%20%7C%20Realism%20%7C%20Sports%20%7C%208K-green" />
 </p>
 
+---
+
 ## What This Configuration Delivers
 
 ✓ Cinema-grade HDR tone mapping with contrast fidelity  
@@ -25,6 +29,8 @@ Built for precision. Tuned for feeling.</p>
 ✓ HRTF-based spatial audio virtualization  
 ✓ Intelligent profile switching based on content type  
 ✓ A modular system designed for experimentation and control  
+
+---
 
 ## Performance Expectations
 
@@ -36,6 +42,8 @@ Built for precision. Tuned for feeling.</p>
 | GTX 1660 / RX 5600 XT | 1080p–1440p | Use lighter profiles |
 | Integrated GPUs | 1080p | FSRCNNX recommended |
 
+---
+
 ## GPU Compatibility
 
 | Vendor | Status | Notes |
@@ -44,6 +52,8 @@ Built for precision. Tuned for feeling.</p>
 | AMD | Excellent | Linux may need lighter CuNNy variants |
 | Intel Arc | Good | Best paired with FSRCNNX |
 | Intel iGPU | Limited | Use lighter profiles |
+
+---
 
 ## Table of Contents
 - [Overview](#overview)  
