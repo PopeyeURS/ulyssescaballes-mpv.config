@@ -30,8 +30,15 @@ vec3 ACESFitted(vec3 color) {
     return clamp(color, 0.0, 1.0);
 }
 
+vec4 hook() {
+    // Sample the hooked texture at the current position
+    vec4 color = HOOKED_tex(HOOKED_pos);
+    // Apply ACES tonemapping
+    color.rgb = ACESFitted(color.rgb);
+    return color;
+}
+
 void main() {
-    vec4 c = HOOKED_tex(HOOKED_pos);
-    c.rgb = ACESFitted(c.rgb);
-    HOOKED_out = c;
+    // Assign the result to the hook output
+    HOOKED_out = hook();
 }
