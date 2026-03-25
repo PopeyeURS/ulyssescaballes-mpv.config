@@ -125,7 +125,7 @@ This clip was rendered and played using this configuration, showcasing HEVC Main
 
 | Without Config | With Ulysses RS Caballes — MPV Cinema Engine | How |
 |---------------|------------------------|------------------|
-| Flat colors | Cinematic tone mapping | BT.2390 HDR curve |
+| Flat colors | Cinematic tone mapping | BT.2390 HDR curve + Academy Color Encoding System (ACES) |
 | Aliasing artifacts | Neural upscaling | CuNNY-8x32-DS |
 | Washed HDR | Contrast recovery | Reinhard + debanding |
 | Weak audio stage | Spatial HRTF audio | SOFAlizer + KEMAR |
@@ -236,8 +236,8 @@ Requirements
 ✓ **Vulkan‑capable GPU**  
 ✓ **Windows 11** (recommended)  
 
-Download mpv-x86_64-v3 (Shinchiro builds):  
-https://github.com/shinchiro/mpv-winbuild-cmake/releases  
+Download mpv-x86_64-v3 (Zhongfly builds):  
+https://github.com/zhongfly/mpv-winbuild/releases  
 
 1. Open File Explorer  
 2. Enable: View → Show → Hidden Items
@@ -245,8 +245,8 @@ https://github.com/shinchiro/mpv-winbuild-cmake/releases
 4. Create folder:  
 MPV  
 5. Extract MPV build into this folder  
-6. Install mpv and set it as the default player for media files  
-7. Right click on "Updater.bat" then "Run as administrator" to update "mpv", then select options as shown  
+6. Right click on "Updater.bat"  
+7. Press Windows **+ R**; Type: **control**; Press **Enter**; Click: **Programs**; Click **Default Programs**; Type: **mpv** on **Search apps**; Click **mpv** and then finally "Set default file types or link types" to mpv  
 8. Download or clone this repository to extract the [`portable_config`](https://github.com/PopeyeURS/ulyssescaballes-mpv.config/archive/refs/heads/main.zip) folder  
 9. Place the "portable_config" folder here:  
 "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config"  
