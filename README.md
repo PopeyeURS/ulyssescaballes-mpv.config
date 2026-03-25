@@ -245,7 +245,7 @@ https://github.com/zhongfly/mpv-winbuild/releases
 4. Create folder:  
 MPV  
 5. Extract MPV Zhongfly build into this folder  
-6. Right click on "Updater.bat"  
+6. Right click on "Updater.bat", then "Run as administrator"  
 7. Press **[Windows + R]**; Type: **[control]**; Press **[Enter]**; Click: **[Programs]**; Click **[Default Programs]**; Type: **[mpv]** on **[Search apps]**; Click **[mpv]** and then finally [Set default file types or link types] to mpv  
 8. Download or clone this repository to extract the [`portable_config`](https://github.com/PopeyeURS/ulyssescaballes-mpv.config/archive/refs/heads/main.zip) folder  
 9. Place the "portable_config" folder here:  
