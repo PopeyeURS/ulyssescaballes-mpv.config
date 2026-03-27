@@ -49,6 +49,8 @@ Built for precision. Tuned for feeling.</p>
 | Intel Arc | Good | Best paired with FSRCNNX |
 | Intel iGPU | Limited | Use lighter profiles |
 
+**Note:** Verified on GTX 650 — smooth playback with full pipeline (CuNNy), including 2160p source video, using optimized settings.
+
 ---
 
 ## Table of Contents
