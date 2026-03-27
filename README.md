@@ -65,7 +65,7 @@ Built for precision. Tuned for feeling.</p>
 - [Script Suite](#script-suite)  
 - [Datasets](#datasets)  
 - [Installation](#installation)  
-- [Usage Note](#usage-note)  
+- [Audio Chain - Usage Note](#audio-chain-usage-note)  
 - [Common Toggles & Beginner Notes](#common-toggles--beginner-notes)  
 - [Optional Add-ons](#optional-add-ons)  
 - [MPV + YouTube Integration](#mpv--youtube-integration)  
@@ -223,13 +223,6 @@ Download and place datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
   
 ---
 
-### Audio Chain Note
-- **Enhanced Headset (F9), Enhanced Cinema (F10) & Music Mode Plus (F11)** uses:  
-  ✓ `Kemar_HRTF_sofa.sofa`  
-  ✓ `SADIE_KEMAR_DFC_256_order_fir_48000.sofa`
-
----
-
 ## Installation
 Requirements  
 ✓ **MPV v0.41+**  
@@ -284,7 +277,7 @@ gpu-api=vulkan
 
 ---
 
-### Usage Note
+### Audio Chain - Usage Note
 
 - **F9** → Enhanced Headset  
 - **F10** → Enhanced Cinema  
