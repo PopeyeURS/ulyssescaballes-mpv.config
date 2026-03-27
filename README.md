@@ -246,14 +246,14 @@ https://github.com/zhongfly/mpv-winbuild/releases
 MPV  
 5. Extract MPV Zhongfly build into this folder  
 6. Right click on "Updater.bat", then "Run as administrator"  
-7. Press **[Windows + R]**; Type: **[control]**; Press **[Enter]**; Click: **[Programs]**; Click **[Default Programs]**; Type: **[mpv]** on **[Search apps]**; Click **[mpv]** and then finally [Set default file types or link types] to mpv  
+7. Press **[Windows + R]**; Type: **[control]**; Press **[Enter]**; Click: **[Programs]**; Click: **[Default Programs]**; Type: **[mpv]** on **[Search apps]**; Click: **[mpv]** and then finally [Set default file types or link types] to mpv  
 8. Download or clone this repository to extract the [`portable_config`](https://github.com/PopeyeURS/ulyssescaballes-mpv.config/archive/refs/heads/main.zip) folder  
 9. Place the "portable_config" folder here:  
 "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config"  
 10. Place the Kemar_HRTF_sofa.sofa file here:  "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config/scripts/sofalizer/Kemar_HRTF_sofa.sofa"  
 11. Place the SADIE KEMAR BRIR file here:  
 "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config/scripts/sofalizer/SADIE_KEMAR_DFC_256_order_fir_48000.sofa"  
-12. **VERY IMPORTANT**: Replace the <user_name> with your system username, on sofalizer's "main.lua", otherwise "KEMAR_SOFA" and "SADIE_BRIR" will not be enabled.  
+12. **VERY IMPORTANT**: Replace the <user_name> with your system username, on sofalizer's "main.lua", otherwise "KEMAR_SOFA" and "SADIE_BRIR" will not be activated.  
 
 ```
 %APPDATA%\mpv\portable_config\
@@ -280,7 +280,7 @@ MPV
 gpu-api=vulkan
 ```
 
-14. Launch MPV — the configuration activates automatically.
+14. Launch MPV — the configuration activates automatically. You may now double-click any media file on your PC, or run a CD, a DVD or a BluRay disc and MPV plays it with your choice of Enhanced Headset mode [F9] or Ultimate Cinema mode [F10] or Music Hall mode [F11] enabled. Enjoy the experience.  
 
 ---
 
