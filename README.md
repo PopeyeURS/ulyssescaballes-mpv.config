@@ -65,7 +65,7 @@ Built for precision. Tuned for feeling.</p>
 - [Script Suite](#script-suite)  
 - [Datasets](#datasets)  
 - [Installation](#installation)  
-- [Audio Chain - Usage Note](#audio-chain-usage-note)  
+- [Audio Chain & Usage Note](#audio-chain-usage-note)  
 - [Common Toggles & Beginner Notes](#common-toggles--beginner-notes)  
 - [Optional Add-ons](#optional-add-ons)  
 - [MPV + YouTube Integration](#mpv--youtube-integration)  
@@ -277,7 +277,7 @@ gpu-api=vulkan
 
 ---
 
-### Audio Chain - Usage Note
+### Audio Chain & Usage Note
 
 - **F9** → Enhanced Headset  
 - **F10** → Enhanced Cinema  
