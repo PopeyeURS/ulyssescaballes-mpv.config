@@ -279,10 +279,10 @@ gpu-api=vulkan
 
 ### Audio Chain & Usage Note
 
-- **F9** → Enhanced Headset  
-- **F10** → Enhanced Cinema  
-- **F11** → Music Mode Plus  
-- **F12** → Reset Filters  
+- **F9** → Enhanced Headset Mode Activated  
+- **F10** → Enhanced Cinema Mode Activated  
+- **F11** → Music Mode Plus Activated  
+- **F12** → Reset Filters Activated  
 
 ---
 
