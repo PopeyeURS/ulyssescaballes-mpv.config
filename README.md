@@ -254,10 +254,6 @@ MPV
 11. Place the SADIE KEMAR BRIR file here:  
 "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config/scripts/sofalizer/SADIE_KEMAR_DFC_256_order_fir_48000.sofa"  
 12. **VERY IMPORTANT**: Replace the <user_name> with your system username, on sofalizer's "main.lua", otherwise "KEMAR_SOFA" and "SADIE_BRIR" will not be enabled.  
--- Paths to SOFA files  
-local KEMAR_SOFA =  "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config/scripts/sofalizer/KEMAR_HRTF.sofa.sofa"  
-local SADIE_BRIR =  "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config/scripts/sofalizer/SADIE_KEMAR_DFC_256_order_fir_48000.sofa"  
-13. You may now double-click any media file on your PC, or run a CD, a DVD or a BluRay disc and MPV plays it with your choice of Enhanced Headset mode [F9] or Ultimate Cinema mode [F10] or Music Hall mode [F11] enabled. Enjoy the experience.  
 
 ```
 %APPDATA%\mpv\portable_config\
@@ -278,13 +274,13 @@ local SADIE_BRIR =  "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config/sc
     └── Depth_reality_boost\
 ```
 
-14. Ensure MPV is configured to use **Vulkan**:  
+13. Ensure MPV is configured to use **Vulkan**:  
 
 ```
 gpu-api=vulkan
 ```
 
-15. Launch MPV — the configuration activates automatically.
+14. Launch MPV — the configuration activates automatically.
 
 ---
 
