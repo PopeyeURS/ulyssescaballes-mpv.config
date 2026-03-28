@@ -217,9 +217,10 @@ Download and place datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
 
 ## Installation
 **Note:** This configuration uses **MPV in portable mode**.  
-All settings are loaded from the portable_config folder located alongside mpv.exe.  
 
-Requirements  
+**All settings are loaded from the portable_config folder located alongside mpv.exe.**  
+
+Requirements:  
 ✓ **MPV v0.41+**  
 ✓ **Vulkan‑capable GPU**  
 ✓ **Windows 11** (recommended)  
