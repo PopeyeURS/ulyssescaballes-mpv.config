@@ -377,7 +377,7 @@ If it helps you step closer to your own, then it has fulfilled its purpose.
 ---
 
 ## License  
-**License: [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)**  
+**[![GPLv3 License](https://img.shields.io/badge/License-GPLv3-blue)](LICENSE)**    
 This project is licensed under the GNU General Public License v3.0. Feel free to fork, adapt, and share.
 
 See the [LICENSE](LICENSE) file for details.
