@@ -244,7 +244,7 @@ MPV
 "%APPDATA%\MPV\portable_config\scripts\sofalizer\Kemar_HRTF_sofa.sofa"  
 ✓ SADIE dataset:  
 "%APPDATA%\MPV\portable_config\scripts\sofalizer\SADIE_KEMAR_DFC_256_order_fir_48000.sofa"  
-11. **⚠️ <u>IMPORTANT!!!</u> ⚠️**    
+11. ⚠️ ***IMPORTANT*** ⚠️   
 Open: "portable_config\scripts\sofalizer\main.lua"  
 Replace <user_name> with your actual Windows username.  
 This is required for:  
