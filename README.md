@@ -30,26 +30,16 @@ Built for precision. Tuned for feeling.</p>
 
 ---
 
-## Performance Expectations
-| GPU Class | Resolution | Expected Performance |
-|-----------|-----------|----------------------|
-| RTX 4090 / RX 7900 XTX | 8K | Full pipeline |
-| RTX 3080 / RX 6800 XT | 4K–8K | Minor shader tuning may help |
-| RTX 3060 / RX 6700 XT | 4K | Recommended |
-| GTX 1660 / RX 5600 XT | 1080p–1440p | Use lighter profiles |
-| Integrated GPUs | 1080p | FSRCNNX recommended |
-
----
-
-## GPU Compatibility
-| Vendor | Status | Notes |
-|------|------|------|
-| NVIDIA | Excellent | Full Vulkan performance |
-| AMD | Excellent | Linux may need lighter CuNNy variants |
-| Intel Arc | Good | Best paired with FSRCNNX |
-| Intel iGPU | Limited | Use lighter profiles |
-
-**Note:** Verified on GTX 650 — smooth playback with full pipeline (CuNNy), including 2160p source video, using optimized settings.
+## Performance Notes
+| GPU Class                  | Resolution  | Expected Performance                                                              |
+| -------------------------- | ----------- | --------------------------------------------------------------------------------- |
+| RTX 4090 / RX 7900 XTX     | 8K          | Full pipeline, maximum shaders                                                    |
+| RTX 3080 / RX 6800 XT      | 4K–8K       | Smooth playback, minor shader tuning may help                                     |
+| RTX 3060 / RX 6700 XT      | 4K          | Recommended for full shader pipeline                                              |
+| GTX 1660 / RX 5600 XT      | 1080p–1440p | Use lighter profiles (FSRCNNX-x2)                                                 |
+| Polaris / GTX 650          | 1080p       | Verified smooth playback with full pipeline (CuNNy), including 2160p source video |
+| Intel Arc (A7xx)           | 1080p–1440p | Best with FSRCNNX, reduced shader load recommended                                |
+| Intel iGPU / UHD / Iris Xe | 1080p       | Limited, use light profiles only                                                  |
 
 ---
 
