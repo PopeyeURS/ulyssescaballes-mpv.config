@@ -41,12 +41,18 @@ Built for precision. Tuned for feeling.</p>
 | Intel Arc (A7xx)           | 1080p–1440p | Best with FSRCNNX, reduced shader load recommended                                |
 | Intel iGPU / UHD / Iris Xe | 1080p       | Limited, use light profiles only                                                  |
 
+The CuNNy-8x32-DS shader profile is optimized for Windows 11 environments and may cause performance issues (lag or dropped frames) on Linux systems with AMD GPUs.  
+Recommended for Linux/AMD setups:   
+✓ FSRCNNX-x2_16-0-4-1 → lighter, stable, and cross-platform friendly  
+✓ CuNNy-4x32 or CuNNy-2x32 → reduced demand with good perceptual quality  
+✓ Hybrid stacks (FSRCNNX + Adaptive Sharpen / Depth Reality Boost) → balance between speed and sharpness  
+This ensures smoother playback while preserving visual detail and stability.  
+
 ---
 
 ## Table of Contents
 - [Overview](#overview)  
 - [Features](#features)  
-- [Platform Performance Notes](#platform-performance-notes)  
 - [Demo Clip](#demo-clip)  
 - [Screenshots](#screenshots)  
 - [Shader Pipeline](#shader-pipeline)  
@@ -82,16 +88,6 @@ Every component is tuned for clarity, depth, and realism, powered by a custom sh
 ✓ Content-aware profiles (anime, realism, sports, 8K)  
 ✓ Lua automation for dynamic shader control and recovery  
 ✓ Clean, modular, and remixable architecture  
-
----
-
-## Platform Performance Notes  
-The CuNNy-8x32-DS shader profile is optimized for Windows 11 environments and may cause performance issues (lag or dropped frames) on Linux systems with AMD GPUs.  
-Recommended for Linux/AMD setups:   
-✓ FSRCNNX-x2_16-0-4-1 → lighter, stable, and cross-platform friendly  
-✓ CuNNy-4x32 or CuNNy-2x32 → reduced demand with good perceptual quality  
-✓ Hybrid stacks (FSRCNNX + Adaptive Sharpen / Depth Reality Boost) → balance between speed and sharpness  
-This ensures smoother playback while preserving visual detail and stability.  
 
 ---
 
