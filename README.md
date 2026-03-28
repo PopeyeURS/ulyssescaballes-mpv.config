@@ -3,7 +3,7 @@
 <p align="center"><b>Ulysses RS Caballes — MPV Cinema Engine</b></p>
 <p align="center">A handcrafted cinema engine for MPV — uniting neural upscaling,
 HDR tone mapping, and HRTF spatial audio into a single cohesive pipeline.
-Built for precision. Tuned for feeling.</p>
+Built for precision. Tuned for immersion.</p>
 
 ---
 
@@ -41,18 +41,12 @@ Built for precision. Tuned for feeling.</p>
 | Intel Arc (A7xx)           | 1080p–1440p | Best with FSRCNNX, reduced shader load recommended                                |
 | Intel iGPU / UHD / Iris Xe | 1080p       | Limited, use light profiles only                                                  |
 
-The CuNNy-8x32-DS shader profile is optimized for Windows 11 environments and may cause performance issues (lag or dropped frames) on Linux systems with AMD GPUs.  
-Recommended for Linux/AMD setups:   
-✓ FSRCNNX-x2_16-0-4-1 → lighter, stable, and cross-platform friendly  
-✓ CuNNy-4x32 or CuNNy-2x32 → reduced demand with good perceptual quality  
-✓ Hybrid stacks (FSRCNNX + Adaptive Sharpen / Depth Reality Boost) → balance between speed and sharpness  
-This ensures smoother playback while preserving visual detail and stability.  
-
 ---
 
 ## Table of Contents
 - [Overview](#overview)  
 - [Features](#features)  
+- [Platform Performance Notes](#platform-performance-notes)  
 - [Demo Clip](#demo-clip)  
 - [Screenshots](#screenshots)  
 - [Shader Pipeline](#shader-pipeline)  
@@ -77,7 +71,7 @@ This ensures smoother playback while preserving visual detail and stability.
 ## Overview
 This MPV configuration is engineered for viewers who demand cinematic fidelity, artifact‑free rendering, and adaptive precision across all content types — anime, films, sports, and 8K HDR.  
 
-Every component is tuned for clarity, depth, and realism, powered by a custom shader pipeline and a suite of Lua automation scripts that dynamically adapts to content while preserving cinematic intent.  
+Every component is tuned for clarity, depth, and realism, powered by a custom shader pipeline and a suite of Lua automation scripts that dynamically adapt to content while preserving cinematic intent.  
 
 ---
 
@@ -91,11 +85,21 @@ Every component is tuned for clarity, depth, and realism, powered by a custom sh
 
 ---
 
+## Platform Performance Notes  
+The CuNNy-8x32-DS shader profile is optimized for Windows 11 environments and may cause performance issues (lag or dropped frames) on Linux systems with AMD GPUs.  
+Recommended for Linux/AMD setups:   
+✓ FSRCNNX-x2_16-0-4-1 → lighter, stable, and cross-platform friendly  
+✓ CuNNy-4x32 or CuNNy-2x32 → reduced demand with good perceptual quality  
+✓ Hybrid stacks (FSRCNNX + Adaptive Sharpen / Depth Reality Boost) → balance between speed and sharpness  
+This ensures smoother playback while preserving visual detail and stability.  
+
+---
+
 ## Demo Clip
 
 [Download the 8K MPV Demo Clip](video/ulyssescaballes-8k_video_demo.mkv)
 
-This clip was rendered and played using this configuration, showcasing HEVC Main 10 playback, HDR tone mapping, and full shader fidelity.
+This clip was rendered and played with this configuration, showcasing HEVC Main 10 playback, HDR tone mapping, and full shader fidelity.
 
 ---
 
@@ -186,13 +190,13 @@ This configuration includes multiple playback profiles tailored to different con
 
 ## Script Suite  
 - **shader-recover.lua**  
-  Reloads shaders if errors occur.  
+  Reloads shaders if an error occurs.  
 
 - **profile-auto.lua**  
-  Auto-selects profile by resolution/framerate.  
+  Auto-selects profile based on resolution/framerate.  
 
 - **stats-overlay.lua**  
-  GPU load, tone mapping, active shaders.  
+  Displays GPU load, tone mapping status, and active shaders.  
 
 - **subtitle-style.lua**  
   Cinematic subtitle styling.  
@@ -212,56 +216,69 @@ Download and place datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
 ---
 
 ## Installation
+**Note:** This configuration uses **MPV in portable mode**.  
+All settings are loaded from the portable_config folder located alongside mpv.exe.  
+
 Requirements  
 ✓ **MPV v0.41+**  
 ✓ **Vulkan‑capable GPU**  
 ✓ **Windows 11** (recommended)  
 
-Download mpv-x86_64-v3 (Zhongfly builds):  
+Download **mpv-x86_64-v3 (Zhongfly builds)**:  
 https://github.com/zhongfly/mpv-winbuild/releases  
 
 1. Open File Explorer  
-2. Enable: View → Show → Hidden Items
+2. Enable: View → Show → Hidden items
 3. Navigate to %APPDATA%  
 4. Create folder:  
 MPV  
-5. Extract MPV Zhongfly build into this folder  
-6. Right click on "Updater.bat", then "Run as administrator"  
-7. Press **[Windows + R]**; Type: **[control]**; Press **[Enter]**; Click: **[Programs]**; Click: **[Default Programs]**; Type: **[mpv]** on **[Search apps]**; Click: **[mpv]** and then finally [Set default file types or link types] to mpv  
-8. Download or clone this repository to extract the [`portable_config`](https://github.com/PopeyeURS/ulyssescaballes-mpv.config/archive/refs/heads/main.zip) folder  
+5. Extract the MPV Zhongfly build into this folder so that mpv.exe is directly inside it  
+6. Right click on "updater.bat", then "Run as administrator"  
+7. Press **[Windows + R]**; Type: **control**; Press **[Enter]**; Click: **[Programs]**; Click: **[Default Programs]**; Type: **[mpv]** on **[Search apps]**; Click: **[mpv]** and then finally [Set default file types or link types] to mpv  
+8. Download or clone this repository and extract the [`portable_config`](https://github.com/PopeyeURS/ulyssescaballes-mpv.config/archive/refs/heads/main.zip) folder  
 9. Place the "portable_config" folder here:  
 "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config"  
-10. Place the Kemar_HRTF_sofa.sofa file here:  "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config/scripts/sofalizer/Kemar_HRTF_sofa.sofa"  
-11. Place the SADIE KEMAR BRIR file here:  
-"C:/Users/<user_name>/AppData/Roaming/MPV/portable_config/scripts/sofalizer/SADIE_KEMAR_DFC_256_order_fir_48000.sofa"  
-12. **VERY IMPORTANT**: Replace the <user_name> with your system username, on sofalizer's "main.lua", otherwise "KEMAR_SOFA" and "SADIE_BRIR" will not be activated.  
+10. Place the HRTF datasets:  
+✓ KEMAR dataset:  
+"%APPDATA%\MPV\portable_config\scripts\sofalizer\Kemar_HRTF_sofa.sofa"  
+✓ SADIE dataset:  
+"%APPDATA%\MPV\portable_config\scripts\sofalizer\SADIE_KEMAR_DFC_256_order_fir_48000.sofa"  
+11. **VERY IMPORTANT**  
+Open: "portable_config\scripts\sofalizer\main.lua"  
+Replace <user_name> with your actual Windows username.  
+This is required for:  
+✓ KEMAR_SOFA  
+✓ SADIE_BRIR  
+to function correctly.  
 
 ```
-%APPDATA%\mpv\portable_config\
+%APPDATA%\MPV\
 │
-├── mpv.conf
-├── input.conf
-├── profiles.conf
-├── script-opts\
-├── scripts\
-│   └── sofalizer\
-│       ├── Kemar_HRTF_sofa.sofa
-│       ├── SADIE_KEMAR_DFC_256_order_fir_48000.sofa
-│       └── main.lua
-└── shaders\
-    ├── CuNNy-8x32-DS.glsl\
-    ├── SSim\
-    ├── Adaptive_sharpen\
-    └── Depth_reality_boost\
+├── mpv.exe
+└── portable_config\
+    ├── mpv.conf
+    ├── input.conf
+    ├── profiles.conf
+    ├── script-opts\
+    ├── scripts\
+    │   └── sofalizer\
+    │       ├── Kemar_HRTF_sofa.sofa
+    │       ├── SADIE_KEMAR_DFC_256_order_fir_48000.sofa
+    │       └── main.lua
+    └── shaders\
+        ├── CuNNy-8x32-DS.glsl
+        ├── SSim\
+        ├── Adaptive_sharpen\
+        └── Depth_reality_boost\
 ```
 
-13. Ensure MPV is configured to use **Vulkan**:  
+12. Ensure MPV is configured to use **Vulkan**:  
 
 ```
 gpu-api=vulkan
 ```
 
-14. Launch MPV — the configuration activates automatically. You may now double-click any media file on your PC, or run a CD, a DVD or a BluRay disc and MPV plays it with your choice of Enhanced Headset mode [F9] or Ultimate Cinema mode [F10] or Music Hall mode [F11] enabled. Enjoy the experience.  
+13. Launch MPV — the configuration activates automatically. You may now double-click any media file on your PC, or play a CD, a DVD or a Blu-ray disc and MPV plays it with your choice of Enhanced Headset mode [F9] or Ultimate Cinema mode [F10] or Music Hall mode [F11] enabled. Enjoy the experience.  
 
 ---
 
@@ -303,7 +320,7 @@ gpu-api=vulkan
 ## MPV + YouTube Integration  
 Instructions on how to enable MPV to directly open and play YouTube streams from a web browser **(Exclusively applicable only on a Firefox browser or on any Firefox based variant)**:  
 1. Download and install Firefox web browser or any of its variant, [`Floorp`](https://floorp.app/download) browser is highly recommended.  
-2. Install browser extension: [`ff2mpv (for Windows)`](https://addons.mozilla.org/en-US/firefox/addon/ff2mpv-for-windows/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search) from FireFox Browser ADD-ONS.  
+2. Install browser extension: [`ff2mpv (for Windows)`](https://addons.mozilla.org/en-US/firefox/addon/ff2mpv-for-windows/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search) from Firefox Browser Add-ons.  
 3. Download: [`ff2mpv-master.zip`](https://github.com/eastmarch/ff2mpv/archive/master.zip)  
 4. Extract "ff2mpv-master.zip" inside [MPV] folder.  
 5. Open "ff2mpv-master" folder, copy "ytdlProtocol.bat" then paste it outside "ff2mpv-master" folder to sit where "mpv.exe" is placed inside [MPV] folder, here:  
