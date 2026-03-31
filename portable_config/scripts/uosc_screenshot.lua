@@ -62,3 +62,8 @@ mp.add_forced_key_binding(nil, "open-menu", function()
     local json = mp.utils.format_json(create_menu_data())
     mp.commandv("script-message-to", "uosc", "open-menu", json)
 end)
+
+-- Forced key binding for instant screenshot
+mp.add_forced_key_binding("Shift+s", "instant-screenshot", function()
+    mp.command("no-osd screenshot video")
+end)
