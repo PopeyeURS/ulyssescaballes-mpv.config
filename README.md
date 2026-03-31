@@ -182,7 +182,7 @@ This configuration includes multiple playback profiles tailored to different con
 | A | Audio Device Selector |
 | S | Subtitle Settings |
 | P | Screenshot Menu |
-| Shift + S | Instant Screenshot |
+| Shift + S | Screenshot / Saved on Desktop |
 
 ## Script Suite  
 - **shader-recover.lua**  
