@@ -236,9 +236,9 @@ MPV
 9. Place the "portable_config" folder here:  
 "C:/Users/<user_name>/AppData/Roaming/MPV/portable_config"  
 10. Place the HRTF datasets:  
-✓ KEMAR dataset:  
+✓ KEMAR dataset here:  
 "%APPDATA%\MPV\portable_config\scripts\sofalizer\Kemar_HRTF_sofa.sofa"  
-✓ SADIE dataset:  
+✓ SADIE dataset here:  
 "%APPDATA%\MPV\portable_config\scripts\sofalizer\SADIE_KEMAR_DFC_256_order_fir_48000.sofa"  
 11. ⚠️ ***IMPORTANT*** ⚠️   
 Open: "portable_config\scripts\sofalizer\main.lua"  
@@ -275,7 +275,7 @@ to function correctly.
 gpu-api=vulkan
 ```
 
-13. Launch MPV — the configuration activates automatically. You may now double-click any media file on your PC, or play a CD, a DVD or a Blu-ray disc and MPV plays it with your choice of Enhanced Headset mode [F9] or Ultimate Cinema mode [F10] or Music Hall mode [F11] enabled. Enjoy the experience.  
+13. Launch MPV and let the configuration activate automatically. Instantly play any media file or enjoy your CDs, DVDs, and Blu-ray discs in stunning, high-quality video. Switch between Enhanced Headset mode [F9], Ultimate Cinema mode [F10], or Music Hall mode [F11] for a fully immersive experience. Sit back and enjoy.  
 
 ---
 
