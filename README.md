@@ -275,7 +275,7 @@ to function correctly.
 gpu-api=vulkan
 ```
 
-13. Launch MPV and let the configuration activate automatically. Instantly play any media file or enjoy your CDs, DVDs, and Blu-ray discs in stunning, high-quality video. Switch between Enhanced Headset mode [F9], Ultimate Cinema mode [F10], or Music Hall mode [F11] for a fully immersive experience. Sit back and enjoy.  
+13. Launch MPV and let the configuration activate automatically. Double-click to instantly play any media file, or enjoy your CDs, DVDs, and Blu-ray discs in stunning high-quality video. Switch between Enhanced Headset mode [F9], Ultimate Cinema mode [F10], or Music Hall mode [F11] for a fully immersive experience. Sit back and enjoy.  
 
 ---
 
