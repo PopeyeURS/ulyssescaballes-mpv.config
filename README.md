@@ -244,8 +244,8 @@ https://github.com/zhongfly/mpv-winbuild/releases
 Open: "portable_config/scripts/sofalizer/***main.lua***"  
 Replace ***<user_name>*** with your actual Windows ***username***.  
 This is required for:  
-✓ KEMAR_HRTF_SOFA  
-✓ SADIE_KEMAR  
+✓ ***KEMAR_HRTF_SOFA***  
+✓ ***SADIE_KEMAR***  
 to function correctly.  
 
 ```
