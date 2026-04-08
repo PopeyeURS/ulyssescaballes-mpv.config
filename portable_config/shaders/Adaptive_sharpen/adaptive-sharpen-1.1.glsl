@@ -1,6 +1,5 @@
-// Adaptive Sharpen 1.1 - Paramount Vision Edition
-// Refined for cinematic quality and robust HDR stability 
-// 20260408 - Created by Ulysses RS Caballes for MPV
+// Adaptive Sharpen 1.1 - The ULTIMATE - Gold Standard
+// 20260408 - Created for MPV by Ulysses RS Caballes
 // Copyright (C) 2026 Ulysses RS Caballes
 
 //!HOOK OUTPUT
