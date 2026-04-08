@@ -1,6 +1,6 @@
 //!HOOK RGB
 //!BIND HOOKED
-//!DESC Depth Reality Boost — Ulysses RS Caballes' Pristine Detail Ultra Edition v4.0 ELITE
+//!DESC Depth Reality Boost — Created for MPV by Ulysses RS Caballes - The ULTIMATE - Gold Standard - Version 4.0 ELITE
 //!WIDTH HOOKED.width
 //!HEIGHT HOOKED.height
 
