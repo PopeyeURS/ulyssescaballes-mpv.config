@@ -212,36 +212,36 @@ Download and place datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\
 ---
 
 ## Installation
-**Note:** This configuration uses **MPV in portable mode**.  
+**Note:** This configuration uses ***MPV in portable mode***.  
 
 **All settings are loaded from the portable_config folder located alongside mpv.exe.**  
 
 Requirements:  
-✓ **MPV v0.41+**  
-✓ **Vulkan‑capable GPU**  
-✓ **Windows 11** (recommended)  
+✓ ***MPV v0.41+***  
+✓ ***Vulkan‑capable GPU***  
+✓ ***Windows 11*** (recommended)  
 
-Download **mpv-x86_64-v3 (Zhongfly builds)**:  
+Download ***mpv-x86_64-v3 (Zhongfly builds)***:  
 https://github.com/zhongfly/mpv-winbuild/releases  
 
 1. Open File Explorer  
 2. Enable: View → Show → Hidden items
-3. Navigate to %APPDATA%  
+3. Navigate to ***%APPDATA%***  
 4. Create folder:  
 MPV  
 5. Extract the MPV Zhongfly build into this folder so that mpv.exe is directly inside it  
-6. Right click on "updater.bat", then "Run as administrator"  
+6. Right click on "updater.bat", then "***Run as administrator***"  
 7. Press **[Windows + R]**; Type: **control**; Press **[Enter]**; Click: **[Programs]**; Click: **[Default Programs]**; Type: **[mpv]** on **[Search apps]**; Click: **[mpv]** and then finally [Set default file types or link types] to mpv  
 8. Download or clone this repository and extract the [`portable_config`](https://github.com/PopeyeURS/ulyssescaballes-mpv.config/archive/refs/heads/main.zip) folder  
-9. Place the "portable_config" folder here:  
-"C:/Users/<user_name>/AppData/Roaming/MPV/portable_config"  
-10. Place the HRTF datasets:  
-✓ KEMAR dataset here:  
-"%APPDATA%\MPV\portable_config\scripts\sofalizer\Kemar_HRTF_sofa.sofa"  
-✓ SADIE dataset here:  
-"%APPDATA%\MPV\portable_config\scripts\sofalizer\SADIE_KEMAR_DFC_256_order_fir_48000.sofa"  
+9. Place the "***portable_config***" folder here:  
+"C:/Users/<user_name>/AppData/Roaming/MPV/***portable_config***"  
+10. Place the ***HRTF*** datasets:  
+✓ ***KEMAR*** dataset here:  
+"%APPDATA%/MPV/portable_config/scripts/sofalizer/***Kemar_HRTF_sofa.sofa***"  
+✓ ***SADIE*** dataset here:  
+"%APPDATA%/MPV/portable_config/scripts/sofalizer/***SADIE_KEMAR_DFC_256_order_fir_48000.sofa***"  
 11. ⚠️ ***IMPORTANT*** ⚠️   
-Open: "portable_config\scripts\sofalizer\main.lua"  
+Open: "portable_config/scripts/sofalizer/***main.lua***"  
 Replace ***<user_name>*** with your actual Windows ***username***.  
 This is required for:  
 ✓ KEMAR_HRTF_SOFA  
@@ -275,16 +275,16 @@ to function correctly.
 gpu-api=vulkan
 ```
 
-13. Launch MPV and let the configuration activate automatically. Double-click to instantly play any media file, or enjoy your CDs, DVDs, and Blu-ray discs in stunning high-quality video. Switch between Enhanced Headset mode [F9], Ultimate Cinema mode [F10], or Music Hall mode [F11] for a fully immersive experience. Sit back and enjoy.  
+13. Launch MPV and let the configuration activate automatically. Double-click to instantly play any media file, or enjoy your CDs, DVDs, and Blu-ray discs in stunning high-quality video. Switch between Enhanced Headset mode ***[F9]***, Ultimate Cinema mode ***[F10]***, or Music Hall mode ***[F11]*** for a fully immersive experience. Sit back and enjoy.  
 
 ---
 
 ### Audio Chain & Usage Note
 
-- **F9** → Enhanced Headset Mode Activated  
-- **F10** → Enhanced Cinema Mode Activated  
-- **F11** → Music Mode Plus Activated  
-- **F12** → Reset Filters Activated  
+- ***F9*** → Enhanced Headset Mode Activated  
+- ***F10*** → Enhanced Cinema Mode Activated  
+- ***F11*** → Music Mode Plus Activated  
+- ***F12*** → Reset Filters Activated  
 
 ---
 
@@ -319,12 +319,12 @@ Instructions on how to enable MPV to directly open and play YouTube streams from
 1. Download and install Firefox web browser or any of its variant, [`Floorp`](https://floorp.app/download) browser is highly recommended.  
 2. Install browser extension: [`ff2mpv (for Windows)`](https://addons.mozilla.org/en-US/firefox/addon/ff2mpv-for-windows/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search) from Firefox Browser Add-ons.  
 3. Download: [`ff2mpv-master.zip`](https://github.com/eastmarch/ff2mpv/archive/master.zip)  
-4. Extract "ff2mpv-master.zip" inside [MPV] folder.  
-5. Open "ff2mpv-master" folder, copy "ytdlProtocol.bat" then paste it outside "ff2mpv-master" folder to sit where "mpv.exe" is placed inside [MPV] folder, here:  
-"C:/Users/<user_name>/AppData/Roaming/MPV/ytdlProtocol.bat".  
-6. Right click "ytdlProtocol.bat", then "Run as Administrator" once.  
+4. Extract "ff2mpv-master.zip" inside [***MPV***] folder.  
+5. Open "***ff2mpv-master***" folder, copy "***ytdlProtocol.bat***" then paste it outside "***ff2mpv-master***" folder to sit where "***mpv.exe***" is placed inside [***MPV***] folder, here:  
+"C:/Users/<user_name>/AppData/Roaming/MPV/***ytdlProtocol.bat***".  
+6. Right click "***ytdlProtocol.bat***", then "***Run as Administrator***" once.  
 7. Restart your PC.  
-8. Open YouTube on your Firefox browser, select and right-click on any video stream available on display, scroll down the context menu and click "Play link in MPV". MPV plays the selected video stream directly from YouTube with maximum audio/video quality playback. Enjoy the experience.  
+8. Open YouTube on your Firefox browser, select and right-click on any video stream available on display, scroll down the context menu and click "***Play link in MPV***". MPV plays the selected video stream directly from YouTube with maximum audio/video quality playback. Enjoy the experience.  
 
 ---
 
