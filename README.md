@@ -229,10 +229,10 @@ https://github.com/zhongfly/mpv-winbuild/releases
 3. Navigate to ***%APPDATA%***  
 4. Create folder:  
 MPV  
-5. Extract the MPV Zhongfly build into this folder so that mpv.exe is directly inside it  
-6. Right click on "updater.bat", then "***Run as administrator***"  
-7. Press **[Windows + R]**; Type: **control**; Press **[Enter]**; Click: **[Programs]**; Click: **[Default Programs]**; Type: **[mpv]** on **[Search apps]**; Click: **[mpv]** and then finally [Set default file types or link types] to mpv  
-8. Download or clone this repository and extract the [`portable_config`](https://github.com/PopeyeURS/ulyssescaballes-mpv.config/archive/refs/heads/main.zip) folder  
+5. Extract the ***MPV Zhongfly build*** into this folder so that ***mpv.exe*** is directly inside it  
+6. Right click on "***updater.bat***", then "***Run as administrator***"  
+7. Press ***[Windows + R]***; Type: ***control***; Press ***[Enter]***; Click: ***[Programs]***; Click: ***[Default Programs]***; Type: ***[mpv]*** on ***[Search apps]***; Click: ***[mpv]*** and then finally ***[Set default file types or link types]*** to mpv  
+8. Download or clone ***this repository*** and ***extract*** the [`portable_config`](https://github.com/PopeyeURS/ulyssescaballes-mpv.config/archive/refs/heads/main.zip) folder  
 9. Place the "***portable_config***" folder here:  
 "C:/Users/<user_name>/AppData/Roaming/MPV/***portable_config***"  
 10. Place the ***HRTF*** datasets:  
