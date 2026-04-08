@@ -224,11 +224,11 @@ Requirements:
 Download ***mpv-x86_64-v3 (Zhongfly builds)***:  
 https://github.com/zhongfly/mpv-winbuild/releases  
 
-1. Open File Explorer  
-2. Enable: View → Show → Hidden items
+1. Open ***File Explorer***  
+2. Enable: ***View → Show → Hidden items***
 3. Navigate to ***%APPDATA%***  
 4. Create folder:  
-MPV  
+***MPV***  
 5. Extract the ***MPV Zhongfly build*** into this folder so that ***mpv.exe*** is directly inside it  
 6. Right click on "***updater.bat***", then "***Run as administrator***"  
 7. Press ***[Windows + R]***; Type: ***control***; Press ***[Enter]***; Click: ***[Programs]***; Click: ***[Default Programs]***; Type: ***[mpv]*** on ***[Search apps]***; Click: ***[mpv]*** and then finally ***[Set default file types or link types]*** to mpv  
