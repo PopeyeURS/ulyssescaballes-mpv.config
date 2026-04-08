@@ -1,7 +1,7 @@
 local mp = require "mp"
 local utils = require "mp.utils"
 
--- "Refined/Enhanced/Improved by UlyssesRSCaballes. The ULTIMATE GOLD-Standard ver.3.3 (7.1 Speaker Array + Dynamic Spatial + Sub + Concert Air Enhancer)"
+-- "Created for MPV by Ulysses RS Caballes. The ULTIMATE - Gold Standard - Version 3.3 (7.1 Speaker Array + Dynamic Spatial + Sub + Concert Air Enhancer)"
 
 -- ======
 -- CONFIG
