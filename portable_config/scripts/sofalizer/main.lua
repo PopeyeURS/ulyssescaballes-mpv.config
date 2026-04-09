@@ -46,13 +46,13 @@ local function headroom() return "volume=0.95" end
 
 local function micro_head_motion()
     return {
-        "haas=left_delay=0.45:right_delay=0.65:left_gain=0.985:right_gain=0.985", -- reduced delay for realism
+        "haas=left_delay=0.45:right_delay=0.65:left_gain=0.985:right_gain=0.985",
         "stereotools=delay=0.35:phase=0.93"
     }
 end
 
 local function room_reflections()
-    return "haas=left_delay=2.0:right_delay=2.2:left_gain=0.96:right_gain=0.96" -- reduced gain for natural feel
+    return "haas=left_delay=2.0:right_delay=2.2:left_gain=0.96:right_gain=0.96"
 end
 
 local function hall_reflections()
