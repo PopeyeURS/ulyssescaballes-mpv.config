@@ -2,7 +2,7 @@ local mp = require "mp"
 local utils = require "mp.utils"
 
 -- ======
--- Created for MPV by Ulysses RS Caballes. The ULTIMATE - Gold Standard - Version 4.0 (7.1 Speaker Array + Dynamic Spatial + Sub + Concert Air Enhancer)
+-- Created for MPV by Ulysses RS Caballes. The ULTIMATE - Gold Standard - Version 4.5 (7.1 Speaker Array + Dynamic Spatial + Sub + Concert Air Enhancer)
 -- ======
 
 -- ======
@@ -42,17 +42,17 @@ end
 -- ======
 -- SPATIAL BUILDING BLOCKS
 -- ======
-local function headroom() return "volume=0.92" end
+local function headroom() return "volume=0.95" end
 
 local function micro_head_motion()
     return {
-        "haas=left_delay=0.45:right_delay=0.65:left_gain=0.985:right_gain=0.985",
+        "haas=left_delay=0.45:right_delay=0.65:left_gain=0.985:right_gain=0.985", -- reduced delay for realism
         "stereotools=delay=0.35:phase=0.93"
     }
 end
 
 local function room_reflections()
-    return "haas=left_delay=2.0:right_delay=2.5:left_gain=0.96:right_gain=0.96"
+    return "haas=left_delay=2.0:right_delay=2.2:left_gain=0.96:right_gain=0.96" -- reduced gain for natural feel
 end
 
 local function hall_reflections()
@@ -67,13 +67,13 @@ local function hrtf(radius,gain)
 end
 
 local function crossfeed() return "bs2b=profile=jmeier:fcut=700:feed=50" end
-local function compressor() return "acompressor=threshold=-20dB:ratio=1.6:attack=10:release=120" end
-local function limiter() return "alimiter=limit=0.92:level_out=0.98" end
+local function compressor() return "acompressor=threshold=-18dB:ratio=1.8:attack=8:release=120" end
+local function limiter() return "alimiter=limit=0.95:level_out=0.98" end
 local function resampler() return "aresample=resampler=soxr:precision=33:cheby=1" end
 
 local function concert_air()
     return {
-        "stereotools=width=1.05:phase=0.98",
+        "stereotools=width=1.75:phase=0.98",
         "aecho=0.015:0.018:0.2:0.15",
         "reverb=50:50:0.3:0.25"
     }
@@ -95,35 +95,36 @@ local function set_headset_audio()
     local mode_filters = {}
     add_filters(mode_filters, micro_head_motion())
     table.insert(mode_filters, room_reflections())
-    table.insert(mode_filters, hrtf(1.7,1.02))
+    table.insert(mode_filters, hrtf(1.85,1.05))
     table.insert(mode_filters, crossfeed())
     add_filters(mode_filters,{
-        "firequalizer=gain_entry='entry(30,2);entry(60,1.5);entry(120,1)'",
+        "firequalizer=gain_entry='entry(25,2);entry(40,1.8);entry(60,1.5);entry(120,1)'",
         "equalizer=f=2500:t=q:w=0.9:g=1.6",
         "equalizer=f=4500:t=q:w=0.9:g=1.5",
         "equalizer=f=10000:t=q:w=0.8:g=1.2",
-        "stereotools=width=1.7:phase=0.96",
+        "stereotools=width=1.8:phase=0.97",
         compressor(),
         limiter()
     })
     build_mode(mode_filters)
-    show("🎧 Enhanced Headset", 5)
+    show("🎧 Enhanced Headset Mode Activated", 5)
 end
 
 local function set_cinema_mode()
     local mode_filters = {}
     if is_stereo() then
-    table.insert(mode_filters,"surround=chl_in=stereo:chl_out=7.1") end
+        table.insert(mode_filters,"surround=chl_in=stereo:chl_out=7.1")
+    end
     add_filters(mode_filters, micro_head_motion())
     table.insert(mode_filters, room_reflections())
     table.insert(mode_filters,"afir=file="..string.format("%q", SADIE_BRIR))
     table.insert(mode_filters, hrtf(2.2,1.07))
     table.insert(mode_filters, crossfeed())
     add_filters(mode_filters,{
-        "firequalizer=gain_entry='entry(30,2);entry(60,2);entry(90,1)'",
+        "firequalizer=gain_entry='entry(30,2);entry(60,2);entry(90,1.2)'",
         "equalizer=f=2000:t=q:w=1.0:g=1.1",
         "equalizer=f=3200:t=q:w=1.0:g=1.2",
-        "stereotools=width=1.7:phase=0.95"
+        "stereotools=width=1.8:phase=0.95"
     })
     add_filters(mode_filters, concert_air())
     table.insert(mode_filters, compressor())
@@ -135,21 +136,21 @@ end
 local function set_music_mode_()
     local mode_filters = {}
     if is_stereo() then
-    table.insert(mode_filters, "surround=chl_in=stereo:chl_out=7.1")
+        table.insert(mode_filters, "surround=chl_in=stereo:chl_out=7.1")
     end
     add_filters(mode_filters, micro_head_motion())
     table.insert(mode_filters, hall_reflections())
     table.insert(mode_filters,"afir=file="..string.format("%q", SADIE_BRIR))
-    table.insert(mode_filters, hrtf(1.9,1.05))
+    table.insert(mode_filters, hrtf(1.95,1.05))
     table.insert(mode_filters, crossfeed())
     add_filters(mode_filters,{
-        "firequalizer=gain_entry='entry(25,1);entry(40,2);entry(80,1.6);entry(120,1)'",
+        "firequalizer=gain_entry='entry(25,1.8);entry(40,2);entry(80,1.6);entry(120,1)'",
         "equalizer=f=250:t=q:w=0.9:g=1.0",
         "equalizer=f=1800:t=q:w=0.9:g=1.2",
         "equalizer=f=3500:t=q:w=0.8:g=1.5",
         "equalizer=f=7000:t=q:w=0.7:g=1.4",
         "equalizer=f=12000:t=q:w=0.6:g=1.6",
-        "stereotools=width=1.7:phase=0.96"
+        "stereotools=width=1.8:phase=0.96"
     })
     add_filters(mode_filters, concert_air())
     table.insert(mode_filters,"dynaaudnorm=f=200:g=4:p=0.9")
@@ -158,9 +159,9 @@ local function set_music_mode_()
     show("🎼 Music Mode Plus Activated", 5)
 end
 
--- =====
+-- ======
 -- RESET
--- =====
+-- ======
 local function clear_filters()
     mp.commandv("af","clr")
     show("🔄 Filters Cleared", 5)
