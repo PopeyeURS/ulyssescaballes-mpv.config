@@ -8,8 +8,8 @@ local utils = require "mp.utils"
 -- ======
 -- CONFIG
 -- ======
-local KEMAR_SOFA = "C:/Users/ulyss/AppData/Roaming/mpv/portable_config/scripts/sofalizer/KEMAR_HRTF_sofa.sofa"
-local SADIE_BRIR = "C:/Users/ulyss/AppData/Roaming/mpv/portable_config/scripts/sofalizer/SADIE_KEMAR_DFC_256_order_fir_48000.sofa"
+local KEMAR_SOFA = "C:/Users/user_name/AppData/Roaming/mpv/portable_config/scripts/sofalizer/KEMAR_HRTF_sofa.sofa"
+local SADIE_BRIR = "C:/Users/user_name/AppData/Roaming/mpv/portable_config/scripts/sofalizer/SADIE_KEMAR_DFC_256_order_fir_48000.sofa"
 
 -- ======
 -- HELPERS
@@ -40,25 +40,25 @@ local function concert_air() return {"stereotools=width=1.9:phase=0.98","aecho=0
 -- EQ helpers
 local function headset_eq()
     return {
-        "equalizer=f=2500:t=q:w=0.9:g=1.6", -- vocal presence
-        "equalizer=f=4500:t=q:w=0.9:g=1.5", -- strings detail
-        "equalizer=f=10000:t=q:w=0.8:g=1.2" -- whispers/air
+        "equalizer=f=2500:t=q:w=0.9:g=1.6",
+        "equalizer=f=4500:t=q:w=0.9:g=1.5",
+        "equalizer=f=10000:t=q:w=0.8:g=1.2"
     }
 end
 local function transient_eq()
     return {
-        "equalizer=f=70:t=q:w=1.0:g=1.5",   -- rumble/drums
-        "equalizer=f=3000:t=q:w=0.8:g=1.2", -- gunshots/brakes
-        "equalizer=f=12000:t=q:w=0.7:g=1.3" -- birds/whispers
+        "equalizer=f=70:t=q:w=1.0:g=1.5",
+        "equalizer=f=3000:t=q:w=0.8:g=1.2",
+        "equalizer=f=12000:t=q:w=0.7:g=1.3"
     }
 end
 local function orchestra_eq()
     return {
-        "equalizer=f=60:t=q:w=1.0:g=1.8",   -- bass punch
-        "equalizer=f=250:t=q:w=0.9:g=1.0",  -- cello warmth
-        "equalizer=f=3500:t=q:w=0.8:g=1.5", -- violin clarity
-        "equalizer=f=7000:t=q:w=0.7:g=1.4", -- winds sparkle
-        "equalizer=f=12000:t=q:w=0.6:g=1.6" -- high strings/air
+        "equalizer=f=60:t=q:w=1.0:g=1.8",
+        "equalizer=f=250:t=q:w=0.9:g=1.0",
+        "equalizer=f=3500:t=q:w=0.8:g=1.5",
+        "equalizer=f=7000:t=q:w=0.7:g=1.4",
+        "equalizer=f=12000:t=q:w=0.6:g=1.6"
     }
 end
 
@@ -66,16 +66,9 @@ end
 -- MODE BUILDER
 -- ======
 local function build_mode(filters_table)
-    -- Start with resampler first
     local filters = { resampler() }
-
-    -- Add EQ and spatial filters (from filters_table)
     add_filters(filters, filters_table)
-
-    -- Apply headroom after EQ
     table.insert(filters, headroom())
-
-    -- Finally apply the whole chain
     apply_filters(filters)
 end
 
