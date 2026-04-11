@@ -7,7 +7,7 @@ local utils = require "mp.utils"
 -- Created for MPV by Ulysses RS Caballes
 -- 7.1 Speaker Array + Dynamic Spatial Imaging
 -- Philharmonic Concert Mode + Hyper-Cinema Mode
--- 20260411 143905LT
+-- 20260411 234531LT
 -- ======
 -- Description:
 -- This script transforms any audio playback into a premium, immersive 
@@ -135,7 +135,7 @@ local function set_headset_mode()
     table.insert(mode_filters, punchy_compression())
     table.insert(mode_filters, limiter())
     build_mode(mode_filters)
-    show("🎧 PLATINUM Headset Mode: Ultra-Wide, Punchy, Immersive", 5)
+    show("🎧 Headset Mode Activated", 5)
 end
 
 local function set_cinema_mode()
@@ -154,7 +154,7 @@ local function set_cinema_mode()
     table.insert(mode_filters, punchy_compression())
     table.insert(mode_filters, limiter())
     build_mode(mode_filters)
-    show("🌌 PLATINUM Headset Mode: Ultra-Wide, Punchy, Immersive", 5)
+    show("🌌 Cinema Mode: IMAX SenseSurround Activated", 5)
 end
 
 local function set_music_mode()
@@ -172,7 +172,7 @@ local function set_music_mode()
     table.insert(mode_filters, punchy_compression())
     table.insert(mode_filters, limiter())
     build_mode(mode_filters)
-    show("🎼 PLATINUM Concert Mode: Immersive, Rich, Deep", 5)
+    show("🎼 Live Concert Music Mode Activated", 5)
 end
 
 -- ======
@@ -180,7 +180,7 @@ end
 -- ======
 local function clear_filters()
     mp.commandv("af", "clr")
-    show("🔄 PLATINUM Filters Cleared", 5)
+    show("🔄 Filters Cleared", 5)
 end
 
 -- ======
