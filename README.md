@@ -275,13 +275,13 @@ to function correctly.
 gpu-api=vulkan
 ```
 
-13. Launch MPV and let the configuration activate automatically. Double-click to instantly play any media file, or enjoy your CDs, DVDs, and Blu-ray discs in stunning high-quality video. Switch between Enhanced Headset Mode ***[F9]***, IMAX Cinema Mode Pro Logic Dolby II ***[F10]***, or Live Concert Mode ***[F11]*** for a fully immersive experience. Sit back and enjoy.  
+13. Launch MPV and let the configuration activate automatically. Double-click to instantly play any media file, or enjoy your CDs, DVDs, and Blu-ray discs in stunning high-quality video. Switch between Immersive Headset Mode ***[F9]***, IMAX Cinema Mode Pro Logic Dolby II ***[F10]***, or Live Concert Mode ***[F11]*** for a fully immersive experience. Sit back and enjoy.  
 
 ---
 
 ### Audio Chain & Usage Note
 
-- ***F9*** → Enhanced Headset Mode Activated  
+- ***F9*** → Immersive Headset Mode Activated  
 - ***F10*** → IMAX Cinema Mode Pro Logic Dolby II Activated  
 - ***F11*** → Live Concert Mode Activated  
 - ***F12*** → Reset Filters Activated  
