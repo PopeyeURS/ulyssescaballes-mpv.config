@@ -204,13 +204,13 @@ This configuration includes multiple playback profiles tailored to different con
 ## Datasets
 Download and place datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\  
 
-HRTF / SOFA Files
+HRTF / SOFA Files  
 ✓ [`Kemar_HRTF_sofa.sofa`](https://sofacoustics.org/data/database/aachen%20%28high-resolution%20kemar%29/Kemar_HRTF_sofa.sofa)  
   KEMAR HRTF dataset (open research license, safe to redistribute with attribution).  
 ✓ [`SADIE_KEMAR_DFC_256_order_fir_48000.sofa`](https://zenodo.org/records/12542676/files/SADIE_KEMAR_DFC_256_order_fir_48000.sofa?download=1)  
-  Official SADIE II Dataset (University of York). For personal/research use only. 
+  Official SADIE II Dataset (University of York). For personal/research use only.  
  
-AUDIO TEST SAMPLE Files
+AUDIO TEST SAMPLE Files  
 ✓ C2m.wav – Example low-frequency test tone.  
 ✓ C6m.wav – Example high-frequency test tone.  
 ✓ LW8m.wav – Example mid-range audio sample.  
