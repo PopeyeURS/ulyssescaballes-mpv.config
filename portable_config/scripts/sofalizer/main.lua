@@ -2,12 +2,11 @@ local mp = require "mp"
 local utils = require "mp.utils"
 
 -- ======
--- 🔊 THE ULTIMATE PLATINUM IMAX-LIKE AUDIO EXPERIENCE 🔊
--- Version 7.0 – Hyper-Immersive, Punchy Sub-Bass, Wide Soundstage
+-- 🔊 Version 8.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
 -- Created for MPV by Ulysses RS Caballes
 -- 7.1 Speaker Array + Dynamic Spatial Imaging
 -- Philharmonic Concert Mode + Hyper-Cinema Mode
--- 20260411 234531LT
+-- 20260415 171201LT
 -- ======
 -- Description:
 -- This script transforms any audio playback into a premium, immersive 
@@ -22,6 +21,9 @@ local utils = require "mp.utils"
 -- ======
 local KEMAR_SOFA = "C:/Users/user_name/AppData/Roaming/mpv/portable_config/scripts/sofalizer/KEMAR_HRTF_sofa.sofa"
 local SADIE_BRIR = "C:/Users/user_name/AppData/Roaming/mpv/portable_config/scripts/sofalizer/SADIE_KEMAR_DFC_256_order_fir_48000.sofa"
+local FOAIR_HEADSET = "C:/Users/user_name/AppData/Roaming/mpv/portable_config/scripts/sofalizer/C2m.wav"
+local FOAIR_CINEMA  = "C:/Users/user_name/AppData/Roaming/mpv/portable_config/scripts/sofalizer/C6m.wav"
+local FOAIR_CONCERT = "C:/Users/user_name/AppData/Roaming/mpv/portable_config/scripts/sofalizer/LW8m.wav"
 
 -- ======
 -- HELPERS
@@ -131,8 +133,10 @@ local function set_headset_mode()
     add_filters(mode_filters, headset_eq())
     add_filters(mode_filters, sub_bass())
     table.insert(mode_filters, hrtf(2.0, 1.05))
+    table.insert(mode_filters, "afir=file=" .. string.format("%q", FOAIR_HEADSET))
     table.insert(mode_filters, "aecho=0.8:0.9:1000|1800:0.25|0.20")
     table.insert(mode_filters, punchy_compression())
+    table.insert(mode_filters, "loudnorm=I=-23:TP=-2:LRA=11")
     table.insert(mode_filters, limiter())
     build_mode(mode_filters)
     show("🎧 Headset Mode Activated", 5)
@@ -149,9 +153,11 @@ local function set_cinema_mode()
     add_filters(mode_filters, transient_eq())
     add_filters(mode_filters, sub_bass())
     table.insert(mode_filters, hrtf(3.2, 1.1))
+    table.insert(mode_filters, "afir=file=" .. string.format("%q", FOAIR_CINEMA))
     table.insert(mode_filters, "aecho=0.8:0.85:1200|2500|3600:0.20|0.15|0.10")
     table.insert(mode_filters, "aecho=0.5:0.5:4000:0.08")
     table.insert(mode_filters, punchy_compression())
+    table.insert(mode_filters, "loudnorm=I=-23:TP=-2:LRA=11")
     table.insert(mode_filters, limiter())
     build_mode(mode_filters)
     show("🌌 Cinema Mode: IMAX SenseSurround Activated", 5)
@@ -168,8 +174,10 @@ local function set_music_mode()
     add_filters(mode_filters, orchestra_eq())
     add_filters(mode_filters, sub_bass())
     table.insert(mode_filters, hrtf(2.5, 1.05))
+    table.insert(mode_filters, "afir=file=" .. string.format("%q", FOAIR_CONCERT))
     table.insert(mode_filters, "aecho=0.8:0.9:1400|2200:0.25|0.20")
     table.insert(mode_filters, punchy_compression())
+    table.insert(mode_filters, "loudnorm=I=-23:TP=-2:LRA=11")
     table.insert(mode_filters, limiter())
     build_mode(mode_filters)
     show("🎼 Live Concert Music Mode Activated", 5)
