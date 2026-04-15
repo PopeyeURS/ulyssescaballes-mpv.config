@@ -204,10 +204,19 @@ This configuration includes multiple playback profiles tailored to different con
 ## Datasets
 Download and place datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\  
 
+HRTF / SOFA Files
 ✓ [`Kemar_HRTF_sofa.sofa`](https://sofacoustics.org/data/database/aachen%20%28high-resolution%20kemar%29/Kemar_HRTF_sofa.sofa)  
   KEMAR HRTF dataset (open research license, safe to redistribute with attribution).  
 ✓ [`SADIE_KEMAR_DFC_256_order_fir_48000.sofa`](https://zenodo.org/records/12542676/files/SADIE_KEMAR_DFC_256_order_fir_48000.sofa?download=1)  
-  Official SADIE II Dataset (University of York). For personal/research use only.  
+  Official SADIE II Dataset (University of York). For personal/research use only. 
+ 
+AUDIO TEST SAMPLE Files
+✓ C2m.wav – Example low-frequency test tone.  
+✓ C6m.wav – Example high-frequency test tone.  
+✓ LW8m.wav – Example mid-range audio sample.  
+
+SCRIPTS
+main.lua – Main Lua script for loading HRTF datasets and applying spatial audio effects.  
   
 ---
 
@@ -246,6 +255,9 @@ Replace ***<user_name>*** with your actual Windows ***username***.
 This is required for:  
 ✓ ***KEMAR_HRTF_SOFA***  
 ✓ ***SADIE_KEMAR***  
+✓ ***C2m.wav***  
+✓ ***C6m.wav***  
+✓ ***LW8m.wav***  
 to function correctly.  
 
 ```
@@ -261,6 +273,9 @@ to function correctly.
     │   └── sofalizer\
     │       ├── Kemar_HRTF_sofa.sofa
     │       ├── SADIE_KEMAR_DFC_256_order_fir_48000.sofa
+    │       ├── C2m.wav
+    │       ├── C6m.wav
+    │       ├── LW8m.wav
     │       └── main.lua
     └── shaders\
         ├── CuNNy-8x32-DS.glsl
@@ -275,15 +290,15 @@ to function correctly.
 gpu-api=vulkan
 ```
 
-13. Launch MPV and let the configuration activate automatically. Double-click to instantly play any media file, or enjoy your CDs, DVDs, and Blu-ray discs in stunning high-quality video. Switch between Immersive Headset Mode ***[F9]***, IMAX Cinema Mode Pro Logic Dolby II ***[F10]***, or Live Concert Mode ***[F11]*** for a fully immersive experience. Sit back and enjoy.  
+13. Launch MPV and let the configuration activate automatically. Double-click to instantly play any media file, or enjoy your CDs, DVDs, and Blu-ray discs in stunning high-quality video. Switch between Enhanced Headset mode ***[F9]***, Ultimate Cinema mode ***[F10]***, or Music Hall mode ***[F11]*** for a fully immersive experience. Sit back and enjoy.  
 
 ---
 
 ### Audio Chain & Usage Note
 
-- ***F9*** → Immersive Headset Mode Activated  
-- ***F10*** → IMAX Cinema Mode Pro Logic Dolby II Activated  
-- ***F11*** → Live Concert Mode Activated  
+- ***F9*** → Enhanced Headset Mode Activated  
+- ***F10*** → Enhanced Cinema Mode Activated  
+- ***F11*** → Music Mode Plus Activated  
 - ***F12*** → Reset Filters Activated  
 
 ---
