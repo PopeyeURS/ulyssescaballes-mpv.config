@@ -215,7 +215,7 @@ AUDIO TEST SAMPLE Files
 ✓ C6m.wav – Example high-frequency test tone.  
 ✓ LW8m.wav – Example mid-range audio sample.  
 
-SCRIPTS
+SCRIPTS  
 main.lua – Main Lua script for loading HRTF datasets and applying spatial audio effects.  
   
 ---
