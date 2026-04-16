@@ -198,7 +198,7 @@ This configuration includes multiple playback profiles tailored to different con
   Cinematic subtitle styling.  
 
 - **sofalizer/main.lua**  
-  Customized HRTF virtualization.  
+  Customized HRTF virtualization. Main Lua script for loading HRTF datasets and applying spatial audio effects.  
 
 ---
 ## Datasets
@@ -214,9 +214,6 @@ AUDIO TEST SAMPLE Files
 ✓ C2m.wav – Example low-frequency test tone.  
 ✓ C6m.wav – Example high-frequency test tone.  
 ✓ LW8m.wav – Example mid-range audio sample.  
-
-SCRIPTS  
-main.lua – Main Lua script for loading HRTF datasets and applying spatial audio effects.  
   
 ---
 
