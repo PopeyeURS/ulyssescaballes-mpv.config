@@ -227,15 +227,15 @@ Requirements:
 ✓ ***Vulkan‑capable GPU***  
 ✓ ***Windows 11*** (recommended)  
 
-Download ***mpv-x86_64-v3 (Zhongfly builds)***:  
-https://github.com/zhongfly/mpv-winbuild/releases  
+Download ***mpv-x86_64-v3 (Shinchiro builds)***:  
+[https://github.com/zhongfly/mpv-winbuild/releases](https://github.com/shinchiro/mpv-winbuild-cmake/releases)  
 
 1. Open ***File Explorer***  
 2. Enable: ***View → Show → Hidden items***
 3. Navigate to ***%APPDATA%***  
 4. Create folder:  
 ***MPV***  
-5. Extract the ***MPV Zhongfly build*** into this folder so that ***mpv.exe*** is directly inside it  
+5. Extract the ***MPV Shinchiro build*** into this folder so that ***mpv.exe*** is directly inside it  
 6. Right click on "***updater.bat***", then "***Run as administrator***"  
 7. Press ***[Windows + R]***; Type: ***control***; Press ***[Enter]***; Click: ***[Programs]***; Click: ***[Default Programs]***; Type: ***[mpv]*** on ***[Search apps]***; Click: ***[mpv]*** and then finally ***[Set default file types or link types]*** to mpv  
 8. Download or clone ***this repository*** and ***extract*** the [`portable_config`](https://github.com/PopeyeURS/ulyssescaballes-mpv.config/archive/refs/heads/main.zip) folder  
