@@ -21,16 +21,6 @@ Built for precision. Tuned for immersion.</p>
 
 ---
 
-## Quick Start
-
-1. Download MPV (Shinchiro build)  
-2. Extract this repo’s `portable_config` into your MPV folder  
-3. Launch mpv.exe  
-
-Done.  
-
----
-
 ## What This Configuration Delivers
 ✓ Vulkan (gpu-next) high-quality video pipeline  
 ✓ Advanced GLSL shaders (CuNNy, SSim, adaptive sharpen, depth boost)  
