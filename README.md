@@ -7,16 +7,6 @@ Built for precision. Tuned for immersion.</p>
 
 ---
 
-## Quick Start
-
-1. Download MPV (Shinchiro build)  
-2. Extract this repo’s `portable_config` into your MPV folder  
-3. Launch mpv.exe  
-
-Done.  
-
----
-
 ## Build & Capabilities
 <p align="center">
   <img src="https://img.shields.io/badge/License-GPLv3-blue" />
@@ -28,6 +18,16 @@ Done.
   <img src="https://img.shields.io/badge/Shader%20Pipeline-Custom%20GLSL-purple" />
   <img src="https://img.shields.io/badge/Profiles-Anime%20%7C%20Realism%20%7C%20Sports%20%7C%208K-green" />
 </p>
+
+---
+
+## Quick Start
+
+1. Download MPV (Shinchiro build)  
+2. Extract this repo’s `portable_config` into your MPV folder  
+3. Launch mpv.exe  
+
+Done.  
 
 ---
 
