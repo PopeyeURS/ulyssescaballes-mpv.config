@@ -1,9 +1,19 @@
 <p align="center" id="top">||||⚓</p>
 
-<p align="center"><b>Ulysses RS Caballes — MPV Cinema Engine</b></p>
+<p align="center"><b>Ulysses RS Caballes — MPV Cinema Engine (Vulkan, Shaders, HDR)</b></p>
 <p align="center">A handcrafted cinema engine for MPV — uniting neural upscaling,
 HDR tone mapping, and HRTF spatial audio into a single cohesive pipeline.
 Built for precision. Tuned for immersion.</p>
+
+---
+
+## Quick Start
+
+1. Download MPV (Shinchiro build)  
+2. Extract this repo’s `portable_config` into your MPV folder  
+3. Launch mpv.exe  
+
+Done.  
 
 ---
 
@@ -22,11 +32,12 @@ Built for precision. Tuned for immersion.</p>
 ---
 
 ## What This Configuration Delivers
-✓ Cinema-grade HDR tone mapping with contrast fidelity  
-✓ Adaptive sharpening with perceptual depth enhancement  
-✓ HRTF-based spatial audio virtualization  
-✓ Intelligent profile switching based on content type  
-✓ A modular system designed for experimentation and control  
+✓ Vulkan (gpu-next) high-quality video pipeline  
+✓ Advanced GLSL shaders (CuNNy, SSim, adaptive sharpen, depth boost)  
+✓ HDR tone mapping with contrast recovery (BT.2390)  
+✓ ICC color-managed playback  
+✓ HRTF-based spatial audio (SOFAlizer + KEMAR)  
+✓ Modular profiles for anime, realism, sports, and 8K  
 
 ---
 
@@ -383,6 +394,10 @@ If it helps you step closer to your own, then it has fulfilled its purpose.
 
 <p align="center"><b>||||⚓ Ulysses RS Caballes [PopeyeURS]</b></p>
 <p align="center"><i>Crafting cinema in pixels, one shader at a time.</i></p>
+
+<p align="center">
+⭐ Stars help the project grow—thank you for your support.  
+</p>
 
 <hr>
 
