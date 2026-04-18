@@ -237,7 +237,7 @@ Download ***mpv-x86_64-v3 (Shinchiro builds)***:
 ***MPV***  
 5. Extract the ***MPV Shinchiro build*** into this folder  
 6. Right-click on ***mpv-install.bat*** from inside ***installer*** folder  
-7. ***Set default file types or link types*** to mpv  
+7. Set ***default file types or link types*** to mpv  
 8. Right-click ***updater.bat*** and select ***Run as administrator***   
 9. Download or clone ***this repository*** and ***extract*** the [`portable_config`](https://github.com/PopeyeURS/ulyssescaballes-mpv.config/archive/refs/heads/main.zip) folder  
 10. Place the "***portable_config***" folder here:  
