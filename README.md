@@ -1,6 +1,6 @@
 <p align="center" id="top">||||⚓</p>
 
-<p align="center"><b>Ulysses RS Caballes — MPV Config</b></p>
+<p align="center"><b>Ulysses RS Caballes — portable MPV Config</b></p>
 <p align="center">A handcrafted cinema engine for MPV — uniting neural upscaling,
 HDR tone mapping, and HRTF spatial audio into a single cohesive pipeline.
 Built for precision. Tuned for immersion.</p>
@@ -23,7 +23,7 @@ Built for precision. Tuned for immersion.</p>
 
 ## What This Configuration Delivers
 ✓ Vulkan (gpu-next) high-quality video pipeline  
-✓ Advanced GLSL shaders (CuNNy, SSim, adaptive sharpen, depth boost)  
+✓ Advanced GLSL shaders (CuNNy, SSim, adaptive sharpen, depth reality boost)  
 ✓ HDR tone mapping with contrast recovery (BT.2390)  
 ✓ ICC color-managed playback  
 ✓ HRTF-based spatial audio (SOFAlizer + KEMAR)  
