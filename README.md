@@ -385,7 +385,7 @@ If it helps you step closer to your own, then it has fulfilled its purpose.
 <p align="center"><i>Crafting cinema in pixels, one shader at a time.</i></p>
 
 <p align="center">
-Your ⭐ STARS help the project grow—thank you for your support.
+<p Your ⭐ STARS help the project grow—thank you for your support.</b></p>
 </p>
 
 <hr>
