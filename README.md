@@ -384,8 +384,7 @@ If it helps you step closer to your own, then it has fulfilled its purpose.
 <p align="center"><b>||||⚓ Ulysses RS Caballes [PopeyeURS]</b></p>
 <p align="center"><i>Crafting cinema in pixels, one shader at a time.</i></p>
 
-<p align="center">
-<p Your ⭐ STARS help the project grow—thank you for your support.</b></p>
+<p align="center"><b>Your ⭐ STARS help the project grow—thank you for your support.</b></p>
 </p>
 
 <hr>
