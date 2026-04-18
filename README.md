@@ -235,18 +235,19 @@ Download ***mpv-x86_64-v3 (Shinchiro builds)***:
 3. Navigate to ***%APPDATA%***  
 4. Create folder:  
 ***MPV***  
-5. Extract the ***MPV Shinchiro build*** into this folder so that ***mpv.exe*** is directly inside it  
-6. Right-click ***updater.bat*** and select ***Run as administrator***.    
-7. Press ***[Windows + R]***; Type: ***control***; Press ***[Enter]***; Click: ***[Programs]***; Click: ***[Default Programs]***; Type: ***[mpv]*** on ***[Search apps]***; Click: ***[mpv]*** and then finally ***[Set default file types or link types]*** to mpv  
-8. Download or clone ***this repository*** and ***extract*** the [`portable_config`](https://github.com/PopeyeURS/ulyssescaballes-mpv.config/archive/refs/heads/main.zip) folder  
-9. Place the "***portable_config***" folder here:  
+5. Extract the ***MPV Shinchiro build*** into this folder  
+6. Right-click on ***mpv-install.bat*** from inside ***installer*** folder  
+7. ***Set default file types or link types*** to mpv  
+8. Right-click ***updater.bat*** and select ***Run as administrator***   
+9. Download or clone ***this repository*** and ***extract*** the [`portable_config`](https://github.com/PopeyeURS/ulyssescaballes-mpv.config/archive/refs/heads/main.zip) folder  
+10. Place the "***portable_config***" folder here:  
 "C:/Users/<user_name>/AppData/Roaming/MPV/***portable_config***"  
-10. Place the ***HRTF*** datasets:  
+11. Place the ***HRTF*** datasets:  
 ✓ ***KEMAR*** dataset here:  
 "%APPDATA%/MPV/portable_config/scripts/sofalizer/***Kemar_HRTF_sofa.sofa***"  
 ✓ ***SADIE*** dataset here:  
 "%APPDATA%/MPV/portable_config/scripts/sofalizer/***SADIE_KEMAR_DFC_256_order_fir_48000.sofa***"  
-11. ⚠️ ***IMPORTANT*** ⚠️   
+12. ⚠️ ***IMPORTANT*** ⚠️   
 Open: "portable_config/scripts/sofalizer/***main.lua***"  
 Replace ***<user_name>*** with your actual Windows ***username***.  
 This is required for:  
@@ -281,13 +282,13 @@ to function correctly.
         └── Depth_reality_boost\
 ```
 
-12. Ensure MPV is configured to use **Vulkan**:  
+13. Ensure MPV is configured to use **Vulkan**:  
 
 ```
 gpu-api=vulkan
 ```
 
-13. Launch MPV and let the configuration activate automatically. Double-click any media file to start playback instantly, or play CDs, DVDs, and Blu-ray discs with enhanced audio and video quality. Switch between Enhanced Headset mode ***[F9]***, Ultimate Cinema mode ***[F10]***, or Music Hall mode ***[F11]*** for a fully immersive experience. Sit back and enjoy.  
+14. Launch MPV and let the configuration activate automatically. Double-click any media file to start playback instantly, or play CDs, DVDs, and Blu-ray discs with enhanced audio and video quality. Switch between Enhanced Headset mode ***[F9]***, Ultimate Cinema mode ***[F10]***, or Music Hall mode ***[F11]*** for a fully immersive experience. Sit back and enjoy.  
 
 ---
 
