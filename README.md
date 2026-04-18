@@ -38,7 +38,6 @@ Built for precision. Tuned for immersion.</p>
 | RTX 3080 / RX 6800 XT      | 4K–8K       | Smooth playback, minor shader tuning may help                                     |
 | RTX 3060 / RX 6700 XT      | 4K          | Recommended for full shader pipeline                                              |
 | GTX 1660 / RX 5600 XT      | 1080p–1440p | Use lighter profiles (FSRCNNX-x2)                                                 |
-| Polaris / GTX 650          | 1080p       | Verified smooth playback with full pipeline (CuNNy), including 2160p source video |
 | Intel Arc (A7xx)           | 1080p–1440p | Best with FSRCNNX, reduced shader load recommended                                |
 | Intel iGPU / UHD / Iris Xe | 1080p       | Limited, use light profiles only                                                  |
 
@@ -386,7 +385,7 @@ If it helps you step closer to your own, then it has fulfilled its purpose.
 <p align="center"><i>Crafting cinema in pixels, one shader at a time.</i></p>
 
 <p align="center">
-⭐ Stars help the project grow—thank you for your support.  
+Your ⭐ **STARS** help the project grow—thank you for your support.  
 </p>
 
 <hr>
