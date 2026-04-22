@@ -23,7 +23,7 @@ Built for precision. Tuned for immersion.</p>
 
 ## What This Configuration Delivers
 ✓ Vulkan (gpu-next) high-quality video pipeline  
-✓ Advanced GLSL shaders (CuNNy, SSim, adaptive sharpen, depth reality boost)  
+✓ Advanced GLSL shaders (CuNNy, SSim, Adaptive Sharpen, Depth Reality Boost)  
 ✓ HDR tone mapping with contrast recovery (BT.2390)  
 ✓ ICC color-managed playback  
 ✓ HRTF-based spatial audio (SOFAlizer + KEMAR)  
