@@ -2,11 +2,11 @@ local mp = require "mp"
 local utils = require "mp.utils"
 
 -- ======
--- 🔊 Version 10.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
+-- 🔊 Version 11.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
 -- Created for MPV by Ulysses RS Caballes
 -- 7.1 Speaker Array + Dynamic Spatial Imaging
 -- Philharmonic Concert Mode + Hyper-Cinema Mode
--- 20260423 172336LT
+-- 20260423 230335LT
 -- ======
 -- Description:
 -- This script transforms any audio playback into a premium, immersive 
@@ -73,7 +73,7 @@ local function hrtf(radius, gain)
 end
 
 local function crossfeed() return "bs2b=profile=jmeier:fcut=700:feed=50" end
-local function punchy_compression() return "acompressor=threshold=-18dB:ratio=2.2:attack=8:release=60:makeup=1.5" end
+local function punchy_compression() return "acompressor=threshold=-16dB:ratio=2.2:attack=8:release=60:makeup=1.5" end
 local function limiter() return "alimiter=limit=0.95:level_out=0.98" end
 
 -- Sub-bass (safe but powerful)
@@ -81,6 +81,7 @@ local function sub_bass()
     return {
         "highpass=f=30",
         "equalizer=f=65:t=q:w=0.9:g=3.0",
+        "equalizer=f=80:t=q:w=0.9:g=2.0",
         "equalizer=f=100:t=q:w=0.8:g=1.5",
         "equalizer=f=200:t=q:w=0.7:g=-1.5"
     }
@@ -187,7 +188,7 @@ local function set_music_mode()
         table.insert(mode_filters, "surround=chl_in=stereo:chl_out=7.1:matrix_encoding=none")
     end
     table.insert(mode_filters, "afir=file="..string.format("%q", SADIE_BRIR))
-    table.insert(mode_filters, "stereotools=width=1.3:phase=0.97")
+    table.insert(mode_filters, "stereotools=width=1.28:phase=0.96")
     table.insert(mode_filters, crossfeed())
     add_filters(mode_filters, orchestra_eq())
     add_filters(mode_filters, transient_eq())
