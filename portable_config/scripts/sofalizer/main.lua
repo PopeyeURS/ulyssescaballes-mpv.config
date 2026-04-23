@@ -2,11 +2,11 @@ local mp = require "mp"
 local utils = require "mp.utils"
 
 -- ======
--- 🔊 Version 9.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
+-- 🔊 Version 10.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
 -- Created for MPV by Ulysses RS Caballes
 -- 7.1 Speaker Array + Dynamic Spatial Imaging
 -- Philharmonic Concert Mode + Hyper-Cinema Mode
--- 20260423 143903LT
+-- 20260423 172336LT
 -- ======
 -- Description:
 -- This script transforms any audio playback into a premium, immersive 
@@ -19,11 +19,13 @@ local utils = require "mp.utils"
 -- ======
 -- CONFIG
 -- ======
-local KEMAR_SOFA = "C:/Users/ulyss/AppData/Roaming/mpv/portable_config/scripts/sofalizer/KEMAR_HRTF_sofa.sofa"
-local SADIE_BRIR = "C:/Users/ulyss/AppData/Roaming/mpv/portable_config/scripts/sofalizer/SADIE_KEMAR_DFC_256_order_fir_48000.sofa"
-local FOAIR_HEADSET = "C:/Users/ulyss/AppData/Roaming/mpv/portable_config/scripts/sofalizer/C2m.wav"
-local FOAIR_CINEMA  = "C:/Users/ulyss/AppData/Roaming/mpv/portable_config/scripts/sofalizer/C6m.wav"
-local FOAIR_CONCERT = "C:/Users/ulyss/AppData/Roaming/mpv/portable_config/scripts/sofalizer/LW8m.wav"
+local BASE = "C:/Users/user_name/AppData/Roaming/mpv/portable_config/scripts/sofalizer/"
+
+local KEMAR_SOFA   = BASE .. "KEMAR_HRTF_sofa.sofa"
+local SADIE_BRIR   = BASE .. "SADIE_KEMAR_DFC_256_order_fir_48000.sofa"
+local FOAIR_HEADSET= BASE .. "C2m.wav"
+local FOAIR_CINEMA = BASE .. "C6m.wav"
+local FOAIR_CONCERT= BASE .. "LW8m.wav"
 
 -- ======
 -- HELPERS
@@ -149,18 +151,31 @@ end
 local function set_cinema_mode()
     local mode_filters = {}
     if is_stereo() then
-        table.insert(mode_filters, "surround=chl_in=stereo:chl_out=7.1:matrix_encoding=none")
+        table.insert(mode_filters, "surround=chl_in=stereo:chl_out=7.1")
     end
     table.insert(mode_filters, "afir=file="..string.format("%q", SADIE_BRIR))
-    table.insert(mode_filters, "stereotools=width=2.0:phase=0.95")
-    table.insert(mode_filters, crossfeed())
-    add_filters(mode_filters, transient_eq())
-    add_filters(mode_filters, sub_bass())
-    table.insert(mode_filters, hrtf(3.2, 1.1))
+    table.insert(mode_filters, "stereotools=width=1.25:phase=0.98")
+    table.insert(mode_filters, "pan=7.1|c0=c0|c1=c1|c2=1.3*c2|c3=c3|c4=c4|c5=c5|c6=c6|c7=c7")
+    add_filters(mode_filters, {
+        "highpass=f=28",
+        "equalizer=f=60:t=q:w=1.0:g=2.5",
+        "equalizer=f=120:t=q:w=1.0:g=1.2",
+        "equalizer=f=250:t=q:w=1.0:g=-1.5",
+        "equalizer=f=3000:t=q:w=0.8:g=1.8",
+        "equalizer=f=8000:t=q:w=0.7:g=1.5",
+        "equalizer=f=14000:t=q:w=0.6:g=1.2"
+    })
+
+    table.insert(mode_filters, hrtf(3.8, 1.08))
     table.insert(mode_filters, "afir=file=" .. string.format("%q", FOAIR_CINEMA))
-    table.insert(mode_filters, "aecho=0.7:0.6:300|700|1200:0.12|0.10|0.08")
-    table.insert(mode_filters, punchy_compression())
-    table.insert(mode_filters, "loudnorm=I=-23:TP=-2:LRA=11")
+    table.insert(mode_filters,
+        "aecho=0.5:0.4:40|70|110:0.08|0.06|0.05"
+    )
+    table.insert(mode_filters,
+        "acompressor=threshold=-20dB:ratio=1.6:attack=15:release=120"
+    )
+    table.insert(mode_filters, "loudnorm=I=-24:TP=-2:LRA=14")
+    table.insert(mode_filters, "extrastereo=m=1.02")
     table.insert(mode_filters, limiter())
     build_mode(mode_filters)
     show("🌌 Cinema Mode: IMAX SenseSurround Activated", 5)
@@ -190,9 +205,11 @@ end
 -- ======
 -- RESET
 -- ======
-local function clear_filters()
+local function clear_filters(show_osd)
     mp.commandv("af", "clr")
-    show("🔄 Filters Cleared", 5)
+    if show_osd then
+        show("🔄 Filters Cleared", 5)
+    end
 end
 
 -- ======
@@ -201,6 +218,9 @@ end
 local function verify_files()
     if not file_exists(KEMAR_SOFA) then show("❌ Missing KEMAR HRTF file!", 5) end
     if not file_exists(SADIE_BRIR) then show("❌ Missing SADIE BRIR file!", 5) end
+    if not file_exists(FOAIR_HEADSET) then show("❌ Missing FOAIR_HEADSET file!", 5) end
+    if not file_exists(FOAIR_CINEMA) then show("❌ Missing FOAIR_CINEMA file!", 5) end
+    if not file_exists(FOAIR_CONCERT) then show("❌ Missing FOAIR_CONCERT file!", 5) end
 end
 verify_files()
 
@@ -219,4 +239,6 @@ end)
 mp.add_forced_key_binding("F9", "headset_mode_key", set_headset_mode)
 mp.add_forced_key_binding("F10", "cinema_mode_key", set_cinema_mode)
 mp.add_forced_key_binding("F11", "music_mode_key", set_music_mode)
-mp.add_forced_key_binding("F12", "reset_filters_key", clear_filters)
+mp.add_forced_key_binding("F12", "reset_filters_key", function()
+    clear_filters(true)   -- show OSD message
+end)
