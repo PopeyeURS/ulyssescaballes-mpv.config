@@ -32,14 +32,17 @@ Built for precision. Tuned for immersion.</p>
 ---
 
 ## Performance Notes
-| GPU Class                  | Resolution  | Expected Performance                                                              |
-| -------------------------- | ----------- | --------------------------------------------------------------------------------- |
-| RTX 4090 / RX 7900 XTX     | 8K          | Full pipeline, maximum shaders                                                    |
-| RTX 3080 / RX 6800 XT      | 4K–8K       | Smooth playback, minor shader tuning may help                                     |
-| RTX 3060 / RX 6700 XT      | 4K          | Recommended for full shader pipeline                                              |
-| GTX 1660 / RX 5600 XT      | 1080p–1440p | Use lighter profiles (FSRCNNX-x2)                                                 |
-| Intel Arc (A7xx)           | 1080p–1440p | Best with FSRCNNX, reduced shader load recommended                                |
-| Intel iGPU / UHD / Iris Xe | 1080p       | Limited, use light profiles only                                                  |
+| GPU Class                                   | Resolution  | Expected Performance                                                              |
+| -------------------------------------------- | ----------- | --------------------------------------------------------------------------------- |
+| RTX 5090 (next-gen) / Future RX Flagship*    | 8K+         | Ultra-high headroom, full pipeline with the heaviest shader workloads             |
+| RTX 4090 / RX 7900 XTX                       | 8K          | Full pipeline, maximum shaders                                                    |
+| RTX 3080 / RX 6800 XT                        | 4K–8K       | Smooth playback, minor shader tuning may help                                     |
+| RTX 3060 / RX 6700 XT                        | 4K          | Recommended for full shader pipeline                                              |
+| GTX 1660 / RX 5600 XT                        | 1080p–1440p | Use lighter profiles (FSRCNNX-x2)                                                 |
+| Intel Arc (A7xx)                             | 1080p–1440p | Best with FSRCNNX, reduced shader load recommended                                |
+| Intel iGPU / UHD / Iris Xe                   | 1080p       | Limited, use light profiles only                                                  |
+
+\* AMD equivalent is unconfirmed and may not directly match RTX 5090 performance tier.
 
 The CuNNy-8x32-DS shader profile is optimized for Windows 11 environments and may cause performance issues (lag or dropped frames) on Linux systems with AMD GPUs.  
 Recommended for Linux/AMD setups:   
