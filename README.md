@@ -344,20 +344,20 @@ Instructions on how to enable MPV to directly open and play YouTube streams from
 ---
 
 ## Philosophy
-This configuration is built on three principles:
+This configuration is guided on three core principles:
 
 ### Precision  
-Every shader, value, and filter is chosen with intent — no bloat, no placebo settings.
+Every shader, parameter, and filter is chosen with intent—no bloat, no placebo settings.  
 
 ### Cinematic Realism  
-The goal is not “sharper” or “brighter,” but **truer** — depth, texture, and natural contrast.
+The goal isn’t “sharper” or “brighter,” but truer—emphasizing depth, texture, and natural contrast.  
 
 ### Modularity  
-✓ Everything is remixable.  
-✓ Every file is documented.  
-✓ Every profile is optional.  
+✓ Fully remixable  
+✓ Clearly documented  
+✓ Entirely optional  
 
-You can adopt the entire system or extract only the parts you love.
+Adopt the full pipeline or integrate only the components you need.
 
 ---
 
