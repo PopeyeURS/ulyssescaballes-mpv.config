@@ -25,7 +25,7 @@ Built for precision. Tuned for immersion.</p>
 ✓ Vulkan (gpu-next) high-quality video rendering pipeline  
 ✓ Advanced GLSL shader stack: CuNNy (CNN upscaling), SSimSuperRes, Adaptive Sharpen, Depth Reality Boost  
 ✓ HDR tone mapping with contrast recovery (BT.2390)  
-✓ ICC-based color-managed playback  
+✓ ICC color-managed playback  
 ✓ HRTF-based spatial audio (SOFAlizer + KEMAR)  
 ✓ Modular profiles for anime, realism, sports, and 8K content  
 
