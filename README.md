@@ -376,7 +376,7 @@ Adopt the full pipeline or integrate only the components you need.
 ---
 
 ## Final Word
----
+***
 
 <div align="center">
 
@@ -384,13 +384,15 @@ Adopt the full pipeline or integrate only the components you need.
 *This hand‑crafted cinema engine reflects my journey toward that feeling.*  
 *If it helps you step closer to your own, then it has fulfilled its purpose.*  
 
-**||||⚓ Ulysses RS Caballes [PopeyeURS]**  
+**_||||⚓ Ulysses RS Caballes [PopeyeURS]_**  
 *Crafting cinema in pixels, one shader at a time.*  
 
-*Enjoying the project? Consider giving it a ⭐ - Thank you for your support!*
+*Enjoying the project? Consider giving it a ⭐ - Thank you for your support!*  
+[![GitHub stars](https://img.shields.io/github/stars/USERNAME/REPO?style=social)](https://github.com/USERNAME/REPO/stargazers)
 
 </div>
 
+***
 ---
 
 ## License  
