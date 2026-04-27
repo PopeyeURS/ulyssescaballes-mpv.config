@@ -376,22 +376,20 @@ Adopt the full pipeline or integrate only the components you need.
 ---
 
 ## Final Word
-<hr>
+---
 
-<p align="center" style="font-style: italic;">
-Playback perfection isn’t measured in numbers alone - it’s defined by how it feels.  
-This hand‑crafted cinema engine reflects my journey toward that feeling.  
-If it helps you step closer to your own, then it has fulfilled its purpose.  
+<p align="center">
+*Playback perfection isn’t measured in numbers alone - it’s defined by how it feels.*  
+*This hand‑crafted cinema engine reflects my journey toward that feeling.*  
+*If it helps you step closer to your own, then it has fulfilled its purpose.*  
 </p>
-
 
 <p align="center"><b>||||⚓ Ulysses RS Caballes [PopeyeURS]</b></p>
 <p align="center"><i>Crafting cinema in pixels, one shader at a time.</i></p>
 
-<p align="center" style="font-style: italic;">Enjoying the project? Consider giving it a ⭐ - Thank you for your support!  
+<p align="center">
+*Enjoying the project? Consider giving it a ⭐ - Thank you for your support!*  
 </p>
-
-<hr>
 
 ---
 
