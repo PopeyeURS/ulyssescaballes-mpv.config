@@ -15,7 +15,7 @@ Built for precision. Tuned for immersion.</p>
   <img src="https://img.shields.io/badge/CONFIG-REMIXABLE-8A2BE2?style=for-the-badge&labelColor=ADFF2F&logo=github&logoColor=black" />
   <img src="https://img.shields.io/badge/Platform-WINDOWS%2011-8A2BE2?style=for-the-badge&labelColor=lightgrey&logo=windows&logoColor=black" />
   <img src="https://img.shields.io/badge/Playback-Cinematic%208K%20HDR-critical?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Shader%20Pipeline-CUSTOM%20GLSL-8A2BE2?style=for-the-badge&labelColor=purple&logo=github&logoColor=black" />
+  <img src="https://img.shields.io/badge/Shader%20Pipeline-Custom%20GLSL-purple?style=for-the-badge" />
   <img src="https://img.shields.io/badge/PROFILES-Anime%20%7C%20Realism%20%7C%20Sports%20%7C%208K-8A2BE2?style=for-the-badge&labelColor=ADFF2F&logo=github&logoColor=black" />
 </p>
 
