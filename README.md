@@ -1,7 +1,7 @@
 <p align="center" id="top">||||⚓</p>
 
-<p align="center"><b>Ulysses RS Caballes — MPV Cinema Config</b></p>
-<p align="center">A handcrafted cinema engine for MPV — uniting neural upscaling,
+<p align="center"><b>Ulysses RS Caballes - MPV Cinema Config</b></p>
+<p align="center">A handcrafted cinema engine for MPV - uniting neural upscaling,
 HDR tone mapping, and HRTF spatial audio into a single cohesive pipeline.
 Built for precision. Tuned for immersion.</p>
 
@@ -78,7 +78,7 @@ This ensures smoother playback while preserving visual detail and stability.
 ---
 
 ## Overview
-This MPV configuration is engineered for viewers who demand cinematic fidelity, artifact‑free rendering, and adaptive precision across all content types — anime, films, sports, and 8K HDR.  
+This MPV configuration is engineered for viewers who demand cinematic fidelity, artifact-free rendering, and adaptive precision across all content types - anime, films, sports, and 8K HDR.  
 
 Every component is tuned for clarity, depth, and realism. Powered by a custom shader pipeline and Lua automation scripts that adapt dynamically to content while preserving cinematic intent.  
 
@@ -105,7 +105,7 @@ This clip was rendered and played with this configuration, showcasing HEVC Main 
 ## Screenshots
 
 ![Screenshot 1](images/screenshot1.png)  
-*Debanding and tone mapping — smooth gradients, lifelike contrast.*
+*Debanding and tone mapping - smooth gradients, lifelike contrast.*
 
 ![Screenshot 2](images/screenshot2.png)  
 *Styled subtitles and shader stack delivering cinematic realism.*
@@ -114,7 +114,7 @@ This clip was rendered and played with this configuration, showcasing HEVC Main 
 
 ## Visual Improvements
 
-| Without Config | With Ulysses RS Caballes — MPV Cinema Engine | How |
+| Without Config | With Ulysses RS Caballes - MPV Cinema Engine | How |
 |---------------|------------------------|------------------|
 | Flat colors | Cinematic tone mapping | BT.2390 HDR curve + GAMMA / Perceptual Linearity |
 | Aliasing artifacts | Neural upscaling | CuNNY-8x32-DS |
@@ -128,21 +128,21 @@ This clip was rendered and played with this configuration, showcasing HEVC Main 
 
 2. **Tone Mapping (BT.2390 with contrast recovery)**  
 
-3. **Resampling — 26-tap separable kernel**  
+3. **Resampling - 26-tap separable kernel**  
 
-4. **Adaptive Sharpen — linear-light, curve height tuned, overshoot control**  
+4. **Adaptive Sharpen - linear-light, curve height tuned, overshoot control**  
 
-5. **Depth Reality Boost — perceptual depth cues without halos**  
+5. **Depth Reality Boost - perceptual depth cues without halos**  
 
 ---
 
 ## Audio Pipeline
 
-1. **SOFAlizer (HRTF Virtualization) — Kemar dataset, customized via [main.lua]**  
+1. **SOFAlizer (HRTF Virtualization) - Kemar dataset, customized via [main.lua]**  
 
-2. **EQ Chain — bass reinforcement, midrange cleanup, treble clarity, and subharmonic depth**  
+2. **EQ Chain - bass reinforcement, midrange cleanup, treble clarity, and subharmonic depth**  
 
-3. **Dynamics Control — normalization, compression, limiter for safe playback**  
+3. **Dynamics Control - normalization, compression, limiter for safe playback**  
 
 ---
 
@@ -214,9 +214,9 @@ HRTF / SOFA Files
   Official SADIE II Dataset (University of York). For personal/research use only.  
  
 AUDIO TEST SAMPLE Files  
-✓ C2m.wav – Example low-frequency test tone.  
-✓ C6m.wav – Example high-frequency test tone.  
-✓ LW8m.wav – Example mid-range audio sample.  
+✓ C2m.wav - Example low-frequency test tone.  
+✓ C6m.wav - Example high-frequency test tone.  
+✓ LW8m.wav - Example mid-range audio sample.  
   
 ---
 
@@ -347,10 +347,10 @@ Instructions on how to enable MPV to directly open and play YouTube streams from
 This configuration is guided on three core principles:
 
 ### Precision  
-Every shader, parameter, and filter is chosen with intent—no bloat, no placebo settings.  
+Every shader, parameter, and filter is chosen with intent - no bloat, no placebo settings.  
 
 ### Cinematic Realism  
-The goal isn’t “sharper” or “brighter,” but truer—emphasizing depth, texture, and natural contrast.  
+The goal isn’t “sharper” or “brighter,” but truer - emphasizing depth, texture, and natural contrast.  
 
 ### Modularity  
 ✓ Fully remixable  
@@ -379,7 +379,7 @@ Adopt the full pipeline or integrate only the components you need.
 <hr>
 
 <p align="center">
-Playback perfection isn’t measured in numbers alone — it’s defined by how it feels.  
+Playback perfection isn’t measured in numbers alone - it’s defined by how it feels.  
 This hand‑crafted cinema engine reflects my journey toward that feeling.  
 If it helps you step closer to your own, then it has fulfilled its purpose.  
 </p>
