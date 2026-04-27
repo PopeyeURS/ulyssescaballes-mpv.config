@@ -388,11 +388,12 @@ Adopt the full pipeline or integrate only the components you need.
 *Crafting cinema in pixels, one shader at a time.*  
 
 *Enjoying the project? Consider giving it a ⭐ - Thank you for your support!*  
-[![GitHub stars](https://img.shields.io/github/stars/USERNAME/REPO?style=social)](https://github.com/USERNAME/REPO/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/PopeyeURS/ulyssescaballes-mpv.config?style=social)](https://github.com/PopeyeURS/ulyssescaballes-mpv.config/stargazers)
 
 </div>
 
 ***
+
 ---
 
 ## License  
