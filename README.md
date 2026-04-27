@@ -9,14 +9,14 @@ Built for precision. Tuned for immersion.</p>
 
 ## Build & Capabilities
 <p align="center">
-  <img src="https://img.shields.io/badge/License-GPLv3-blue" />
-  <img src="https://img.shields.io/badge/MPV-v0.41+-blue" />
-  <img src="https://img.shields.io/badge/GPU-Vulkan%20Optimized-orange" />
-  <img src="https://img.shields.io/badge/config-remixable-green" />
-  <img src="https://img.shields.io/badge/Platform-Windows%2011-lightgrey" />
-  <img src="https://img.shields.io/badge/Playback-Cinematic%208K%20HDR-critical" />
-  <img src="https://img.shields.io/badge/Shader%20Pipeline-Custom%20GLSL-purple" />
-  <img src="https://img.shields.io/badge/Profiles-Anime%20%7C%20Realism%20%7C%20Sports%20%7C%208K-green" />
+  <img src="https://img.shields.io/badge/License-GPLv3-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/MPV-v0.41+-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/GPU-Vulkan%20Optimized-orange?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/config-REMIXABLE-8A2BE2?style=for-the-badge&labelColor=green&logo=github&logoColor=black" />
+  <img src="https://img.shields.io/badge/Platform-Windows%2011-lightgrey?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Playback-Cinematic%208K%20HDR-critical?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Shader%20Pipeline-Custom%20GLSL-purple?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Profiles-Anime%20%7C%20Realism%20%7C%20Sports%20%7C%208K-8A2BE2?style=for-the-badge&labelColor=green&logo=github&logoColor=black" />
 </p>
 
 ---
