@@ -249,7 +249,7 @@ Download ***mpv-x86_64-v3 (Shinchiro builds)***:
 "%APPDATA%/MPV/portable_config/scripts/sofalizer/***Kemar_HRTF_sofa.sofa***"  
 ✓ ***SADIE*** dataset here:  
 "%APPDATA%/MPV/portable_config/scripts/sofalizer/***SADIE_KEMAR_DFC_256_order_fir_48000.sofa***"  
-12. ⚠️ ***IMPORTANT*** ⚠️   
+12. ⚠️ ***REQUIRED — DO NOT SKIP THIS STEP*** ⚠️   
 Open: "portable_config/scripts/sofalizer/***main.lua***"  
 Replace ***<user_name>*** with your actual Windows ***username***.  
 This is required for:  
@@ -258,6 +258,7 @@ This is required for:
 ✓ ***C2m.wav***  
 ✓ ***C6m.wav***  
 ✓ ***LW8m.wav***  
+✓ ***terrys_typing_b_format.wav***  
 to function correctly.  
 
 ```
