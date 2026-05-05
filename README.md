@@ -277,6 +277,7 @@ to function correctly.
     │       ├── C2m.wav
     │       ├── C6m.wav
     │       ├── LW8m.wav
+    │       ├── terrys_typing_b_format.wav
     │       └── main.lua
     └── shaders\
         ├── CuNNy-8x32-DS.glsl
