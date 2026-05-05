@@ -217,7 +217,8 @@ AUDIO TEST SAMPLE Files
 ✓ C2m.wav - Example low-frequency test tone.  
 ✓ C6m.wav - Example high-frequency test tone.  
 ✓ LW8m.wav - Example mid-range audio sample.  
-  
+✓ terrys_typing_b_format.wav - Ambisonic (B-format) recording of typing sounds.  
+
 ---
 
 ## Installation
