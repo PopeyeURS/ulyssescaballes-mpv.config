@@ -2,11 +2,11 @@ local mp = require "mp"
 local utils = require "mp.utils"
 
 -- ======
--- 🔊 Version 11.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
+-- 🔊 Version 12.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
 -- Created for MPV by Ulysses RS Caballes
 -- 7.1 Speaker Array + Dynamic Spatial Imaging
 -- Philharmonic Concert Mode + Hyper-Cinema Mode
--- 20260423 230335LT
+-- 20260505 151031LT
 -- ======
 -- Description:
 -- This script transforms any audio playback into a premium, immersive 
@@ -19,13 +19,14 @@ local utils = require "mp.utils"
 -- ======
 -- CONFIG
 -- ======
-local BASE = "C:/Users/user_name/AppData/Roaming/mpv/portable_config/scripts/sofalizer/"
+local BASE = "C:/Users/ulyss/AppData/Roaming/mpv/portable_config/scripts/sofalizer/"
 
 local KEMAR_SOFA   = BASE .. "KEMAR_HRTF_sofa.sofa"
 local SADIE_BRIR   = BASE .. "SADIE_KEMAR_DFC_256_order_fir_48000.sofa"
 local FOAIR_HEADSET= BASE .. "C2m.wav"
 local FOAIR_CINEMA = BASE .. "C6m.wav"
 local FOAIR_CONCERT= BASE .. "LW8m.wav"
+local FOAIR_AIRTAIL= BASE .. "terrys_typing_b_format.wav"
 
 -- ======
 -- HELPERS
@@ -73,7 +74,7 @@ local function hrtf(radius, gain)
 end
 
 local function crossfeed() return "bs2b=profile=jmeier:fcut=700:feed=50" end
-local function punchy_compression() return "acompressor=threshold=-16dB:ratio=2.2:attack=8:release=60:makeup=1.5" end
+local function punchy_compression() return "acompressor=threshold=-18dB:ratio=2.2:attack=8:release=60:makeup=1.5" end
 local function limiter() return "alimiter=limit=0.95:level_out=0.98" end
 
 -- Sub-bass (safe but powerful)
@@ -81,7 +82,6 @@ local function sub_bass()
     return {
         "highpass=f=30",
         "equalizer=f=65:t=q:w=0.9:g=3.0",
-        "equalizer=f=80:t=q:w=0.9:g=2.0",
         "equalizer=f=100:t=q:w=0.8:g=1.5",
         "equalizer=f=200:t=q:w=0.7:g=-1.5"
     }
@@ -118,6 +118,27 @@ local function orchestra_eq()
 end
 
 -- ======
+-- AUDIO REALISM BLOCK
+-- ======
+local function add_realism_filters(mode_filters)
+    -- High-quality resampling
+    table.insert(mode_filters, "aresample=resampler=soxr:precision=33:cheby=1")
+
+    -- True peak limiting
+    table.insert(mode_filters, "alimiter=limit=0.97:level_out=0.99")
+end
+
+-- ======
+-- AIR TAIL BLOCK
+-- ======
+local function add_air_tail(mode_filters)
+    table.insert(mode_filters, "afir=file=" .. string.format("%q", FOAIR_AIRTAIL) .. ":gain=-25dB")
+    table.insert(mode_filters, "highpass=f=200")
+    table.insert(mode_filters, "equalizer=f=6000:t=q:w=0.7:g=1.2")
+    table.insert(mode_filters, "equalizer=f=12000:t=q:w=0.6:g=1.5")
+end
+
+-- ======
 -- MODE BUILDER
 -- ======
 local function build_mode(filters_table)
@@ -133,7 +154,7 @@ local function set_headset_mode()
     local mode_filters = {}
     add_filters(mode_filters, {
         "adelay=45|65",
-        "stereotools=width=1.1:phase=0.97"
+        "stereotools=width=1.25:phase=0.97"
     })
     table.insert(mode_filters, crossfeed())
     add_filters(mode_filters, headset_eq())
@@ -143,8 +164,8 @@ local function set_headset_mode()
     table.insert(mode_filters, "afir=file=" .. string.format("%q", FOAIR_HEADSET))
     table.insert(mode_filters, "aecho=0.6:0.5:120:0.08")
     table.insert(mode_filters, punchy_compression())
-    table.insert(mode_filters, "loudnorm=I=-23:TP=-2:LRA=11")
     table.insert(mode_filters, limiter())
+    add_realism_filters(mode_filters)
     build_mode(mode_filters)
     show("🎧 Headset Mode Activated", 5)
 end
@@ -155,7 +176,7 @@ local function set_cinema_mode()
         table.insert(mode_filters, "surround=chl_in=stereo:chl_out=7.1")
     end
     table.insert(mode_filters, "afir=file="..string.format("%q", SADIE_BRIR))
-    table.insert(mode_filters, "stereotools=width=1.25:phase=0.98")
+    table.insert(mode_filters, "stereotools=width=1.30:phase=0.98")
     table.insert(mode_filters, "pan=7.1|c0=c0|c1=c1|c2=1.3*c2|c3=c3|c4=c4|c5=c5|c6=c6|c7=c7")
     add_filters(mode_filters, {
         "highpass=f=28",
@@ -175,9 +196,9 @@ local function set_cinema_mode()
     table.insert(mode_filters,
         "acompressor=threshold=-20dB:ratio=1.6:attack=15:release=120"
     )
-    table.insert(mode_filters, "loudnorm=I=-24:TP=-2:LRA=14")
-    table.insert(mode_filters, "extrastereo=m=1.02")
+    table.insert(mode_filters, "extrastereo=m=1.05")
     table.insert(mode_filters, limiter())
+    add_realism_filters(mode_filters)
     build_mode(mode_filters)
     show("🌌 Cinema Mode: IMAX SenseSurround Activated", 5)
 end
@@ -188,17 +209,19 @@ local function set_music_mode()
         table.insert(mode_filters, "surround=chl_in=stereo:chl_out=7.1:matrix_encoding=none")
     end
     table.insert(mode_filters, "afir=file="..string.format("%q", SADIE_BRIR))
-    table.insert(mode_filters, "stereotools=width=1.28:phase=0.96")
+    table.insert(mode_filters, "stereotools=width=1.35:phase=0.98")
     table.insert(mode_filters, crossfeed())
     add_filters(mode_filters, orchestra_eq())
     add_filters(mode_filters, transient_eq())
     add_filters(mode_filters, sub_bass())
-    table.insert(mode_filters, hrtf(2.5, 1.05))
+    table.insert(mode_filters, hrtf(3.0, 1.05))
     table.insert(mode_filters, "afir=file=" .. string.format("%q", FOAIR_CONCERT))
     table.insert(mode_filters, "aecho=0.7:0.6:250|600:0.12|0.10")
     table.insert(mode_filters, punchy_compression())
-    table.insert(mode_filters, "loudnorm=I=-23:TP=-2:LRA=11")
     table.insert(mode_filters, limiter())
+    add_realism_filters(mode_filters)
+    add_realism_filters(mode_filters)
+    add_air_tail(mode_filters)
     build_mode(mode_filters)
     show("🎼 Live Concert Music Mode Activated", 5)
 end
