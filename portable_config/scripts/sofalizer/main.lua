@@ -2,11 +2,11 @@ local mp = require "mp"
 local utils = require "mp.utils"
 
 -- ======
--- 🔊 Version 12.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
+-- 🔊 Version 13.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
 -- Created for MPV by Ulysses RS Caballes
 -- 7.1 Speaker Array + Dynamic Spatial Imaging
 -- Philharmonic Concert Mode + Hyper-Cinema Mode
--- 20260505 151031LT
+-- 20260505 162218LT
 -- ======
 -- Description:
 -- This script transforms any audio playback into a premium, immersive 
@@ -19,7 +19,7 @@ local utils = require "mp.utils"
 -- ======
 -- CONFIG
 -- ======
-local BASE = "C:/Users/ulyss/AppData/Roaming/mpv/portable_config/scripts/sofalizer/"
+local BASE = "C:/Users/user_name/AppData/Roaming/mpv/portable_config/scripts/sofalizer/"
 
 local KEMAR_SOFA   = BASE .. "KEMAR_HRTF_sofa.sofa"
 local SADIE_BRIR   = BASE .. "SADIE_KEMAR_DFC_256_order_fir_48000.sofa"
@@ -75,7 +75,6 @@ end
 
 local function crossfeed() return "bs2b=profile=jmeier:fcut=700:feed=50" end
 local function punchy_compression() return "acompressor=threshold=-18dB:ratio=2.2:attack=8:release=60:makeup=1.5" end
-local function limiter() return "alimiter=limit=0.95:level_out=0.98" end
 
 -- Sub-bass (safe but powerful)
 local function sub_bass()
@@ -121,11 +120,7 @@ end
 -- AUDIO REALISM BLOCK
 -- ======
 local function add_realism_filters(mode_filters)
-    -- High-quality resampling
-    table.insert(mode_filters, "aresample=resampler=soxr:precision=33:cheby=1")
-
-    -- True peak limiting
-    table.insert(mode_filters, "alimiter=limit=0.97:level_out=0.99")
+    table.insert(mode_filters, "alimiter=limit=0.95:level_out=0.98")
 end
 
 -- ======
@@ -164,7 +159,6 @@ local function set_headset_mode()
     table.insert(mode_filters, "afir=file=" .. string.format("%q", FOAIR_HEADSET))
     table.insert(mode_filters, "aecho=0.6:0.5:120:0.08")
     table.insert(mode_filters, punchy_compression())
-    table.insert(mode_filters, limiter())
     add_realism_filters(mode_filters)
     build_mode(mode_filters)
     show("🎧 Headset Mode Activated", 5)
@@ -197,7 +191,6 @@ local function set_cinema_mode()
         "acompressor=threshold=-20dB:ratio=1.6:attack=15:release=120"
     )
     table.insert(mode_filters, "extrastereo=m=1.05")
-    table.insert(mode_filters, limiter())
     add_realism_filters(mode_filters)
     build_mode(mode_filters)
     show("🌌 Cinema Mode: IMAX SenseSurround Activated", 5)
@@ -218,10 +211,8 @@ local function set_music_mode()
     table.insert(mode_filters, "afir=file=" .. string.format("%q", FOAIR_CONCERT))
     table.insert(mode_filters, "aecho=0.7:0.6:250|600:0.12|0.10")
     table.insert(mode_filters, punchy_compression())
-    table.insert(mode_filters, limiter())
-    add_realism_filters(mode_filters)
-    add_realism_filters(mode_filters)
     add_air_tail(mode_filters)
+    add_realism_filters(mode_filters)
     build_mode(mode_filters)
     show("🎼 Live Concert Music Mode Activated", 5)
 end
@@ -245,6 +236,7 @@ local function verify_files()
     if not file_exists(FOAIR_HEADSET) then show("❌ Missing FOAIR_HEADSET file!", 5) end
     if not file_exists(FOAIR_CINEMA) then show("❌ Missing FOAIR_CINEMA file!", 5) end
     if not file_exists(FOAIR_CONCERT) then show("❌ Missing FOAIR_CONCERT file!", 5) end
+    if not file_exists(FOAIR_AIRTAIL) then show("❌ Missing FOAIR_AIRTAIL file!", 5) end
 end
 verify_files()
 
