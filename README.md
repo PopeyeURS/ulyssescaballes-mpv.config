@@ -118,7 +118,7 @@ This clip was rendered and played with this configuration, showcasing HEVC Main 
 | Flat colors | Cinematic tone mapping | BT.2390 HDR curve + GAMMA / Perceptual Linearity |
 | Aliasing artifacts | Neural upscaling | CuNNY-8x32-DS |
 | Washed HDR | Contrast recovery | Reinhard + debanding |
-| Weak audio stage | Spatial HRTF audio | SOFAlizer + KEMAR |
+| Weak audio stage | 3D Spatial audio | Equalizers+ |
 ---
 
 ## Shader Pipeline
