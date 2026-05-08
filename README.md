@@ -2,7 +2,7 @@
 
 <p align="center"><b>Ulysses RS Caballes - MPV Cinema Config</b></p>
 <p align="center"><em>A handcrafted cinema engine for MPV - uniting neural upscaling,
-HDR tone mapping, and HRTF spatial audio into a single cohesive pipeline.
+HDR tone mapping, and immersive 3D spatial audio into a single cohesive pipeline.
 Built for precision. Tuned for immersion.</em></p>
 
 ---
@@ -26,7 +26,7 @@ Built for precision. Tuned for immersion.</em></p>
 ✓ Advanced GLSL shader stack: CuNNy (CNN upscaling), SSimSuperRes, Adaptive Sharpen, Depth Reality Boost  
 ✓ HDR tone mapping with contrast recovery (BT.2390)  
 ✓ ICC color-managed playback  
-✓ HRTF-based spatial audio (SOFAlizer + KEMAR)  
+✓ Immersive 3D spatial audio 
 ✓ Modular profiles for anime, realism, sports, and 8K content  
 
 ---
@@ -64,7 +64,6 @@ This ensures smoother playback while preserving visual detail and stability.
 - [Keyboard Function Shortcuts](#keyboard-function-shortcuts)  
 - [Menu & Utility Shortcuts](#menu--utility-shortcuts)  
 - [Script Suite](#script-suite)  
-- [Datasets](#datasets)  
 - [Installation](#installation)  
 - [Audio Chain & Usage Note](#audio-chain--usage-note)  
 - [Common Toggles & Beginner Notes](#common-toggles--beginner-notes)  
@@ -138,11 +137,15 @@ This clip was rendered and played with this configuration, showcasing HEVC Main 
 
 ## Audio Pipeline
 
-1. **SOFAlizer (HRTF Virtualization) - Kemar dataset, customized via [main.lua]**  
+1. **Immersive 3D Spatial Audio**  
+   - Virtualized audio rendering for realistic positioning and depth.  
+   - Supports optional custom audio datasets via [main.lua].  
 
-2. **EQ Chain - bass reinforcement, midrange cleanup, treble clarity, and subharmonic depth**  
+2. **EQ Chain**  
+   - Bass reinforcement, midrange cleanup, treble clarity, and subharmonic depth.  
 
-3. **Dynamics Control - normalization, compression, limiter for safe playback**  
+3. **Dynamics Control**  
+   - Normalization, compression, and limiter for safe playback.  
 
 ---
 
@@ -200,24 +203,8 @@ This configuration includes multiple playback profiles tailored to different con
 - **subtitle-style.lua**  
   Cinematic subtitle styling.  
 
-- **sofalizer/main.lua**  
-  Customized HRTF virtualization. Main Lua script for loading HRTF datasets and applying spatial audio effects.  
-
----
-## Datasets
-Download and place datasets in: %APPDATA%\Roaming\mpv\scripts\sofalizer\  
-
-HRTF / SOFA Files  
-✓ [`Kemar_HRTF_sofa.sofa`](https://sofacoustics.org/data/database/aachen%20%28high-resolution%20kemar%29/Kemar_HRTF_sofa.sofa)  
-  KEMAR HRTF dataset (open research license, safe to redistribute with attribution).  
-✓ [`SADIE_KEMAR_DFC_256_order_fir_48000.sofa`](https://zenodo.org/records/12542676/files/SADIE_KEMAR_DFC_256_order_fir_48000.sofa?download=1)  
-  Official SADIE II Dataset (University of York). For personal/research use only.  
- 
-AUDIO TEST SAMPLE Files  
-✓ C2m.wav - Example low-frequency test tone.  
-✓ C6m.wav - Example high-frequency test tone.  
-✓ LW8m.wav - Example mid-range audio sample.  
-✓ terrys_typing_b_format.wav - Ambisonic (B-format) recording of typing sounds.  
+- **audio/main.lua**  
+  Custom Lua script for handling spatial audio effects and optional audio datasets.  
 
 ---
 
@@ -245,22 +232,6 @@ Download ***mpv-x86_64-v3 (Shinchiro builds)***:
 9. Download or clone ***this repository*** and ***extract*** the [`portable_config`](https://github.com/PopeyeURS/ulyssescaballes-mpv.config/archive/refs/heads/main.zip) folder  
 10. Place the "***portable_config***" folder here:  
 "C:/Users/<user_name>/AppData/Roaming/MPV/***portable_config***"  
-11. Place the ***HRTF*** datasets:  
-✓ ***KEMAR*** dataset here:  
-"%APPDATA%/MPV/portable_config/scripts/sofalizer/***Kemar_HRTF_sofa.sofa***"  
-✓ ***SADIE*** dataset here:  
-"%APPDATA%/MPV/portable_config/scripts/sofalizer/***SADIE_KEMAR_DFC_256_order_fir_48000.sofa***"  
-12. ⚠️ ***REQUIRED — DO NOT SKIP THIS STEP*** ⚠️   
-Open: "portable_config/scripts/sofalizer/***main.lua***"  
-Replace ***<user_name>*** with your actual Windows ***username***.  
-This is required for:  
-✓ ***KEMAR_HRTF_SOFA***  
-✓ ***SADIE_KEMAR***  
-✓ ***C2m.wav***  
-✓ ***C6m.wav***  
-✓ ***LW8m.wav***  
-✓ ***terrys_typing_b_format.wav***  
-to function correctly.  
 
 ```
 %APPDATA%\MPV\
@@ -272,14 +243,8 @@ to function correctly.
     ├── profiles.conf
     ├── script-opts\
     ├── scripts\
-    │   └── sofalizer\
-    │       ├── Kemar_HRTF_sofa.sofa
-    │       ├── SADIE_KEMAR_DFC_256_order_fir_48000.sofa
-    │       ├── C2m.wav
-    │       ├── C6m.wav
-    │       ├── LW8m.wav
-    │       ├── terrys_typing_b_format.wav
-    │       └── main.lua
+    │   └── main.lua\
+    │       
     └── shaders\
         ├── CuNNy-8x32-DS.glsl
         ├── SSim\
@@ -300,8 +265,8 @@ gpu-api=vulkan
 ### Audio Chain & Usage Note
 
 - ***F9*** → Enhanced Headset Mode  
-- ***F10*** → Enhanced Cinema Mode  
-- ***F11*** → Music Mode Plus  
+- ***F10*** → Cinema Mode: IMAX SenseSurround Mode  
+- ***F11*** → Live Concert Music Mode  
 - ***F12*** → Reset Filters  
 
 ---
