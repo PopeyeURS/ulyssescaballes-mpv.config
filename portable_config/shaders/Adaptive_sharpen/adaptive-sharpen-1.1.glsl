@@ -1,111 +1,102 @@
-//!DESC Adaptive Sharpen 1.1 — The Ultimate - Platinum Reference Standard - Version 5.0
-// 20260509 162620LT — Synced with Depth Reality Boost
+//!DESC Adaptive Sharpen 1.1 — The Ultimate - Platinum Reference Standard - Version 6.0
+// 20260509 225403LT — Synced with Depth Reality Boost
 // Created for MPV by Ulysses RS Caballes
 
 //!HOOK OUTPUT
 //!BIND HOOKED
 
-// === SETTINGS ===
-#define curve_height    1.22
+// Settings
+#define curve_height    1.30
 #define overshoot_ctrl  true
 
-#define curveslope      0.48
+#define curveslope      0.44
 #define L_compr_low     0.11
-#define L_compr_high    0.28
-#define D_compr_low     0.17
-#define D_compr_high    0.44
-#define scale_lim       0.085
-#define scale_cs        0.085
+#define L_compr_high    0.30
+#define D_compr_low     0.18
+#define D_compr_high    0.46
+#define scale_lim       0.07
+#define scale_cs        0.08
 #define pm_p            1.0
 
-#define strength        1.08
-#define micro_detail    0.30
-#define edge_softness   0.58
-#define halo_limit      0.70
-
-//--------------------------------------------------------------------------
-
-#define max4(a,b,c,d)   ( max(max(a, b), max(c, d)) )
 #define sat(x)          ( clamp(x, 0.0, 1.0) )
+#define dxdy(val)       ( length(fwidth(val)) )
+#define soft_lim(v,s)   ( sat(abs(v/s)*(27.0 + pow(v/s, 2.0))/(27.0 + 9.0*pow(v/s, 2.0)))*s )
+#define wpmean(a,b,w)   ( pow(w*pow(abs(a), pm_p) + abs(1.0-w)*pow(abs(b), pm_p), (1.0/pm_p)) )
 #define get(x,y)        ( HOOKED_texOff(vec2(x, y)).rgb )
 
 #ifdef LUMA_tex
 #define CtL(RGB)        RGB.x
 #else
-#define CtL(RGB)        ( dot(RGB, vec3(0.2627, 0.6780, 0.0593)) )
+#define CtL(RGB)        ( sqrt(dot(sat(RGB)*sat(RGB), vec3(0.2126, 0.7152, 0.0722))) )
 #endif
 
-// EDGE DETECTION (stabilized)
-float edge_metric(vec3 c[9]) {
-    float gx = CtL(c[5]) - CtL(c[4]);
-    float gy = CtL(c[7]) - CtL(c[2]);
-    float edge = sqrt(gx*gx + gy*gy) + 0.45 * abs(gx * gy);
-
-    float diag = (CtL(c[1]) + CtL(c[3]) + CtL(c[6]) + CtL(c[8])) * 0.25 - CtL(c[0]);
-    edge = mix(edge, abs(diag), 0.22);
-
-    return edge;
-}
-
-// MAIN
 vec4 hook() {
-    vec3 c[9] = vec3[](
-        get( 0, 0), get(-1,-1), get( 0,-1), get( 1,-1),
-        get(-1, 0),             get( 1, 0),
-        get(-1, 1), get( 0, 1), get( 1, 1)
-    );
+    vec3 c[25] = vec3[](get(0,0), get(-1,-1), get(0,-1), get(1,-1), get(-1,0),
+                        get(1,0), get(-1,1), get(0,1), get(1,1), get(0,-2),
+                        get(-2,0), get(2,0), get(0,2), get(0,3), get(1,2),
+                        get(-1,2), get(3,0), get(2,1), get(2,-1), get(-3,0),
+                        get(-2,1), get(-2,-1), get(0,-3), get(1,-2), get(-1,-2));
 
-    float luma[9];
-    for (int i = 0; i < 9; i++) luma[i] = CtL(c[i]);
+    float e[13]; for (int i=0;i<13;i++) e[i] = dxdy(c[i]);
+    float luma[25]; for (int i=0;i<25;i++) luma[i] = CtL(c[i]);
+
+    // Edge weights refinement
+    float weights[12]; for (int i=0;i<12;i++) weights[i] = 1.0;
+    weights[0] = (max(max((weights[8]+weights[9])/4.0,weights[0]),0.25)+weights[0])/2.0;
+    weights[2] = (max(max((weights[8]+weights[10])/4.0,weights[2]),0.25)+weights[2])/2.0;
+    weights[5] = (max(max((weights[9]+weights[11])/4.0,weights[5]),0.25)+weights[5])/2.0;
+    weights[7] = (max(max((weights[10]+weights[11])/4.0,weights[7]),0.25)+weights[7])/2.0;
+
+    // Negative Laplace kernel
+    float lowthrsum=0.0, weightsum=0.0, neg_laplace=0.0;
+    for (int pix=0;pix<12;++pix){
+        float lowthr = sat((20.*4.5*e[pix+1]-0.221));
+        neg_laplace += luma[pix+1]*luma[pix+1]*weights[pix]*lowthr;
+        weightsum   += weights[pix]*lowthr;
+        lowthrsum   += lowthr/12.0;
+    }
+    neg_laplace = sqrt(neg_laplace/weightsum);
+
+    float edge = e[0];
+    float sharpen_val = curve_height/(curve_height*curveslope*edge+0.625);
 
     float c0_Y = luma[0];
-    float edge = edge_metric(c);
+    float sharpdiff = (c0_Y-neg_laplace)*(lowthrsum*sharpen_val+0.01);
 
-    float lap = (luma[2] + luma[4] + luma[5] + luma[7]) * 0.25 - c0_Y;
-    float sharpdiff = -lap * (curve_height / (curveslope * edge + 0.65));
+    // Local min/max sort
+    float temp;
+    for (int i1=0;i1<24;i1+=2){ temp=luma[i1]; luma[i1]=min(luma[i1],luma[i1+1]); luma[i1+1]=max(temp,luma[i1+1]); }
+    for (int i2=24;i2>0;i2-=2){ temp=luma[0]; luma[0]=min(luma[0],luma[i2]); luma[i2]=max(temp,luma[i2]); temp=luma[24]; luma[24]=max(luma[24],luma[i2-1]); luma[i2-1]=min(temp,luma[i2-1]); }
 
-    float hf = c0_Y - (luma[2] + luma[4] + luma[5] + luma[7]) * 0.25;
-    sharpdiff += hf * micro_detail;
+    float min_dist=min(abs(luma[24]-c0_Y),abs(c0_Y-luma[0]));
+    min_dist=min(min_dist,scale_lim*(1.0-scale_cs)+min_dist*scale_cs);
 
-    float diag = (luma[1] + luma[3] + luma[6] + luma[8]) * 0.25 - c0_Y;
-    sharpdiff += diag * 0.14;
+    // Anti-ringing compression
+    sharpdiff = wpmean(max(sharpdiff,0.0),soft_lim(max(sharpdiff,0.0),min_dist),L_compr_low)
+              - wpmean(min(sharpdiff,0.0),soft_lim(min(sharpdiff,0.0),min_dist),D_compr_low);
 
-    // Local min/max
-    float minL = luma[0], maxL = luma[0];
-    for (int i = 1; i < 9; i++) {
-        minL = min(minL, luma[i]);
-        maxL = max(maxL, luma[i]);
-    }
-    float range = maxL - minL;
+    float sharpdiff_lim = sat(c0_Y+sharpdiff)-c0_Y;
 
-    // Midtone boost (synced with depth reality boost)
-    float midtone = smoothstep(0.14, 0.76, c0_Y);
-    sharpdiff *= mix(0.98, 1.12, midtone);
+    vec3 res = sharpdiff_lim + c[0];
 
-    // Clamp sharpness
-    float limit = max(range * (halo_limit + 0.14 * edge), 0.02);
-    sharpdiff = clamp(sharpdiff, -limit, limit);
+    // Micro-contrast polish (stronger highlights & wrinkles)
+    res = mix(res,res*1.085,0.23);
 
-    // Final application
-    vec3 res = c[0] + vec3(sharpdiff * strength);
+    // Adaptive saturation boost (faces, sweat, tears, sparkle)
+    float local_contrast = clamp(edge*14.0,0.0,1.0);
+    vec3 gray = vec3(dot(res,vec3(0.2627,0.6780,0.0593)));
+    float lum = clamp(gray.r,0.0,1.0);
+    float midtone_boost = smoothstep(0.25,0.65,c0_Y);
+    float highlight_boost = smoothstep(0.55,0.85,c0_Y);
+    float texture_boost = smoothstep(0.18,0.40,c0_Y);
+    res = mix(gray,res,1.20*(1.0-lum*0.18)*(0.9+0.1*local_contrast+0.08*midtone_boost+0.07*highlight_boost+0.05*texture_boost));
 
-    // Micro contrast polish
-    res = mix(res, res * 1.035, 0.16);
+    // Gentle gamma compensation
+    res = pow(res,vec3(0.982));
 
-    // Vivid color enhancement (HDR-safe sync)
-    float sat_factor = 1.09;
-    float sat_boost = 1.05 + 0.09 * range;
-    vec3 gray = vec3(dot(res, vec3(0.2627, 0.6780, 0.0593)));
-    float lum = clamp(gray.r, 0.0, 1.0);
-    res = mix(gray, res, sat_factor * (1.0 - lum*0.26));
+    // Warmth bias for skin tones
+    res.r *= 1.02;
+    res.g *= 1.01;
 
-    // Perceptual midtone contrast
-    float mid = smoothstep(0.14, 0.84, c0_Y);
-    res = mix(res, pow(res, vec3(0.95 + mid * 0.1)), 0.085);
-
-    // Ultra-subtle micro-sharpen nudge
-    vec3 lap2 = c[0] - 0.25*(c[2]+c[4]+c[5]+c[7]);
-    res += lap2 * 0.0075;
-
-    return vec4(clamp(res, 0.0, 1.0), HOOKED_texOff(0).a);
+    return vec4(clamp(res,0.0,1.0),HOOKED_texOff(0).a);
 }
