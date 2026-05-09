@@ -1,4 +1,4 @@
-// Adaptive Sharpen 1.1 — The Ultimate - Platinum Reference Standard - Version 5.0
+//!DESC Adaptive Sharpen 1.1 — The Ultimate - Platinum Reference Standard - Version 5.0
 // 20260509 162620LT — Synced with Depth Reality Boost
 // Created for MPV by Ulysses RS Caballes
 
