@@ -1,21 +1,22 @@
 //!HOOK RGB
 //!BIND HOOKED
-//!DESC Depth Reality Boost — Created for MPV by Ulysses RS Caballes - The ULTIMATE - Gold Standard - Version 4.0 ELITE
+//!DESC Depth Reality Boost — Created for MPV by Ulysses RS Caballes
+20260509 162852LT - The ULTIMATE - Platinum Reference Standard - Version 5.0 ELITE
 //!WIDTH HOOKED.width
 //!HEIGHT HOOKED.height
 
 // === TUNING ===
-const float base_strength     = 1.10;
-const float radius            = 0.75;
-const float warmth            = 0.25;
-const float glow_intensity    = 0.08;
-const float chroma_offset     = 0.30;
-const float vignette_strength = 0.22;
-const float sharpen_mix       = 0.40;
+const float base_strength     = 1.18;
+const float radius            = 0.70;
+const float warmth            = 0.28;
+const float glow_intensity    = 0.07;
+const float chroma_offset     = 0.25;
+const float vignette_strength = 0.20;
+const float sharpen_mix       = 0.45;
 
 // === FILMIC TONE ===
 vec3 filmic_hdr_tonecurve(vec3 x) {
-    x = max(vec3(0.0), x - 0.004);
+    x = max(vec3(0.0), x - 0.0035);
     return (x * (6.2 * x + 0.5)) / (x * (6.2 * x + 1.7) + 0.06);
 }
 
@@ -33,54 +34,44 @@ vec4 hook() {
     for (int x = -1; x <= 1; x++) {
         for (int y = -1; y <= 1; y++) {
             vec2 offset = vec2(x, y) * texel * radius;
-            float w = exp(-dot(offset, offset) * 18.0);
+            float w = exp(-dot(offset, offset) * 20.0); // tighter falloff
             blur += HOOKED_tex(uv + offset).rgb * w;
             blur_total += w;
         }
     }
-
     blur /= max(blur_total, 1e-6);
 
-    // === EDGE-AWARE SHARPEN (FINAL PIECE) ===
+    // === EDGE-AWARE SHARPEN ===
     float l_center = dot(center, lumaCoeffs());
     float l_blur   = dot(blur, lumaCoeffs());
 
-    float edge = abs(l_center - l_blur);
+    float edge     = abs(l_center - l_blur);
 
-    float edge_mask = smoothstep(0.02, 0.12, edge);
-    float dark_mask = smoothstep(0.08, 0.25, l_center);
+    float edge_mask = smoothstep(0.018, 0.11, edge);
+    float dark_mask = smoothstep(0.07, 0.23, l_center);
 
     float micro_strength = edge_mask * dark_mask;
 
-    vec3 sharpen = center * (1.0 + micro_strength * base_strength) - blur * 0.45;
+    vec3 sharpen = center * (1.0 + micro_strength * base_strength) - blur * 0.40;
 
-    // === HIGH-QUALITY GAUSSIAN BLOOM ===
+    // === BLOOM / SPARKLE ===
     vec3 bloom = vec3(0.0);
     float bloom_total = 0.0;
 
-    float weights[7] = float[](0.196482, 0.176032, 0.120981, 0.064759, 0.027995, 0.0093, 0.0024);
+    float weights[5] = float[](0.24, 0.18, 0.10, 0.04, 0.01);
 
-    for (int i = -6; i <= 6; i++) {
-        vec2 offset = texel * float(i) * 1.2;
+    for (int i = -4; i <= 4; i++) {
+        vec2 offset = texel * float(i) * 1.1;
 
-        vec3 sampleH = HOOKED_tex(uv + vec2(offset.x, 0.0)).rgb;
-        vec3 sampleV = HOOKED_tex(uv + vec2(0.0, offset.x)).rgb;
+        vec3 sample = HOOKED_tex(uv + offset).rgb;
 
-        float lH = dot(sampleH, lumaCoeffs());
-        float lV = dot(sampleV, lumaCoeffs());
-
-        float hH = smoothstep(0.65, 1.0, lH);
-        float hV = smoothstep(0.65, 1.0, lV);
-
+        float l = dot(sample, lumaCoeffs());
+        float h = smoothstep(0.70, 1.0, l);
         float w = weights[abs(i)];
 
-        bloom += sampleH * w * hH;
-        bloom += sampleV * w * hV;
-
-        bloom_total += w * hH;
-        bloom_total += w * hV;
+        bloom += sample * w * h;
+        bloom_total += w * h;
     }
-
     bloom /= max(bloom_total, 1e-6);
 
     vec3 glow = mix(sharpen, bloom, glow_intensity);
@@ -89,50 +80,37 @@ vec4 hook() {
     vec3 graded = glow;
 
     graded.r += warmth * 0.05;
-    graded.b -= warmth * 0.05;
+    graded.b -= warmth * 0.04;
 
-    graded = mix(graded, vec3(graded.r * 1.08, graded.g * 0.99, graded.b * 0.95), 0.30);
+    graded = mix(graded, vec3(graded.r * 1.07, graded.g * 0.995, graded.b * 0.96), 0.28);
     graded *= vec3(1.02);
 
-    // === DEPTH ===
+    // === DEPTH BOOST ===
     float luma = dot(center, lumaCoeffs());
-    float depth_boost = smoothstep(0.20, 0.80, luma);
-
-    graded *= mix(1.0, 1.06, depth_boost);
-    graded *= mix(1.0, 0.94, smoothstep(0.0, 0.5, luma));
-
-    // === CHROMATIC ABERRATION (DISABLED) ===
-    vec2 ca = texel * chroma_offset;
-    vec3 ca_mix = vec3(
-        HOOKED_tex(uv + ca).r,
-        center.g,
-        HOOKED_tex(uv - ca).b
-    );
-
-    float ca_strength = 0.0;
-    graded = mix(graded, ca_mix, ca_strength);
+    float depth_boost = smoothstep(0.18, 0.82, luma);
+    graded *= mix(1.0, 1.07, depth_boost);
 
     // === TONE MAP ===
     graded = filmic_hdr_tonecurve(graded);
-    graded = pow(max(graded, 0.0), vec3(0.985));
+    graded = pow(max(graded, 0.0), vec3(0.98));
 
-    // === CLEAN SPARKLE (MERGED) ===
-    float highlight = smoothstep(0.92, 1.0, luma);
-    float midboost  = smoothstep(0.25, 0.75, luma);
+    // === SPARKLE ENHANCEMENT ===
+    float highlight = smoothstep(0.91, 1.0, luma);
+    float midboost  = smoothstep(0.22, 0.78, luma);
 
     vec3 sparkle = graded 
-        + highlight * vec3(0.06, 0.06, 0.065)
-        + midboost  * vec3(0.025, 0.025, 0.03);
+        + highlight * vec3(0.065, 0.065, 0.07)
+        + midboost  * vec3(0.03, 0.03, 0.035);
 
-    graded = mix(graded, sparkle, 0.6);
+    graded = mix(graded, sparkle, 0.65);
 
     // === VIGNETTE ===
     vec2 d = uv - 0.5;
-    float vignette = smoothstep(0.70, 0.95, length(d));
+    float vignette = smoothstep(0.72, 0.95, length(d));
     graded *= mix(1.0, 1.0 - vignette_strength, vignette);
 
     // === SOFT DIFFUSION ===
-    graded = mix(graded, blur, 0.04);
+    graded = mix(graded, blur, 0.035);
 
     // === FINAL SHARPEN MIX ===
     float detail_mask = edge_mask * dark_mask;
