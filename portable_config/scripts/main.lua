@@ -1,9 +1,9 @@
 -- ======
--- 🔊 Version 14.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
+-- 🔊 Version 15.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
 -- Created for MPV by Ulysses RS Caballes
 -- 7.1 Speaker Array + Dynamic Spatial Imaging
 -- Philharmonic Concert Mode + Hyper-Cinema Mode
--- 20260508 171304LT
+-- 20260509 163415LT
 -- ======
 -- Description:
 -- This script transforms any audio playback into a premium, immersive 
@@ -30,43 +30,49 @@ end
 -- EQ / FILTERS
 -- ======
 local headset_filters = {
-    "aresample=resampler=soxr:precision=33:cheby=1",
+    "aresample=resampler=soxr:precision=33:quality=high:cheby=1",
     "bs2b=profile=jmeier:fcut=700:feed=45",
-    "highpass=f=28",
-    "equalizer=f=60:t=q:w=1.00:g=2.00",
-    "equalizer=f=120:t=q:w=1.00:g=1.00",
-    "equalizer=f=250:t=q:w=1.00:g=-1.20",
-    "equalizer=f=3500:t=q:w=0.80:g=1.00",
-    "equalizer=f=9000:t=q:w=0.70:g=1.00",
-    "equalizer=f=14000:t=q:w=0.60:g=0.80",
-    "equalizer=f=16000:t=q:w=0.5:g=0.7",
-    "equalizer=f=19000:t=q:w=0.5:g=0.5",
-    "acompressor=threshold=-20dB:ratio=1.4:attack=20:release=150",
-    "extrastereo=m=1.08",
-    "alimiter=limit=0.98:level_out=0.98"
+    "highpass=f=32",
+    "extrastereo=m=1.20",
+    "equalizer=f=60:t=q:w=1.0:g=2.5",
+    "equalizer=f=120:t=q:w=1.0:g=1.5",
+    "equalizer=f=250:t=q:w=1.0:g=-1.0",
+    "equalizer=f=400:t=q:w=0.9:g=-0.8",
+    "equalizer=f=3500:t=q:w=0.8:g=1.1",
+    "equalizer=f=9000:t=q:w=0.7:g=1.1",
+    "equalizer=f=16000:t=q:w=0.5:g=0.9",
+    "equalizer=f=19000:t=q:w=0.5:g=0.6",
+    "acompressor=threshold=-20dB:ratio=1.35:attack=15:release=140",
+    "alimiter=limit=0.985:level_out=0.985"
 }
 
 local cinema_filters = {
-    "aresample=resampler=soxr:precision=33:cheby=1",
-    "highpass=f=20",
-    "extrastereo=m=1.15",
-    "equalizer=f=18000:t=q:w=0.5:g=0.8",
-    "equalizer=f=19000:t=q:w=0.5:g=0.5",
-    "acompressor=threshold=-18dB:ratio=1.5:attack=10:release=150",
-    "alimiter=limit=0.98:level_out=0.98"
+    "aresample=resampler=soxr:precision=33:quality=high:cheby=1",
+    "highpass=f=28",
+    "extrastereo=m=1.22",
+    "equalizer=f=60:t=q:w=1.0:g=2.2",
+    "equalizer=f=120:t=q:w=1.0:g=1.4",
+    "equalizer=f=200:t=q:w=0.9:g=-0.6",
+    "equalizer=f=3500:t=q:w=0.8:g=1.0",
+    "equalizer=f=18000:t=q:w=0.5:g=0.9",
+    "equalizer=f=19500:t=q:w=0.5:g=0.6",
+    "acompressor=threshold=-18dB:ratio=1.4:attack=12:release=160",
+    "alimiter=limit=0.985:level_out=0.985"
 }
 
 local music_filters = {
-    "aresample=resampler=soxr:precision=33:cheby=1",
-    "extrastereo=m=1.05",
-    "equalizer=f=60:t=q:w=1.0:g=3.0",
-    "equalizer=f=120:t=q:w=1.0:g=2.0",
-    "equalizer=f=3500:t=q:w=0.8:g=1.0",
-    "acompressor=threshold=-22dB:ratio=1.3:attack=15:release=120",
-    "equalizer=f=16000:t=q:w=0.5:g=0.7",
-    "equalizer=f=18000:t=q:w=0.5:g=0.8",
-    "equalizer=f=19000:t=q:w=0.5:g=0.5",
-    "alimiter=limit=0.97:level_out=0.98"
+    "aresample=resampler=soxr:precision=33:quality=high:cheby=1",
+    "highpass=f=30",
+    "extrastereo=m=1.18",
+    "equalizer=f=60:t=q:w=1.0:g=3.2",
+    "equalizer=f=120:t=q:w=1.0:g=2.2",
+    "equalizer=f=250:t=q:w=1.0:g=-0.8",
+    "equalizer=f=3500:t=q:w=0.8:g=1.2",
+    "equalizer=f=16000:t=q:w=0.5:g=0.9",
+    "equalizer=f=18000:t=q:w=0.5:g=0.9",
+    "equalizer=f=19500:t=q:w=0.5:g=0.6",
+    "acompressor=threshold=-22dB:ratio=1.25:attack=12:release=130",
+    "alimiter=limit=0.985:level_out=0.985"
 }
 
 -- ======
