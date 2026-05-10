@@ -1,9 +1,9 @@
 -- ======
--- 🔊 Version 15.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
+-- 🔊 Version 16.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
 -- Created for MPV by Ulysses RS Caballes
 -- 7.1 Speaker Array + Dynamic Spatial Imaging
 -- Philharmonic Concert Mode + Hyper-Cinema Mode
--- 20260509 163415LT
+-- 20260510 094732LT
 -- ======
 -- Description:
 -- This script transforms any audio playback into a premium, immersive 
@@ -13,16 +13,28 @@
 -- or full surround setups.
 -- ======
 
+local mp = require 'mp'
 local msg_duration = 3
 
 -- ====== 
 -- AUDIO MODE
 -- ======
 local function apply_audio_filters(filters, message)
-    mp.commandv("af", "clear") -- always clear first
+    -- Clear existing audio filters first
+    mp.commandv("af", "clear")
+
+    -- Apply filter chain safely
     for _, filter in ipairs(filters) do
-        mp.commandv("af", "add", filter)
+        local success = pcall(function()
+            mp.commandv("af", "add", filter)
+        end)
+
+        if not success then
+            mp.msg.error("Failed to apply filter: " .. filter)
+        end
     end
+
+    -- Display mode notification
     mp.osd_message(message, msg_duration)
 end
 
@@ -49,11 +61,15 @@ local headset_filters = {
 local cinema_filters = {
     "aresample=resampler=soxr:precision=33:quality=high:cheby=1",
     "highpass=f=28",
-    "extrastereo=m=1.22",
+    "extrastereo=m=1.25",
+    "earwax",
+    "adelay=3|4",
     "equalizer=f=60:t=q:w=1.0:g=2.2",
     "equalizer=f=120:t=q:w=1.0:g=1.4",
     "equalizer=f=200:t=q:w=0.9:g=-0.6",
+    "equalizer=f=3000:t=q:w=1.0:g=1.2",
     "equalizer=f=3500:t=q:w=0.8:g=1.0",
+    "equalizer=f=9000:t=q:w=0.7:g=-0.5",
     "equalizer=f=18000:t=q:w=0.5:g=0.9",
     "equalizer=f=19500:t=q:w=0.5:g=0.6",
     "acompressor=threshold=-18dB:ratio=1.4:attack=12:release=160",
@@ -63,14 +79,18 @@ local cinema_filters = {
 local music_filters = {
     "aresample=resampler=soxr:precision=33:quality=high:cheby=1",
     "highpass=f=30",
-    "extrastereo=m=1.18",
+    "extrastereo=m=1.25",
+    "earwax",
+    "adelay=2|3",
+    "equalizer=f=80:t=q:w=1.0:g=2.0",
     "equalizer=f=60:t=q:w=1.0:g=3.2",
     "equalizer=f=120:t=q:w=1.0:g=2.2",
     "equalizer=f=250:t=q:w=1.0:g=-0.8",
-    "equalizer=f=3500:t=q:w=0.8:g=1.2",
+    "equalizer=f=3000:t=q:w=1.0:g=1.3",
+    "equalizer=f=3500:t=q:w=0.8:g=1.3",
     "equalizer=f=16000:t=q:w=0.5:g=0.9",
-    "equalizer=f=18000:t=q:w=0.5:g=0.9",
-    "equalizer=f=19500:t=q:w=0.5:g=0.6",
+    "equalizer=f=18000:t=q:w=0.5:g=1.0",
+    "equalizer=f=19500:t=q:w=0.5:g=0.7",
     "acompressor=threshold=-22dB:ratio=1.25:attack=12:release=130",
     "alimiter=limit=0.985:level_out=0.985"
 }
