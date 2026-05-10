@@ -1,9 +1,9 @@
 -- ======
--- 🔊 Version 18.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
+-- 🔊 Version 19.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
 -- Created for MPV by Ulysses RS Caballes
 -- 7.1 Speaker Array + Dynamic Spatial Imaging
 -- Philharmonic Concert Mode + Hyper-Cinema Mode
--- 20260510 194801LT
+-- 20260510 231304LT
 -- ======
 -- Description:
 -- This script transforms any audio playback into a premium, immersive 
@@ -39,7 +39,7 @@ end
 -- 🎧 Headset Mode
 local headset_filters = {
     "volume=-3dB",
-    "aresample=resampler=soxr:precision=33:quality=high:cheby=1",
+    "aresample=resampler=soxr:precision=33:cheby=1",
     "bs2b=profile=jmeier:fcut=700:feed=45",
     "highpass=f=32",
     "extrastereo=m=1.20",
@@ -59,10 +59,11 @@ local headset_filters = {
 
 -- 🌌 Cinema Mode
 local cinema_filters = {
-    "aresample=resampler=soxr:precision=33:quality=high:cheby=1",
+    "volume=-4dB",
+    "aresample=resampler=soxr:precision=33:cheby=1",
     "highpass=f=28",
-    "extrastereo=m=1.20",
-    "adelay=4|6",
+    "extrastereo=m=1.08",
+    "adelay=4|6:all=1",
     "equalizer=f=600:g=0.6",
     "equalizer=f=1500:g=0.8",
     "equalizer=f=2600:g=0.5",
@@ -80,10 +81,11 @@ local cinema_filters = {
 
 -- 🎼 Concert/Music Mode
 local music_filters = {
-    "aresample=resampler=soxr:precision=33:quality=high:cheby=1",
+    "volume=-4dB",
+    "aresample=resampler=soxr:precision=33:cheby=1",
     "highpass=f=30",
     "extrastereo=m=1.20",
-    "adelay=2|3",
+    "adelay=2|3:all=1",
     "equalizer=f=600:g=0.5",
     "equalizer=f=1500:g=0.7",
     "equalizer=f=2600:g=0.5",
@@ -120,6 +122,11 @@ end)
 -- AUDIO CHANNEL
 -- ======
 mp.register_event("file-loaded", function()
-    local ch = mp.get_property_number("audio-channels", 2)
-    mp.osd_message(ch <= 2 and "🎧 Stereo audio detected" or "🎬 Surround audio detected", msg_duration)
+   local ch = mp.get_property("audio-channels")
+
+    if ch == "mono" or ch == "stereo" then
+        mp.osd_message("🎧 Stereo audio detected", msg_duration)
+    else
+        mp.osd_message("🎬 Surround audio detected", msg_duration)
+    end
 end)
