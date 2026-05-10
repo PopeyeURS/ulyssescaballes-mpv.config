@@ -1,9 +1,9 @@
 -- ======
--- 🔊 Version 17.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
+-- 🔊 Version 18.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
 -- Created for MPV by Ulysses RS Caballes
 -- 7.1 Speaker Array + Dynamic Spatial Imaging
 -- Philharmonic Concert Mode + Hyper-Cinema Mode
--- 20260510 140558LT
+-- 20260510 194801LT
 -- ======
 -- Description:
 -- This script transforms any audio playback into a premium, immersive 
@@ -38,6 +38,7 @@ end
 
 -- 🎧 Headset Mode
 local headset_filters = {
+    "volume=-3dB",
     "aresample=resampler=soxr:precision=33:quality=high:cheby=1",
     "bs2b=profile=jmeier:fcut=700:feed=45",
     "highpass=f=32",
@@ -62,20 +63,17 @@ local cinema_filters = {
     "highpass=f=28",
     "extrastereo=m=1.20",
     "adelay=4|6",
-    -- Vocal presence arc
     "equalizer=f=600:g=0.6",
     "equalizer=f=1500:g=0.8",
     "equalizer=f=2600:g=0.5",
-    -- Supporting EQ
-    "equalizer=f=60:g=2.0",
+    "equalizer=f=60:g=3.0",
     "equalizer=f=120:g=1.2",
     "equalizer=f=200:g=-0.6",
-    "equalizer=f=3000:g=1.0",
-    "equalizer=f=3500:g=0.8",
+    "equalizer=f=3000:g=0.6",
+    "equalizer=f=3500:g=0.4",
     "equalizer=f=9000:g=-1.0",
-    "equalizer=f=18000:g=0.8",
-    "equalizer=f=19500:g=0.5",
-    -- Dynamics
+    "equalizer=f=18000:g=0.4",
+    "equalizer=f=19500:g=0.2",
     "acompressor=threshold=-18dB:ratio=1.3:attack=12:release=90",
     "alimiter=limit=0.975:level_out=0.975"
 }
@@ -86,20 +84,18 @@ local music_filters = {
     "highpass=f=30",
     "extrastereo=m=1.20",
     "adelay=2|3",
-    -- Vocal presence arc
     "equalizer=f=600:g=0.5",
     "equalizer=f=1500:g=0.7",
     "equalizer=f=2600:g=0.5",
-    -- Instrument balance
-    "equalizer=f=80:g=2.0",
+    "equalizer=f=60:g=3.0",
     "equalizer=f=250:g=-0.8",
-    "equalizer=f=3000:g=1.2",
-    "equalizer=f=3500:g=1.0",
-    "equalizer=f=16000:g=0.5",
-    "equalizer=f=18000:g=0.8",
-    "equalizer=f=19500:g=0.6",
-    -- Dynamics
-    "acompressor=threshold=-20dB:ratio=1.25:attack=12:release=100",
+    "equalizer=f=3000:g=0.4",
+    "equalizer=f=3500:g=0.2",
+    "equalizer=f=9000:g=-0.4",
+    "equalizer=f=16000:g=0.2",
+    "equalizer=f=18000:g=0.3",
+    "equalizer=f=19500:g=0.2",
+    "acompressor=threshold=-22dB:ratio=1.25:attack=8:release=100",
     "alimiter=limit=0.975:level_out=0.975"
 }
 
