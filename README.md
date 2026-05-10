@@ -252,13 +252,13 @@ Download ***mpv-x86_64-v3 (Shinchiro builds)***:
         └── Depth_reality_boost\
 ```
 
-13. Ensure MPV is configured to use **Vulkan**:  
+11. Ensure MPV is configured to use **Vulkan**:  
 
 ```
 gpu-api=vulkan
 ```
 
-14. Launch MPV and let the configuration activate automatically. Double-click any media file to start playback instantly, or play CDs, DVDs, and Blu-ray discs with enhanced audio and video quality. Switch between Enhanced Headset mode ***[F9]***, Ultimate Cinema mode ***[F10]***, or Music Hall mode ***[F11]*** for a fully immersive experience. Sit back and enjoy.  
+12. Launch MPV and let the configuration activate automatically. Double-click any media file to start playback instantly, or play CDs, DVDs, and Blu-ray discs with enhanced audio and video quality. Switch between Enhanced Headset mode ***[F9]***, Ultimate Cinema mode ***[F10]***, or Music Hall mode ***[F11]*** for a fully immersive experience. Sit back and enjoy.  
 
 ---
 
