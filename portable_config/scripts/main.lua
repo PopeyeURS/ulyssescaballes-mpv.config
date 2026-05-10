@@ -1,9 +1,9 @@
 -- ======
--- 🔊 Version 16.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
+-- 🔊 Version 17.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
 -- Created for MPV by Ulysses RS Caballes
 -- 7.1 Speaker Array + Dynamic Spatial Imaging
 -- Philharmonic Concert Mode + Hyper-Cinema Mode
--- 20260510 094732LT
+-- 20260510 140558LT
 -- ======
 -- Description:
 -- This script transforms any audio playback into a premium, immersive 
@@ -20,79 +20,87 @@ local msg_duration = 3
 -- AUDIO MODE
 -- ======
 local function apply_audio_filters(filters, message)
-    -- Clear existing audio filters first
     mp.commandv("af", "clear")
-
-    -- Apply filter chain safely
     for _, filter in ipairs(filters) do
         local success = pcall(function()
             mp.commandv("af", "add", filter)
         end)
-
         if not success then
             mp.msg.error("Failed to apply filter: " .. filter)
         end
     end
-
-    -- Display mode notification
     mp.osd_message(message, msg_duration)
 end
 
 -- ======
 -- EQ / FILTERS
 -- ======
+
+-- 🎧 Headset Mode
 local headset_filters = {
     "aresample=resampler=soxr:precision=33:quality=high:cheby=1",
     "bs2b=profile=jmeier:fcut=700:feed=45",
     "highpass=f=32",
     "extrastereo=m=1.20",
-    "equalizer=f=60:t=q:w=1.0:g=2.5",
-    "equalizer=f=120:t=q:w=1.0:g=1.5",
-    "equalizer=f=250:t=q:w=1.0:g=-1.0",
-    "equalizer=f=400:t=q:w=0.9:g=-0.8",
-    "equalizer=f=3500:t=q:w=0.8:g=1.1",
-    "equalizer=f=9000:t=q:w=0.7:g=1.1",
-    "equalizer=f=16000:t=q:w=0.5:g=0.9",
-    "equalizer=f=19000:t=q:w=0.5:g=0.6",
-    "acompressor=threshold=-20dB:ratio=1.35:attack=15:release=140",
-    "alimiter=limit=0.985:level_out=0.985"
+    "equalizer=f=60:g=2.0",
+    "equalizer=f=120:g=1.2",
+    "equalizer=f=250:g=-1.0",
+    "equalizer=f=600:g=0.5",
+    "equalizer=f=1500:g=0.7",
+    "equalizer=f=2600:g=0.5",
+    "equalizer=f=3500:g=1.0",
+    "equalizer=f=9000:g=0.8",
+    "equalizer=f=16000:g=0.7",
+    "equalizer=f=19000:g=0.5",
+    "acompressor=threshold=-20dB:ratio=1.3:attack=15:release=120",
+    "alimiter=limit=0.975:level_out=0.975"
 }
 
+-- 🌌 Cinema Mode
 local cinema_filters = {
     "aresample=resampler=soxr:precision=33:quality=high:cheby=1",
     "highpass=f=28",
-    "extrastereo=m=1.25",
-    "earwax",
-    "adelay=3|4",
-    "equalizer=f=60:t=q:w=1.0:g=2.2",
-    "equalizer=f=120:t=q:w=1.0:g=1.4",
-    "equalizer=f=200:t=q:w=0.9:g=-0.6",
-    "equalizer=f=3000:t=q:w=1.0:g=1.2",
-    "equalizer=f=3500:t=q:w=0.8:g=1.0",
-    "equalizer=f=9000:t=q:w=0.7:g=-0.5",
-    "equalizer=f=18000:t=q:w=0.5:g=0.9",
-    "equalizer=f=19500:t=q:w=0.5:g=0.6",
-    "acompressor=threshold=-18dB:ratio=1.4:attack=12:release=160",
-    "alimiter=limit=0.985:level_out=0.985"
+    "extrastereo=m=1.20",
+    "adelay=4|6",
+    -- Vocal presence arc
+    "equalizer=f=600:g=0.6",
+    "equalizer=f=1500:g=0.8",
+    "equalizer=f=2600:g=0.5",
+    -- Supporting EQ
+    "equalizer=f=60:g=2.0",
+    "equalizer=f=120:g=1.2",
+    "equalizer=f=200:g=-0.6",
+    "equalizer=f=3000:g=1.0",
+    "equalizer=f=3500:g=0.8",
+    "equalizer=f=9000:g=-1.0",
+    "equalizer=f=18000:g=0.8",
+    "equalizer=f=19500:g=0.5",
+    -- Dynamics
+    "acompressor=threshold=-18dB:ratio=1.3:attack=12:release=90",
+    "alimiter=limit=0.975:level_out=0.975"
 }
 
+-- 🎼 Concert/Music Mode
 local music_filters = {
     "aresample=resampler=soxr:precision=33:quality=high:cheby=1",
     "highpass=f=30",
-    "extrastereo=m=1.25",
-    "earwax",
+    "extrastereo=m=1.20",
     "adelay=2|3",
-    "equalizer=f=80:t=q:w=1.0:g=2.0",
-    "equalizer=f=60:t=q:w=1.0:g=3.2",
-    "equalizer=f=120:t=q:w=1.0:g=2.2",
-    "equalizer=f=250:t=q:w=1.0:g=-0.8",
-    "equalizer=f=3000:t=q:w=1.0:g=1.3",
-    "equalizer=f=3500:t=q:w=0.8:g=1.3",
-    "equalizer=f=16000:t=q:w=0.5:g=0.9",
-    "equalizer=f=18000:t=q:w=0.5:g=1.0",
-    "equalizer=f=19500:t=q:w=0.5:g=0.7",
-    "acompressor=threshold=-22dB:ratio=1.25:attack=12:release=130",
-    "alimiter=limit=0.985:level_out=0.985"
+    -- Vocal presence arc
+    "equalizer=f=600:g=0.5",
+    "equalizer=f=1500:g=0.7",
+    "equalizer=f=2600:g=0.5",
+    -- Instrument balance
+    "equalizer=f=80:g=2.0",
+    "equalizer=f=250:g=-0.8",
+    "equalizer=f=3000:g=1.2",
+    "equalizer=f=3500:g=1.0",
+    "equalizer=f=16000:g=0.5",
+    "equalizer=f=18000:g=0.8",
+    "equalizer=f=19500:g=0.6",
+    -- Dynamics
+    "acompressor=threshold=-20dB:ratio=1.25:attack=12:release=100",
+    "alimiter=limit=0.975:level_out=0.975"
 }
 
 -- ======
