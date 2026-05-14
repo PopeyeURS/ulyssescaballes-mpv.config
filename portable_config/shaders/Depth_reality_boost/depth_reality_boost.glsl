@@ -1,5 +1,6 @@
-//!DESC Depth Reality Boost — Created for MPV by Ulysses RS Caballes
-// 20260509 232238LT - The ULTIMATE - Platinum Reference Standard - Version 6.0 ELITE
+//!DESC Depth Reality Boost
+// Created for MPV by: Ulysses RS Caballes
+// 20260515 002130LT - The ULTIMATE - Platinum Reference Standard - Version 6.1 ELITE
 
 //!HOOK RGB
 //!BIND HOOKED
