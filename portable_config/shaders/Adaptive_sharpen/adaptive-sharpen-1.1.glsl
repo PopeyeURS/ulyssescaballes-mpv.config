@@ -1,5 +1,6 @@
-//!DESC Adaptive Sharpen 1.1 — The Ultimate - Platinum Reference Standard - Version 6.0
-// 20260509 225403LT — Synced with Depth Reality Boost
+//!DESC Adaptive Sharpen 1.1
+// The Ultimate - Platinum Reference Standard - Version 6.1
+// 20260515 002212LT — Synced with Depth Reality Boost
 // Created for MPV by Ulysses RS Caballes
 
 //!HOOK OUTPUT
