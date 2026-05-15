@@ -1,11 +1,13 @@
-//!DESC Depth Reality Boost
+// Depth Reality Boost
+// The ULTIMATE - Platinum Reference Standard - Version 7.0
+// 20260515 072849LT — Synced with Adaptive Sharpen 1.1
 // Created for MPV by: Ulysses RS Caballes
-// 20260515 002130LT - The ULTIMATE - Platinum Reference Standard - Version 6.1 ELITE
 
 //!HOOK RGB
 //!BIND HOOKED
 //!WIDTH HOOKED.width
 //!HEIGHT HOOKED.height
+//!DESC depth_reality_boost
 
 // === PARAMETERS ===
 #define overshoot_ctrl   true
