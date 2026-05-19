@@ -2,17 +2,17 @@ local mp = require 'mp'
 local msg_duration = 3
 
 -- ======
--- 🔊 Version 20.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
+-- 🔊 Version 21.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
 -- Created for MPV by Ulysses RS Caballes
 -- 7.1 Speaker Array + Dynamic Spatial Imaging
 -- Philharmonic Concert Mode + Hyper-Cinema Mode
--- 20260514 084418LT
+-- 20260519 181856LT
 -- ======
 -- Description:
--- Version 20.0 represents the culmination of refinement and tuning — engineered 
--- for IMAX‑grade immersion and uncompromising realism. Compared to Version 19.0,
--- this build delivers smoother dynamics, safer headroom, and spatial realism that
--- feels closer to a professional mastering chain.
+-- Version 21.0 represents the culmination of refinement and tuning — engineered 
+-- for IMAX‑grade immersion and uncompromising realism. Compared to Version 20.0,
+-- this build delivers smoother dynamics and spatial realism that feels closer
+-- to a professional mastering chain.
 -- ======
 
 -- ======
@@ -28,63 +28,12 @@ local function apply_audio_filters(filters, message)
 
         if not success then
             mp.msg.error("Failed to apply filter: " .. filter)
+            mp.osd_message("⚠️ Filter failed: " .. filter, 2)
         end
     end
 
     mp.osd_message(message, msg_duration)
 end
-
--- ======
--- 🎧 HEADSET MODE
--- Headphone virtualization
--- ======
-local headset_filters = {
-
-    -- Headroom
-    "volume=-4dB",
-
-    -- High quality resampling
-    "aresample=resampler=soxr:precision=33:cheby=1",
-
-    -- Remove useless sub rumble
-    "highpass=f=30",
-
-    -- Crossfeed for speaker-like imaging
-    "bs2b=profile=jmeier:fcut=700:feed=42",
-
-    -- Gentle width
-    "extrastereo=m=1.08",
-
-    -- Slight side enhancement
-    "stereotools=mlev=0.98:slev=1.03",
-
-    -- Tiny Haas expansion
-    "adelay=4|6",
-
-    -- Bass punch
-    "equalizer=f=60:g=2.0",
-    "equalizer=f=120:g=1.0",
-
-    -- Reduce muddiness
-    "equalizer=f=260:g=-1.0",
-
-    -- Vocal clarity
-    "equalizer=f=1800:g=0.6",
-    "equalizer=f=3200:g=1.0",
-
-    -- Air/detail
-    "equalizer=f=9000:g=0.6",
-    "equalizer=f=14000:g=0.5",
-
-    -- Tiny room ambience
-    "aecho=0.70:0.88:10:0.12",
-
-    -- Gentle dynamics
-    "acompressor=threshold=-20dB:ratio=1.20:attack=12:release=120",
-
-    -- Safety limiter
-    "alimiter=limit=0.97:level_out=0.97"
-}
 
 -- ======
 -- 🌌 CINEMA MODE
@@ -197,13 +146,6 @@ local music_filters = {
 -- ======
 -- KEYBINDS
 -- ======
-
-mp.add_key_binding("F9", "headset-mode", function()
-    apply_audio_filters(
-        headset_filters,
-        "🎧 Headset Mode • Virtual Surround Enabled"
-    )
-end)
 
 mp.add_key_binding("F10", "cinema-mode", function()
     apply_audio_filters(
