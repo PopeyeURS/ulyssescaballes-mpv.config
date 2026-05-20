@@ -1,16 +1,18 @@
 local mp = require 'mp'
 local msg_duration = 3
 
+local current_mode = "none"
+
 -- ======
--- 🔊 Version 21.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
+-- 🔊 Version 22.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
 -- Created for MPV by Ulysses RS Caballes
 -- 7.1 Speaker Array + Dynamic Spatial Imaging
 -- Philharmonic Concert Mode + Hyper-Cinema Mode
--- 20260519 181856LT
+-- 20260520 171915LT
 -- ======
 -- Description:
--- Version 21.0 represents the culmination of refinement and tuning — engineered 
--- for IMAX‑grade immersion and uncompromising realism. Compared to Version 20.0,
+-- Version 22.0 represents the culmination of refinement and tuning — engineered 
+-- for IMAX‑grade immersion and uncompromising realism. Compared to Version 21.0,
 -- this build delivers smoother dynamics and spatial realism that feels closer
 -- to a professional mastering chain.
 -- ======
@@ -50,17 +52,17 @@ local cinema_filters = {
     -- Remove low rumble
     "highpass=f=28",
 
+    -- Haas effect for phantom expansion
+    "adelay=1|3",
+
     -- Mild widening
     "extrastereo=m=1.05",
 
     -- Mid/side enhancement
     "stereotools=mlev=0.97:slev=1.04",
 
-    -- Haas effect for phantom expansion
-    "adelay=3|5",
-
     -- Cinema room ambience
-    "aecho=0.75:0.88:14:0.15",
+    "aecho=0.65:0.80:12:0.10",
 
     -- Bass impact
     "equalizer=f=60:g=2.5",
@@ -81,6 +83,9 @@ local cinema_filters = {
 
     -- Air
     "equalizer=f=14000:g=0.5",
+
+    -- Smooth extreme highs
+    "lowpass=f=18500",
 
     -- Gentle glue compression
     "acompressor=threshold=-18dB:ratio=1.18:attack=10:release=100",
@@ -104,15 +109,15 @@ local music_filters = {
     -- Remove sub rumble
     "highpass=f=30",
 
+    -- Tiny stage-width Haas delay
+    "adelay=1|2",
+
     -- Mild stereo enhancement
     "extrastereo=m=1.05",
 
-    -- Tiny stage-width Haas delay
-    "adelay=2|3",
-
     -- Simulated venue ambience
-    "aecho=0.82:0.88:22:0.10",
     "stereotools=mlev=0.96:slev=1.05",
+    "aecho=0.70:0.78:18:0.08",
 
     -- Deep concert bass
     "equalizer=f=45:g=2.8",
@@ -136,6 +141,9 @@ local music_filters = {
     -- Air
     "equalizer=f=14000:g=0.5",
 
+    -- Smooth extreme highs
+    "lowpass=f=18500",
+
     -- Very gentle compression
     "acompressor=threshold=-22dB:ratio=1.12:attack=8:release=140",
 
@@ -148,21 +156,38 @@ local music_filters = {
 -- ======
 
 mp.add_key_binding("F10", "cinema-mode", function()
+
+    if current_mode == "cinema" then
+        mp.osd_message("🌌 Cinema Mode already active", 1.5)
+        return
+    end
+
     apply_audio_filters(
         cinema_filters,
         "🌌 Cinema Mode • IMAX SenseSurround Activated"
     )
+
+    current_mode = "cinema"
 end)
 
 mp.add_key_binding("F11", "music-mode", function()
+
+    if current_mode == "music" then
+        mp.osd_message("🎼 Music Mode already active", 1.5)
+        return
+    end
+
     apply_audio_filters(
         music_filters,
         "🎼 Music Mode • Live Concert Spatial Audio Enabled"
     )
+
+    current_mode = "music"
 end)
 
 mp.add_key_binding("F12", "reset-filters", function()
     mp.commandv("af", "clear")
+    current_mode = "none"
     mp.osd_message("🔄 Audio Filters Cleared", msg_duration)
 end)
 
