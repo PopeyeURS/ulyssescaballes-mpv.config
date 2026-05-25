@@ -4,209 +4,172 @@ local msg_duration = 3
 local current_mode = "none"
 
 -- ======
--- 🔊 Version 22.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
+-- 🔊 Version 23.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
 -- Created for MPV by Ulysses RS Caballes
 -- 7.1 Speaker Array + Dynamic Spatial Imaging
 -- Philharmonic Concert Mode + Hyper-Cinema Mode
--- 20260520 171915LT
+-- 20260525 173228LT
 -- ======
 -- Description:
--- Version 22.0 represents the culmination of refinement and tuning — engineered 
--- for IMAX‑grade immersion and uncompromising realism. Compared to Version 21.0,
--- this build delivers smoother dynamics and spatial realism that feels closer
--- to a professional mastering chain.
+-- Version 23.0 represents the culmination of refinement and tuning — engineered 
+-- for IMAX‑grade immersion and uncompromising realism. Compared to Version 22.0,
+-- this build delivers smoother dynamics and spatial realism that feels so much 
+-- closer to a professional mastering chain.
 -- ======
 
 -- ======
--- FILTER APPLIER
+-- SAFE FILTER APPLIER
 -- ======
 local function apply_audio_filters(filters, message)
+
     mp.commandv("af", "clear")
 
     for _, filter in ipairs(filters) do
-        local success = pcall(function()
+
+        local ok = pcall(function()
             mp.commandv("af", "add", filter)
         end)
 
-        if not success then
-            mp.msg.error("Failed to apply filter: " .. filter)
-            mp.osd_message("⚠️ Filter failed: " .. filter, 2)
+        if not ok then
+            mp.osd_message(
+                "⚠️ Failed filter: " .. filter,
+                2
+            )
         end
     end
 
-    mp.osd_message(message, msg_duration)
+    current_mode = message
+
+    mp.osd_message(
+        message,
+        msg_duration
+    )
 end
 
 -- ======
+-- 🎧 PURE MODE
+-- Completely untouched playback
+-- Best for high quality masters
+-- ======
+local pure_filters = {}
+
+-- ======
 -- 🌌 CINEMA MODE
--- Stereo speakers phantom surround
+-- For movies / HDR / surround downmixes
+-- Preserves dynamics and realism
 -- ======
 local cinema_filters = {
 
-    -- Headroom
-    "volume=-5dB",
+    -- tiny headroom protection
+    "volume=-0.5dB",
 
-    -- High quality resampling
-    "aresample=resampler=soxr:precision=33:cheby=1",
+    -- ultra clean resampling
+    "aresample=resampler=soxr:precision=33",
 
-    -- Remove low rumble
+    -- remove inaudible sub rumble
     "highpass=f=28",
 
-    -- Haas effect for phantom expansion
-    "adelay=1|3",
+    -- subtle low-end reinforcement
+    "equalizer=f=58:g=1.0",
 
-    -- Mild widening
-    "extrastereo=m=1.05",
+    -- remove slight desktop-speaker muddiness
+    "equalizer=f=260:g=-0.8",
 
-    -- Mid/side enhancement
-    "stereotools=mlev=0.97:slev=1.04",
-
-    -- Cinema room ambience
-    "aecho=0.65:0.80:12:0.10",
-
-    -- Bass impact
-    "equalizer=f=60:g=2.5",
-    "equalizer=f=110:g=1.2",
-
-    -- Reduce boxiness
-    "equalizer=f=320:g=-1.2",
-
-    -- Slight cinematic depth
-    "equalizer=f=900:g=-0.5",
-
-    -- Dialogue clarity
-    "equalizer=f=1800:g=0.8",
-    "equalizer=f=3200:g=1.3",
-
-    -- Spatial detail
-    "equalizer=f=7000:g=0.7",
-
-    -- Air
-    "equalizer=f=14000:g=0.5",
-
-    -- Smooth extreme highs
-    "lowpass=f=18500",
-
-    -- Gentle glue compression
-    "acompressor=threshold=-18dB:ratio=1.18:attack=10:release=100",
-
-    -- Final safety
-    "alimiter=limit=0.96:level_out=0.96"
+    -- dialogue intelligibility
+    "equalizer=f=2400:g=0.4"
 }
 
 -- ======
 -- 🎼 MUSIC / CONCERT MODE
--- Live venue spaciousness
+-- Preserves live performance realism
 -- ======
 local music_filters = {
 
-    -- Headroom
-    "volume=-4dB",
+    -- almost transparent headroom
+    "volume=-0.3dB",
 
-    -- High quality resampling
-    "aresample=resampler=soxr:precision=33:cheby=1",
+    -- high quality resampling
+    "aresample=resampler=soxr:precision=33",
 
-    -- Remove sub rumble
-    "highpass=f=30",
+    -- remove ultra-low rumble only
+    "highpass=f=26",
 
-    -- Tiny stage-width Haas delay
-    "adelay=1|2",
+    -- preserve bass punch
+    "equalizer=f=52:g=0.8",
 
-    -- Mild stereo enhancement
-    "extrastereo=m=1.05",
+    -- reduce boxiness slightly
+    "equalizer=f=280:g=-0.6",
 
-    -- Simulated venue ambience
-    "stereotools=mlev=0.96:slev=1.05",
-    "aecho=0.70:0.78:18:0.08",
-
-    -- Deep concert bass
-    "equalizer=f=45:g=2.8",
-    "equalizer=f=60:g=3.0",
-    "equalizer=f=95:g=1.8",
-    "equalizer=f=140:g=0.8",
-
-    -- Reduce mud
-    "equalizer=f=260:g=-1.2",
-
-    -- Vocal presence
-    "equalizer=f=1800:g=0.5",
-
-    -- Instrument clarity
-    "equalizer=f=3200:g=1.4",
-    "equalizer=f=5200:g=0.5",
-
-    -- Cymbal sparkle
-    "equalizer=f=9000:g=0.6",
-
-    -- Air
-    "equalizer=f=14000:g=0.5",
-
-    -- Smooth extreme highs
-    "lowpass=f=18500",
-
-    -- Very gentle compression
-    "acompressor=threshold=-22dB:ratio=1.12:attack=8:release=140",
-
-    -- Safety limiter
-    "alimiter=limit=0.97:level_out=0.97"
+    -- preserve vocal and string detail
+    "equalizer=f=2200:g=0.3"
 }
 
 -- ======
--- KEYBINDS
+-- F9 = PURE MODE
 -- ======
+mp.add_key_binding("F9", "pure-mode", function()
 
+    apply_audio_filters(
+        pure_filters,
+        "🎧 Pure Reference Playback"
+    )
+end)
+
+-- ======
+-- F10 = CINEMA
+-- ======
 mp.add_key_binding("F10", "cinema-mode", function()
-
-    if current_mode == "cinema" then
-        mp.osd_message("🌌 Cinema Mode already active", 1.5)
-        return
-    end
 
     apply_audio_filters(
         cinema_filters,
-        "🌌 Cinema Mode • IMAX SenseSurround Activated"
+        "🌌 Cinema Mode"
     )
-
-    current_mode = "cinema"
 end)
 
+-- ======
+-- F11 = MUSIC / CONCERT
+-- ======
 mp.add_key_binding("F11", "music-mode", function()
-
-    if current_mode == "music" then
-        mp.osd_message("🎼 Music Mode already active", 1.5)
-        return
-    end
 
     apply_audio_filters(
         music_filters,
-        "🎼 Music Mode • Live Concert Spatial Audio Enabled"
+        "🎼 Music Mode"
     )
-
-    current_mode = "music"
 end)
 
+-- ======
+-- F12 = RESET
+-- ======
 mp.add_key_binding("F12", "reset-filters", function()
+
     mp.commandv("af", "clear")
+
     current_mode = "none"
-    mp.osd_message("🔄 Audio Filters Cleared", msg_duration)
+
+    mp.osd_message(
+        "🔄 Filters Cleared",
+        msg_duration
+    )
 end)
 
 -- ======
--- AUDIO CHANNEL DETECTION
+-- SOURCE DETECTION
 -- ======
-
 mp.register_event("file-loaded", function()
 
     local ch = mp.get_property("audio-channels")
 
     if ch == "mono" or ch == "stereo" then
+
         mp.osd_message(
-            "🎧 Stereo source detected",
+            "🎧 Stereo Source Loaded",
             msg_duration
         )
+
     else
+
         mp.osd_message(
-            "🎬 Multichannel surround source detected",
+            "🎬 Multichannel Source Loaded",
             msg_duration
         )
     end
