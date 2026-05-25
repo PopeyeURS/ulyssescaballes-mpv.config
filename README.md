@@ -258,12 +258,13 @@ Download ***mpv-x86_64-v3 (Shinchiro builds)***:
 gpu-api=vulkan
 ```
 
-12. Launch MPV and let the configuration activate automatically. Double-click any media file to start playback instantly, or play CDs, DVDs, and Blu-ray discs with enhanced audio and video quality. Switch between Ultimate Cinema mode ***[F10]***, or Music Hall mode ***[F11]*** for a fully immersive experience, applicable only when listening on physical ***SPEAKER ARRAY***. No switching necessary when listening on ***HEADSETS*** as MPV outputs the default decoded audio signal without additional processing, providing a neutral reference playback state. Sit back and enjoy.  
+12. Launch MPV and let the configuration activate automatically. Double-click any media file to start playback instantly, or play CDs, DVDs, and Blu-ray discs with enhanced audio and video quality. Switch between Ultimate Cinema mode ***[F10]***, or Music Hall mode ***[F11]*** for a fully immersive experience, applicable only when listening on physical ***SPEAKER ARRAY***. You may or may not press ***[F9]*** when listening on ***HEADSETS*** as MPV outputs the default decoded audio signal without additional processing, providing a pure and neutral reference playback state. Sit back and enjoy.  
 
 ---
 
 ### Audio Chain & Usage Note
 
+- ***F09*** → Pure Headset Mode  
 - ***F10*** → Cinema Mode: IMAX SenseSurround Mode  
 - ***F11*** → Live Concert Music Mode  
 - ***F12*** → Reset Filters  
