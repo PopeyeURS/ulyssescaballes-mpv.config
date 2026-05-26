@@ -4,15 +4,15 @@ local msg_duration = 3
 local current_mode = "none"
 
 -- ======
--- 🔊 Version 23.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
+-- 🔊 Version 24.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
 -- Created for MPV by Ulysses RS Caballes
 -- 7.1 Speaker Array + Dynamic Spatial Imaging
 -- Philharmonic Concert Mode + Hyper-Cinema Mode
--- 20260525 173228LT
+-- 20260526 121511LT
 -- ======
 -- Description:
--- Version 23.0 represents the culmination of refinement and tuning — engineered 
--- for IMAX‑grade immersion and uncompromising realism. Compared to Version 22.0,
+-- Version 24.0 represents the culmination of refinement and tuning — engineered 
+-- for IMAX‑grade immersion and uncompromising realism. Compared to Version 23.0,
 -- this build delivers smoother dynamics and spatial realism that feels so much 
 -- closer to a professional mastering chain.
 -- ======
@@ -61,7 +61,7 @@ local pure_filters = {}
 local cinema_filters = {
 
     -- tiny headroom protection
-    "volume=-0.5dB",
+    "volume=-0.3dB",
 
     -- ultra clean resampling
     "aresample=resampler=soxr:precision=33",
@@ -111,7 +111,7 @@ mp.add_key_binding("F9", "pure-mode", function()
 
     apply_audio_filters(
         pure_filters,
-        "🎧 Pure Reference Playback"
+        "🎧🌈 Pure Headset Reference Playback"
     )
 end)
 
@@ -122,7 +122,7 @@ mp.add_key_binding("F10", "cinema-mode", function()
 
     apply_audio_filters(
         cinema_filters,
-        "🌌 Cinema Mode"
+        "🎬🌠 Cinema IMAX-inspired SenseSurround Mode"
     )
 end)
 
@@ -133,7 +133,7 @@ mp.add_key_binding("F11", "music-mode", function()
 
     apply_audio_filters(
         music_filters,
-        "🎼 Music Mode"
+        "🎵🎇 Music Live Concert Mode"
     )
 end)
 
@@ -147,7 +147,7 @@ mp.add_key_binding("F12", "reset-filters", function()
     current_mode = "none"
 
     mp.osd_message(
-        "🔄 Filters Cleared",
+        "♻️🫧 Filters Cleared",
         msg_duration
     )
 end)
