@@ -264,7 +264,7 @@ gpu-api=vulkan
 
 ### Audio Chain & Usage Note
 
-- ***F09*** → Pure Headset Mode  
+- ***F9*** → Pure Headset Mode  
 - ***F10*** → Cinema Mode: IMAX SenseSurround Mode  
 - ***F11*** → Live Concert Music Mode  
 - ***F12*** → Reset Filters  
