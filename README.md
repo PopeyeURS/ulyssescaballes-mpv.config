@@ -240,7 +240,6 @@ Download ***mpv-x86_64-v3 (Shinchiro builds)***:
 └── portable_config\
     ├── mpv.conf
     ├── input.conf
-    ├── profiles.conf
     ├── script-opts\
     ├── scripts\
     │   └── main.lua\
