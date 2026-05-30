@@ -338,7 +338,7 @@ Adopt the full pipeline or integrate only the components you need.
 | **Human‑readable configs**| Config files are concise, documented, and easy to understand. |
 | **Commented shader chains**| Each GLSL filter is annotated for clarity and maintainability.|
 | **Versioned updates**     | Clear changelogs accompany every update for transparency.     |
-| **Commit intent**         | Every commit message documents purpose — no silent changes.   |
+| **Commit intent**         | Every commit message documents purpose, no silent changes.   |
 
 ---
 
