@@ -26,7 +26,7 @@ Built for precision. Tuned for immersion.</em></p>
 ✓ Advanced GLSL shader stack: CuNNy (CNN upscaling), SSimSuperRes, Adaptive Sharpen, Depth Reality Boost  
 ✓ HDR tone mapping with contrast recovery (BT.2390)  
 ✓ ICC color-managed playback  
-✓ Immersive 3D spatial audio 
+✓ Immersive 3D spatial audio  
 ✓ Modular profiles for anime, realism, sports, and 8K content  
 
 ---
