@@ -356,8 +356,7 @@ Adopt the full pipeline or integrate only the components you need.
 
 *Enjoying the project? Consider giving it a ⭐ - Thank you for your support!*  
 
-[![GitHub stars](https://img.shields.io/github/stars/PopeyeURS/ulyssescaballes-mpv.config?style=for-the-badge&label=STARS&labelColor=ADFF2F&color=8A2BE2&logo=github&logoColor=black)](https://github.com/PopeyeURS/ulyssescaballes-mpv.config/stargazers)
-
+[![GitHub stars](https://img.shields.io/github/stars/PopeyeURS/ulyssescaballes-mpv.config?style=for-the-badge&label=STARS&labelColor=ADFF2F&color=8A2BE2&logo=github&logoColor=black)](https://github.com/PopeyeURS/ulyssescaballes-mpv.config/stargazers)  
 </div>
 
 ***
