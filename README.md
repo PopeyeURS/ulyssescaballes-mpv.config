@@ -219,7 +219,7 @@ Requirements:
 ✓ ***Windows 11*** (recommended)  
 
 Download ***mpv-x86_64-v3 (Shinchiro builds)***:  
-['mpv-x86_64-v3_(Shinchiro_builds)'](https://github.com/shinchiro/mpv-winbuild-cmake/releases)  
+[mpv-x86_64-v3 (Shinchiro builds)](https://github.com/shinchiro/mpv-winbuild-cmake/releases)    
 
 1. Open ***File Explorer***  
 2. Enable: ***View → Show → Hidden items***  
