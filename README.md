@@ -357,7 +357,7 @@ Adopt the full pipeline or integrate only the components you need.
 *Enjoying the project? Consider giving it a ⭐ - Thank you for your support!*  
 
 <a href="https://github.com/PopeyeURS/ulyssescaballes-mpv.config/stargazers">
-  <img src="https://badgen.net/github/stars/PopeyeURS/ulyssescaballes-mpv.config?color=39FF14" alt="GitHub stars"/>
+  <img src="https://badgen.net/github/stars/PopeyeURS/ulyssescaballes-mpv.config?color=BF00FF" alt="GitHub stars"/>
 </a>
 
 </div>
