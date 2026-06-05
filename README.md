@@ -345,26 +345,20 @@ Adopt the full pipeline or integrate only the components you need.
 ## Final Word
 ***
 
-<p align="center">
-<em>Playback perfection isn’t measured in numbers alone - it’s defined by how it feels.</em><br>
-<em>This hand‑crafted cinema engine reflects my journey toward that feeling.</em><br>
-<em>If it helps you step closer to your own, then it has fulfilled its purpose.</em>
-</p>
+<div align="center">
 
-<p align="center">
-<strong>||||⚓ Ulysses RS Caballes [PopeyeURS]</strong><br>
-<em>Crafting cinema in pixels, one shader at a time.</em>
-</p>
+*Playback perfection isn’t measured in numbers alone - it’s defined by how it feels.*  
+*This hand‑crafted cinema engine reflects my journey toward that feeling.*  
+*If it helps you step closer to your own, then it has fulfilled its purpose.*  
 
-<p align="center">
-<em>Enjoying the project? Consider giving it a ⭐ - Thank you for your support!</em>
-</p>
+**_||||⚓ Ulysses RS Caballes [PopeyeURS]_**  
+*Crafting cinema in pixels, one shader at a time.*  
 
-<p align="center">
-<a href="https://github.com/PopeyeURS/ulyssescaballes-mpv.config/stargazers">
-  <img src="https://img.shields.io/github/stars/PopeyeURS/ulyssescaballes-mpv.config?style=for-the-badge&label=STARS&labelColor=ADFF2F&color=8A2BE2&logo=github&logoColor=black" alt="GitHub stars"/>
-</a>
-</p>
+*Enjoying the project? Consider giving it a ⭐ - Thank you for your support!*  
+
+[![GitHub stars](https://img.shields.io/github/stars/PopeyeURS/ulyssescaballes-mpv.config?style=for-the-badge&label=STARS&labelColor=ADFF2F&color=8A2BE2&logo=github&logoColor=black)](https://github.com/PopeyeURS/ulyssescaballes-mpv.config/stargazers)
+
+</div>
 
 ***
 
