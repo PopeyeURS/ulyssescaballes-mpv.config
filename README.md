@@ -347,7 +347,7 @@ Adopt the full pipeline or integrate only the components you need.
 
 <div align="center">
 
-*Playback perfection isn’t measured in numbers alone - it’s defined by how it feels.*  
+*Playback perfection isn’t measured in numbers alone. It’s defined by how it feels.*  
 *This hand‑crafted cinema engine reflects my journey toward that feeling.*  
 *If it helps you step closer to your own, then it has fulfilled its purpose.*  
 
