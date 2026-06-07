@@ -4,14 +4,14 @@ local msg_duration = 3
 local current_mode = "none"
 
 -- ======
--- 🔊 Version 25.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
+-- 🔊 Version 26.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
 -- Created for MPV by Ulysses RS Caballes
 -- 7.1 Speaker Array + Dynamic Spatial Imaging
 -- Philharmonic Concert Mode + Hyper-Cinema Mode
--- 20260526 232929LT
+-- 20260607 185822LT
 -- ======
 -- Description:
--- Version 25.0 expands spatial depth, dynamic punch, and live clarity.
+-- Version 26.0 expands spatial depth, dynamic punch, and live clarity.
 -- Adds adaptive auto‑switching, subtle mastering‑style compression,
 -- bass reinforcement, and high‑frequency sparkle for lifelike realism.
 -- ======
@@ -20,15 +20,19 @@ local current_mode = "none"
 -- SAFE FILTER APPLIER
 -- ======
 local function apply_audio_filters(filters, message)
-    mp.commandv("af", "clear")
+    mp.set_property_native("af", {})
+
     for _, filter in ipairs(filters) do
-        local ok = pcall(function()
+        local ok, err = pcall(function()
             mp.commandv("af", "add", filter)
         end)
+
         if not ok then
+            mp.msg.error("Failed filter: " .. filter .. " | " .. tostring(err))
             mp.osd_message("⚠️ Failed filter: " .. filter, 2)
         end
     end
+
     current_mode = message
     mp.osd_message(message, msg_duration)
 end
@@ -89,7 +93,7 @@ mp.add_key_binding("F11", "music-mode", function()
 end)
 
 mp.add_key_binding("F12", "reset-filters", function()
-    mp.commandv("af", "clear")
+    mp.set_property_native("af", {})
     current_mode = "none"
     mp.osd_message("♻️ Filters Cleared", msg_duration)
 end)
