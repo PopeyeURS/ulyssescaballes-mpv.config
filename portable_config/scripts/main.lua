@@ -4,14 +4,14 @@ local msg_duration = 3
 local current_mode = "none"
 
 -- ======
--- 🔊 Version 26.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
+-- 🔊 Version 27.0 – PREMIUM PLATINUM REFERENCE BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
 -- Created for MPV by Ulysses RS Caballes
 -- 7.1 Speaker Array + Dynamic Spatial Imaging
 -- Philharmonic Concert Mode + Hyper-Cinema Mode
--- 20260607 185822LT
+-- 20260608 054214LT
 -- ======
 -- Description:
--- Version 26.0 expands spatial depth, dynamic punch, and live clarity.
+-- Version 27.0 expands spatial depth, dynamic punch, and live clarity.
 -- Adds adaptive auto‑switching, subtle mastering‑style compression,
 -- bass reinforcement, and high‑frequency sparkle for lifelike realism.
 -- ======
@@ -49,16 +49,18 @@ local pure_filters = {}
 -- ======
 local cinema_filters = {
     "volume=-0.3dB",
-    "aresample=resampler=soxr:precision=33",
+    "aresample=resampler=soxr:precision=33:quality=high:phase_response=linear",
     "highpass=f=28",
     "equalizer=f=58:g=1.0",
     "equalizer=f=260:g=-0.8",
     "equalizer=f=1800:g=2.0",
     "equalizer=f=2400:g=0.8",
     "equalizer=f=2800:g=1.5",
-    "acompressor=threshold=-14dB:ratio=1.6:attack=12:release=250",
+    "equalizer=f=4500:g=-0.5",
+    "acompressor=threshold=-14dB:ratio=1.4:attack=12:release=320",
     "bass=g=3:f=80",
-    "equalizer=f=8500:g=0.5"
+    "equalizer=f=8500:g=0.5",
+    "equalizer=f=12000:g=0.4"
 }
 
 -- ======
@@ -67,14 +69,15 @@ local cinema_filters = {
 -- ======
 local music_filters = {
     "volume=-0.3dB",
-    "aresample=resampler=soxr:precision=33",
+    "aresample=resampler=soxr:precision=33:quality=high:phase_response=linear",
     "highpass=f=26",
     "equalizer=f=52:g=1.5",
     "equalizer=f=280:g=-0.6",
     "equalizer=f=2200:g=1.0",
     "extrastereo=level=1.2",
     "bass=g=6:f=80",
-    "equalizer=f=8500:g=1.2"
+    "equalizer=f=8500:g=1.2",
+    "equalizer=f=12000:g=0.5"
 }
 
 -- ======
