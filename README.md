@@ -1,8 +1,8 @@
 <p align="center" id="top">||||⚓</p>
 
 <p align="center"><b>Ulysses RS Caballes - MPV Cinema Config</b></p>
-<p align="center"><em>A handcrafted cinema engine for MPV. 
-Uniting neural upscaling, HDR tone mapping, and immersive 3D spatial audio into a single cohesive pipeline.
+<p align="center"><em>A handcrafted cinema engine for MPV.</b></p>
+<p align="center"><em>Uniting neural upscaling, HDR tone mapping, and immersive 3D spatial audio into a single cohesive pipeline.
 Built for precision. Tuned for immersion.</em></p>
 
 ---
