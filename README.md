@@ -37,7 +37,7 @@
 | RTX 4090 / RX 7900 XTX                       | 8K                  | Full pipeline, maximum shaders                                                    |
 | RTX 3080 / RX 6800 XT                        | 4K+ → 8K            | Smooth playback, minor shader tuning may help                                     |
 | RTX 3060 / RX 6700 XT                        | 4K                  | Recommended for full shader pipeline                                              |
-| GTX 1660 / RX 5600 XT                        | 1080p+ → 1440p      | Use lighter profiles (FSRCNNX-x2)                                                 |
+| GTX 1660 / RX 5600 XT                        | 1080p+ →1440p       | Use lighter profiles (FSRCNNX-x2)                                                 |
 | Intel Arc (A7xx)                             | 1080p → 1440p       | Best with FSRCNNX, reduced shader load recommended                                |
 | Intel iGPU / UHD / Iris Xe                   | 1080p               | Limited, use light profiles only                                                  |
 
