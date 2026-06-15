@@ -220,19 +220,22 @@ Requirements:
 ✓ ***Vulkan‑capable GPU***  
 ✓ ***Windows 11*** (recommended)  
 
-Download ***mpv-x86_64-v3 (Shinchiro builds)***:  
-[mpv-x86_64-v3 (Shinchiro builds)](https://github.com/shinchiro/mpv-winbuild-cmake/releases)    
+Download ***mpv-x86_64-v3 (Zhongfly builds)***:  
+[mpv-x86_64-v3 (Zhongfly builds)](https://github.com/zhongfly/mpv-winbuild/releases)    
 
 1. Open ***File Explorer***  
 2. Enable: ***View → Show → Hidden items***  
 3. Navigate to ***%APPDATA%***  
 4. Create folder named ***MPV***  
-5. Extract the ***MPV Shinchiro build*** into this folder  
-6. Open the ***installer*** folder then right-click ***mpv-install.bat*** and select ***Run as administrator***  
-7. Set ***default file and link types*** to MPV  
-8. Right-click ***updater.bat*** and select ***Run as administrator*** then follow the prompts  
-9. Download or clone ***this repository*** and ***extract*** the [`portable_config`](https://github.com/PopeyeURS/ulyssescaballes-mpv.config/archive/refs/heads/main.zip) folder  
-10. Place the "***portable_config***" folder here:  
+5. Extract the ***MPV Zhongfly build*** into this folder  
+6. Open the ***installer*** folder then right-click ***updater.ps1*** and select ***Run with Powershell***  
+7. Right-click ***mpv-register.bat***  
+8. Press ***Win + R*** and enter ***ms-settings:defaultapps  
+9. Scroll down and select app ***mpv***  
+10. Set ***default file and link types*** to MPV  
+11. Right-click ***updater.bat*** and select ***Run as administrator*** then follow the prompts  
+12. Download or clone ***this repository*** and ***extract*** the [`portable_config`](https://github.com/PopeyeURS/ulyssescaballes-mpv.config/archive/refs/heads/main.zip) folder  
+13. Place the "***portable_config***" folder here:  
 "C:/Users/<user_name>/AppData/Roaming/MPV/***portable_config***"  
 
 ```
@@ -253,13 +256,13 @@ Download ***mpv-x86_64-v3 (Shinchiro builds)***:
         └── Depth_reality_boost\
 ```
 
-11. Ensure MPV is configured to use **Vulkan**:  
+14. Ensure MPV is configured to use **Vulkan**:  
 
 ```
 gpu-api=vulkan
 ```
 
-12. Launch MPV and let the configuration activate automatically. Double-click any media file to start playback instantly, or play CDs, DVDs, and Blu-ray discs with enhanced audio and video quality. Switch between Ultimate Cinema mode ***[F10]***, or Music Hall mode ***[F11]*** for a fully immersive experience, applicable only when listening on physical ***SPEAKER ARRAY***. You may or may not press ***[F9]*** when listening on ***HEADSETS*** as MPV outputs the default decoded audio signal without additional processing, providing a pure and neutral reference playback state. Sit back and enjoy.  
+15. Launch MPV and let the configuration activate automatically. Double-click any media file to start playback instantly, or play CDs, DVDs, and Blu-ray discs with enhanced audio and video quality. Switch between Ultimate Cinema mode ***[F10]***, or Music Hall mode ***[F11]*** for a fully immersive experience, applicable only when listening on physical ***SPEAKER ARRAY***. You may or may not press ***[F9]*** when listening on ***HEADSETS*** as MPV outputs the default decoded audio signal without additional processing, providing a pure and neutral reference playback state. Sit back and enjoy.  
 
 ---
 
