@@ -229,7 +229,7 @@ Download ***mpv-x86_64-v3 (Zhongfly builds)***:
 4. Create folder named ***MPV***  
 5. Extract the ***MPV Zhongfly build*** into this folder  
 6. Open the ***installer*** folder then right-click ***updater.ps1*** and select ***Run with Powershell***  
-7. Right-click ***mpv-register.bat***  
+7. Right-click ***mpv-register.bat*** and select ***Run as administrator***  
 8. Press ***Win + R*** and enter ***ms-settings:defaultapps***  
 9. Scroll down and select app ***mpv***  
 10. Set ***default file and link types*** to MPV  
