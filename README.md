@@ -63,11 +63,11 @@ This ensures smoother playback while preserving visual detail and stability.
 - [Shader Pipeline](#shader-pipeline)  
 - [Audio Pipeline](#audio-pipeline)  
 - [Profiles](#profiles)  
-- [Keyboard Function Shortcuts](#keyboard-function-shortcuts)  
+- [Video Keyboard Function Shortcuts](#video-keyboard-function-shortcuts)  
+- [Audio Keyboard Function Shortcuts](#audio-keyboard-function-shortcuts)  
 - [Menu & Utility Shortcuts](#menu--utility-shortcuts)  
 - [Script Suite](#script-suite)  
 - [Installation](#installation)  
-- [Audio Chain & Usage Note](#audio-chain--usage-note)  
 - [Common Toggles & Beginner Notes](#common-toggles--beginner-notes)  
 - [Optional Add-ons](#optional-add-ons)  
 - [MPV + YouTube Integration](#mpv--youtube-integration)  
@@ -168,7 +168,7 @@ This configuration includes multiple playback profiles tailored to different con
 
 ---
 
-## Keyboard Function Shortcuts
+## Video Keyboard Function Shortcuts
   
 | Shortcut | Function Name | Description |
 |---------|----------------|-------------|
@@ -177,6 +177,15 @@ This configuration includes multiple playback profiles tailored to different con
 | Ctrl + 3 | realism | Realism preset. |
 | Ctrl + 4 | sports | Sports preset. |
 | Ctrl + 5 | debug | Debugging overlays. |
+
+## Audio Keyboard Function Shortcuts
+
+| Shortcut | Function Name | Description |
+|---------|----------------|-------------|
+| F + 9    | pure-mode | Pure Headset Reference Playback |
+| F + 10   | cinema-mode | Cinema IMAX-inspired SenseSurround Mode |
+| F + 11   | music-mode | Music Live Concert Mode |
+| F + 12   | reset-filters | Filters Cleared |
 
 ### Menu & Utility Shortcuts
 
@@ -262,16 +271,7 @@ Download ***mpv-x86_64-v3 (Zhongfly builds)***:
 gpu-api=vulkan
 ```
 
-15. Launch MPV and let the configuration activate automatically. Double-click any media file to start playback instantly, or play CDs, DVDs, and Blu-ray discs with enhanced audio and video quality. Switch between Ultimate Cinema mode ***[F10]***, or Music Hall mode ***[F11]*** for a fully immersive experience, applicable only when listening on physical ***SPEAKER ARRAY***. You may or may not press ***[F9]*** when listening on ***HEADSETS*** as MPV outputs the default decoded audio signal without additional processing, providing a pure and neutral reference playback state. Sit back and enjoy.  
-
----
-
-### Audio Chain & Usage Note
-
-- ***F9*** → Pure Headset Mode  
-- ***F10*** → Cinema Mode: IMAX SenseSurround Mode  
-- ***F11*** → Live Concert Music Mode  
-- ***F12*** → Reset Filters  
+15. Launch MPV and let the configuration activate automatically. Double-click any media file to start playback instantly, or play CDs, DVDs, and Blu-ray discs with maximally enhanced audio and video quality playback, each time, all the time. Sit back, relax and enjoy the most awesome and mind blowing experience.  
 
 ---
 
@@ -311,7 +311,7 @@ Instructions on how to enable MPV to directly open and play YouTube streams from
 "C:/Users/<user_name>/AppData/Roaming/MPV/***ytdlProtocol.bat***".  
 6. Right click "***ytdlProtocol.bat***", then "***Run as Administrator***" once.  
 7. Restart your PC.  
-8. Open YouTube on your Firefox browser, select and right-click on any video on the page, scroll down the context menu and click "***Play link in MPV***". MPV plays the selected video stream directly from YouTube with maximum audio/video quality playback. Enjoy the experience.  
+8. Open YouTube on your Firefox browser or any of its variants, select and right-click on any video on the YouTube page, scroll down the context menu, select then click "***Play link in MPV***", tick box on "***Always allow this extension to open ytdl links***" and then finally click "***Open Link***" button. MPV plays the selected video stream directly from YouTube with maximally enhanced audio/video quality playback, each time, all the time. Sit back, relax and enjoy the most awesome and mind blowing experience.  
 
 ---
 
@@ -359,7 +359,7 @@ Adopt the full pipeline or integrate only the components you need.
 **_||||⚓ Ulysses RS Caballes [PopeyeURS]_**  
 *Crafting cinema in pixels, one shader at a time.*  
 
-*Enjoying the project? Consider giving it a ⭐ Thank you for your support!*  
+*Enjoying the project? Consider giving it a ⭐. Thank you for your support!*  
 
 <a href="https://github.com/PopeyeURS/ulyssescaballes-mpv.config/stargazers">
   <img src="https://badgen.net/github/stars/PopeyeURS/ulyssescaballes-mpv.config?color=BF00FF" alt="GitHub stars"/>
