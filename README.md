@@ -271,7 +271,7 @@ Download ***mpv-x86_64-v3 (Zhongfly builds)***:
 gpu-api=vulkan
 ```
 
-15. Launch MPV and let the configuration load automatically. Double-click any media file to start playback instantly, or enjoy CDs, DVDs, and Blu-ray discs with the highest available audio and video quality for an exceptional viewing and listening experience. Sit back, relax, and enjoy seamless playback every time.  
+15. Double-click any media file to start playback instantly, or play CDs, DVDs, and Blu-ray discs with the highest available audio and video quality for an exceptional viewing and listening experience. Sit back, relax, and enjoy seamless playback every time.  
 
 ---
 
@@ -311,7 +311,7 @@ Instructions on how to enable MPV to directly open and play YouTube streams from
 "C:/Users/<user_name>/AppData/Roaming/MPV/***ytdlProtocol.bat***".  
 6. Right click "***ytdlProtocol.bat***", then "***Run as Administrator***" once.  
 7. Restart your PC.  
-8. Open YouTube in Firefox or any Firefox-based browser, select the video you would like to watch, then right-click on it. From the context menu, select "***Play link in MPV***". If prompted, check the box labeled "***Always allow this extension to open ytdl links***" and then click "***Open Link***". MPV will play the selected YouTube video directly with the highest available audio and video quality for the best possible playback experience. Sit back, relax, and enjoy a smooth, immersive viewing experience every time.  
+8. Open YouTube in Firefox or any Firefox-based browser, right-click on the video of your choice. From the context menu, select "***Play link in MPV***". If prompted, check the box labeled "***Always allow this extension to open ytdl links***" and then click "***Open Link***". MPV will play the selected YouTube video directly with the highest available audio and video quality for the best possible playback experience. Sit back, relax, and enjoy a smooth, immersive viewing experience every time.  
 
 ---
 
