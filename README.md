@@ -36,7 +36,7 @@
 ## Performance Notes
 | GPU Class                                    | Resolution         | Expected Performance                                                              |
 | -------------------------------------------- | ------------------ | --------------------------------------------------------------------------------- |
-| RTX 5090 (next-gen) / Future RX Flagship*    | 8K+ → 16K          | Ultra-high headroom, full pipeline with the heaviest shader workloads             |
+| RTX 5090 (next-gen) / Future RX Flagship* ?RX 9070 XT?    | 8K+ → 16K          | Ultra-high headroom, full pipeline with the heaviest shader workloads             |
 | RTX 4090 / RX 7900 XTX                       | 8K                 | Full pipeline, maximum shaders                                                    |
 | RTX 3080 / RX 6800 XT                        | 4K+ → 8K           | Smooth playback, minor shader tuning may help                                     |
 | RTX 3060 / RX 6700 XT                        | 4K                 | Recommended for full shader pipeline                                              |
