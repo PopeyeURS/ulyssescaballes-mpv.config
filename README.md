@@ -310,8 +310,7 @@ Instructions on how to enable MPV to directly open and play YouTube streams from
 5. Open "***ff2mpv-master***" folder, copy "***ytdlProtocol.bat***" then paste it outside "***ff2mpv-master***" folder to sit where "***mpv.exe***" is placed inside [***MPV***] folder, here:  
 "C:/Users/<user_name>/AppData/Roaming/MPV/***ytdlProtocol.bat***".  
 6. Right click "***ytdlProtocol.bat***", then "***Run as Administrator***" once.  
-7. Restart your PC.  
-8. Open YouTube in Firefox or any Firefox-based browser, right-click on the video of your choice. From the context menu, select "***Play link in MPV***". If prompted, check the box labeled "***Always allow this extension to open ytdl links***" and then click "***Open Link***". MPV will play the selected YouTube video directly with the highest available audio and video quality for the best possible playback experience. Sit back, relax, and enjoy a smooth, immersive viewing experience every time.  
+7. Open YouTube in your Firefox-based browser, right-click on the video of your choice. From the context menu, select "***Play link in MPV***". If prompted, check the box labeled "***Always allow this extension to open ytdl links***" and then click "***Open Link***". MPV will play the selected YouTube video directly with the highest available audio and video quality for the best possible playback experience. Sit back, relax, and enjoy a smooth, immersive viewing experience every time.  
 
 ---
 
