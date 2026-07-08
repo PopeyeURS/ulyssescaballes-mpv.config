@@ -271,7 +271,7 @@ Download ***mpv-x86_64-v3 (Zhongfly builds)***:
 gpu-api=vulkan
 ```
 
-15. Double-click any media file to start playback instantly, or play CDs, DVDs, and Blu-ray discs with the highest available audio and video quality for an exceptional viewing and listening experience. Sit back, relax, and enjoy seamless playback every time.  
+15. Double-click any media file to open it instantly in MPV, or play CDs, DVDs, and Blu-ray discs with the highest available audio and video quality. Sit back, relax, and enjoy a seamless viewing and listening experience.  
 
 ---
 
