@@ -362,7 +362,7 @@ Adopt the full pipeline or integrate only the components you need.
 
 <a href="https://github.com/PopeyeURS/ulyssescaballes-mpv.config">
   <img
-    src="https://img.shields.io/github/stars/PopeyeURS/ulyssescaballes-mpv.config?style=flat&color=BF00FF"
+    src="https://img.shields.io/badge/GitHub-Star%20this%20project-BF00FF"
     alt="Star this repository on GitHub"
   />
 </a>
