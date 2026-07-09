@@ -360,7 +360,7 @@ Adopt the full pipeline or integrate only the components you need.
 
 *Enjoying the project? Click the ⭐ badge below, then press GitHub's ⭐ Star button ↗ (top-right corner) to support this project. Thank you!*  
 
-<a href="https://github.com/PopeyeURS/ulyssescaballes-mpv.config" target="_blank" rel="noopener noreferrer">
+<a href="https://github.com/PopeyeURS/ulyssescaballes-mpv.config">
   <img
     src="https://img.shields.io/github/stars/PopeyeURS/ulyssescaballes-mpv.config?style=flat&color=BF00FF"
     alt="Star this repository on GitHub"
