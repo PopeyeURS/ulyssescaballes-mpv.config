@@ -360,7 +360,7 @@ Adopt the full pipeline or integrate only the components you need.
 
 *Enjoying the project? Click the ⭐ badge below, then press GitHub's ⭐ Star button ↗ (top-right corner) to support this project. Thank you!*  
 
-<a href="https://github.com/PopeyeURS/ulyssescaballes-mpv.config/stargazers">
+<a href="https://github.com/PopeyeURS/ulyssescaballes-mpv.config">
   <img
     src="https://img.shields.io/badge/GitHub-Star%20this%20project-BF00FF"
     alt="Star this repository on GitHub"
