@@ -358,13 +358,8 @@ Adopt the full pipeline or integrate only the components you need.
 **_||||⚓ Ulysses RS Caballes [PopeyeURS]_**  
 *Crafting cinema in pixels, one shader at a time.*  
 
-*Enjoying the project? Click the ⭐ badge below, then press GitHub's ⭐ Star button ↗ (top-right corner) to support this project. Thank you!*  
+*Enjoying the project? Click the GitHub's ⭐ Star button ↗ (top-right corner) to support this project. Thank you!*  
 
-<a href="https://github.com/PopeyeURS/ulyssescaballes-mpv.config">
-  <img
-    src="https://img.shields.io/badge/GitHub-Star%20this%20project-BF00FF"
-    alt="Star this repository on GitHub"
-  />
 </a>
 
 </div>
