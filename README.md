@@ -358,7 +358,7 @@ Adopt the full pipeline or integrate only the components you need.
 **_||||⚓ Ulysses RS Caballes [PopeyeURS]_**  
 *Crafting cinema in pixels, one shader at a time.*  
 
-*Enjoying the project? The GitHub Star button is at the top-right of this page ↗ *  
+**Enjoying the project? The GitHub ⭐ button is at the top-right of this page ↗ **  
 
 </a>
 
