@@ -83,6 +83,8 @@ This MPV configuration is engineered for viewers who demand cinematic fidelity, 
 
 Every component is tuned for clarity, depth, and realism. Powered by a custom shader pipeline and Lua automation scripts that adapt dynamically to content while preserving cinematic intent.  
 
+**A high-end GPU is strongly recommended!**  
+
 ---
 
 ## Features
