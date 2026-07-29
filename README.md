@@ -4,7 +4,7 @@
 <p align="center">
   <em>A handcrafted cinema engine for MPV.</em><br>
   <em>Uniting neural upscaling, HDR tone mapping, and immersive 3D spatial audio.</em><br>
-  <em>Built for precision. Tuned for immersion.</em>
+  <em>Built for precision. Tuned for immersion. Crafted for cinephiles.</em>
 </p>
 
 ---
