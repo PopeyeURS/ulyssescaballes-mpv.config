@@ -120,8 +120,8 @@ This clip was rendered and played with this configuration, showcasing HEVC Main 
 | Without Config | With Ulysses RS Caballes - MPV Cinema Engine | How |
 |---------------|------------------------|------------------|
 | Flat colors | Cinematic tone mapping | BT.2390 HDR curve + GAMMA / Perceptual Linearity |
-| Aliasing artifacts | Neural upscaling | CuNNY-8x32-DS |
-| Washed HDR | Contrast recovery | Reinhard + debanding |
+| Aliasing artifacts | Neural upscaling | ArtCNN_C4F32_DS |
+| Washed HDR | Contrast recovery | Burkes + debanding |
 | Weak audio stage | 3D Spatial audio | Equalizers+ |
 ---
 
