@@ -25,7 +25,7 @@
 
 ## What This Configuration Delivers
 ✓ Vulkan (gpu-next) high-quality video rendering pipeline  
-✓ Advanced GLSL shader stack: CuNNy (CNN upscaling), SSimSuperRes, Adaptive Sharpen, Depth Reality Boost  
+✓ Advanced GLSL shader stack: ArtCNN (CNN upscaling), SSimSuperRes, Adaptive Sharpen, Depth Reality Boost  
 ✓ HDR tone mapping with contrast recovery (BT.2390)  
 ✓ ICC color-managed playback  
 ✓ Immersive 3D spatial audio  
@@ -46,7 +46,7 @@
 
 \* AMD equivalent is unconfirmed and may not directly match RTX 5090 performance tier.
 
-The CuNNy-8x32-DS shader profile is optimized for Windows 11 environments and may cause performance issues (lag or dropped frames) on Linux systems with AMD GPUs.  
+The ArtCNN_C4F32_DS shader profile is optimized for Windows 11 environments and may cause performance issues (lag or dropped frames) on Linux systems with AMD GPUs.  
 Recommended for Linux/AMD setups:   
 ✓ FSRCNNX-x2_16-0-4-1 → lighter, stable, and cross-platform friendly  
 ✓ CuNNy-4x32 or CuNNy-2x32 → reduced demand with good perceptual quality  
