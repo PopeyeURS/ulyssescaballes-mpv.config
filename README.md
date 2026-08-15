@@ -156,17 +156,15 @@ This clip was rendered and played with this configuration, showcasing HEVC Main 
 ## Profiles
 This configuration includes multiple playback profiles tailored to different content types. Each profile adjusts shaders, scaling, tone mapping, and enhancement strength.
 
-### Anime  
+### Realism Fidelity  
+- Balanced sharpen, depth boost, filmic grain, natural color  
+- Super‑resolution, minimal grain, precision tone mapping, GPU-efficient scaling  
+
+### Anime Fidelity  
 - Line‑art‑safe sharpen, debanding, gentle vibrancy, light grain  
 
-### Realism  
-- Balanced sharpen, depth boost, filmic grain, natural color  
-
-### Sports  
+### Sports Fidelity  
 - Motion‑clarity‑oriented sharpen, reduced grain, highlight visibility, clean gradients  
-
-### 8K  
-- Super‑resolution, minimal grain, precision tone mapping, GPU-efficient scaling  
 
 ---
 
@@ -174,11 +172,10 @@ This configuration includes multiple playback profiles tailored to different con
   
 | Shortcut | Function Name | Description |
 |---------|----------------|-------------|
-| Ctrl + 1 | clear_default | Reset to baseline configuration. |
-| Ctrl + 2 | anime_hdr | Anime HDR preset. |
-| Ctrl + 3 | realism | Realism preset. |
-| Ctrl + 4 | sports | Sports preset. |
-| Ctrl + 5 | debug | Debugging overlays. |
+| Ctrl + 1 | realism_fidelity | Realism as in baseline configuration. |
+| Ctrl + 2 | anime_fidelity | Anime HDR preset. |
+| Ctrl + 3 | sports_fidelity | Sports preset. |
+| Ctrl + 4 | debug | Debugging overlays. |
 
 ## Audio Keyboard Function Shortcuts
 
