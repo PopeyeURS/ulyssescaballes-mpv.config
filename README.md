@@ -25,7 +25,7 @@
 
 ## What This Configuration Delivers
 ✓ Vulkan (gpu-next) high-quality video rendering pipeline  
-✓ Advanced GLSL shader stack: ArtCNN (CNN upscaling), SSimSuperRes, Adaptive Sharpen, Depth Reality Boost  
+✓ Advanced GLSL shader stack: CuNNy (CNN upscaling), SSimSuperRes, Adaptive Sharpen, Depth Reality Boost  
 ✓ HDR tone mapping with contrast recovery (BT.2390)  
 ✓ ICC color-managed playback  
 ✓ Immersive 3D spatial audio  
@@ -46,7 +46,7 @@
 
 \* AMD equivalent is unconfirmed and may not directly match RTX 5090 performance tier.
 
-The ArtCNN_C4F32_DS shader profile is optimized for Windows 11 environments and may cause performance issues (lag or dropped frames) on Linux systems with AMD GPUs.  
+The CuNNy-8x32-DS-Q shader profile is optimized for Windows 11 environments and may cause performance issues (lag or dropped frames) on Linux systems with AMD GPUs.  
 Recommended for Linux/AMD setups:   
 ✓ FSRCNNX-x2_16-0-4-1 → lighter, stable, and cross-platform friendly  
 ✓ CuNNy-4x32 or CuNNy-2x32 → reduced demand with good perceptual quality  
@@ -120,7 +120,7 @@ This clip was rendered and played with this configuration, showcasing HEVC Main 
 | Without Config | With Ulysses RS Caballes - MPV Cinema Engine | How |
 |---------------|------------------------|------------------|
 | Flat colors | Cinematic tone mapping | BT.2390 HDR curve + GAMMA / Perceptual Linearity |
-| Aliasing artifacts | Neural upscaling | ArtCNN_C4F32_DS |
+| Aliasing artifacts | Neural upscaling | CuNNy-8x32-DS-Q |
 | Washed HDR | Contrast recovery | Burkes + debanding |
 | Weak audio stage | 3D Spatial audio | Equalizers+ |
 ---
