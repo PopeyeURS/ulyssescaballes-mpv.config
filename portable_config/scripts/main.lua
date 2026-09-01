@@ -4,16 +4,20 @@ local msg_duration = 3
 local current_mode = "none"
 
 -- ======
--- 🔊 Version 30.0 - PREMIUM PLATINUM AUDIO BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
+-- 🔊 Version 31.0 - PREMIUM PLATINUM AUDIO BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
 -- Created for MPV by Ulysses RS Caballes
 -- 7.1 Speaker Array + Dynamic Spatial Imaging
 -- Philharmonic Concert Mode + IMAX-Cinema Mode
--- 20260901 132304LT
+-- 20260901 184830LT
 -- ======
 -- Description:
--- Version 30.0 restores IMAX‑grade 3‑D surround impact.
--- Adds extrastereo width, tighter transient compression, reinforced bass slam,
--- and high‑frequency sparkle for lifelike spatial depth.
+-- Version 31.0 unleashes IMAX‑grade 3‑D surround immersion.
+-- Expands extrastereo width for panoramic soundstage,
+-- drives reinforced sub‑bass slam for explosive impact,
+-- adds high‑frequency sparkle for crystalline detail,
+-- and applies controlled compression to preserve clarity.
+-- Designed for blockbuster action with lifelike spatial depth
+-- while avoiding harshness or metallic coloration.
 -- ======
 
 -- ======
@@ -49,20 +53,18 @@ local pure_filters = {}
 -- ======
 local cinema_filters = {
     "aresample=resampler=soxr:precision=33",
-    "highpass=f=20",
-    "equalizer=f=58:g=1.0",
-    "bass=g=4:f=90",
-    "equalizer=f=260:g=-0.8",
-    "equalizer=f=1800:g=2.0",
-    "equalizer=f=2400:g=0.8",
-    "equalizer=f=2800:g=1.5",
-    "equalizer=f=4500:g=-0.5",
-    "extrastereo=level=0.6",
-    "acompressor=threshold=-12dB:ratio=1.5:attack=5:release=250",
-    "equalizer=f=8500:g=0.5",
-    "equalizer=f=10000:g=1.0",
-    "equalizer=f=12000:g=0.6",
-    "volume=+4dB"
+    "highpass=f=22",
+    "bass=g=6:f=70:width_type=o:width=1.0",
+    "equalizer=f=40:g=1.2:width_type=o:width=1.0",
+    "equalizer=f=250:g=-1.2:width_type=o:width=1.0",
+    "equalizer=f=1800:g=1.5:width_type=o:width=1.0",
+    "equalizer=f=3200:g=1.0:width_type=o:width=1.0",
+    "equalizer=f=8500:g=1.0:width_type=o:width=1.0",
+    "equalizer=f=10000:g=1.2:width_type=o:width=1.0",
+    "equalizer=f=12000:g=0.8:width_type=o:width=1.0",
+    "extrastereo=level=0.9",
+    "acompressor=threshold=-14dB:ratio=1.6:attack=5:release=250",
+    "volume=+2dB"
 }
 
 -- ======
