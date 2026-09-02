@@ -4,14 +4,14 @@ local msg_duration = 3
 local current_mode = "none"
 
 -- ======
--- 🔊 Version 32.0 - PREMIUM PLATINUM AUDIO BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
+-- 🔊 Version 33.0 - PREMIUM PLATINUM AUDIO BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
 -- Created for MPV by Ulysses RS Caballes
 -- 7.1 Speaker Array + Dynamic Spatial Imaging
 -- Philharmonic Concert Mode + IMAX-Cinema Mode
--- 20260902 112355LT
+-- 20260902 164743LT
 -- ======
 -- Description:
--- Version 32.0 unleashes IMAX‑grade 3‑D surround immersion.
+-- Version 33.0 unleashes IMAX‑grade 3‑D surround immersion.
 -- Expands extrastereo width for panoramic soundstage,
 -- drives reinforced sub‑bass slam for explosive impact,
 -- adds high‑frequency sparkle for crystalline detail,
@@ -71,7 +71,7 @@ local cinema_filters = {
     "equalizer=f=8500:g=1.0:width_type=o:width=1.0",
     "equalizer=f=10000:g=1.2:width_type=o:width=1.0",
     "equalizer=f=12000:g=0.8:width_type=o:width=1.0",
-    "extrastereo=level=0.9",
+    "extrastereo=0.9",
     "acompressor=threshold=-14dB:ratio=1.6:attack=5:release=250",
     "volume=+2dB"
 }
@@ -89,7 +89,7 @@ local music_filters = {
     "equalizer=f=4800:g=0.3:width_type=o:width=1.0",
     "equalizer=f=8500:g=0.4:width_type=o:width=1.0",
     "equalizer=f=12000:g=0.6:width_type=o:width=1.0",
-    "extrastereo=level=0.95",
+    "extrastereo=0.95",
     "acompressor=threshold=-16dB:ratio=1.5:attack=8:release=280",
     "volume=+1.5dB"
 }
