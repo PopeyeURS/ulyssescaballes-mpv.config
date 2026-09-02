@@ -4,20 +4,29 @@ local msg_duration = 3
 local current_mode = "none"
 
 -- ======
--- 🔊 Version 31.0 - PREMIUM PLATINUM AUDIO BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
+-- 🔊 Version 32.0 - PREMIUM PLATINUM AUDIO BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
 -- Created for MPV by Ulysses RS Caballes
 -- 7.1 Speaker Array + Dynamic Spatial Imaging
 -- Philharmonic Concert Mode + IMAX-Cinema Mode
--- 20260901 184830LT
+-- 20260902 112355LT
 -- ======
 -- Description:
--- Version 31.0 unleashes IMAX‑grade 3‑D surround immersion.
+-- Version 32.0 unleashes IMAX‑grade 3‑D surround immersion.
 -- Expands extrastereo width for panoramic soundstage,
 -- drives reinforced sub‑bass slam for explosive impact,
 -- adds high‑frequency sparkle for crystalline detail,
 -- and applies controlled compression to preserve clarity.
 -- Designed for blockbuster action with lifelike spatial depth
 -- while avoiding harshness or metallic coloration.
+--
+-- 🎵 Music Live Concert Mode:
+-- Recreates the atmosphere of a grand philharmonic hall,
+-- with expansive stereo width for orchestral staging,
+-- finely tuned EQ to reveal woodwinds, brass, percussion,
+-- keyboards and synths in natural balance,
+-- and airy high‑frequency lift for audience claps and hall ambience.
+-- Delivers deeply immersive fidelity that makes you feel
+-- present at a live performance, surrounded by the energy of the crowd.
 -- ======
 
 -- ======
@@ -68,21 +77,21 @@ local cinema_filters = {
 }
 
 -- ======
--- 🎼 CONCERT MODE
--- Live energy + wide stage
--- ======
+-- 🎼 MUSIC MODE
+-- Refined Realism + Energetic Live Impact
 local music_filters = {
-    "volume=-5dB",
     "aresample=resampler=soxr:precision=33",
-    "highpass=f=20",
-    "equalizer=f=52:g=1.5",
-    "equalizer=f=280:g=-0.6",
-    "equalizer=f=2200:g=1.0",
-    "extrastereo=level=0.8",
-    "bass=g=6:f=80",
-    "equalizer=f=40:g=1.0",
-    "equalizer=f=8500:g=1.0",
-    "equalizer=f=12000:g=0.4"
+    "highpass=f=25",
+    "bass=g=2.0:f=70:width_type=o:width=1.2",
+    "equalizer=f=60:g=0.8:width_type=o:width=1.0",
+    "equalizer=f=250:g=-0.4:width_type=o:width=1.0",
+    "equalizer=f=2200:g=0.4:width_type=o:width=1.0",
+    "equalizer=f=4800:g=0.3:width_type=o:width=1.0",
+    "equalizer=f=8500:g=0.4:width_type=o:width=1.0",
+    "equalizer=f=12000:g=0.6:width_type=o:width=1.0",
+    "extrastereo=level=0.95",
+    "acompressor=threshold=-16dB:ratio=1.5:attack=8:release=280",
+    "volume=+1.5dB"
 }
 
 -- ======
