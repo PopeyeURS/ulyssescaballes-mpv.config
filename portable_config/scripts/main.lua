@@ -3,29 +3,16 @@ local msg_duration = 3
 local current_mode = "none"
 
 -- ======
--- 🔊 Version 34.0 - PREMIUM PLATINUM AUDIO BUILD - ⚠️DO NOT MODIFY⚠️ 🔊
+-- Version 35.0 - PREMIUM PLATINUM AUDIO BUILD - IMMERSIVE SURROUND EDITION
+-- 🔊 ⚠️DO NOT MODIFY⚠️ 🔊
 -- Created for MPV by Ulysses RS Caballes
--- 7.1 Speaker Array + Dynamic Spatial Imaging
--- Philharmonic Concert Mode + IMAX-Cinema Mode
--- 20260903 103855LT
+-- 20260907 221106LT
 -- ======
--- Description:
--- Version 34.0 unleashes IMAX‑grade 3‑D surround immersion.
--- Expands extrastereo width for panoramic soundstage,
--- drives reinforced sub‑bass slam for explosive impact,
--- adds high‑frequency sparkle for crystalline detail,
--- and applies controlled compression to preserve clarity.
--- Designed for blockbuster action with lifelike spatial depth
--- while avoiding harshness or metallic coloration.
---
--- 🎵 Music Live Concert Mode:
--- Recreates the atmosphere of a grand philharmonic hall,
--- with expansive stereo width for orchestral staging,
--- finely tuned EQ to reveal woodwinds, brass, percussion,
--- keyboards and synths in natural balance,
--- and airy high‑frequency lift for audience claps and hall ambience.
--- Delivers deeply immersive fidelity that makes you feel
--- present at a live performance, surrounded by the energy of the crowd.
+-- Features:
+-- Pure Mode: Filter-bypass for reference playback
+-- Cinema Mode: IMAX-grade clarity + spatial depth + pseudo-surround
+-- Music Mode: Live concert realism + energetic impact + pseudo-surround
+-- Safe filter application + OSD feedback
 -- ======
 
 -- ======
@@ -57,10 +44,12 @@ local pure_filters = {}
 
 -- ======
 -- 🌌 CINEMA MODE
--- IMAX-inspired cinematic clarity + controlled dynamics
+-- IMAX-inspired: Wide soundstage, deep bass, crystalline highs, pseudo-surround
 -- ======
+
 local cinema_filters = {
     "aresample=resampler=soxr:precision=33",
+    "extrastereo=0.9",
     "highpass=f=22",
     "bass=g=6:f=70:width_type=o:width=1.0",
     "equalizer=f=40:g=1.2:width_type=o:width=1.0",
@@ -70,16 +59,20 @@ local cinema_filters = {
     "equalizer=f=8500:g=1.0:width_type=o:width=1.0",
     "equalizer=f=10000:g=1.2:width_type=o:width=1.0",
     "equalizer=f=12000:g=0.8:width_type=o:width=1.0",
-    "extrastereo=0.9",
+    "pan=7.1|FL=1.0|FR=1.0|FC=0.7|LFE=0.8|BL=0.8|BR=0.8|SL=0.7|SR=0.7",
+    "adelay=12|12",
     "acompressor=threshold=-14dB:ratio=1.6:attack=5:release=250",
     "volume=+1.5dB"
 }
 
 -- ======
 -- 🎼 MUSIC MODE
--- Refined Realism + Energetic Live Impact
+-- Live Concert: Expansive stereo, natural balance, crowd ambience, pseudo-surround
+-- ======
+
 local music_filters = {
     "aresample=resampler=soxr:precision=33",
+    "extrastereo=0.78",
     "highpass=f=22",
     "bass=g=3.3:f=65:width_type=o:width=1.3",
     "equalizer=f=50:g=1.1:width_type=o:width=1.0",
@@ -89,7 +82,8 @@ local music_filters = {
     "equalizer=f=6000:g=-0.3:width_type=o:width=0.7",
     "equalizer=f=9500:g=0.35:width_type=o:width=0.9",
     "equalizer=f=12000:g=0.5:width_type=o:width=0.9",
-    "extrastereo=0.78",
+    "pan=7.1|FL=1.0|FR=1.0|FC=0.6|LFE=0.7|BL=0.7|BR=0.7|SL=0.7|SR=0.7",
+    "adelay=15|15",
     "acompressor=threshold=-18dB:ratio=1.25:attack=10:release=300",
     "volume=+1.2dB"
 }
@@ -99,24 +93,15 @@ local music_filters = {
 -- ======
 
 mp.add_key_binding("F9", "pure-mode", function()
-    apply_audio_filters(
-        pure_filters,
-        "🎧🌈 Pure Headset Reference Playback"
-    )
+    apply_audio_filters(pure_filters, "🎧 Pure Headset Reference Playback")
 end)
 
 mp.add_key_binding("F10", "cinema-mode", function()
-    apply_audio_filters(
-        cinema_filters,
-        "🎬🌠 Cinema IMAX-inspired SenseSurround Mode"
-    )
+    apply_audio_filters(cinema_filters, "🎬 Cinema IMAX-inspired SenseSurround Mode")
 end)
 
 mp.add_key_binding("F11", "music-mode", function()
-    apply_audio_filters(
-        music_filters,
-        "🎵🎇 Music Live Concert Mode"
-    )
+    apply_audio_filters(music_filters, "🎵 Music Live Concert Mode")
 end)
 
 mp.add_key_binding("F12", "reset-filters", function()
