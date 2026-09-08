@@ -3,15 +3,15 @@ local msg_duration = 3
 local current_mode = "none"
 
 -- ======
--- Version 37.0 - ULTIMATE MASTER AUDIO BUILD - IMMERSIVE IMAX CINEMA EDITION
--- 🔊 ⚠️DO NOT MODIFY⚠️ 🔊
+-- Version 38.0 - REFINED IMMERSIVE AUDIO BUILD - 🔊 ⚠️DO NOT MODIFY⚠️ 🔊
 -- Created for MPV by Ulysses RS Caballes
--- 20260908 162309LT
+-- 20260908 212637LT
 -- ======
 -- Description:
--- Pure truth. Cinematic thunder. Concert‑hall fire.
--- An ultimate audio build delivering reference transparency,
--- IMAX‑grade immersion, and live‑stage energy - all at the tap of a key.
+-- A refined three-mode MPV audio system delivering:
+-- Pure reference playback, deep cinematic immersion,
+-- and warm, energetic concert-style music with smooth,
+-- fatigue-conscious high-frequency detail.
 -- ======
 
 -- ======
@@ -48,17 +48,16 @@ local pure_filters = {}
 local cinema_filters = {
     "aresample=resampler=soxr:precision=33:cheby=1",
     "highpass=f=18",
-    "bass=g=6.0:f=55:width_type=o:width=1.3",
-    "equalizer=f=80:g=1.2:width_type=o:width=1.0",
-    "equalizer=f=300:g=0.8:width_type=o:width=1.0",
-    "equalizer=f=2500:g=1.0:width_type=o:width=1.0",
-    "equalizer=f=6000:g=1.2:width_type=o:width=1.0",
-    "equalizer=f=12000:g=1.0:width_type=o:width=1.0",
-    "acompressor=threshold=-20dB:ratio=2.2:attack=3:release=180:makeup=3.0",
-    "volume=+0.5dB",
-    "adelay=12|12|22|8|18|18|18|18",
-    "stereotools=width=1.6:phase=0.25:surround=0.35",
-    "crystalizer=amount=0.3"
+    "bass=g=5.0:f=52:width_type=o:width=1.25",
+    "equalizer=f=90:g=1.2:width_type=o:width=1.0",
+    "equalizer=f=2800:g=0.8:width_type=o:width=0.9",
+    "equalizer=f=4500:g=0.25:width_type=o:width=1.0",
+    "equalizer=f=8500:g=0.0:width_type=o:width=1.0",
+    "acompressor=threshold=-19dB:ratio=1.7:attack=6:release=180:makeup=2.0",
+    "volume=-0.8dB",
+    "adelay=10|10|18|7|13|13|13|13",
+    "stereotools=base=0.18:slev=1.12:phase=0.06",
+    "crystalizer=i=0.15"
 }
 
 -- ======
@@ -68,17 +67,18 @@ local cinema_filters = {
 local music_filters = {
     "aresample=resampler=soxr:precision=33:cheby=1",
     "highpass=f=22",
-    "bass=g=4.0:f=65:width_type=o:width=1.3",
-    "equalizer=f=120:g=0.5:width_type=o:width=1.0",
-    "equalizer=f=500:g=0.8:width_type=o:width=1.0",
-    "equalizer=f=2500:g=1.2:width_type=o:width=1.0",
-    "equalizer=f=8000:g=1.0:width_type=o:width=1.0",
-    "equalizer=f=14000:g=0.8:width_type=o:width=1.0",
-    "acompressor=threshold=-22dB:ratio=1.6:attack=8:release=220:makeup=2.5",
-    "volume=+0.7dB",
-    "adelay=18|18|28|12|22|22|22|22",
-    "stereotools=width=1.4:phase=0.15:surround=0.25",
-    "crystalizer=amount=0.25"
+    "bass=g=5.0:f=68:width_type=o:width=1.25",
+    "equalizer=f=115:g=1.8:width_type=o:width=1.0",
+    "equalizer=f=240:g=1.3:width_type=o:width=1.1",
+    "equalizer=f=3000:g=0.7:width_type=o:width=1.0",
+    "equalizer=f=5200:g=0.35:width_type=o:width=1.0",
+    "equalizer=f=8500:g=0.25:width_type=o:width=1.0",
+    "equalizer=f=12000:g=0.10:width_type=o:width=1.0",
+    "acompressor=threshold=-24dB:ratio=1.30:attack=10:release=280:makeup=2.0",
+    "volume=-0.8dB",
+    "adelay=7|7|14|5|10|10|10|10",
+    "stereotools=base=0.25:slev=1.20:mlev=0.96:phase=0.04",
+    "crystalizer=i=0.15"
 }
 
 -- ======
