@@ -3,10 +3,10 @@ local msg_duration = 3
 local current_mode = "none"
 
 -- ======
--- Version 35.0 - PREMIUM PLATINUM AUDIO BUILD - IMMERSIVE SURROUND EDITION
+-- Version 36.0 - ULTIMATE MASTER AUDIO BUILD - IMMERSIVE IMAX CINEMA EDITION
 -- 🔊 ⚠️DO NOT MODIFY⚠️ 🔊
 -- Created for MPV by Ulysses RS Caballes
--- 20260907 221106LT
+-- 20260908 094845LT
 -- ======
 -- Features:
 -- Pure Mode: Filter-bypass for reference playback
@@ -19,7 +19,7 @@ local current_mode = "none"
 -- SAFE FILTER APPLIER
 -- ======
 local function apply_audio_filters(filters, message)
-    mp.set_property_native("af", {})
+    mp.commandv("af", "clr", "")
 
     for _, filter in ipairs(filters) do
         local ok, err = pcall(function()
@@ -44,68 +44,58 @@ local pure_filters = {}
 
 -- ======
 -- 🌌 CINEMA MODE
--- IMAX-inspired: Wide soundstage, deep bass, crystalline highs, pseudo-surround
+-- IMAX Ultra-Spatial & Transient Enhanced
 -- ======
-
 local cinema_filters = {
-    "aresample=resampler=soxr:precision=33",
-    "extrastereo=0.9",
-    "highpass=f=22",
-    "bass=g=6:f=70:width_type=o:width=1.0",
-    "equalizer=f=40:g=1.2:width_type=o:width=1.0",
-    "equalizer=f=250:g=-1.2:width_type=o:width=1.0",
-    "equalizer=f=1800:g=1.5:width_type=o:width=1.0",
-    "equalizer=f=3200:g=1.0:width_type=o:width=1.0",
-    "equalizer=f=8500:g=1.0:width_type=o:width=1.0",
-    "equalizer=f=10000:g=1.2:width_type=o:width=1.0",
-    "equalizer=f=12000:g=0.8:width_type=o:width=1.0",
-    "pan=7.1|FL=1.0|FR=1.0|FC=0.7|LFE=0.8|BL=0.8|BR=0.8|SL=0.7|SR=0.7",
-    "adelay=12|12",
-    "acompressor=threshold=-14dB:ratio=1.6:attack=5:release=250",
-    "volume=+1.5dB"
+    "aresample=resampler=soxr:precision=33:cheby=1",
+    "highpass=f=20",
+    "bass=g=5.0:f=60:width_type=o:width=1.2",
+    "equalizer=f=45:g=1.0:width_type=o:width=1.0",
+    "equalizer=f=1000:g=0.7:width_type=o:width=1.0",
+    "equalizer=f=4000:g=1.1:width_type=o:width=1.0",
+    "equalizer=f=10000:g=0.9:width_type=o:width=1.0",
+    "pan=7.1|FL=1.0|FR=1.0|FC=0.65|LFE=0.9|BL=0.75|BR=0.75|SL=0.65|SR=0.65",
+    "adelay=10|10|20|5|15|15|15|15",
+    "acompressor=threshold=-16dB:ratio=1.8:attack=5:release=200:makeup=1.5",
+    "surround=level_in=1:level_out=1",
+    "volume=-0.8dB"
 }
 
 -- ======
 -- 🎼 MUSIC MODE
--- Live Concert: Expansive stereo, natural balance, crowd ambience, pseudo-surround
+-- Live Concert Acoustic Hall Envelopment
 -- ======
-
 local music_filters = {
-    "aresample=resampler=soxr:precision=33",
-    "extrastereo=0.78",
-    "highpass=f=22",
-    "bass=g=3.3:f=65:width_type=o:width=1.3",
-    "equalizer=f=50:g=1.1:width_type=o:width=1.0",
-    "equalizer=f=250:g=-0.3:width_type=o:width=1.0",
-    "equalizer=f=2200:g=0.35:width_type=o:width=1.0",
-    "equalizer=f=4800:g=0.25:width_type=o:width=1.0",
-    "equalizer=f=6000:g=-0.3:width_type=o:width=0.7",
-    "equalizer=f=9500:g=0.35:width_type=o:width=0.9",
-    "equalizer=f=12000:g=0.5:width_type=o:width=0.9",
-    "pan=7.1|FL=1.0|FR=1.0|FC=0.6|LFE=0.7|BL=0.7|BR=0.7|SL=0.7|SR=0.7",
-    "adelay=15|15",
-    "acompressor=threshold=-18dB:ratio=1.25:attack=10:release=300",
-    "volume=+1.2dB"
+    "aresample=resampler=soxr:precision=33:cheby=1",
+    "highpass=f=25",
+    "bass=g=2.8:f=70:width_type=o:width=1.4",
+    "equalizer=f=120:g=-0.4:width_type=o:width=1.0",
+    "equalizer=f=2500:g=0.4:width_type=o:width=1.0",
+    "equalizer=f=8000:g=0.3:width_type=o:width=1.0",
+    "pan=7.1|FL=1.0|FR=1.0|FC=0.6|LFE=0.7|BL=0.7|BR=0.7|SL=0.6|SR=0.6",
+    "adelay=15|15|25|10|20|20|20|20",
+    "acompressor=threshold=-18dB:ratio=1.4:attack=10:release=250:makeup=1.2",
+    "surround",
+    "volume=-0.8dB"
 }
 
 -- ======
 -- KEY BINDINGS
 -- ======
-
 mp.add_key_binding("F9", "pure-mode", function()
     apply_audio_filters(pure_filters, "🎧 Pure Headset Reference Playback")
 end)
 
 mp.add_key_binding("F10", "cinema-mode", function()
-    apply_audio_filters(cinema_filters, "🎬 Cinema IMAX-inspired SenseSurround Mode")
+    apply_audio_filters(cinema_filters, "🎬 Cinema IMAX Ultra-Spatial Mode")
 end)
 
 mp.add_key_binding("F11", "music-mode", function()
-    apply_audio_filters(music_filters, "🎵 Music Live Concert Mode")
+    apply_audio_filters(music_filters, "🎵 Music Live Concert Envelopment Mode")
 end)
 
 mp.add_key_binding("F12", "reset-filters", function()
-    mp.set_property_native("af", {})
+    mp.commandv("af", "clr", "")
     current_mode = "none"
     mp.osd_message("♻️ Filters Cleared", msg_duration)
 end)
