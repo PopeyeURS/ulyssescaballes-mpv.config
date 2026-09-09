@@ -3,15 +3,12 @@ local msg_duration = 3
 local current_mode = "none"
 
 -- ======
--- Version 38.0 - REFINED IMMERSIVE AUDIO BUILD - 🔊 ⚠️DO NOT MODIFY⚠️ 🔊
+-- Version 39.0 - REFINED IMMERSIVE AUDIO BUILD - 🔊 ⚠️DO NOT MODIFY⚠️ 🔊
 -- Created for MPV by Ulysses RS Caballes
--- 20260908 212637LT
+-- 20260909 103848LT
 -- ======
 -- Description:
--- A refined three-mode MPV audio system delivering:
--- Pure reference playback, deep cinematic immersion,
--- and warm, energetic concert-style music with smooth,
--- fatigue-conscious high-frequency detail.
+-- Refined for absolute artifact-free micro-detail clarity
 -- ======
 
 -- ======
@@ -53,11 +50,11 @@ local cinema_filters = {
     "equalizer=f=2800:g=0.8:width_type=o:width=0.9",
     "equalizer=f=4500:g=0.25:width_type=o:width=1.0",
     "equalizer=f=8500:g=0.0:width_type=o:width=1.0",
-    "acompressor=threshold=-19dB:ratio=1.7:attack=6:release=180:makeup=2.0",
+    "acompressor=threshold=-19dB:ratio=1.7:attack=6:release=180:makeup=1.8",
     "volume=-0.8dB",
     "adelay=10|10|18|7|13|13|13|13",
     "stereotools=base=0.18:slev=1.12:phase=0.06",
-    "crystalizer=i=0.15"
+    "crystalizer=i=0.12"
 }
 
 -- ======
@@ -67,18 +64,18 @@ local cinema_filters = {
 local music_filters = {
     "aresample=resampler=soxr:precision=33:cheby=1",
     "highpass=f=22",
-    "bass=g=5.0:f=68:width_type=o:width=1.25",
-    "equalizer=f=115:g=1.8:width_type=o:width=1.0",
+    "bass=g=4.5:f=68:width_type=o:width=1.25",
+    "equalizer=f=115:g=1.5:width_type=o:width=1.0",
     "equalizer=f=240:g=1.3:width_type=o:width=1.1",
-    "equalizer=f=3000:g=0.7:width_type=o:width=1.0",
-    "equalizer=f=5200:g=0.35:width_type=o:width=1.0",
-    "equalizer=f=8500:g=0.25:width_type=o:width=1.0",
+    "equalizer=f=3000:g=0.6:width_type=o:width=1.0",
+    "equalizer=f=5200:g=0.3:width_type=o:width=1.0",
+    "equalizer=f=8500:g=0.2:width_type=o:width=1.0",
     "equalizer=f=12000:g=0.10:width_type=o:width=1.0",
-    "acompressor=threshold=-24dB:ratio=1.30:attack=10:release=280:makeup=2.0",
+    "acompressor=threshold=-22dB:ratio=1.25:attack=10:release=280:makeup=1.8",
     "volume=-0.8dB",
     "adelay=7|7|14|5|10|10|10|10",
-    "stereotools=base=0.25:slev=1.20:mlev=0.96:phase=0.04",
-    "crystalizer=i=0.15"
+    "stereotools=base=0.25:slev=1.18:mlev=0.98:phase=0.04",
+    "crystalizer=i=0.12"
 }
 
 -- ======
