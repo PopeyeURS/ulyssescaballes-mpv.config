@@ -3,12 +3,13 @@ local msg_duration = 3
 local current_mode = "none"
 
 -- ======
--- Version 40.0 - REFINED IMMERSIVE AUDIO BUILD - 🔊 ⚠️DO NOT MODIFY⚠️ 🔊
+-- Version 41.0 - REFINED IMMERSIVE AUDIO BUILD - 🔊 ⚠️DO NOT MODIFY⚠️ 🔊
 -- Created for MPV by Ulysses RS Caballes
--- 20260910 103245LT
+-- 20260910 221640LT
 -- ======
 -- Description:
--- Refined for absolute artifact-free micro-detail clarity
+-- Engineered for pristine, artifact‑free playback with
+-- breathtaking micro‑detail, spatial depth, and absolute clarity
 -- ======
 
 -- ======
@@ -54,7 +55,9 @@ local cinema_filters = {
     "volume=-0.8dB",
     "adelay=10|10|18|7|13|13|13|13",
     "stereotools=base=0.18:slev=1.12:phase=0.06",
-    "crystalizer=i=0.12"
+    "crystalizer=i=0.12",
+    "bs2b=profile=jmeier"
+
 }
 
 -- ======
@@ -64,7 +67,7 @@ local cinema_filters = {
 local music_filters = {
     "aresample=resampler=soxr:precision=33:cheby=1",
     "highpass=f=22",
-    "bass=g=4.5:f=68:width_type=o:width=1.25",
+    "bass=g=5.0:f=75:width_type=o:width=1.15",
     "equalizer=f=115:g=1.5:width_type=o:width=1.0",
     "equalizer=f=240:g=1.3:width_type=o:width=1.1",
     "equalizer=f=3500:g=2.2:width_type=o:width=0.8",
@@ -75,7 +78,9 @@ local music_filters = {
     "volume=-1.2dB",
     "adelay=7|7|14|5|10|10|10|10",
     "stereotools=base=0.25:slev=1.18:mlev=0.98:phase=0.04",
-    "crystalizer=i=0.12"
+    "crystalizer=i=0.12",
+    "bs2b=profile=jmeier"
+
 }
 
 -- ======
