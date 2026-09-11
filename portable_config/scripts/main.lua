@@ -3,9 +3,9 @@ local msg_duration = 3
 local current_mode = "none"
 
 -- ======
--- Version 41.0 - REFINED IMMERSIVE AUDIO BUILD - 🔊 ⚠️DO NOT MODIFY⚠️ 🔊
+-- Version 42.0 - REFINED IMMERSIVE AUDIO BUILD - 🔊 ⚠️DO NOT MODIFY⚠️ 🔊
 -- Created for MPV by Ulysses RS Caballes
--- 20260910 221640LT
+-- 20260911 105154LT
 -- ======
 -- Description:
 -- Engineered for pristine, artifact‑free playback with
@@ -46,8 +46,9 @@ local pure_filters = {}
 local cinema_filters = {
     "aresample=resampler=soxr:precision=33:cheby=1",
     "highpass=f=18",
-    "bass=g=5.0:f=52:width_type=o:width=1.25",
+    "bass=g=6.2:f=45:width_type=o:width=1.0",
     "equalizer=f=90:g=1.2:width_type=o:width=1.0",
+    "equalizer=f=120:g=0.8:width_type=o:width=1.0",
     "equalizer=f=2800:g=0.8:width_type=o:width=0.9",
     "equalizer=f=4500:g=0.25:width_type=o:width=1.0",
     "equalizer=f=8500:g=0.0:width_type=o:width=1.0",
