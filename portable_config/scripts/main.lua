@@ -3,9 +3,9 @@ local msg_duration = 3
 local current_mode = "none"
 
 -- ======
--- Version 44.0 - ULTIMATE PREMIUM PLATINUM REFERENCE BUILD - 🔊 ⚠️DO NOT MODIFY⚠️ 🔊
+-- Version 45.0 - ULTIMATE PREMIUM PLATINUM REFERENCE BUILD - 🔊 ⚠️DO NOT MODIFY⚠️ 🔊
 -- Created for MPV by Ulysses RS Caballes
--- 20260914 113535LT
+-- 20260914 150439LT
 -- ======
 
 -- ======
@@ -19,6 +19,7 @@ local function apply_audio_filters(filters, message)
         local ok, err = pcall(function()
             mp.commandv("af", "add", filter)
         end)
+
         if not ok then
             mp.msg.error("Failed filter: " .. filter .. " | " .. tostring(err))
             table.insert(failed, filter)
