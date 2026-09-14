@@ -3,9 +3,9 @@ local msg_duration = 3
 local current_mode = "none"
 
 -- ======
--- Version 43.0 - ULTIMATE PREMIUM PLATINUM REFERENCE BUILD - 🔊 ⚠️DO NOT MODIFY⚠️ 🔊
+-- Version 44.0 - ULTIMATE PREMIUM PLATINUM REFERENCE BUILD - 🔊 ⚠️DO NOT MODIFY⚠️ 🔊
 -- Created for MPV by Ulysses RS Caballes
--- 20260911 210410LT
+-- 20260914 113535LT
 -- ======
 
 -- ======
@@ -14,34 +14,36 @@ local current_mode = "none"
 local function apply_audio_filters(filters, message)
     mp.commandv("af", "clr", "")
 
+    local failed = {}
     for _, filter in ipairs(filters) do
         local ok, err = pcall(function()
             mp.commandv("af", "add", filter)
         end)
-
         if not ok then
             mp.msg.error("Failed filter: " .. filter .. " | " .. tostring(err))
-            mp.osd_message("⚠️ Failed filter: " .. filter, 2)
+            table.insert(failed, filter)
         end
     end
 
     current_mode = message
-    mp.osd_message(message, msg_duration)
+    if #failed > 0 then
+        mp.osd_message(message .. " (" .. #failed .. " filter(s) failed, see console)", msg_duration + 2)
+    else
+        mp.osd_message(message, msg_duration)
+    end
 end
 
 -- ======
--- 🎧 PURE MODE
--- Filter-bypass playback for pure headset reference
+-- 🎧 PURE MODE - filter-bypass, reference playback
 -- ======
 local pure_filters = {}
 
 -- ======
 -- 🌌 CINEMA MODE
--- IMAX Ultra-Spatial & Transient Enhanced
 -- ======
 local cinema_filters = {
-    "aresample=resampler=soxr:precision=33:cheby=1",
-    "highpass=f=18",
+    "aresample=resampler=soxr:precision=28:cheby=1",
+    "highpass=f=20",
     "bass=g=5.0:f=75:width_type=o:width=1.15",
     "equalizer=f=90:g=1.2:width_type=o:width=1.0",
     "equalizer=f=120:g=0.8:width_type=o:width=1.0",
@@ -49,9 +51,10 @@ local cinema_filters = {
     "equalizer=f=4500:g=0.25:width_type=o:width=1.0",
     "equalizer=f=8500:g=0.0:width_type=o:width=1.0",
     "acompressor=threshold=-19dB:ratio=1.7:attack=6:release=180:makeup=1.8",
-    "volume=-0.8dB",
+    "volume=-1.0dB",
     "adelay=10|10|18|7|13|13|13|13",
-    "stereotools=base=0.18:slev=1.12:phase=0.06",
+    "crossfeed=strength=0.15:range=0.4",
+    "stereotools=base=0.18:slev=1.12:phase=25",
     "crystalizer=i=0.12"
 
 }
@@ -61,7 +64,7 @@ local cinema_filters = {
 -- Live Concert Acoustic Hall Envelopment
 -- ======
 local music_filters = {
-    "aresample=resampler=soxr:precision=33:cheby=1",
+    "aresample=resampler=soxr:precision=28:cheby=1",
     "highpass=f=22",
     "bass=g=5.0:f=75:width_type=o:width=1.15",
     "equalizer=f=115:g=1.5:width_type=o:width=1.0",
@@ -73,9 +76,10 @@ local music_filters = {
     "acompressor=threshold=-22dB:ratio=1.25:attack=10:release=280:makeup=1.8",
     "volume=-1.2dB",
     "adelay=7|7|14|5|10|10|10|10",
-    "stereotools=base=0.25:slev=1.18:mlev=0.98:phase=0.04",
+    "crossfeed=strength=0.15:range=0.4",
+    "stereotools=base=0.25:slev=1.18:mlev=0.98:phase=15",
     "crystalizer=i=0.12"
-
+    
 }
 
 -- ======
@@ -103,11 +107,14 @@ end)
 -- AUTO SOURCE DETECTION
 -- ======
 mp.register_event("file-loaded", function()
-    local ch = mp.get_property("audio-channels")
+    local count = mp.get_property_number("audio-params/channel-count")
+    local layout = mp.get_property("audio-params/channels") or "unknown"
 
-    if ch == "mono" or ch == "stereo" then
-        mp.osd_message("🎧 Stereo Source Loaded", msg_duration)
+    if count == nil then
+        mp.osd_message("🔈 Audio layout: " .. layout, msg_duration)
+    elseif count <= 2 then
+        mp.osd_message("🎧 Stereo Source Loaded (" .. layout .. ")", msg_duration)
     else
-        mp.osd_message("🎬 Multichannel Source Loaded", msg_duration)
+        mp.osd_message("🎬 Multichannel Source Loaded (" .. layout .. ")", msg_duration)
     end
 end)
