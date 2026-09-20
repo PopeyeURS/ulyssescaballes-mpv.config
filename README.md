@@ -324,20 +324,20 @@ Every shader, parameter, and filter is chosen with intent - no bloat, no placebo
 The goal isn’t “sharper” or “brighter,” but truer - emphasizing depth, texture, and natural contrast.  
 
 ### Modularity  
-The complete configuration is optional by design.
+The complete configuration is optional by design.  
 
-You can:
+You can:  
 
-✓ Use everything
-✓ Replace individual shaders
-✓ Reduce the processing workload
-✓ Build your own profile
-✓ Adopt only the audio configuration
-✓ Adopt only the video configuration
-✓ Reuse individual scripts
-✓ Remix the entire architecture
+✓ Use everything  
+✓ Replace individual shaders  
+✓ Reduce the processing workload  
+✓ Build your own profile  
+✓ Adopt only the audio configuration  
+✓ Adopt only the video configuration  
+✓ Reuse individual scripts  
+✓ Remix the entire architecture  
 
-The configuration is a foundation, not a restriction.
+The configuration is a foundation, not a restriction.  
 
 ---
 
