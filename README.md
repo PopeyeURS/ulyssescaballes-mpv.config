@@ -221,11 +221,12 @@ This configuration includes multiple playback profiles tailored to different con
 ## Installation
 **Note:** This configuration uses ***MPV in portable mode***.  
 
-**All settings are loaded from the portable_config folder located alongside mpv.exe.**  
+**Settings, scripts, shaders, profiles, and related files are stored inside the portable_config directory alongside mpv.exe.**  
 
 Requirements:  
 ✓ ***MPV v0.41+***  
 ✓ ***Vulkan‑capable GPU***  
+✓ ***Compatible 64-bit processor***  
 ✓ ***Windows 11*** (recommended)  
 
 Download ***mpv-x86_64-v3 (Zhongfly builds)***:  
@@ -243,7 +244,7 @@ Download ***mpv-x86_64-v3 (Zhongfly builds)***:
 10. Set ***default file and link types*** to MPV  
 11. Right-click ***updater.bat*** and select ***Run as administrator*** then follow the prompts  
 12. Download or clone ***this repository*** and ***extract*** the [`portable_config`](https://github.com/PopeyeURS/ulyssescaballes-mpv.config/archive/refs/heads/main.zip) folder  
-13. Place the "***portable_config***" folder here:  
+13. Place the "***portable_config***" folder alongside ***mpv.exe*** here:  
 "C:/Users/<user_name>/AppData/Roaming/MPV/***portable_config***"  
 
 ```
@@ -264,7 +265,7 @@ Download ***mpv-x86_64-v3 (Zhongfly builds)***:
         └── Depth_reality_boost\
 ```
 
-14. Ensure MPV is configured to use **Vulkan**:  
+14. The configuration is designed around Vulkan rendering. Ensure MPV is configured to use **Vulkan**:  
 
 ```
 gpu-api=vulkan
@@ -323,11 +324,20 @@ Every shader, parameter, and filter is chosen with intent - no bloat, no placebo
 The goal isn’t “sharper” or “brighter,” but truer - emphasizing depth, texture, and natural contrast.  
 
 ### Modularity  
-✓ Fully remixable  
-✓ Clearly documented  
-✓ Entirely optional  
+The complete configuration is optional by design.
 
-Adopt the full pipeline or integrate only the components you need.
+You can:
+
+✓ Use everything
+✓ Replace individual shaders
+✓ Reduce the processing workload
+✓ Build your own profile
+✓ Adopt only the audio configuration
+✓ Adopt only the video configuration
+✓ Reuse individual scripts
+✓ Remix the entire architecture
+
+The configuration is a foundation, not a restriction.
 
 ---
 
@@ -335,9 +345,9 @@ Adopt the full pipeline or integrate only the components you need.
 
 | Practice                  | Description                                                   |
 |---------------------------|---------------------------------------------------------------|
-| **No cache files**        | Repository excludes temporary or auto‑generated cache files.  |
-| **No platform clutter**   | Avoids OS‑specific junk (e.g., `.DS_Store`, `Thumbs.db`).     |
-| **Clean folder structure**| Organized directories for configs, shaders, and scripts.      |
+| **No cache files**        | Temporary and automatically generated cache files are excluded.  |
+| **No platform clutter**   | Unnecessary operating-system metadata is avoided.     |
+| **Clean folder structure**| Configurations, shaders, scripts, and options remain organized.      |
 | **Human‑readable configs**| Config files are concise, documented, and easy to understand. |
 | **Commented shader chains**| Each GLSL filter is annotated for clarity and maintainability.|
 | **Versioned updates**     | Clear changelogs accompany every update for transparency.     |
@@ -367,7 +377,7 @@ Adopt the full pipeline or integrate only the components you need.
 
 ## License  
 **[![GPLv3 License](https://img.shields.io/badge/License-GPLv3-blue)](LICENSE)**    
-This project is licensed under the GNU General Public License v3.0. Feel free to fork, adapt, and share.
+This project is licensed under the GNU General Public License v3.0. You are free to use, modify, fork, and redistribute the project in accordance with the terms of the license.
 
 See the [LICENSE](LICENSE) file for details.
 
