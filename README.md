@@ -44,7 +44,9 @@
 | Intel Arc (A7xx)                             | 1080p              | Best with FSRCNNX, reduced shader load recommended                                |
 | Intel iGPU / UHD / Iris Xe                   | 1080p              | Limited, use light profiles only                                                  |
 
-\* AMD equivalent is unconfirmed and may not directly match RTX 5090 performance tier.
+If dropped frames occur, reduce upscaling or shader complexity first instead of immediately disabling the entire processing pipeline.  
+
+\* AMD equivalent is unconfirmed and may not directly match RTX 5090 performance tier.  
 
 The CuNNy-8x32-DS-Q shader profile is optimized for Windows 11 environments and may cause performance issues (lag or dropped frames) on Linux systems with AMD GPUs.  
 Recommended for Linux/AMD setups:   
