@@ -51,6 +51,7 @@ Recommended for Linux/AMD setups:
 ✓ FSRCNNX-x2_16-0-4-1 → lighter, stable, and cross-platform friendly  
 ✓ CuNNy-4x32 or CuNNy-2x32 → reduced demand with good perceptual quality  
 ✓ Hybrid stacks (FSRCNNX + Adaptive Sharpen / Depth Reality Boost) → balance between speed and sharpness  
+
 This ensures smoother playback while preserving visual detail and stability.  
 
 ---
