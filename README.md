@@ -104,7 +104,7 @@ Every component is meticulously tuned for **clarity, depth, detail, and lifelike
 
 ## Demo Clip
 
-[Download the 8K MPV Demo Clip](video/ulyssescaballes-8k_video_demo.mkv)
+[8K MPV Demo Clip](video/ulyssescaballes-8k_video_demo.mkv)
 
 This clip was rendered and played with this configuration, showcasing HEVC Main 10 playback, HDR tone mapping, and full shader fidelity.
 
