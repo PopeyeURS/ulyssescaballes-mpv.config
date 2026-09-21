@@ -46,7 +46,6 @@ For older or lower-powered GPUs, lighter shader profiles are recommended, while 
 <br>
 
 The CuNNy-8x32-DS-Q shader profile is optimized for Windows 11 environments and may cause performance issues (lag or dropped frames) on Linux systems with AMD GPUs.  
-
 Recommended for Linux/AMD setups:   
 ✓ FSRCNNX-x2_16-0-4-1 → lighter, stable, and cross-platform friendly  
 ✓ CuNNy-4x32 or CuNNy-2x32 → reduced demand with good perceptual quality  
@@ -78,12 +77,16 @@ This ensures smoother playback while preserving visual detail and stability.
 
 ---
 
-## Overview
-This MPV configuration is engineered for viewers who demand cinematic fidelity, artifact-free rendering, and adaptive precision across all content types - anime, films, sports, and 8K HDR.  
+## Overview  
 
-Every component is tuned for clarity, depth, and realism. Powered by a custom shader pipeline and Lua automation scripts that adapt dynamically to content while preserving cinematic intent.  
+This MPV configuration is engineered for viewers who demand **cinematic fidelity, pristine rendering, and uncompromising visual precision** across everything from anime, films, and sports to 8K HDR.
+<br>
 
-**A robust and high-end GPU is strongly recommended!**  
+Every component is meticulously tuned for **clarity, depth, detail, and lifelike realism**, driven by a custom shader pipeline and Lua automation that dynamically adapts to the content while preserving its cinematic intent.
+<br>
+
+**For the ultimate cinematic experience with maximum visual impact, a powerful high-end GPU is strongly recommended.**
+<br>
 
 ---
 
