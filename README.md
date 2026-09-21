@@ -46,6 +46,7 @@ For older or lower-powered GPUs, lighter shader profiles are recommended, while 
 <br>
 
 The CuNNy-8x32-DS-Q shader profile is optimized for Windows 11 environments and may cause performance issues (lag or dropped frames) on Linux systems with AMD GPUs.  
+
 Recommended for Linux/AMD setups:   
 ✓ FSRCNNX-x2_16-0-4-1 → lighter, stable, and cross-platform friendly  
 ✓ CuNNy-4x32 or CuNNy-2x32 → reduced demand with good perceptual quality  
