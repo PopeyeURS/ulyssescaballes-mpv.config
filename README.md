@@ -34,19 +34,16 @@
 ---
 
 ## Performance Notes
-| GPU Class                                    | Resolution         | Expected Performance                                                              |
-| -------------------------------------------- | ------------------ | --------------------------------------------------------------------------------- |
-| RTX 5090 (next-gen) / Future RX Flagship* ?RX 9070 XT?    | 8K+ → 16K          | Ultra-high headroom, full pipeline with the heaviest shader workloads             |
-| RTX 4090 / RX 7900 XTX                       | 8K                 | Full pipeline, maximum shaders                                                    |
-| RTX 3080 / RX 6800 XT                        | 4K+ → 8K           | Smooth playback, minor shader tuning may help                                     |
-| RTX 3060 / RX 6700 XT                        | 4K                 | Recommended for full shader pipeline                                              |
-| GTX 1660 / RX 5600 XT                        | 1080+ →1440p       | Use lighter profiles (FSRCNNX-x2)                                                 |
-| Intel Arc (A7xx)                             | 1080p              | Best with FSRCNNX, reduced shader load recommended                                |
-| Intel iGPU / UHD / Iris Xe                   | 1080p              | Limited, use light profiles only                                                  |
+<br>
 
-If dropped frames occur, reduce upscaling or shader complexity first instead of immediately disabling the entire processing pipeline.  
+This handcrafted cinema engine for MPV is designed to scale smoothly across a wide range of GPU hardware.
+<br>
 
-\* AMD equivalent is unconfirmed and may not directly match RTX 5090 performance tier.  
+The playback pipeline has been **tried and tested on hardware as old as the NVIDIA GTX 650**, establishing it as a practical baseline. **A GTX 650-class GPU or newer is strongly recommended. The newer and more powerful the GPU, the better**, with shader complexity, scaling, and output resolution adjusted to match the available GPU performance.
+<br>
+
+For older or lower-powered GPUs, lighter shader profiles are recommended, while more powerful GPUs can take advantage of higher resolutions, heavier shader chains, and the full processing pipeline.
+<br>
 
 The CuNNy-8x32-DS-Q shader profile is optimized for Windows 11 environments and may cause performance issues (lag or dropped frames) on Linux systems with AMD GPUs.  
 Recommended for Linux/AMD setups:   
@@ -85,7 +82,7 @@ This MPV configuration is engineered for viewers who demand cinematic fidelity, 
 
 Every component is tuned for clarity, depth, and realism. Powered by a custom shader pipeline and Lua automation scripts that adapt dynamically to content while preserving cinematic intent.  
 
-**A high-end GPU is strongly recommended!**  
+**A robust and high-end GPU is strongly recommended!**  
 
 ---
 
@@ -228,7 +225,7 @@ This configuration includes multiple playback profiles tailored to different con
 Requirements:  
 ✓ ***MPV v0.41+***  
 ✓ ***Vulkan‑capable GPU***  
-✓ ***Compatible 64-bit processor***  
+✓ Compatible 64-bit processor  
 ✓ ***Windows 11*** (recommended)  
 
 Download ***mpv-x86_64-v3 (Zhongfly builds)***:  
@@ -246,7 +243,7 @@ Download ***mpv-x86_64-v3 (Zhongfly builds)***:
 10. Set ***default file and link types*** to MPV  
 11. Right-click ***updater.bat*** and select ***Run as administrator*** then follow the prompts  
 12. Download or clone ***this repository*** and ***extract*** the [`portable_config`](https://github.com/PopeyeURS/ulyssescaballes-mpv.config/archive/refs/heads/main.zip) folder  
-13. Place the "***portable_config***" folder alongside ***mpv.exe*** here:  
+13. Place the "***portable_config***" folder here:  
 "C:/Users/<user_name>/AppData/Roaming/MPV/***portable_config***"  
 
 ```
@@ -267,7 +264,7 @@ Download ***mpv-x86_64-v3 (Zhongfly builds)***:
         └── Depth_reality_boost\
 ```
 
-14. The configuration is designed around Vulkan rendering. Ensure MPV is configured to use **Vulkan**:  
+14. The configuration is designed around Vulkan rendering. Ensure MPV is configured to use Vulkan:  
 
 ```
 gpu-api=vulkan
@@ -323,9 +320,6 @@ This configuration is guided on three core principles:
 Every shader, parameter, and filter is chosen with intent - no bloat, no placebo settings.  
 
 ### Cinematic Realism  
-The goal isn’t “sharper” or “brighter,” but truer - emphasizing depth, texture, and natural contrast.  
-
-### Modularity  
 The complete configuration is optional by design.  
 
 You can:  
@@ -341,6 +335,8 @@ You can:
 
 The configuration is a foundation, not a restriction.  
 
+Adopt the full pipeline or integrate only the components you need.  
+
 ---
 
 ### Repo Hygiene
@@ -349,9 +345,9 @@ The configuration is a foundation, not a restriction.
 |---------------------------|---------------------------------------------------------------|
 | **No cache files**        | Temporary and automatically generated cache files are excluded.  |
 | **No platform clutter**   | Unnecessary operating-system metadata is avoided.     |
-| **Clean folder structure**| Configurations, shaders, scripts, and options remain organized.      |
+| **Clean folder structure**| Configurations, shaders, scripts, and options remain organized. |
 | **Human‑readable configs**| Config files are concise, documented, and easy to understand. |
-| **Commented shader chains**| Each GLSL filter is annotated for clarity and maintainability.|
+| **Commented shader chains**| Each GLSL filter is annotated for clarity and maintainability. |
 | **Versioned updates**     | Clear changelogs accompany every update for transparency.     |
 | **Commit intent**         | Every commit message documents purpose, no silent changes.   |
 
@@ -379,7 +375,7 @@ The configuration is a foundation, not a restriction.
 
 ## License  
 **[![GPLv3 License](https://img.shields.io/badge/License-GPLv3-blue)](LICENSE)**    
-This project is licensed under the GNU General Public License v3.0. You are free to use, modify, fork, and redistribute the project in accordance with the terms of the license.
+This project is licensed under the GNU General Public License v3.0. Feel free to fork, adapt, and share.
 
 See the [LICENSE](LICENSE) file for details.
 
