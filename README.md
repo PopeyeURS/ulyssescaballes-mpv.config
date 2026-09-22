@@ -320,7 +320,7 @@ Instructions on how to enable MPV to directly open and play YouTube streams from
 ---
 
 ## Philosophy
-This configuration is guided on three core principles:
+This configuration is guided on two core principles:
 
 ### Precision  
 Every shader, parameter, and filter is chosen with intent - no bloat, no placebo settings.  
@@ -328,7 +328,7 @@ Every shader, parameter, and filter is chosen with intent - no bloat, no placebo
 ### Cinematic Realism  
 The complete configuration is optional by design.  
 
-### FREEDOM to:  
+You can:  
 
 ✓ Use everything  
 ✓ Replace individual shaders  
