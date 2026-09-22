@@ -328,7 +328,7 @@ Every shader, parameter, and filter is chosen with intent - no bloat, no placebo
 ### Cinematic Realism  
 The complete configuration is optional by design.  
 
-You can:  
+### FREEDOM to:  
 
 ✓ Use everything  
 ✓ Replace individual shaders  
