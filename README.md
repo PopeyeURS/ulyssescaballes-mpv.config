@@ -126,7 +126,7 @@ This clip was rendered and played with this configuration, showcasing HEVC Main 
 |---------------|------------------------|------------------|
 | Flat colors | Cinematic tone mapping | BT.2390 HDR curve + GAMMA / Perceptual Linearity |
 | Aliasing artifacts | Neural upscaling | CuNNy-8x32-DS-Q |
-| Washed HDR | Contrast recovery | stucki + debanding |
+| Washed HDR | Contrast recovery | jarvis-judice-ninke + debanding |
 | Weak audio stage | 3D Spatial audio | Equalizers+ |
 ---
 
@@ -277,6 +277,7 @@ gpu-api=vulkan
 ```
 
 15. Double-click any media file and MPV will instantly play it, or play CDs, DVDs, and Blu-ray discs with maximum audio and video quality playback, each time, all the time. Sit back, relax, and enjoy a seamless viewing and listening experience.  
+16. Regularly check for MPV updates by right-clicking ***updater.bat*** and selecting ***Run as administrator***. If an update is available, it will be downloaded and installed automatically.  
 
 ---
 
