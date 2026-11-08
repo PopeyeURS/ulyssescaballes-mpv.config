@@ -12,7 +12,7 @@
 ## Build & Capabilities
 <p align="center">
   <img src="https://img.shields.io/badge/License-GPLv3-blue?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/MPV-v0.41+-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/MPV-v0.42+-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/GPU-Vulkan%20Optimized-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/CONFIG-REMIXABLE-8A2BE2?style=for-the-badge&labelColor=ADFF2F&logo=github&logoColor=black" />
   <img src="https://img.shields.io/badge/Platform-WINDOWS%2011-8A2BE2?style=for-the-badge&labelColor=lightgrey&logo=windows&logoColor=black" />
@@ -229,7 +229,7 @@ This configuration includes multiple playback profiles tailored to different con
 **Settings, scripts, shaders, profiles, and related files are stored inside the portable_config directory alongside mpv.exe.**  
 
 Requirements:  
-✓ ***MPV v0.41+***  
+✓ ***MPV v0.42+***  
 ✓ ***Vulkan‑capable GPU***  
 ✓ Compatible 64-bit processor  
 ✓ ***Windows 11*** (recommended)  
